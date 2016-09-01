@@ -1,0 +1,471 @@
+\section*{Relationen}
+
+Sei $R := A \times B$ eine Relation.
+
+\subsubsection*{Linkstotal}
+$\forall a \in A \exists b \in B : (a,b)  \in R$
+
+\subsubsection*{Rechtstotal / Surjektiv}
+$\forall b \in B \exists a \in A : (a,b) \in R \text{ bzw. } f(a)=b$
+
+\subsubsection*{Linkseindeutig / Injektiv}
+$\forall a_1, a_2 \in A \forall b \in B :$ \newline
+\hspace*{5mm} $(a_1,b) \in R \land (a_2,b) \in R \implies a_1=a_2$
+
+\subsubsection*{Rechtseindeutig}
+$\forall a \in A \forall b_1, b_2 \in B:$ \newline
+\hspace*{5mm} $(a,b_1) \in R \land (a,b_2) \in R \implies b_1=b_2$
+
+\subsection*{Eigenschaften von Relationen}
+
+\begin{description}[leftmargin=!,labelwidth=25mm]
+	\item[reflexiv] $\forall x \in M : (x, x) \in R$
+	\item[symmetrisch] $\forall x, y \in M : xRy \Leftrightarrow yRx$
+	\item[antisymmetrisch] $\forall x, y \in M : xRy \land yRx \Rightarrow x=y$
+	\item[transitiv] $\forall x, y, z \in M : xRy \land yRz \Rightarrow xRz$
+\end{description}
+
+\subsection*{Äquivalenzrelationen}
+
+Eine Relation $R$ auf Menge $M$ ist Äquivalenzrelation, wenn sie reflexiv, symmetrisch und transitiv ist.
+
+\section*{Gruppen}
+
+$\star : M \times M \rightarrow M$ ist Verknüpfung auf Menge $M$ abhängig der Argument-Reihenfolge. Das Tupel $(M, \star)$ ist Gruppe, wenn:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\star$ ist assoziativ
+	\item $\exists e \in M \forall x \in M : x \star e = e \star x = x$
+	\item $\forall x \in M \exists y \in M : x \star y = y \star x = e$
+\end{enumerate}
+
+Ist $\star$ kommutativ, dann $(M, \star)$ abelsche Gruppe.
+
+\subsection*{Assoziativität}
+
+$\forall m_1, m_2, m_3 \in M : (m_1 \star m_2) \star m_3 = m_1 \star (m_2 \star m_3)$
+
+\subsection*{Kommutativität}
+
+$\forall m_1, m_2 \in M : m_1 \star m_2 = m_2 \star m_1$
+
+\subsection*{Untergruppen}
+
+$(M, \star)$ ist Gruppe. $(H, \circ)$ ist Untergruppe, wenn:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $H \subseteq M$
+	\item $(H, \circ)$ ist Gruppe
+	\item $\forall h_1, h_2 \in H : h_1 \circ h_2 = h_1 \star h_2$
+\end{enumerate}
+
+\subsubsection*{Untergruppenkriterium}
+
+$H \subseteq G$ ist Untergruppe von $G$ wenn:
+
+$H \neq \emptyset \land \forall h_1, h_2 \in H : h_1 \star h_2^{-1} \in H$
+
+\subsection*{Gruppenhomomorphismen}
+
+Seien $(G, \star)$ und $(H, \circ)$ Gruppen. $f: G \rightarrow H$ ist Gruppenhomomorphismus wenn:
+
+$\forall g_1, g_2 \in G: f(g_1 \star g_2) = f(g_1) \circ f(g_2)$
+
+\subsubsection*{Eigenschaften von Homomorphismen}
+
+\begin{enumerate}[label=(\alph*)]
+	\item $f(e_G) = e_H$
+	\item $\forall g \in G : f(g^{-1}) = f(g)^{-1}$
+	\item $f(G)$ ist Untergruppe von $H$
+	\item $f \in Hom(G, H)$ ist genau dann injektiv, wenn $Kern(f) = \{e_G\}$
+\end{enumerate}
+
+\subsection*{Weitere Homomorphismen}
+
+\begin{enumerate}[label=(\alph*)]
+	\item $f : G \rightarrow G$ ist Endomorphismus
+	\item Bijektives $f: G \rightarrow H$ ist Isomorphismus
+	\item Bijektives $f \in End(V)$ ist Automorphismus
+\end{enumerate}
+
+\section*{Ringe}
+
+$(R, +, *)$ ist Ring, wenn:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $(R, +)$ ist abelsche Gruppe
+	\item $*$ ist assoziativ
+	\item $\forall x \in R : 1_R * x = x * 1_R = x$
+	\item $x*(y+z) = (x*y)+(x*z)$
+	\item $(y+z)*x = (y*x)+(z*x)$
+\end{enumerate}
+
+Ist $*$ kommutativ, $(R, +, *)$ ein kommutativer Ring.
+
+\subsection*{Teilringe}
+
+Unter $+$ und $*$ geschlossene Teilmenge $T \subseteq R$ ist Teilring von $R$.
+
+\subsection*{Ringhomomorphismen}
+
+$\phi : R \rightarrow S$ ist Ringhomomorphismus, wenn:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\forall x, y \in R : \phi(x +_R y) = \phi(x) +_S \phi(y)$
+	\item $\forall x, y \in R : \phi(x *_R y) = \phi(x) *_S \phi(y)$
+	\item $\phi(1_R) = 1_S$
+\end{enumerate}
+
+\section*{Körper}
+
+Ein Körper ist kommutativer Ring $K$ mit $0_K \neq 1_K$ und für den jedes $x \neq 0_K$ invertierbar ist.
+
+\section*{Matrizen}
+
+\subsection*{Invertierbare Matrizen}
+
+Für einen kommutativen Ring $R$ ist die "general linear Group":
+
+$GL_p(R) := \{ A \in R^{p \times p} | \exists B \in R^{p \times p} : AB = BA = I_p \}$
+
+Die Matrizen in $GL_p(R)$ heißen invertierbare / reguläre Matrizen.
+
+\subsection*{Elementarmatrizen}
+
+$$R^{2 \times 3} \ni E_{2,3} = \begin{pmatrix}
+	0 & 0 & 0 & 0 \\
+	0 & 0 & 1 & 0
+\end{pmatrix}$$
+
+\subsection*{Äquivalenz von Matrizen}
+
+$\exists S \in GL_q(K), T \in GL_p(K) : B = T A S$ ($A, B \in K^{p \times q}$)
+
+\subsection*{Ähnlichkeit von Matrizen}
+
+$A, \tilde A \in K^{d \times d}$ ähnlich $\Leftrightarrow \exists S \in GL_d(K) : \tilde A = S^{-1}AS$
+
+\subsection*{Determinante}
+
+\begin{enumerate}[label=(\alph*)]
+	\item $det(A) \neq 0 \Leftrightarrow A \text{ ist invertierbar}$
+	\item $det(A*B) = det(A) * det(B)$
+	\item $det(A)^{-1} = det(A)^{-1}$ falls $A \in GL_n(K)$
+	\item $det(A) = det(A^T)$
+\end{enumerate}
+
+\subsubsection*{Determinante von Blockmatrizen}
+
+$$det(\begin{pmatrix}
+	A & B \\
+	0 & C
+\end{pmatrix}) = det(A) * det(C)$$
+
+\section*{Vektorräume}
+
+Ein $K$-Vektorraum ist kommutative Gruppe $(V, +)$ mit skalarer Multiplikation $* : K \times V \rightarrow V, (a, v) \mapsto a * v$ sowie:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\forall v \in V : 1_K * v = v$
+	\item $\forall a, b \in K \forall v \in V : a*(b*v)=(a*b)*v$
+	\item $\forall a, b \in K \forall u, v \in V : a*(u+v)=a*u+a*v$
+	\item $\forall a, b \in K \forall u, v \in V : (a+b)*v=a*v+b*v$
+\end{enumerate}
+
+\subsection*{Untervektorräume}
+
+$K$-Untervektorraum $U$ von $V$ ist Teilmenge $U \subseteq V$ die bzgl. Addition Untergruppe von $V$ ist und für die gilt:
+
+$\forall a \in K, u \in U : a*u \in U$ (d.h. skalare Multiplikation geschlossen)
+
+\subsubsection*{Untervektorraumkriterium}
+
+Seien $K$ Körper, $V$ $K$-Vektorraum und $U \subseteq V$. Dann ist äquivalent:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $U$ ist Untervektorraum von $V$
+	\item $U \neq \emptyset$, $\forall u_1, u_2 \in U : u_1 + u_2 \in U$ und $\forall a \in K, u \in U : a*u \in U$
+\end{enumerate}
+
+\subsubsection*{$\phi$-invariante Unterräume}
+
+$U \subset V$ ist $\phi$-invariant, wenn $\phi(U) \subset U$.
+
+\subsection*{Homomorphismen}
+
+Seien $V, W$ zwei $K$-Vektorräume. $\phi : V \rightarrow W$ ist Vektorraumhomomorphismus respektive $K$-lineare Abbildung, wenn:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\forall u, v \in  V : \phi(u+v) = \phi(u)+\phi(v)$
+	\item $\forall a \in K, v \in V : \phi(a*v) = a*\phi(v)$
+\end{enumerate}
+
+$Rang(\phi) := dim(Bild(\phi))$ mit $\phi \in Hom(V, W)$
+
+\subsection*{Dualräume}
+
+Sei $V$ ein $K$-Vektorraum. Die Menge aller linearen Abbildungen $V \rightarrow K$ ist der Dualraum: $V^* := \{f: V \rightarrow K | f \text{ ist linear}\}$.
+
+$f \in V^*$ werden als Linearformen bezeichnet.
+
+\subsection*{Basen}
+
+Teilmenge $B \subseteq V$ ist Basis von $V$, wenn sich $\forall v \in V$ auf genau eine Art als Linearkombination von $B$ schreiben lässt. Jede Basis von $K^p$ hat genau $p$ Elemente.
+
+\subsubsection*{Lineare Unabhängigkeit}
+
+$\sum_{i=1}^{k} \lambda_i * v_i = 0 \Rightarrow \lambda_i = 0 \text{ } \forall i$
+
+\subsubsection*{Dimension}
+
+Ist Mächtigkeit der Basis, $dim(V) := |B|$
+
+$U$ Untervektorraum $V$, dann: $dim(U) \leq dim(V)$
+
+\subsubsection*{Abbildungsmatrizen}
+
+$D_C(\phi(v)) = D_{CB}(\phi) * D_B(v)$
+
+\subsubsection*{Basiswechselformel}
+
+Seien $V, W$ $K$-Vektorräume; $\phi \in Hom(V, W)$; $B, \tilde B$ Basen von $V$; $C, \tilde C$ Basen von W. Dann gilt:
+
+$D_{\tilde C \tilde B}(\phi) = D_{\tilde C C}(I_W) * D_{CB}(\phi) * D_{B\tilde B}(I_V)$
+
+\subsection*{Faktor- / Quotientenräume}
+
+$v_1 \thicksim v_2 \Leftrightarrow v_1 - v_2 \in U$ für $v_1, v_2 \in V$ definiert Äquivalenzrelation auf $K$-Vektorraum $V$.
+
+$v_1$ und $v_2$ sind Elemente einer Äquivalenzklasse gdw. sie sich um ein $u \in U$ unterscheiden.
+
+$V/U := \{[v] | v \in V\}$ mit $[v] := v+U := \{v+u|u \in U\}$
+
+$dim(V/U) = dim(V) - dim(U)$
+
+\section*{Eigenwerte}
+
+$A*v = \lambda * v$ wobei $\lambda \in Spec(A)$ und $v \in Eig_\lambda(A)$
+
+\subsection*{Eigenräume}
+
+$Eig_\lambda(A) := \{v \in K^n : A*v = \lambda * v\} = Kern(A-\lambda I_n)$
+
+\subsection*{Charakteristisches Polynom}
+
+$CP_A(x) = det(x*I_n - A)$
+
+\subsection*{Minimalpolynom}
+
+$MP_\phi(x)$ ist Teiler kleinsten Grades von $CP_\phi(x)$ welcher jeden Linearfaktor beinhaltet und für den noch $MP_\phi(\phi) = 0$ gilt.
+
+\subsection*{Vielfachheit}
+
+$\mu_g(\phi, \lambda) := dim(Eig_\lambda(\phi))$ ist die geometrische Vielfachheit von $\lambda$.
+
+$\mu_a(\phi, \lambda)$ ist algebraische Vielfachheit von $\lambda$, also die Vielfachheit des Monoms $(x-\lambda)$ von $CP_\phi$.
+
+\subsection*{Diagonalisierbarkeit}
+
+$\phi \in End(V)$ ist diagonalisierbar, wenn eines aus:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\exists$ Basis $B$ aus Eigenvektoren
+	\item $MP_\phi(X)$ zerfällt vollst. in Linearfaktoren
+\end{enumerate}
+
+\section*{Haupträume}
+
+$H(\phi, \lambda) = Kern((\phi - \lambda * I_n)^e)$ mit $e := \mu_a(\phi, \lambda)$.
+
+Weiterhin gilt $dim(H(\phi, \lambda))=e$.
+
+\section*{Bilinearformen}
+
+\subsection*{Paarung, Bilinearform}
+
+$P : V \times W \rightarrow K$ ist Paarung von $V$ und $W$, wenn:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $P(av_1 + v_2, w_1) = aP(v_1, w_1) + P(v_2, w_1)$
+	\item $P(v_1, bw_1 + w_2) = bP(v_1, w_1) + P(v_1, w_2)$
+\end{enumerate}
+
+für $\forall a, b \in K$; $v_1, v_2 \in V$; $w_1, w_2 \in W$. Diese Eigenschaft wird als Bilinearität von $P$ bezeichnet.
+
+Falls $V=W$ heißt $P$ Bilinearform auf $V$.
+
+\subsubsection*{Ausartung}
+
+Wenn $\forall v \in V, v \neq 0 \exists w \in W : P(v, w) \neq 0$ und $\forall w \in W, w \neq 0 \exists v \in V : P(v, w) \neq 0$, dann Paarung $P$ nicht ausgeartet.
+
+\subsection*{Orthogonalbasis}
+
+Basis $B := \{b_1, ..., b_n\}$ ist Orthogonalbasis von $V$ bzgl. $P$, wenn: $\forall 1 \leq i \neq j \leq n : P(b_i, b_j) = 0$
+
+\subsection*{Orthonormalbasis}
+
+Orthogonalbasis $B$ ist Orthonormalbasis von $V$ bzgl. $P$, wenn: $\forall 1 \leq i \leq n : P(b_i, b_i) = 1$
+
+\section*{Skalarprodukte}
+
+\subsection*{Standardskalarprodukt auf $\mathbb{R}^n$}
+
+$\langle \cdot, \cdot \rangle : \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}, \langle v, w \rangle := v^T * w$
+
+\subsection*{Positive Definitheit}
+
+Eine symmetrische Bilinearform $\langle \cdot, \cdot \rangle : V \times V \rightarrow \mathbb{R}$ ist positiv definit, wenn:
+
+$\forall v \in V: v \neq 0 \Rightarrow \langle v, v \rangle > 0$
+
+\subsection*{Skalarprodukt auf $V$}
+
+Ein Skalarprodukt auf $V$ ist symmetrische, positiv definite Bilinearform. Ein reeller Vektorraum mit Skalarprodukt ist euklidischer Vektorraum.
+
+\begin{description}[leftmargin=!,labelwidth=10mm]
+	\item[Norm]   $||v|| := \sqrt{\langle v, v \rangle}$
+	\item[Metrik] $d(v, w) := ||v - w||$
+\end{description}
+
+\subsection*{Komplexes Skalarprodukt}
+
+$\langle \cdot, \cdot \rangle : V \times V \rightarrow \mathbb{C}$ ist komplexes SKP, wenn:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\forall v_1, v_2, w \in V, a \in \mathbb{C} : \\ \hspace*{4mm} \langle av_1 + v_2, w \rangle = a \langle v_1, w \rangle + \langle v_2, w \rangle$
+	\item $\forall v_1, v_2, w \in V, a \in \mathbb{C} : \\ \hspace*{4mm} \langle w, av_1 + v_2 \rangle = \overline a \langle w, v_1 \rangle + \langle w, v_2 \rangle$
+	\item $\forall v, w \in V : \langle v, w \rangle = \overline{\langle w, v \rangle}$
+	\item $\forall v \in V \setminus \{0\} : \langle v, v \rangle > 0$
+\end{enumerate}
+
+Wobei (a) und (b) Sesquilinearität, (c) Hermitizität und (d) Positivität. Ein komplexer Vektorraum mit komplexem SKP ist unitärer Vektorraum.
+
+\subsubsection*{Standardskalarprodukt auf $\mathbb{C}^n$}
+
+$\mathbb{C}^n \times \mathbb{C}^n \ni (v, w) \mapsto \langle v, w \rangle := v^T * \overline w = \sum_{i=1}^n v_i * \overline{w_i}$
+
+\subsection*{Ungleichung von Cauchy-Schwarz}
+
+$\langle v, w \rangle ^2 \leq \langle v, v \rangle * \langle w, w \rangle$ (in $\mathbb{R}$)
+
+$|\langle v, w \rangle |^2 \leq \langle v, v \rangle * \langle w, w \rangle$ (in $\mathbb{C}$)
+
+\subsection*{Satz des Pythagoras}
+
+$||v+w||^2 = \langle v, v \rangle + 2\langle v, w \rangle + \langle w, w \rangle$
+
+\subsection*{Orthogonalität}
+
+$v \perp w \Leftrightarrow ||v||^2 + ||w||^2 = ||v+w||^2$
+
+\subsubsection*{Orthogonalisierungsverfahren}
+
+Sei $V$ euklidischer Vektorraum und $\{v_1, ..., v_k\} \subset V$ linear unabhängige Teilmenge mit $k$ Elementen.
+
+\vspace*{-4mm}
+$$w_1 := v_1, w_l := v_l - \sum_{i=1}^{l-1} \frac{\langle v_l, w_i \rangle}{\langle w_i, w_i\rangle}*w_i \text{ (für } l = 2, ..., k)$$
+
+Dann ist $S := \{w_1, ..., w_k\}$ Orthogonalsystem in $V$.
+
+$\tilde S := \{\frac{1}{||w_1||}*w_1, ..., \frac{1}{||w_k||}*w_k$ ist Orthonormalsystem.
+
+Im unitären Standardraum $\mathbb{C}^n$ ist Basis $B = \{b_1, ..., b_n\}$ ONB gdw. für Matrix $A$ mit Basisvektoren als Spalten $A^T*\overline A = I_n$ gilt.
+
+\subsubsection*{Orthogonalräume}
+
+Sei $V$ euklidischer Vektorraum und $M \subseteq V$.
+
+\begin{equation*}
+	\begin{aligned}
+		M^{\perp} :&= \{v \in V | \forall m \in M : m \perp v \} \\
+		           &= \{v \in V | \forall m \in M : \langle v, m \rangle = 0\}
+	\end{aligned}
+\end{equation*}
+
+$M^{\perp}$ ist Untervektorraum von $V$. Auch gilt:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $N \subseteq M \Rightarrow M^{\perp} \subseteq N^{\perp}$
+	\item $M^{\perp} = \langle M \rangle ^{\perp}$
+\end{enumerate}
+
+\subsubsection*{Orthogonales Komplement}
+
+Sei $U$ Untervektorraum von euklidischem Raum $V$, dann $U^\perp$ orthogonales Komplement zu $U$.
+
+Entsprechend gilt: $V = U \oplus U^\perp$
+
+\subsubsection*{Orthogonale Projektionen}
+
+\begin{description}[leftmargin=!,labelwidth=15mm]
+	\item[Definition] $\pi_U : V \rightarrow U, u + u^\perp \mapsto u$
+	\item[Abstand]    $d(v, U) = ||u^\perp|| = ||\pi_{U^\perp}(v)||$
+\end{description}
+
+\subsection*{Affine Teilräume}
+
+$A := v + W$ ist affiner Teilraum von $V$ mit $W \leq V$ Vektorräume und $v \in V$.
+
+\subsubsection*{Affine Geraden}
+
+Seien $a, b \in V$, dann ist die affine Gerade durch $a$ und $b$: $\overline{a, b} := \{\lambda a + (1 - \lambda)b | \lambda \in K\} = a + K*(b-a)$
+
+Für $K = \mathbb{R}$ und $a, b \in V$ wobei $V$ $\mathbb{R}$-Vektorraum:
+
+$[a, b] := \{\lambda a + (1 - \lambda)b|0 \leq \lambda \leq 1\}$ (Strecke $\overrightarrow{ab}$)
+
+\section*{Isometrien}
+
+Für metrische Räume $(X, d)$ und $(Y, e)$ ist $\phi : X \rightarrow Y$ eine Isometrie oder abstandserhaltende Abbildung, wenn:
+
+$\forall x_1, x_2 \in X : d(x_1, x_2) = e(\phi(x_1), \phi(x_2))$
+
+$Iso(X, d)$ ist die Menge aller invertierbaren Isometrien von $X$ nach $X$.
+
+\subsection*{Lineare Isometrien}
+
+Es seien $V, W$ euklidische oder unitäre Vektorräume. Dann ist Isometrie $\phi : V \rightarrow W$, die gleichzeitig lineare Abbildung ist, eine lineare Isometrie.
+
+\subsection*{Eigenwerte von Isometrien}
+
+Seien $\mathbb{K} \in \{\mathbb{R}, \mathbb{C}\}$ und $V$ ein $K$-Vektorraum mit Skalarprodukt, dann:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\phi$ ist lineare Isometrie von $V$, dann $\forall \lambda \in Spec(\phi): |\lambda|=1$
+	\item $\alpha \in \mathbb{K}$ mit $|\alpha|=1 \land V \neq \{0\}$, dann gibt es Isometrie von $V$ mit Eigenwert $\alpha$
+\end{enumerate}
+
+\section*{Selbstadjungierte Abbildungen}
+
+Sei $V$ Vektorraum mit SKP über $\mathbb{R}$ oder $\mathbb{C}$ und $\phi \in End(V)$. Dann ist $\phi$ selbstadjungiert, wenn für $\forall v, w \in V$ gilt: $\langle \phi(v), w \rangle = \langle v, \phi(w) \rangle$.
+
+$\phi \text{ ist selbstadjungiert} \Leftrightarrow D_{BB}(\phi)=\overline{D_{BB}(\phi)^T}$
+
+Orthogonale Projektion $\pi$ ist selbstadjungiert.
+
+\subsection*{Hermitesche Matrizen}
+
+$A^* := \overline{A^T}$, $A = A^* \Leftrightarrow A \text{ ist hermitesch}$
+
+\subsection*{Spektralsatz}
+
+Sei $V$ Vektorraum über $\mathbb{R}$ oder $\mathbb{C}$ mit SKP und $\phi \in End(V)$. Dann ist äquivalent:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\phi$ ist selbstadjungiert
+	\item Es gibt eine Orthonormalbasis aus Eigenvektoren von $\phi$ und $Spec(\phi) \subset \mathbb{R}$
+\end{enumerate}
+
+\subsubsection*{Positivität}
+
+Eine symmetrische Matrix $A \in \mathbb{R}^{n \times n}$ ist positiv definit gdw. $\forall \lambda \in Spec(A) : \lambda \geq 0$
+
+\section*{Affine Räume}
+
+Sei $V$ ein $K$-Vektorraum, $A \neq \emptyset$ und $\tau : V \times A \rightarrow A$. Dann ist $(A, V, \tau)$ ein affiner Raum  mit Translationsvektorraum $V$ und Addition $\tau$, wenn:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\forall P \in A : \tau(0, P) = P$
+	\item $\forall P \in A \forall v_1, v_2 \in V : \\ \hspace*{5mm} \tau(v_1, \tau(v_2, P)) = \tau((v_1 + v_2), P)$
+	\item $\forall P, Q \in A \exists ! v \in V : \tau(v, P) = Q$
+\end{enumerate}
