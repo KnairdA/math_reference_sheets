@@ -145,6 +145,8 @@ $\exists S \in GL_q(K), T \in GL_p(K) : B = T A S$ ($A, B \in K^{p \times q}$)
 
 $A, \tilde A \in K^{d \times d}$ ähnlich $\Leftrightarrow \exists S \in GL_d(K) : \tilde A = S^{-1}AS$
 
+Ähnliche Matrizen haben die gleiche Determinante, Spur und Rang.
+
 \subsection*{Determinante}
 
 \begin{enumerate}[label=(\alph*)]
@@ -222,6 +224,8 @@ Ist Mächtigkeit der Basis, $dim(V) := |B|$
 
 $U$ Untervektorraum $V$, dann: $dim(U) \leq dim(V)$
 
+$dim(V) = dim(Kern(\phi)) + dim(Bild(\phi))$
+
 \subsubsection*{Abbildungsmatrizen}
 
 $D_C(\phi(v)) = D_{CB}(\phi) * D_B(v)$
@@ -269,9 +273,16 @@ $\mu_a(\phi, \lambda)$ ist algebraische Vielfachheit von $\lambda$, also die Vie
 $\phi \in End(V)$ ist diagonalisierbar, wenn eines aus:
 
 \begin{enumerate}[label=(\alph*)]
-	\item $\exists$ Basis $B$ aus Eigenvektoren
+	\item $\exists$ Basis $B$ von $V$ aus Eigenvektoren von $\phi$
 	\item $MP_\phi(X)$ zerfällt vollst. in Linearfaktoren
+	\item $CP_\phi(X)$ zerfällt vollst. in Linearfaktoren und $\forall \lambda \in Spec(\phi) : \mu_g(\phi,\lambda) = \mu_a(\phi, \lambda)$
 \end{enumerate}
+
+\subsubsection*{Diagonalisierungsverfahren}
+
+Eigenwerte und Eigenräume von $\phi$ bestimmen. Eigenwerte in $D_{CC}(\phi) = diag(\lambda_1, \hdots, \lambda_n)$ eintragen. $D_{CC}(\phi)$ ist Abbildungsmatrix von $\phi$ bzgl. Basis $C$ aus Eigenvektoren. $D_{BC}(Id)$ besteht aus Eigenvektoren in Spalten, $D_{CB}(Id) = D_{BC}(Id)^{-1}$.
+
+Insgesamt: $D_{CC}(\phi) = D_{BC}(Id)^{-1} D_{BB}(\phi) D_{BC}(Id)$.
 
 \section*{Haupträume}
 
@@ -305,6 +316,23 @@ Basis $B := \{b_1, ..., b_n\}$ ist Orthogonalbasis von $V$ bzgl. $P$, wenn: $\fo
 \subsection*{Orthonormalbasis}
 
 Orthogonalbasis $B$ ist Orthonormalbasis von $V$ bzgl. $P$, wenn: $\forall 1 \leq i \leq n : P(b_i, b_i) = 1$
+
+\section*{Jordansche Normalform $\tilde A = T^{-1} A T$}
+
+\subsection*{Darstellungsmatrix $\tilde A$ bzgl. Jordanbasis}
+
+\begin{enumerate}[leftmargin=4mm]
+	\item Eigenwerte aus char. Polynom bestimmen
+	\item Länge des Blocks zu Eigenwert ist $\mu_a(\lambda)$
+	\item Anzahl Kästchen pro Block ist $\mu_g(\lambda)$
+	\item Kleinstes $p$ mit $Kern((A-\lambda I)^p) = Kern((A-\lambda I)^{p+1})$ ist Länge des größten Kästchens zu $\lambda$
+	\item Kästchen der Größe nach sortieren, Eigenwerte auf Hauptdiagonale
+	\item Anzahl der Jordankästchen mit Größe $s$ ergibt sich aus $2a_s - a_{s-1} - a_{s+1}$ mit $a_s = dim(Kern((A-\lambda I)^s))$
+\end{enumerate}
+
+\subsection*{Bestimmung Basiswechselmatrix $T$}
+
+Reichen die Eigenvektoren nicht aus, können Hauptvektoren hinzugezogen werden. Dazu wähle Hauptvektor $v_1$ $p$-ter Stufe wobei $p$ Länge des größten Kästchens zu $\lambda$ ist. $v_1$ kann direkt verwendet werden, weitere Vektoren ergeben sich als $v_{i+1} = (A-\lambda I)*v_i$.
 
 \section*{Skalarprodukte}
 
@@ -469,3 +497,4 @@ Sei $V$ ein $K$-Vektorraum, $A \neq \emptyset$ und $\tau : V \times A \rightarro
 	\item $\forall P \in A \forall v_1, v_2 \in V : \\ \hspace*{5mm} \tau(v_1, \tau(v_2, P)) = \tau((v_1 + v_2), P)$
 	\item $\forall P, Q \in A \exists ! v \in V : \tau(v, P) = Q$
 \end{enumerate}
+
