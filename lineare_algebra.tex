@@ -360,8 +360,8 @@ Ein Skalarprodukt auf $V$ ist symmetrische, positiv definite Bilinearform. Ein r
 $\langle \cdot, \cdot \rangle : V \times V \rightarrow \mathbb{C}$ ist komplexes SKP, wenn:
 
 \begin{enumerate}[label=(\alph*)]
-	\item $\forall v_1, v_2, w \in V, a \in \mathbb{C} : \\ \hspace*{4mm} \langle av_1 + v_2, w \rangle = a \langle v_1, w \rangle + \langle v_2, w \rangle$
-	\item $\forall v_1, v_2, w \in V, a \in \mathbb{C} : \\ \hspace*{4mm} \langle w, av_1 + v_2 \rangle = \overline a \langle w, v_1 \rangle + \langle w, v_2 \rangle$
+	\item $\forall v_1, v_2, w \in V, a \in \mathbb{C} : \text{(linear)} \\ \hspace*{4mm} \langle av_1 + v_2, w \rangle = a \langle v_1, w \rangle + \langle v_2, w \rangle$
+	\item $\forall v_1, v_2, w \in V, a \in \mathbb{C} : \text{(semilinear)} \\ \hspace*{4mm} \langle w, av_1 + v_2 \rangle = \overline a \langle w, v_1 \rangle + \langle w, v_2 \rangle$
 	\item $\forall v, w \in V : \langle v, w \rangle = \overline{\langle w, v \rangle}$
 	\item $\forall v \in V \setminus \{0\} : \langle v, v \rangle > 0$
 \end{enumerate}
@@ -382,11 +382,11 @@ $|\langle v, w \rangle |^2 \leq \langle v, v \rangle * \langle w, w \rangle$ (in
 
 $||v+w||^2 = \langle v, v \rangle + 2\langle v, w \rangle + \langle w, w \rangle$
 
-\subsection*{Orthogonalität}
+\subsubsection*{Orthogonalität}
 
 $v \perp w \Leftrightarrow ||v||^2 + ||w||^2 = ||v+w||^2$
 
-\subsubsection*{Orthogonalisierungsverfahren}
+\subsection*{Orthogonalisierungsverfahren}
 
 Sei $V$ euklidischer Vektorraum und $\{v_1, ..., v_k\} \subset V$ linear unabhängige Teilmenge mit $k$ Elementen.
 
@@ -398,6 +398,16 @@ Dann ist $S := \{w_1, ..., w_k\}$ Orthogonalsystem in $V$.
 $\tilde S := \{\frac{1}{||w_1||}*w_1, ..., \frac{1}{||w_k||}*w_k$ ist Orthonormalsystem.
 
 Im unitären Standardraum $\mathbb{C}^n$ ist Basis $B = \{b_1, ..., b_n\}$ ONB gdw. für Matrix $A$ mit Basisvektoren als Spalten $A^T*\overline A = I_n$ gilt.
+
+\subsubsection*{Fourierformel}
+
+Sei $B$ ONB von $V$ und $\langle \cdot, \cdot \rangle$ Paarung, dann:
+
+$v \in V \Rightarrow v = \sum_{b\in B} \langle v, b \rangle \cdot b$
+
+Insbesondere ist $v$ bzgl. ONB $B$ dann:
+
+$D_B(v) = (\langle v, b_i\rangle)_{1\leq i \leq n}$
 
 \subsubsection*{Orthogonalräume}
 
