@@ -441,23 +441,19 @@ Entsprechend gilt: $V = U \oplus U^\perp$
 	\item[Abstand]    $d(a, U) = ||u^\perp|| = ||a - \Pi_U(a)||$
 \end{description}
 
-\subsection*{Affine Teilräume}
+\subsubsection*{Orthogonale Matrizen}
 
-$A := v + W$ ist affiner Teilraum von $V$ mit $W \leq V$ Vektorräume und $v \in V$.
+$A$ ist orthogonale Matrix $\Rightarrow det(A)=\pm 1$
 
-\subsubsection*{Affine Geraden}
+$\forall \lambda \in Spec(A) : |\lambda| = 1$
 
-Seien $a, b \in V$, dann ist die affine Gerade durch $a$ und $b$: $\overline{a, b} := \{\lambda a + (1 - \lambda)b | \lambda \in K\} = a + K*(b-a)$
-
-Für $K = \mathbb{R}$ und $a, b \in V$ wobei $V$ $\mathbb{R}$-Vektorraum:
-
-$[a, b] := \{\lambda a + (1 - \lambda)b|0 \leq \lambda \leq 1\}$ (Strecke $\overrightarrow{ab}$)
+Orthogonale Matrizen sind normal und somit diagonalisierbar.
 
 \section*{Isometrien}
 
 Für metrische Räume $(X, d)$ und $(Y, e)$ ist $\phi : X \rightarrow Y$ eine Isometrie oder abstandserhaltende Abbildung, wenn:
 
-$\forall x_1, x_2 \in X : d(x_1, x_2) = e(\phi(x_1), \phi(x_2))$
+$\forall x_1, x_2 \in X : d(x_1, x_2) = d(\phi(x_1), \phi(x_2))$
 
 $Iso(X, d)$ ist die Menge aller invertierbaren Isometrien von $X$ nach $X$.
 
@@ -474,6 +470,41 @@ Seien $\mathbb{K} \in \{\mathbb{R}, \mathbb{C}\}$ und $V$ ein $K$-Vektorraum mit
 	\item $\alpha \in \mathbb{K}$ mit $|\alpha|=1 \land V \neq \{0\}$, dann gibt es Isometrie von $V$ mit Eigenwert $\alpha$
 \end{enumerate}
 
+\subsection*{Isometrien und Orthonormalbasen}
+
+Sei $V$ endl. dim. VRaum mit SKP, $\phi \in End(V)$ und $B$ ONB, dann:
+
+\vspace*{-5mm}
+\begin{align*}
+	\phi \text{ ist Isometrie } &\Leftrightarrow \phi(B) \text{ ist ONB von } V \\
+							    &\Leftrightarrow D_{BB}(\phi) \text{ orthogonal / unitär}
+\end{align*}
+
+\subsection*{Isometrienormalform}
+
+Sei $A \in U(n)$, dann gibt es $S \in U(n)$, sodass $S^{-1} A S$ Diagonalmatrix.
+
+Sei $A \in O(n)$, $d_+ := dim(Eig(A,1))$, $d_- := dim(Eig(A, -1))$ und $l = \frac{1}{2}(n - d_+ - d_-)$, dann existiert $S \in O(n)$, sodass $S^{-1} A S$ die folgende Blockgestalt hat:
+
+$$\begin{pmatrix}
+	I_{d_+} & & & & \\
+	& -I_{d_i} & & & \\
+	& & D_{\psi_1} & & \\
+	& & & \ddots & \\
+	& & & & D_{\psi_l}
+\end{pmatrix}$$
+
+Wobei $D_{\psi_i} = \begin{pmatrix} cos(\psi_i) & -sin(\psi_i) \\ sin(\psi_i) & cos(\psi_i) \end{pmatrix}$ Drehkästchen ist.
+
+\subsubsection*{Bestimmung Isometrienormalform}
+
+\begin{enumerate}[leftmargin=4mm]
+	\item Reelle und komplexe Eigenwerte bestimmen
+	\item Hauptdiagonale mit reellen Eigenwerten entsprechend $\mu_a$ befüllen
+	\item Drehkästchen abhg. der komplexen Eigenwerte bestimmen wobei $cos(\psi)$ dem reellen und $sin(\psi)$ dem komplexen Anteil enstspricht
+	\item $S$ wird aus Orthonormalbasen der Eigenräume zusammengesetzt
+\end{enumerate}
+
 \section*{Selbstadjungierte Abbildungen}
 
 Sei $V$ Vektorraum mit SKP über $\mathbb{R}$ oder $\mathbb{C}$ und $\phi \in End(V)$. Dann ist $\phi$ selbstadjungiert, wenn für $\forall v, w \in V$ gilt: $\langle \phi(v), w \rangle = \langle v, \phi(w) \rangle$.
@@ -485,6 +516,12 @@ Orthogonale Projektion $\pi$ ist selbstadjungiert.
 \subsection*{Hermitesche Matrizen}
 
 $A^* := \overline{A^T}$, $A = A^* \Leftrightarrow A \text{ ist hermitesch}$
+
+\subsection*{Normale Matrizen}
+
+Sei $A \in \mathbb{C}^{n\times n}$, dann: $A^* \cdot A = A \cdot A^*$
+
+Sei $B \in \mathbb{R}^{n\times n}$, dann: $B^T \cdot B = B \cdot B^T$
 
 \subsection*{Spektralsatz}
 
@@ -509,3 +546,14 @@ Sei $V$ ein $K$-Vektorraum, $A \neq \emptyset$ und $\tau : V \times A \rightarro
 	\item $\forall P, Q \in A \exists ! v \in V : \tau(v, P) = Q$
 \end{enumerate}
 
+\subsection*{Affine Teilräume}
+
+$A := v + W$ ist affiner Teilraum von $V$ mit $W \leq V$ Vektorräume und $v \in V$.
+
+\subsubsection*{Affine Geraden}
+
+Seien $a, b \in V$, dann ist die affine Gerade durch $a$ und $b$: $\overline{a, b} := \{\lambda a + (1 - \lambda)b | \lambda \in K\} = a + K*(b-a)$
+
+Für $K = \mathbb{R}$ und $a, b \in V$ wobei $V$ $\mathbb{R}$-Vektorraum:
+
+$[a, b] := \{\lambda a + (1 - \lambda)b|0 \leq \lambda \leq 1\}$ (Strecke $\overrightarrow{ab}$)
