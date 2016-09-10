@@ -453,6 +453,20 @@ Orthogonale Matrizen sind normal und somit diagonalisierbar.
 
 Zerlegung von $A \in GL_n(\mathbb{K})$ in das Produkt aus einer orthogonalen bzw. unitären Matrix und einer oberen Dreiecksmatrix. $A = Q \cdot R$.
 
+\vspace*{-5mm}
+$$A = \begin{pmatrix}
+\vdots & \vdots & \vdots \\
+q_1    & \hdots & q_n \\
+\vdots & \vdots & \vdots
+\end{pmatrix}
+\begin{pmatrix}
+\langle a_1, q_1 \rangle & \langle a_2, q_1 \rangle & \hdots & \langle a_n, q_1 \rangle \\
+0                        & \langle a_2, q_2 \rangle & \hdots & \langle a_n, q_n \rangle \\
+\vdots                   & \vdots                   & \ddots & \vdots                   \\
+0                        & 0                        & \hdots & \langle a_n, q_n \rangle
+\end{pmatrix}$$
+
+\vspace*{-2mm}
 \begin{enumerate}[leftmargin=4mm]
 	\item Spalten von $A$ orthonormalisieren
 	\item $Q$ sind die orthonormalisierten Spalten von $A$
@@ -498,11 +512,11 @@ Sei $A \in U(n)$, dann gibt es $S \in U(n)$, sodass $S^{-1} A S$ Diagonalmatrix.
 Sei $A \in O(n)$, $d_+ := dim(Eig(A,1))$, $d_- := dim(Eig(A, -1))$ und $l = \frac{1}{2}(n - d_+ - d_-)$, dann existiert $S \in O(n)$, sodass $S^{-1} A S$ die folgende Blockgestalt hat:
 
 $$\begin{pmatrix}
-	I_{d_+} & & & & \\
-	& -I_{d_i} & & & \\
-	& & D_{\psi_1} & & \\
-	& & & \ddots & \\
-	& & & & D_{\psi_l}
+I_{d_+} & 0        & \hdots     & \hdots & 0      \\
+0       & -I_{d_i} & \ddots     & \ddots & \vdots \\
+\vdots  & \ddots   & D_{\psi_1} & \ddots & \vdots \\
+\vdots  & \ddots   & \ddots     & \ddots & 0      \\
+0       & \hdots   & \hdots     & 0      & D_{\psi_l}
 \end{pmatrix}$$
 
 Wobei $D_{\psi_i} = \begin{pmatrix} cos(\psi_i) & -sin(\psi_i) \\ sin(\psi_i) & cos(\psi_i) \end{pmatrix}$ Drehkästchen.
