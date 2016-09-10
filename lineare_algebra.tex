@@ -386,7 +386,7 @@ $||v+w||^2 = \langle v, v \rangle + 2\langle v, w \rangle + \langle w, w \rangle
 
 $v \perp w \Leftrightarrow ||v||^2 + ||w||^2 = ||v+w||^2$
 
-\subsection*{Orthogonalisierungsverfahren}
+\subsection*{Orthogonalisierung mit Gram-Schmidt}
 
 Sei $V$ euklidischer Vektorraum und $\{v_1, ..., v_k\} \subset V$ linear unabhängige Teilmenge mit $k$ Elementen.
 
@@ -449,6 +449,17 @@ $\forall \lambda \in Spec(A) : |\lambda| = 1$
 
 Orthogonale Matrizen sind normal und somit diagonalisierbar.
 
+\subsection*{Iwasawa- / QR-Zerlegung}
+
+Zerlegung von $A \in GL_n(\mathbb{K})$ in das Produkt aus einer orthogonalen bzw. unitären Matrix und einer oberen Dreiecksmatrix. $A = Q \cdot R$.
+
+\begin{enumerate}[leftmargin=4mm]
+	\item Spalten von $A$ orthonormalisieren
+	\item $Q$ sind die orthonormalisierten Spalten von $A$
+	\item Beträge der orthogonalen aber nicht normalisierten Spalten von $A$ bilden Hauptdiagonale von $R$
+	\item Skalarprodukte von Spalten $Q$ mit Spalten $A$ bilden obere Dreieckswerte
+\end{enumerate}
+
 \section*{Isometrien}
 
 Für metrische Räume $(X, d)$ und $(Y, e)$ ist $\phi : X \rightarrow Y$ eine Isometrie oder abstandserhaltende Abbildung, wenn:
@@ -494,7 +505,7 @@ $$\begin{pmatrix}
 	& & & & D_{\psi_l}
 \end{pmatrix}$$
 
-Wobei $D_{\psi_i} = \begin{pmatrix} cos(\psi_i) & -sin(\psi_i) \\ sin(\psi_i) & cos(\psi_i) \end{pmatrix}$ Drehkästchen ist.
+Wobei $D_{\psi_i} = \begin{pmatrix} cos(\psi_i) & -sin(\psi_i) \\ sin(\psi_i) & cos(\psi_i) \end{pmatrix}$ Drehkästchen.
 
 \subsubsection*{Bestimmung Isometrienormalform}
 
