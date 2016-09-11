@@ -419,6 +419,7 @@ $D_B(v) = (\langle v, b_i\rangle)_{1\leq i \leq n}$
 
 Sei $V$ euklidischer Vektorraum und $M \subseteq V$.
 
+\vspace*{-2mm}
 \begin{equation*}
 	\begin{aligned}
 		M^{\perp} :&= \{v \in V | \forall m \in M : m \perp v \} \\
@@ -449,11 +450,19 @@ Entsprechend gilt: $V = U \oplus U^\perp$
 
 \subsubsection*{Orthogonale Matrizen}
 
+$A$ heißt orthogonal, wenn $A^TA=I$ gilt.
+
 $A$ ist orthogonale Matrix $\Rightarrow det(A)=\pm 1$
 
 $\forall \lambda \in Spec(A) : |\lambda| = 1$
 
-Orthogonale Matrizen sind normal und somit diagonalisierbar.
+Orthogonale / unitäre Matrizen sind normal.
+
+\subsubsection*{Unitäre Matrizen}
+
+$A$ heißt unitär, wenn $\overline{A^T}A = I$ gilt.
+
+$A$ ist unitäre Matrix $\Rightarrow |det(A)|=1$
 
 \subsection*{Iwasawa- / QR-Zerlegung}
 
@@ -466,10 +475,10 @@ q_1    & \hdots & q_n \\
 \vdots & \vdots & \vdots
 \end{pmatrix}
 \begin{pmatrix}
-\langle a_1, q_1 \rangle & \langle a_2, q_1 \rangle & \hdots & \langle a_n, q_1 \rangle \\
-0                        & \langle a_2, q_2 \rangle & \hdots & \langle a_n, q_n \rangle \\
+\langle q_1, a_1 \rangle & \langle q_1, a_2 \rangle & \hdots & \langle q_1, a_n \rangle \\
+0                        & \langle q_2, a_2 \rangle & \hdots & \langle q_2, a_n \rangle \\
 \vdots                   & \vdots                   & \ddots & \vdots                   \\
-0                        & 0                        & \hdots & \langle a_n, q_n \rangle
+0                        & 0                        & \hdots & \langle q_n, a_n \rangle
 \end{pmatrix}$$
 
 \vspace*{-2mm}
@@ -554,6 +563,14 @@ Sei $A \in \mathbb{C}^{n\times n}$, dann: $A^* \cdot A = A \cdot A^*$
 
 Sei $B \in \mathbb{R}^{n\times n}$, dann: $B^T \cdot B = B \cdot B^T$
 
+Normale Matrizen sind unitär diagonalisierbar.
+
+\subsection*{Symmetrische reelle Matrizen}
+
+Eine symmetrische Matrix $A \in \mathbb{R}^{n\times n}$ besitzt ausschließlich reelle Eigenwerte.
+
+Es existiert eine orthogonale Matrix $S \in O(n)$ so, dass $D_A = S^TAS$ eine Diagonalmatrix ist.
+
 \subsection*{Spektralsatz}
 
 Sei $V$ Vektorraum über $\mathbb{R}$ oder $\mathbb{C}$ mit SKP und $\phi \in End(V)$. Dann ist äquivalent:
@@ -577,6 +594,8 @@ Sei $V$ ein $K$-Vektorraum, $A \neq \emptyset$ und $\tau : V \times A \rightarro
 	\item $\forall P, Q \in A \exists ! v \in V : \tau(v, P) = Q$
 \end{enumerate}
 
+Hinweis: $A$ kann aber muss kein Vektorraum sein.
+
 \subsection*{Affine Teilräume}
 
 $A := v + W$ ist affiner Teilraum von $V$ mit $W \leq V$ Vektorräume und $v \in V$.
@@ -588,3 +607,42 @@ Seien $a, b \in V$, dann ist die affine Gerade durch $a$ und $b$: $\overline{a, 
 Für $K = \mathbb{R}$ und $a, b \in V$ wobei $V$ $\mathbb{R}$-Vektorraum:
 
 $[a, b] := \{\lambda a + (1 - \lambda)b|0 \leq \lambda \leq 1\}$ (Strecke $\overrightarrow{ab}$)
+
+\subsection*{Affine Abbildungen, Affinitäten}
+
+Seien $A$, $B$ affine Räume mit Translationsvektorräumen $V$ und $W$ über $\mathbb{K}$. Abbildung $\phi : A \rightarrow B$ induziert für gewähltes $a \in A$ eine Abbildung $\varphi : V \rightarrow W$ mit $\phi(v+a) = \varphi(v) + \phi(a)$.
+
+$\phi$ heißt affiner Homomorphismus falls $\varphi$ ein Vektorraumhomomorphismus ist. Invertierbares $\phi$ heißt Affinität.
+
+\subsubsection*{Affiner Standardraum $\mathbb{A}^n(\mathbb{K})$}
+
+Alle affinen Selbstabbildungen des affinen Standardraums haben die Gestalt $\phi : A \rightarrow A$ mit $\phi(a) := M \cdot a + t$ für bel. $M \in \mathbb{K}^{n\times n}$ und $t \in \mathbb{K}^n$.
+
+\subsubsection*{Euklidischer Raum}
+
+Ist $A$ affiner Raum mit $\mathbb{R}$-Vektorraum $V$ als euklidischen Translationsvektorraum, dann ist $A$ ein euklidischer Raum.
+
+\subsection*{Quadriken}
+
+Eine Quadrik $Q \subseteq \mathbb{K}^n$ ist $Q := \{ v \in \mathbb{K}^n | F(v) = 0 \}$ wobei $F \in \mathbb{K}[X_1, \cdots, X_n]$ quadratisches Polynom.
+
+\subsubsection*{Matrizenform}
+
+Das eine Quadrik $Q$ definierende quadratische Polynom lässt sich wie folgt darstellen:
+
+$F(x) = x^TAx + b^Tx + c$ mit $A \in \mathbb{K}^{n\times n}$, $b \in \mathbb{K}^n$
+
+Für $char(\mathbb{K})\neq 2$ ist $A$ symmetrisch.
+
+\subsubsection*{Affine Normalform}
+
+Ziel der Bestimmung einer möglichst einfachen affinen Normalform $\tilde Q$ von $Q$ sowie einer Affinität $\varphi$ welche $Q$ in diese Normalform überführt.
+
+\begin{enumerate}[leftmargin=4mm]
+	\item $F(x)$ als $F(x) = x^TAx + 2b^Tx + \gamma$ schreiben
+	\item $A$ diagonalisieren mit $\tilde A = C^TAC$
+	\item Bestimme Mittelpunkt $d$ in $A \cdot d=-b$
+	\item Bestimme konstanten Term $F(d)$
+	\item $\varphi(x)=Cx+f(d)$ ist gesuchte Affinität
+	\item $\tilde f(x) = (f \circ \varphi)(x) = x^TCx-f(d)$ durch konstanten Term teilen um $\tilde Q$ zu erhalten.
+\end{enumerate}
