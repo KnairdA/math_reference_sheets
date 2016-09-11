@@ -2,17 +2,21 @@
 
 Sei $R := A \times B$ eine Relation.
 
-\subsubsection*{Linkstotal}
+\subsection*{Linkstotal}
+
 $\forall a \in A \exists b \in B : (a,b)  \in R$
 
-\subsubsection*{Rechtstotal / Surjektiv}
+\subsection*{Rechtstotal / Surjektiv}
+
 $\forall b \in B \exists a \in A : (a,b) \in R \text{ bzw. } f(a)=b$
 
-\subsubsection*{Linkseindeutig / Injektiv}
+\subsection*{Linkseindeutig / Injektiv}
+
 $\forall a_1, a_2 \in A \forall b \in B :$ \newline
 \hspace*{5mm} $(a_1,b) \in R \land (a_2,b) \in R \implies a_1=a_2$
 
-\subsubsection*{Rechtseindeutig}
+\subsection*{Rechtseindeutig}
+
 $\forall a \in A \forall b_1, b_2 \in B:$ \newline
 \hspace*{5mm} $(a,b_1) \in R \land (a,b_2) \in R \implies b_1=b_2$
 
@@ -128,7 +132,7 @@ Für einen kommutativen Ring $R$ ist die "general linear Group":
 
 $GL_p(R) := \{ A \in R^{p \times p} | \exists B \in R^{p \times p} : AB = BA = I_p \}$
 
-Die Matrizen in $GL_p(R)$ heißen invertierbare / reguläre Matrizen.
+$A \in GL_p(R)$ sind invert. / reguläre Matrizen.
 
 \subsection*{Elementarmatrizen}
 
@@ -156,13 +160,6 @@ $A, \tilde A \in K^{d \times d}$ ähnlich $\Leftrightarrow \exists S \in GL_d(K)
 	\item $det(A) = det(A^T)$
 \end{enumerate}
 
-\subsubsection*{Determinante von Blockmatrizen}
-
-$$det(\begin{pmatrix}
-	A & B \\
-	0 & C
-\end{pmatrix}) = det(A) * det(C)$$
-
 \section*{Vektorräume}
 
 Ein $K$-Vektorraum ist kommutative Gruppe $(V, +)$ mit skalarer Multiplikation $* : K \times V \rightarrow V, (a, v) \mapsto a * v$ sowie:
@@ -176,9 +173,7 @@ Ein $K$-Vektorraum ist kommutative Gruppe $(V, +)$ mit skalarer Multiplikation $
 
 \subsection*{Untervektorräume}
 
-$K$-Untervektorraum $U$ von $V$ ist Teilmenge $U \subseteq V$ die bzgl. Addition Untergruppe von $V$ ist und für die gilt:
-
-$\forall a \in K, u \in U : a*u \in U$ (d.h. skalare Multiplikation geschlossen)
+$K$-Untervektorraum $U$ von $V$ ist Teilmenge $U \subseteq V$ die bzgl. Addition Untergruppe von $V$ ist und für die gilt: $\forall a \in K, u \in U : a*u \in U$ (d.h. skalare Multiplikation geschlossen)
 
 \subsubsection*{Untervektorraumkriterium}
 
@@ -204,19 +199,13 @@ Seien $V, W$ zwei $K$-Vektorräume. $\phi : V \rightarrow W$ ist Vektorraumhomom
 
 $Rang(\phi) := dim(Bild(\phi))$ mit $\phi \in Hom(V, W)$
 
-\subsection*{Dualräume}
-
-Sei $V$ ein $K$-Vektorraum. Die Menge aller linearen Abbildungen $V \rightarrow K$ ist der Dualraum: $V^* := \{f: V \rightarrow K | f \text{ ist linear}\}$.
-
-$f \in V^*$ werden als Linearformen bezeichnet.
-
 \subsection*{Basen}
 
 Teilmenge $B \subseteq V$ ist Basis von $V$, wenn sich $\forall v \in V$ auf genau eine Art als Linearkombination von $B$ schreiben lässt. Jede Basis von $K^p$ hat genau $p$ Elemente.
 
 \subsubsection*{Lineare Unabhängigkeit}
 
-$\sum_{i=1}^{k} \lambda_i * v_i = 0 \Rightarrow \lambda_i = 0 \text{ } \forall i$
+$\sum_{i=1}^{k} \lambda_i * v_i = 0 \Rightarrow \forall i \in \{1, \cdots, k\} : \lambda_i = 0$
 
 \subsubsection*{Dimension}
 
@@ -235,6 +224,18 @@ $D_C(\phi(v)) = D_{CB}(\phi) * D_B(v)$
 Seien $V, W$ $K$-Vektorräume; $\phi \in Hom(V, W)$; $B, \tilde B$ Basen von $V$; $C, \tilde C$ Basen von W. Dann gilt:
 
 $D_{\tilde C \tilde B}(\phi) = D_{\tilde C C}(I_W) * D_{CB}(\phi) * D_{B\tilde B}(I_V)$
+
+\subsection*{Dualräume}
+
+Sei $V$ ein $K$-Vektorraum. Die Menge aller linearen Abbildungen $V \rightarrow K$ ist der Dualraum: $V^* := \{f: V \rightarrow K | f \text{ ist linear}\}$.
+
+$f \in V^*$ werden als Linearformen bezeichnet.
+
+\subsubsection*{Duale Basis}
+
+Sei $B = \{b_1, \cdots, b_n\}$ Basis von $V$, dann ist $B^* = \{b_1^*, \cdots, b_n^*\}$ Basis des Dualraums $V^*$, also die zu $B$ von $V$ duale Basis.
+
+Die für $b_i$ eindeutige Abb. $b_i^* : V \rightarrow \mathbb{K}$ erfüllt $b_i^*(b_i) = 1$ und $b_i^*(b_j) = 0$ für $j\neq i$.
 
 \subsection*{Faktor- / Quotientenräume}
 
@@ -307,7 +308,12 @@ Falls $V=W$ heißt $P$ Bilinearform auf $V$.
 
 \subsubsection*{Ausartung}
 
-Wenn $\forall v \in V, v \neq 0 \exists w \in W : P(v, w) \neq 0$ und $\forall w \in W, w \neq 0 \exists v \in V : P(v, w) \neq 0$, dann Paarung $P$ nicht ausgeartet.
+Paarung $P$ heißt nicht ausgeartet, wenn:
+
+\hspace*{2mm}
+$\forall v \in V, v \neq 0 \exists w \in W : P(v, w) \neq 0$
+
+$\land$ $\forall w \in W, w \neq 0 \exists v \in V : P(v, w) \neq 0$
 
 \subsection*{Orthogonalbasis}
 
@@ -362,7 +368,7 @@ $\langle \cdot, \cdot \rangle : V \times V \rightarrow \mathbb{C}$ ist komplexes
 \begin{enumerate}[label=(\alph*)]
 	\item $\forall v_1, v_2, w \in V, a \in \mathbb{C} : \text{(linear)} \\ \hspace*{4mm} \langle av_1 + v_2, w \rangle = a \langle v_1, w \rangle + \langle v_2, w \rangle$
 	\item $\forall v_1, v_2, w \in V, a \in \mathbb{C} : \text{(semilinear)} \\ \hspace*{4mm} \langle w, av_1 + v_2 \rangle = \overline a \langle w, v_1 \rangle + \langle w, v_2 \rangle$
-	\item $\forall v, w \in V : \langle v, w \rangle = \overline{\langle w, v \rangle}$
+	\item $\forall v, w \in V : \langle v, w \rangle = \overline{\langle w, v \rangle} \text{ (hermitesch)}$
 	\item $\forall v \in V \setminus \{0\} : \langle v, v \rangle > 0$
 \end{enumerate}
 
