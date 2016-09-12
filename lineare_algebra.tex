@@ -392,6 +392,21 @@ Wobei (a) und (b) Sesquilinearität, (c) Hermitizität und (d) Positivität. Ein
 
 $\mathbb{C}^n \times \mathbb{C}^n \ni (v, w) \mapsto \langle v, w \rangle := v^T * \overline w = \sum_{i=1}^n v_i * \overline{w_i}$
 
+\subsection*{Fundamentalmatrix}
+
+Seien $B$ und $C$ Basen von $V$ und $\langle \cdot, \cdot \rangle$ SKP.
+
+\vspace*{-3mm}
+$$D_{BC}(\langle \cdot, \cdot \rangle) = \begin{pmatrix}
+	\langle b_1, c_1 \rangle & \hdots & \langle b_1, c_n \rangle \\
+	\vdots & \ddots & \vdots \\
+	\langle b_n, c_1 \rangle & \hdots & \langle b_n, c_n \rangle
+\end{pmatrix}$$
+
+\subsubsection*{Hurwitz-Kriterium}
+
+Eine symmetrische bzw. hermitesche Matrix $A$ ist positiv definit gdw. die Determinanten aller führenden Hauptminoren positiv sind. Führende Hauptminoren sind in der oberen linken Ecke beginnende quadr. Teilmatr. von $A$ inkl. $A$ selbst.
+
 \subsection*{Ungleichung von Cauchy-Schwarz}
 
 $\langle v, w \rangle ^2 \leq \langle v, v \rangle * \langle w, w \rangle$ (in $\mathbb{R}$)
@@ -468,9 +483,9 @@ $A$ heißt orthogonal, wenn $A^TA=I$ gilt.
 
 $A$ ist orthogonale Matrix $\Rightarrow det(A)=\pm 1$
 
-$\forall \lambda \in Spec(A) : |\lambda| = 1$
+$\forall \lambda \in Spec(A) : \lambda=\pm 1$
 
-Orthogonale / unitäre Matrizen sind normal.
+Orthogonale Matrizen sind normal.
 
 \subsubsection*{Unitäre Matrizen}
 
@@ -478,15 +493,19 @@ $A$ heißt unitär, wenn $\overline{A^T}A = I$ gilt.
 
 $A$ ist unitäre Matrix $\Rightarrow |det(A)|=1$
 
+$\forall \lambda \in Spec(A) : |\lambda| = 1$
+
+Unitäre Matrizen sind normal.
+
 \subsection*{Iwasawa- / QR-Zerlegung}
 
 Zerlegung von $A \in GL_n(\mathbb{K})$ in das Produkt aus einer orthogonalen bzw. unitären Matrix und einer oberen Dreiecksmatrix. $A = Q \cdot R$.
 
 \vspace*{-5mm}
 $$A = \begin{pmatrix}
-\vdots & \vdots & \vdots \\
-q_1    & \hdots & q_n \\
-\vdots & \vdots & \vdots
+\vdots & \vdots                           & \vdots \\
+q_1    & \hspace{-3mm}\hdots\hspace{-3mm} & q_n \\
+\vdots & \vdots                           & \vdots
 \end{pmatrix}
 \begin{pmatrix}
 \langle q_1, a_1 \rangle & \langle q_1, a_2 \rangle & \hdots & \langle q_1, a_n \rangle \\
