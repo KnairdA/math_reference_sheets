@@ -631,7 +631,13 @@ Hinweis: $A$ kann aber muss kein Vektorraum sein.
 
 \subsection*{Affine Teilräume}
 
-$A := v + W$ ist affiner Teilraum von $V$ mit $W \leq V$ Vektorräume und $v \in V$.
+$A := v + W$ ist affiner Teilraum von $V$ mit $W \leq V$ Vektorräume und $v \in V$. Dies entspricht dem nichtleeren Lösungsraum $\mathcal{L}(A,b)$ eines LGS.
+
+\subsubsection*{Lot, Lotfußpunkte}
+
+Seien $A=x_0+\langle x_1,...,x_r \rangle$, $B=y_0+\langle y_1,...,y_s\rangle$ affine UR, das Lot ist die Strecke zwischen den Lotfußpunkten.
+
+Sei $C=(x_1,...x_r,y_1,...y_r)$, dann ergibt die Lösung $z=(-\lambda_1,...,-\lambda_r,\mu_1,...,\mu_s)^T$ von $C^TCz=C^T(x_0-y_0)$ die Lotfußpunkte $P=x_0+\sum_{i=1}^r \lambda_i x_i$ und $Q=y_0+\sum_{i=1}^s \mu_1 y_i$. Weiterhin ist $d(A, B)=d(P,Q)$.
 
 \subsubsection*{Affine Geraden}
 
