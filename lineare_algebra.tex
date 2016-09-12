@@ -682,6 +682,25 @@ Ziel der Bestimmung einer möglichst einfachen affinen Normalform $\tilde Q$ von
 	\item $A$ diagonalisieren mit $\tilde A = C^TAC$
 	\item Bestimme Mittelpunkt $d$ in $A \cdot d=-b$
 	\item Bestimme konstanten Term $F(d)$
-	\item $\varphi(x)=Cx+f(d)$ ist gesuchte Affinität
-	\item $\tilde f(x) = (f \circ \varphi)(x) = x^TCx-f(d)$ durch konstanten Term teilen um $\tilde Q$ zu erhalten.
+	\item $\varphi(x)=Cx+d$ ist gesuchte Affinität
+	\item $\tilde F(x) = (F \circ \varphi)(x) = x^T\tilde Ax+F(d)$ durch konstanten Term teilen um $\tilde Q$ zu erhalten.
+\end{enumerate}
+
+Somit wird $F(x)=x^TAx+2b^Tx+\gamma$ mittels $\varphi(x)=Cx+d$ in $(F \circ \varphi)(x)=x^T\tilde Ax+2\tilde b^Tx + \tilde\gamma$ überführt.
+
+Dabei gilt $\tilde A = C^TAC$, $\tilde b = C^T(Ad+b)$ und $\tilde\gamma = F(d)$.
+
+\subsubsection*{Euklidische Normalform}
+
+Ähnlich affiner Normalform, Transformation nur mit Isometrie $\varphi(x)=Cx+d$ wobei $C \in O(n)$ also Orthogonalbasis aus Eigenvektoren von $A$.
+
+\begin{enumerate}[leftmargin=4mm]
+	\item $F(x)$ als $F(x) = x^TAx + 2b^Tx + \gamma$ schreiben
+	\item $A$ diagonalisieren mit $\tilde A = C^TAC$
+	\begin{enumerate}[leftmargin=4mm,label=(\roman*)]
+		\item Eigenwerte, -vektoren von $A$ bestimmen
+		\item Eigenvektoren orthonormalisieren
+		\item Orthonormalisieren benötigt hier nur Normalisieren da die Orthogonalität zwischen Eigenvektoren verschiedener Eigenwerte bei Selbstadjungiertheit von $A$ gegeben ist
+	\end{enumerate}
+	\item Alles weitere analog zu affiner Normalform
 \end{enumerate}
