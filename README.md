@@ -2,7 +2,9 @@
 
 …important definitions, theorems and lemmas in a compact format I wrote to support my exam preparations.
 
-Covers large parts of what I revised for the exams of the _Analysis 1_ and _Analysis 2_ lectures I attended at KIT. The reference sheet covering linear algebra is currently in development as the corresponding exams are still in my future.
+Covers large parts of what I revised for the exams of the _Analysis I&II_ and _Lineare Algebra I&II_ lectures I attended at KIT.
+
+PDF renderings of the [analysis](https://static.kummerlaender.eu/media/ana12_zusammenfassung.pdf) and [linear algebra](https://static.kummerlaender.eu/media/la12_zusammenfassung.pdf) reference sheets are available.
 
 ## Compilation
 
