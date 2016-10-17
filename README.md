@@ -1,12 +1,12 @@
-# Math reference sheets
+# Mathematikzusammenfassungen
 
-…important definitions, theorems and lemmas in a compact format I wrote to support my exam preparations.
+…zentrale Definitionen, Theoreme und Lemmata in kompaktem Format zur Unterstützung meiner Prüfungsvorbereitungen.
 
-Covers large parts of what I revised for the exams of the _Analysis I&II_ and _Lineare Algebra I&II_ lectures I attended at KIT.
+Diese Zusammenfassungen schließen große Teile dessen ein, was ich für die Prüfungen zu den _Analysis I&II_ sowie _Lineare Algebra I&II_ Vorlesungen wiederholt habe, welche ich im Rahmen meines Mathematikstudiums am KIT besucht habe.
 
-PDF renderings of the [analysis](https://static.kummerlaender.eu/media/ana12_zusammenfassung.pdf) and [linear algebra](https://static.kummerlaender.eu/media/la12_zusammenfassung.pdf) reference sheets are available.
+Das resultierende PDF der in _LaTeX_ gesetzten Quellen der [Analysis](https://static.kummerlaender.eu/media/ana12_zusammenfassung.pdf) bzw. [Lineare Algebra](https://static.kummerlaender.eu/media/la12_zusammenfassung.pdf) Kurzzusammenfassung steht auf meiner Webseite zum Download bereit.
 
-## Compilation
+## Generierung
 
 	pdflatex -jobname=analysis zusammenfassung.tex
 	pdflatex -jobname=lineare_algebra zusammenfassung.tex
