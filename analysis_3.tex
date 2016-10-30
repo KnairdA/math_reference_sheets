@@ -1,0 +1,30 @@
+\section*{$\sigma$-Algebren}
+
+Ein Mengensystem $\mathcal{A} \subseteq \mathcal{P}(X)$ ist $\sigma$-Algebra auf der nichtleeren Menge $X$ gdw.:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $X \in \mathcal{A}$
+	\item $A \in \mathcal{A} \Rightarrow A^c := X\setminus A \in \mathcal{A}$
+	\item $\forall j \in \mathbb{N} : A_j \in \mathcal{A} \Rightarrow \bigcup_{j\in \mathbb{N}} A_j \in \mathcal{A}$
+\end{enumerate}
+
+\subsection*{Eigenschaften von $\sigma$-Algebren}
+
+Seien $\mathcal{A}$ eine $\sigma$-Algebra auf $X$, $n \in \mathbb{N}$, $\forall j \in \mathbb{N} : A_j \in \mathcal{A}$, dann ist $\mathcal{A}$ nach den folgenden Eigenschaften abgeschlossen unter abzählbaren Mengenoperationen:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\emptyset = X^c \in \mathcal{A}$
+	\item $A_1 \bigcup \cdots \bigcup A_n \in \mathcal{A}$
+	\item $A_1 \bigcap \cdots \bigcap A_n \in \mathcal{A}$
+	\item $\bigcap_{j\in \mathbb{N}} A_j \in \mathcal{A}$
+	\item $A_1 \setminus A_2 := A_1 \bigcap A_2^c \in \mathcal{A}$
+\end{enumerate}
+
+\subsection*{Erzeugte $\sigma$-Algebren}
+
+Die durch das nichtleere Mengensystem $\mathcal{E} \subseteq \mathcal{P}(X)$ auf $X$ erzeugte $\sigma$-Algebra ist wie folgt definiert:
+
+\vspace*{-4mm}
+$$\sigma(\mathcal{E}) := \bigcap\{ \mathcal{A} \subseteq \mathcal{P}(X) | \mathcal{A} \text{ ist } \sigma \text{-Algebra}, \mathcal{E} \subseteq \mathcal{A} \}$$
+
+Der Erzeuger $\mathcal{E}$ ist hierbei allg. nicht eindeutig.
