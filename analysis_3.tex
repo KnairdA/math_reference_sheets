@@ -55,3 +55,46 @@ $\mathcal{B}_m$ enthält insb. alle offenen und abgeschlossenen Mengen in $\math
 	\mathcal{B}_m &= \sigma(\{(a, b) | a, b \in \mathbb{Q}^m, a \leq b\}) \\
 	              &= \sigma(\{(a, b] | a, b \in \mathbb{Q}^m, a \leq b\})
 \end{align*}
+
+\section*{Maße auf $\sigma$-Algebren}
+
+Sei $\mathcal{A}$ eine $\sigma$-Algebra auf $X$.
+
+$\mu : \mathcal{A} \rightarrow [0, \infty]$ ist positives Maß auf $\mathcal{A}$ gdw.:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\mu(\emptyset) = 0$
+	\item $\forall \text{ disjunkte } \{A_j | j \in \mathbb{N}\} \subseteq \mathcal{A} :\\ \hspace*{4mm} \mu(\dot\bigcup_{j\in \mathbb{N}} A_j) = \sum_{j\in \mathbb{N}} \mu(A_j)$
+\end{enumerate}
+
+\subsection*{Maßraum}
+
+Ein Tripel $(X, \mathcal{A}, \mu)$ ist Maßraum. Ein endlicher Maßraum erfüllt zusätzlich $\mu(X) < \infty$.
+
+Ein Wahrscheinlichkeitsmaß erfüllt $\mu(X) = 1$.
+
+\subsection*{Punkt- / Diracmaß}
+
+Für fest gewählte $\mathcal{A} = \mathcal{P}(X)$, $x \in X$ ist ein Wahrscheinlichkeitsmaß für $A \subseteq X$ definiert:
+
+$$\delta_x(A) := \begin{cases}
+	1 & x \in A \\
+	0 & x \notin A
+\end{cases}$$
+
+Dieses wird Punkt- / Diracmaß auf $\mathcal{A}$ genannt.
+
+\subsection*{Eigenschaften von Maßen}
+
+Sei $(X, \mathcal{A}, \mu)$ Maßraum und $A, B, A_j \in \mathcal{A}$ für $j \in \mathbb{N}$.
+
+\begin{description}[leftmargin=!,labelwidth=26mm]
+	\item[Monotonie] $A \subseteq B \Rightarrow \mu(A) \leq \mu(B)$
+	\item[$\sigma$-Subadditivität] $\mu(\dot\bigcup_{j\in \mathbb{N}} A_j) \leq \sum_{j\in \mathbb{N}} \mu(A_j)$
+	\item[Stetigkeit (unten)] $A_j \uparrow \Rightarrow \displaystyle\lim_{j\to \infty} \mu(A_j) = \mu(\bigcup_{j\in \mathbb{N}} A_j)$
+	\item[Stetigkeit (oben)] $A_j \downarrow \land \hspace*{1mm} \mu(A_1) < \infty \\ \hspace*{4mm}\Rightarrow \displaystyle\lim_{j\to \infty} \mu(A_j) = \mu(\bigcap_{j\in \mathbb{N}} A_j)$
+\end{description}
+
+Für $\mu(A) < \infty$ folgt $\mu(B\setminus A) = \mu(B) - \mu(A)$.
+
+Für endliche Maße gilt insb. $\mu(A^c) = \mu(X) - \mu(A)$.
