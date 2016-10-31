@@ -39,3 +39,19 @@ Sei $\emptyset \neq \mathcal{E} \subseteq \mathcal{P}(X)$, dann gilt:
 	\item $\mathcal{E}$ ist $\sigma$-Algebra $\Rightarrow \mathcal{E} = \sigma(\mathcal{E})$
 	\item $\mathcal{E} \subseteq \mathcal{E}' \subseteq \mathcal{P}(X) \Rightarrow \sigma(\mathcal{E}) \subseteq \sigma(\mathcal{E}')$
 \end{enumerate}
+
+\subsection*{Borelsche $\sigma$-Algebra}
+
+Sei $X$ ein metrischer Raum und $\mathcal{O}(X)$ das System der in $X$ offenen Mengen, dann ist $\mathcal{B}(X) := \sigma(\mathcal{O}(X))$ die Borelsche $\sigma$-Algebra auf $X$.
+
+Im Speziellen wird $\mathcal{B}_m := \mathcal{B}(\mathbb{R}^m)$ gesetzt.
+
+$\mathcal{B}_m$ enthält insb. alle offenen und abgeschlossenen Mengen in $\mathbb{R}^m$ sowie deren abzählbaren Vereinigungen und Durchschnitte.
+
+\subsubsection*{Charakterisierung}
+
+\vspace*{-4mm}
+\begin{align*}
+	\mathcal{B}_m &= \sigma(\{(a, b) | a, b \in \mathbb{Q}^m, a \leq b\}) \\
+	              &= \sigma(\{(a, b] | a, b \in \mathbb{Q}^m, a \leq b\})
+\end{align*}
