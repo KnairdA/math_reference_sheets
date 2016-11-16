@@ -133,3 +133,56 @@ Eine Abb. $f : \mathcal{A} \rightarrow [0, \infty)$ ist ein Prämaß auf Ring $\
 	\item $\mu(\emptyset) = 0$
 	\item $\{A_j | j \in \mathbb{N}\} \subseteq \mathcal{A}$ disjunkt und $A = \bigcup_{j\in \mathbb{N}} A_j \in \mathcal{A} \Rightarrow \mu(A) = \sum_{j\in \mathbb{N}} \mu(A_j)$
 \end{enumerate}
+
+\section*{Lebesguemaß}
+
+\subsection*{System der Intervalle}
+
+Sei $I = (a, b] \subseteq \mathbb{R}^m$ für $a, b \in \mathbb{R}^m$ mit $a \leq b$, dann wird das System von Intervallen $\mathcal{J}_m$ definiert:
+
+$\lambda(I) = \lambda_m(I) := (b_1 - a_1) \cdot \hdots \cdot (b_m - a_m)$
+
+\subsection*{Ring der Figuren}
+
+$$\mathcal{F}_m = \left\{ A = \bigcup_{j=1}^n I_j | I_j \in \mathcal{J}_m, n \in \mathbb{N} \right\}$$
+
+\subsubsection*{Eigenschaften}
+
+Seien $I_1, I_2 \in \mathcal{J}_m$:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\sigma(\mathcal{F}_m) = \mathcal{B}_m$
+	\item $I_1 \cap I_2 \in \mathcal{J}_m$
+	\item $I_1 \setminus I_2 \in \mathcal{F}_m$ sowie endliche Vereinigung disjunkter Intervalle aus $\mathcal{J}_m$
+	\item $\forall A \in \mathcal{F}_m: A$ ist endliche Vereinigung disjunkter Intervalle aus $\mathcal{J}_m$
+	\item $\mathcal{F}_m$ ist Ring
+\end{enumerate}
+
+\section*{Messbare Funktionen}
+
+Sei $\mathcal{A}$ eine $\sigma$-Algebra auf $X\neq \emptyset$ und $\mathcal{B}$ eine $\sigma$-Algebra auf $Y\neq \emptyset$ sowie $f : X \rightarrow Y$ Funktion.
+
+$f$ heißt ($\mathcal{A}$-$\mathcal{B}$-)messbar gdw. $\forall B \in \mathcal{B} : f^{-1}(B) \in \mathcal{A}$
+
+\subsection*{Borel-Messbarkeit}
+
+Seien $X, Y$ metrische Räume.
+
+Die Funktion $f : X \rightarrow Y$ heißt Borel-messbar, wenn sie $\mathcal{B}(X)$-$\mathcal{B}(Y)$-messbar ist.
+
+\subsection*{Eigenschaften}
+
+Seien $\mathcal{A}, \mathcal{B}, \mathcal{C}$ $\sigma$-Algebren auf $X, Y, Z \neq \emptyset$.
+
+\begin{enumerate}[label=(\alph*)]
+	\item $f : X \rightarrow Y$ ist $\mathcal{A}$-$\mathcal{B}$-mb., $g : Y \rightarrow Z$ ist $\mathcal{B}$-$\mathcal{C}$-mb. $\Rightarrow g \circ f : X \rightarrow Z$ ist $\mathcal{A}$-$\mathcal{C}$-mb.
+	\item $\emptyset \neq \mathcal{E} \subseteq \mathcal{P}(Y)$, $\mathcal{B} = \sigma(\mathcal{E})$, $f: X \rightarrow Y$ dann ist $f$ messbar gdw. $\forall E \in \mathcal{E} : f^{-1}(E) \in \mathcal{A}$
+	\item $X, Y$ metrische Räume, $f : X \rightarrow Y$ stetig $\Rightarrow f$ ist Borel-messbar
+	\item $f : X \rightarrow \mathbb{R}^m$ ist $\mathcal{A}$-$\mathcal{B}_m$-mb. gdw. $\forall i \in \{1, \dots, m\} : f_i : X \rightarrow \mathbb{R}$ ist $\mathcal{A}$-$\mathcal{B}_1$-mb.
+	\item $f, g$ sind $\mathcal{A}$-$\mathcal{B}_1$-mb. und $\alpha, \beta \in \mathbb{R} \Rightarrow fg : X \rightarrow \mathbb{R}$ und $\frac{1}{f} : \{x \in X | f(x) \neq 0\} \rightarrow \mathbb{R}$ mb.
+	\item $f : X \rightarrow \mathbb{R}^m$ ist $\mathcal{A}$-$\mathcal{B}_m$-mb. $\\\Rightarrow g : X \rightarrow \mathbb{R}; x \mapsto |f(x)|_2$ ist $\mathcal{A}$-$\mathcal{B}_1$-mb.
+	\item $X = W \dot\cup Z$ mit $\emptyset \neq W, Z \in \mathcal{A}$, $f : W \rightarrow Y$ ist $\mathcal{A}_W$-$\mathcal{B}$-mb., $g : Z \rightarrow Y$ ist $\mathcal{A}_Z$-$\mathcal{B}$-mb. $\Rightarrow h(x) = \begin{cases}
+	f(x) & x \in W \\
+	g(x) & x \in Z 
+\end{cases}$ ist $\mathcal{A}$-$\mathcal{B}$-mb.
+\end{enumerate}
