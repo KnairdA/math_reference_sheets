@@ -102,6 +102,16 @@ Für $A \in \mathbb{K}^{n \times n} \in GL_n{\mathbb{R}}$, $\|\cdot\|$ induziert
 
 \section*{Direkte Verfahren zur LGS Lösung}
 
+\subsection*{Cramersche Regel}
+
+Sei $A = (a_{i,j})_{ij} \in GL_n(\mathbb{R})$, $b \in \mathbb{R}^n$, $A[j] = (a_1, \cdots, a_{j-1}, b, a_{j+1}, \cdots, a_n) \in \mathbb{R}^{n \times n}$, $a_k$ k-ter Spaltenvektor von $A$. Dann bildet $x_j = \frac{det(A[j])}{det(A)}$ für $j = 1, \cdots, n$ die eindeutige Lösung $x \in \mathbb{R}^n$ s.d. $Ax=b$.
+
+Aufgrund des hohen Aufwands von allg. mehr als $(n+1)!$ arithmetischen Operationen ist die Cramersche Regel nur von theoretischer Bedeutung.
+
+\subsection*{Lösung gestaffelter Systeme}
+
+Obere Dreicksmatrizen können mittels Rückwärtssubstitution, untere Dreiecksmatrizen mittels Vorwärtssubstitution in $\mathcal{O}(n^2)$ gelöst werden.
+
 \subsection*{LR-Zerlegung}
 
 \subsection*{Cholesky-Zerlegung}
