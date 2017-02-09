@@ -1,0 +1,121 @@
+\section*{Gleitkomma-Arithmetik}
+
+Für $e_{min}, e_{max} \in \mathbb{Z}$, $e_{min} < e_{max}$ ist ein Gleitkommasystem wie folgt definiert:
+
+\vspace*{-4mm}
+\begin{align*}
+	\mathcal{F} &= \mathcal{F}(\beta,t,e_{min},e_{max}) \\
+	            &= \{ \pm m \beta^{e-t} | m \in \mathbb{N}, \beta^{t-1} \leq m \leq \beta^t - 1 \lor m = 0, \\ & \hspace*{16mm}e_{min} \leq e \leq e_{max} \}
+\end{align*}
+
+$x \in \mathcal{F} \setminus \{0\} \Rightarrow \beta^{e_{min}-1} \leq |x| \leq \beta^{e_{max}}(1-\beta^{-1})$.
+
+\subsection*{Normalisierte Darstellung}
+
+Für $d_1 \neq 0$, $0 < d_1 \leq \beta - 1$:
+
+$x=\pm \beta^e ( \frac{d_1}{\beta^1} + \frac{d_2}{\beta^2} + \cdots + \frac{d_t}{\beta^t} ) =: \pm 0.d_1 d_2 \cdots d_t \cdot \beta^e$
+
+\subsection*{Relative Maschinengenauigkeit}
+
+$fl(x) \in \mathcal{F}$ ist die $x \in \mathbb{R}$ am nächsten liegende Gleitkommazahl.
+
+Für relative Maschinengenauigkeit $\epsilon := \frac{1}{2} \beta^{1-t}$:
+
+$\frac{|fl(x)-x|}{|x|} < \epsilon$, $\frac{|fl(x)-x|}{|fl(x)|} \leq \epsilon$
+
+\subsection*{Arithmetische Grundoperationen}
+
+Für $x, y \in \mathcal{F}$ sind Operationen $o \in \{x,-,*,\div\}$ bzgl. eines Gleitkommasystems definiert:
+
+$\tilde o(x,y) := fl(o(x,y))$
+
+Zu beachten ist hier die Ungültigkeit der Assoziativ- und Distributivgesetze.
+
+\subsection*{Kondition mathematischer Probleme}
+
+Die Konditionszahl eines mathematischen Problems $(f, x)$ ist die kleinste Zahl $\kappa_f(x) \geq 0$ mit:
+
+\vspace*{-4mm}
+$$\frac{\|f(x + \Delta x) - f(x) \|_Y}{\|f(x)\|_Y} \leq \kappa_f(x) \frac{\|\Delta x\|_X}{\|x\|_X} + o(\|\Delta x \|_X)$$
+
+Für $\|\Delta x\|_X \rightarrow 0$. Ein Problem $(f, x)$ ist gut konditioniert für \emph{kleine} und schlecht konditioniert für \emph{große} Konditionszahlen $\kappa_f(x)$.
+
+\subsubsection*{Kondition stetig differenzierbarer Fkt.}
+
+Für $f \in C^1(E, \mathbb{R}^m)$ in Umgebung $E \subseteq \mathbb{R}^n$ von $x$:
+
+\vspace*{-2mm}
+$$\kappa_f(x) = \frac{\|f'(x)\| \cdot \|x\|_X}{\|f(x)\|_Y}$$
+
+\section*{Vektor- und Matrixnormen}
+
+\subsection*{Induzierte Matrixnorm / Operatornorm}
+
+Für Normen $\| \cdot \|_\circ$, $\| \cdot \|_\star$ auf $\mathbb{K}^n$ bzw. $\mathbb{K}^m$ ist eine Matrixnorm $\| \cdot \| : \mathbb{K}^{m \times n} \rightarrow [0,\infty)$ auf dem Vektorraum der $m \times n$-Matrizen definiert:
+
+\vspace*{-4mm}
+$$\|A\| := \max_{v \in \mathbb{K}^n \setminus \{0\}} \frac{\|Av\|_\star}{\|v\|_\circ} = \max_{\{v \in \mathbb{K}^n | \|v\|_\circ = 1 \}} \|Av\|_\star$$
+
+\subsubsection*{Eigenschaften}
+
+Für $A \in \mathbb{K}^{m \times n}$ gilt $\forall v \in \mathbb{K}^n : \|Av\|_\star \leq \|A\| \cdot \|v\|_\circ$
+
+Submultiplikativität: $\|AB\| \leq \|A\| \cdot \|B\|$
+
+\subsubsection*{Matrix-$p$-Normen}
+
+Induzierte Matrixnorm bei Wahl der $p$-Normen über $\mathbb{K}^n$ bzw. $\mathbb{K}^m$:
+
+\vspace*{-4mm}
+$$\|A\|_p := \max_{\{v \in \mathbb{K}^n | \|v\|_p = 1 \}} \|Av\|_p \text{ für } 1 \leq p \leq \infty$$
+
+\subsubsection*{Spaltensummennorm}
+
+Für $A = (a_1, \cdots, a_n)$ mit $a_j \in \mathbb{K}^m$:
+
+\vspace*{-4mm}
+$$\|A\|_1 = \max_{1 \leq j \leq n} \|a_j\|_1 = \max_{1 \leq j \leq n} \sum_{i=1}^m |a_{i,j}|$$
+
+\subsubsection*{Zeilensummennorm}
+
+\vspace*{-4mm}
+$$\|A\|_\infty = \max_{1 \leq i \leq m} \sum_{j=1}^n |a_{i,j}|$$
+
+\subsubsection*{Spektralnorm}
+
+Die Matrix-$2$-Norm wird so genannt, da $\|A\|_2 = \sqrt{\lambda_{max}(A^H A)}$ für $\lambda_{max}(A^H A)$ als Bezeichner des größten Eigenwerts von $A^H A \in \mathbb{K}^{n \times n}$.
+
+$\|A\|_2 = \|A^H\|_2$, $\|A^H A\|_2 = \|A\|_2^2$
+
+$\|Q A\|_2 = \|A\|_2$ für unitäre $Q$.
+
+\subsection*{Kondition einer Matrix}
+
+Für $A \in \mathbb{K}^{n \times n} \in GL_n{\mathbb{R}}$, $\|\cdot\|$ induzierte Matrixnorm:
+
+\vspace*{-4mm}
+\begin{align*}
+\kappa(A) &= \|A\| \cdot \|A^{-1}\| \\
+1 = \|Id\| = \|AA^{-1}\| &\leq \|A\| \cdot \|A^{-1}\| = \kappa(A)
+\end{align*}
+
+\section*{Direkte Verfahren zur LGS Lösung}
+
+\subsection*{LR-Zerlegung}
+
+\subsection*{Cholesky-Zerlegung}
+
+\subsection*{QR-Zerlegung}
+
+\section*{Lineare Ausgleichsprobleme}
+
+\section*{Iterative Verfahren zur LGS Lösung}
+
+\subsection*{Krylow-Raum-Verfahren}
+
+\subsection*{cg-Verfahren}
+
+\subsection*{GMRES-Verfahren}
+
+\section*{Interpolation}
