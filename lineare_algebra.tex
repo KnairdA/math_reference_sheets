@@ -249,7 +249,7 @@ $f \in V^*$ werden als Linearformen bezeichnet.
 
 Sei $B = \{b_1, \cdots, b_n\}$ Basis von $V$, dann ist $B^* = \{b_1^*, \cdots, b_n^*\}$ Basis des Dualraums $V^*$, also die zu $B$ von $V$ duale Basis.
 
-Die für $b_i$ eindeutige Abb. $b_i^* : V \rightarrow \mathbb{K}$ erfüllt $b_i^*(b_i) = 1$ und $b_i^*(b_j) = 0$ für $j\neq i$.
+Die für $b_i$ eindeutige Abb. $b_i^* : V \rightarrow \K$ erfüllt $b_i^*(b_i) = 1$ und $b_i^*(b_j) = 0$ für $j\neq i$.
 
 \subsection*{Faktor- / Quotientenräume}
 
@@ -356,13 +356,13 @@ Reichen die Eigenvektoren nicht aus, können Hauptvektoren hinzugezogen werden. 
 
 \section*{Skalarprodukte}
 
-\subsection*{Standardskalarprodukt auf $\mathbb{R}^n$}
+\subsection*{Standardskalarprodukt auf $\R^n$}
 
-$\langle \cdot, \cdot \rangle : \mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}, \langle v, w \rangle := v^T * w$
+$\langle \cdot, \cdot \rangle : \R^n \times \R^n \rightarrow \R, \langle v, w \rangle := v^T * w$
 
 \subsection*{Positive Definitheit}
 
-Eine symmetrische Bilinearform $\langle \cdot, \cdot \rangle : V \times V \rightarrow \mathbb{R}$ ist positiv definit, wenn:
+Eine symmetrische Bilinearform $\langle \cdot, \cdot \rangle : V \times V \rightarrow \R$ ist positiv definit, wenn:
 
 $\forall v \in V: v \neq 0 \Rightarrow \langle v, v \rangle > 0$
 
@@ -409,7 +409,7 @@ Eine symmetrische bzw. hermitesche Matrix $A$ ist positiv definit gdw. die Deter
 
 \subsection*{Ungleichung von Cauchy-Schwarz}
 
-$\langle v, w \rangle ^2 \leq \langle v, v \rangle * \langle w, w \rangle$ (in $\mathbb{R}$)
+$\langle v, w \rangle ^2 \leq \langle v, v \rangle * \langle w, w \rangle$ (in $\R$)
 
 $|\langle v, w \rangle |^2 \leq \langle v, v \rangle * \langle w, w \rangle$ (in $\mathbb{C}$)
 
@@ -499,7 +499,7 @@ Unitäre Matrizen sind normal.
 
 \subsection*{Iwasawa- / QR-Zerlegung}
 
-Zerlegung von $A \in GL_n(\mathbb{K})$ in das Produkt aus einer orthogonalen bzw. unitären Matrix und einer oberen Dreiecksmatrix. $A = Q \cdot R$.
+Zerlegung von $A \in GL_n(\K)$ in das Produkt aus einer orthogonalen bzw. unitären Matrix und einer oberen Dreiecksmatrix. $A = Q \cdot R$.
 
 \vspace*{-5mm}
 $$A = \begin{pmatrix}
@@ -536,11 +536,11 @@ Es seien $V, W$ euklidische oder unitäre Vektorräume. Dann ist Isometrie $\phi
 
 \subsection*{Eigenwerte von Isometrien}
 
-Seien $\mathbb{K} \in \{\mathbb{R}, \mathbb{C}\}$ und $V$ ein $K$-Vektorraum mit Skalarprodukt, dann:
+Seien $\K \in \{\R, \mathbb{C}\}$ und $V$ ein $K$-Vektorraum mit Skalarprodukt, dann:
 
 \begin{enumerate}[label=(\alph*)]
 	\item $\phi$ ist lineare Isometrie von $V$, dann $\forall \lambda \in Spec(\phi): |\lambda|=1$
-	\item $\alpha \in \mathbb{K}$ mit $|\alpha|=1 \land V \neq \{0\}$, dann gibt es Isometrie von $V$ mit Eigenwert $\alpha$
+	\item $\alpha \in \K$ mit $|\alpha|=1 \land V \neq \{0\}$, dann gibt es Isometrie von $V$ mit Eigenwert $\alpha$
 \end{enumerate}
 
 \subsection*{Isometrien und Orthonormalbasen}
@@ -580,7 +580,7 @@ Wobei $D_{\psi_i} = \begin{pmatrix} cos(\psi_i) & -sin(\psi_i) \\ sin(\psi_i) & 
 
 \section*{Selbstadjungierte Abbildungen}
 
-Sei $V$ Vektorraum mit SKP über $\mathbb{R}$ oder $\mathbb{C}$ und $\phi \in End(V)$. Dann ist $\phi$ selbstadjungiert, wenn für $\forall v, w \in V$ gilt: $\langle \phi(v), w \rangle = \langle v, \phi(w) \rangle$.
+Sei $V$ Vektorraum mit SKP über $\R$ oder $\mathbb{C}$ und $\phi \in End(V)$. Dann ist $\phi$ selbstadjungiert, wenn für $\forall v, w \in V$ gilt: $\langle \phi(v), w \rangle = \langle v, \phi(w) \rangle$.
 
 $\phi \text{ ist selbstadjungiert} \Leftrightarrow D_{BB}(\phi)=\overline{D_{BB}(\phi)^T}$
 
@@ -594,28 +594,28 @@ $A^* := \overline{A^T}$, $A = A^* \Leftrightarrow A \text{ ist hermitesch}$
 
 Sei $A \in \mathbb{C}^{n\times n}$, dann: $A^* \cdot A = A \cdot A^*$
 
-Sei $B \in \mathbb{R}^{n\times n}$, dann: $B^T \cdot B = B \cdot B^T$
+Sei $B \in \R^{n\times n}$, dann: $B^T \cdot B = B \cdot B^T$
 
 Normale Matrizen sind unitär diagonalisierbar.
 
 \subsection*{Symmetrische reelle Matrizen}
 
-Eine symmetrische Matrix $A \in \mathbb{R}^{n\times n}$ besitzt ausschließlich reelle Eigenwerte.
+Eine symmetrische Matrix $A \in \R^{n\times n}$ besitzt ausschließlich reelle Eigenwerte.
 
 Es existiert eine orthogonale Matrix $S \in O(n)$ so, dass $D_A = S^TAS$ eine Diagonalmatrix ist.
 
 \subsection*{Spektralsatz}
 
-Sei $V$ Vektorraum über $\mathbb{R}$ oder $\mathbb{C}$ mit SKP und $\phi \in End(V)$. Dann ist äquivalent:
+Sei $V$ Vektorraum über $\R$ oder $\mathbb{C}$ mit SKP und $\phi \in End(V)$. Dann ist äquivalent:
 
 \begin{enumerate}[label=(\alph*)]
 	\item $\phi$ ist selbstadjungiert
-	\item Es gibt eine Orthonormalbasis aus Eigenvektoren von $\phi$ und $Spec(\phi) \subset \mathbb{R}$
+	\item Es gibt eine Orthonormalbasis aus Eigenvektoren von $\phi$ und $Spec(\phi) \subset \R$
 \end{enumerate}
 
 \subsubsection*{Positivität}
 
-Eine symmetrische Matrix $A \in \mathbb{R}^{n \times n}$ ist positiv definit gdw. $\forall \lambda \in Spec(A) : \lambda \geq 0$
+Eine symmetrische Matrix $A \in \R^{n \times n}$ ist positiv definit gdw. $\forall \lambda \in Spec(A) : \lambda \geq 0$
 
 \section*{Affine Räume}
 
@@ -643,35 +643,35 @@ Sei $C=(x_1,...x_r,y_1,...y_r)$, dann ergibt die Lösung $z=(-\lambda_1,...,-\la
 
 Seien $a, b \in V$, dann ist die affine Gerade durch $a$ und $b$: $\overline{a, b} := \{\lambda a + (1 - \lambda)b | \lambda \in K\} = a + K*(b-a)$
 
-Für $K = \mathbb{R}$ und $a, b \in V$ wobei $V$ $\mathbb{R}$-Vektorraum:
+Für $K = \R$ und $a, b \in V$ wobei $V$ $\R$-Vektorraum:
 
 $[a, b] := \{\lambda a + (1 - \lambda)b|0 \leq \lambda \leq 1\}$ (Strecke $\overrightarrow{ab}$)
 
 \subsection*{Affine Abbildungen, Affinitäten}
 
-Seien $A$, $B$ affine Räume mit Translationsvektorräumen $V$ und $W$ über $\mathbb{K}$. Abbildung $\phi : A \rightarrow B$ induziert für gewähltes $a \in A$ eine Abbildung $\varphi : V \rightarrow W$ mit $\phi(v+a) = \varphi(v) + \phi(a)$.
+Seien $A$, $B$ affine Räume mit Translationsvektorräumen $V$ und $W$ über $\K$. Abbildung $\phi : A \rightarrow B$ induziert für gewähltes $a \in A$ eine Abbildung $\varphi : V \rightarrow W$ mit $\phi(v+a) = \varphi(v) + \phi(a)$.
 
 $\phi$ heißt affiner Homomorphismus falls $\varphi$ ein Vektorraumhomomorphismus ist. Invertierbares $\phi$ heißt Affinität.
 
-\subsubsection*{Affiner Standardraum $\mathbb{A}^n(\mathbb{K})$}
+\subsubsection*{Affiner Standardraum $\mathbb{A}^n(\K)$}
 
-Alle affinen Selbstabbildungen des affinen Standardraums haben die Gestalt $\phi : A \rightarrow A$ mit $\phi(a) := M \cdot a + t$ für bel. $M \in \mathbb{K}^{n\times n}$ und $t \in \mathbb{K}^n$.
+Alle affinen Selbstabbildungen des affinen Standardraums haben die Gestalt $\phi : A \rightarrow A$ mit $\phi(a) := M \cdot a + t$ für bel. $M \in \K^{n\times n}$ und $t \in \K^n$.
 
 \subsubsection*{Euklidischer Raum}
 
-Ist $A$ affiner Raum mit $\mathbb{R}$-Vektorraum $V$ als euklidischen Translationsvektorraum, dann ist $A$ ein euklidischer Raum.
+Ist $A$ affiner Raum mit $\R$-Vektorraum $V$ als euklidischen Translationsvektorraum, dann ist $A$ ein euklidischer Raum.
 
 \subsection*{Quadriken}
 
-Eine Quadrik $Q \subseteq \mathbb{K}^n$ ist $Q := \{ v \in \mathbb{K}^n | F(v) = 0 \}$ wobei $F \in \mathbb{K}[X_1, \cdots, X_n]$ quadratisches Polynom.
+Eine Quadrik $Q \subseteq \K^n$ ist $Q := \{ v \in \K^n | F(v) = 0 \}$ wobei $F \in \K[X_1, \cdots, X_n]$ quadratisches Polynom.
 
 \subsubsection*{Matrizenform}
 
 Das eine Quadrik $Q$ definierende quadratische Polynom lässt sich wie folgt darstellen:
 
-$F(x) = x^TAx + b^Tx + c$ mit $A \in \mathbb{K}^{n\times n}$, $b \in \mathbb{K}^n$
+$F(x) = x^TAx + b^Tx + c$ mit $A \in \K^{n\times n}$, $b \in \K^n$
 
-Für $char(\mathbb{K})\neq 2$ ist $A$ symmetrisch.
+Für $char(\K)\neq 2$ ist $A$ symmetrisch.
 
 \subsubsection*{Affine Normalform}
 

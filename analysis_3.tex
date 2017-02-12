@@ -23,18 +23,18 @@ Ein Mengensystem $\mathcal{A} \subseteq \mathcal{P}(X)$ ist $\sigma$-Algebra auf
 \begin{enumerate}[label=(\alph*)]
 	\item $X \in \mathcal{A}$
 	\item $A \in \mathcal{A} \Rightarrow A^c := X\setminus A \in \mathcal{A}$
-	\item $\forall j \in \mathbb{N} : A_j \in \mathcal{A} \Rightarrow \bigcup_{j\in \mathbb{N}} A_j \in \mathcal{A}$
+	\item $\forall j \in \N : A_j \in \mathcal{A} \Rightarrow \bigcup_{j\in \N} A_j \in \mathcal{A}$
 \end{enumerate}
 
 \subsection*{Eigenschaften von $\sigma$-Algebren}
 
-Seien $\mathcal{A}$ eine $\sigma$-Algebra auf $X$, $n \in \mathbb{N}$, $\forall j \in \mathbb{N} : A_j \in \mathcal{A}$, dann ist $\mathcal{A}$ nach den folgenden Eigenschaften abgeschlossen unter abzählbaren Mengenoperationen:
+Seien $\mathcal{A}$ eine $\sigma$-Algebra auf $X$, $n \in \N$, $\forall j \in \N : A_j \in \mathcal{A}$, dann ist $\mathcal{A}$ nach den folgenden Eigenschaften abgeschlossen unter abzählbaren Mengenoperationen:
 
 \begin{enumerate}[label=(\alph*)]
 	\item $\emptyset = X^c \in \mathcal{A}$
 	\item $A_1 \bigcup \cdots \bigcup A_n \in \mathcal{A}$
 	\item $A_1 \bigcap \cdots \bigcap A_n \in \mathcal{A}$
-	\item $\bigcap_{j\in \mathbb{N}} A_j \in \mathcal{A}$
+	\item $\bigcap_{j\in \N} A_j \in \mathcal{A}$
 	\item $A_1 \setminus A_2 := A_1 \bigcap A_2^c \in \mathcal{A}$
 \end{enumerate}
 
@@ -62,9 +62,9 @@ Sei $\emptyset \neq \mathcal{E} \subseteq \mathcal{P}(X)$, dann gilt:
 
 Sei $X$ ein metrischer Raum und $\mathcal{O}(X)$ das System der in $X$ offenen Mengen, dann ist $\mathcal{B}(X) := \sigma(\mathcal{O}(X))$ die Borelsche $\sigma$-Algebra auf $X$.
 
-Im Speziellen wird $\mathcal{B}_m := \mathcal{B}(\mathbb{R}^m)$ gesetzt.
+Im Speziellen wird $\mathcal{B}_m := \mathcal{B}(\R^m)$ gesetzt.
 
-$\mathcal{B}_m$ enthält insb. alle offenen und abgeschlossenen Mengen in $\mathbb{R}^m$ sowie deren abzählbaren Vereinigungen und Durchschnitte.
+$\mathcal{B}_m$ enthält insb. alle offenen und abgeschlossenen Mengen in $\R^m$ sowie deren abzählbaren Vereinigungen und Durchschnitte.
 
 \subsubsection*{Charakterisierung}
 
@@ -82,7 +82,7 @@ $\mu : \mathcal{A} \rightarrow [0, \infty]$ ist positives Maß auf $\mathcal{A}$
 
 \begin{enumerate}[label=(\alph*)]
 	\item $\mu(\emptyset) = 0$
-	\item $\forall \text{ disjunkte } \{A_j | j \in \mathbb{N}\} \subseteq \mathcal{A} :\\ \hspace*{4mm} \mu(\dot\bigcup_{j\in \mathbb{N}} A_j) = \sum_{j\in \mathbb{N}} \mu(A_j)$
+	\item $\forall \text{ disjunkte } \{A_j | j \in \N\} \subseteq \mathcal{A} :\\ \hspace*{4mm} \mu(\dot\bigcup_{j\in \N} A_j) = \sum_{j\in \N} \mu(A_j)$
 \end{enumerate}
 
 \subsection*{Maßraum}
@@ -104,21 +104,21 @@ Dieses wird Punkt- / Diracmaß auf $\mathcal{A}$ genannt.
 
 \subsection*{Zählmaß}
 
-Sei $\mathcal{A} = \mathcal{P}(\mathbb{N})$ und $\forall j \in \mathbb{N} : p_j \in [0, \infty]$ fest gewählt.
+Sei $\mathcal{A} = \mathcal{P}(\N)$ und $\forall j \in \N : p_j \in [0, \infty]$ fest gewählt.
 
-$\mu(A) := \sum_{j\in A} p_j$ für $A \subseteq \mathbb{N}$ ist Maß auf $\mathcal{P}(\mathbb{N})$.
+$\mu(A) := \sum_{j\in A} p_j$ für $A \subseteq \N$ ist Maß auf $\mathcal{P}(\N)$.
 
-Gilt zusätzlich $\forall j \in \mathbb{N} : p_j = 1$ so heißt $\mu$ Zählmaß.
+Gilt zusätzlich $\forall j \in \N : p_j = 1$ so heißt $\mu$ Zählmaß.
 
 \subsection*{Eigenschaften von Maßen}
 
-Sei $(X, \mathcal{A}, \mu)$ Maßraum und $A, B, A_j \in \mathcal{A}$ für $j \in \mathbb{N}$.
+Sei $(X, \mathcal{A}, \mu)$ Maßraum und $A, B, A_j \in \mathcal{A}$ für $j \in \N$.
 
 \begin{description}[leftmargin=!,labelwidth=26mm]
 	\item[Monotonie] $A \subseteq B \Rightarrow \mu(A) \leq \mu(B)$
-	\item[$\sigma$-Subadditivität] $\mu(\dot\bigcup_{j\in \mathbb{N}} A_j) \leq \sum_{j\in \mathbb{N}} \mu(A_j)$
-	\item[Stetigkeit (unten)] $A_j \uparrow \Rightarrow \displaystyle\lim_{j\to \infty} \mu(A_j) = \mu(\bigcup_{j\in \mathbb{N}} A_j)$
-	\item[Stetigkeit (oben)] $A_j \downarrow \land \hspace*{1mm} \mu(A_1) < \infty \\ \hspace*{4mm}\Rightarrow \displaystyle\lim_{j\to \infty} \mu(A_j) = \mu(\bigcap_{j\in \mathbb{N}} A_j)$
+	\item[$\sigma$-Subadditivität] $\mu(\dot\bigcup_{j\in \N} A_j) \leq \sum_{j\in \N} \mu(A_j)$
+	\item[Stetigkeit (unten)] $A_j \uparrow \Rightarrow \displaystyle\lim_{j\to \infty} \mu(A_j) = \mu(\bigcup_{j\in \N} A_j)$
+	\item[Stetigkeit (oben)] $A_j \downarrow \land \hspace*{1mm} \mu(A_1) < \infty \\ \hspace*{4mm}\Rightarrow \displaystyle\lim_{j\to \infty} \mu(A_j) = \mu(\bigcap_{j\in \N} A_j)$
 \end{description}
 
 Für $\mu(A) < \infty$ folgt $\mu(B\setminus A) = \mu(B) - \mu(A)$.
@@ -131,20 +131,20 @@ Eine Abb. $f : \mathcal{A} \rightarrow [0, \infty)$ ist ein Prämaß auf Ring $\
 
 \begin{enumerate}[label=(\alph*)]
 	\item $\mu(\emptyset) = 0$
-	\item $\{A_j | j \in \mathbb{N}\} \subseteq \mathcal{A}$ disjunkt und $A = \bigcup_{j\in \mathbb{N}} A_j \in \mathcal{A} \Rightarrow \mu(A) = \sum_{j\in \mathbb{N}} \mu(A_j)$
+	\item $\{A_j | j \in \N\} \subseteq \mathcal{A}$ disjunkt und $A = \bigcup_{j\in \N} A_j \in \mathcal{A} \Rightarrow \mu(A) = \sum_{j\in \N} \mu(A_j)$
 \end{enumerate}
 
 \section*{Lebesguemaß}
 
 \subsection*{System der Intervalle}
 
-Sei $I = (a, b] \subseteq \mathbb{R}^m$ für $a, b \in \mathbb{R}^m$ mit $a \leq b$, dann wird das System von Intervallen $\mathcal{J}_m$ definiert:
+Sei $I = (a, b] \subseteq \R^m$ für $a, b \in \R^m$ mit $a \leq b$, dann wird das System von Intervallen $\mathcal{J}_m$ definiert:
 
 $\lambda(I) = \lambda_m(I) := (b_1 - a_1) \cdot \hdots \cdot (b_m - a_m)$
 
 \subsection*{Ring der Figuren}
 
-$$\mathcal{F}_m = \left\{ A = \bigcup_{j=1}^n I_j | I_j \in \mathcal{J}_m, n \in \mathbb{N} \right\}$$
+$$\mathcal{F}_m = \left\{ A = \bigcup_{j=1}^n I_j | I_j \in \mathcal{J}_m, n \in \N \right\}$$
 
 \subsubsection*{Eigenschaften}
 
@@ -178,9 +178,9 @@ Seien $\mathcal{A}, \mathcal{B}, \mathcal{C}$ $\sigma$-Algebren auf $X, Y, Z \ne
 	\item $f : X \rightarrow Y$ ist $\mathcal{A}$-$\mathcal{B}$-mb., $g : Y \rightarrow Z$ ist $\mathcal{B}$-$\mathcal{C}$-mb. $\Rightarrow g \circ f : X \rightarrow Z$ ist $\mathcal{A}$-$\mathcal{C}$-mb.
 	\item $\emptyset \neq \mathcal{E} \subseteq \mathcal{P}(Y)$, $\mathcal{B} = \sigma(\mathcal{E})$, $f: X \rightarrow Y$ dann ist $f$ messbar gdw. $\forall E \in \mathcal{E} : f^{-1}(E) \in \mathcal{A}$
 	\item $X, Y$ metrische Räume, $f : X \rightarrow Y$ stetig $\Rightarrow f$ ist Borel-messbar
-	\item $f : X \rightarrow \mathbb{R}^m$ ist $\mathcal{A}$-$\mathcal{B}_m$-mb. gdw. $\forall i \in \{1, \dots, m\} : f_i : X \rightarrow \mathbb{R}$ ist $\mathcal{A}$-$\mathcal{B}_1$-mb.
-	\item $f, g$ sind $\mathcal{A}$-$\mathcal{B}_1$-mb. und $\alpha, \beta \in \mathbb{R} \Rightarrow fg : X \rightarrow \mathbb{R}$ und $\frac{1}{f} : \{x \in X | f(x) \neq 0\} \rightarrow \mathbb{R}$ mb.
-	\item $f : X \rightarrow \mathbb{R}^m$ ist $\mathcal{A}$-$\mathcal{B}_m$-mb. $\\\Rightarrow g : X \rightarrow \mathbb{R}; x \mapsto |f(x)|_2$ ist $\mathcal{A}$-$\mathcal{B}_1$-mb.
+	\item $f : X \rightarrow \R^m$ ist $\mathcal{A}$-$\mathcal{B}_m$-mb. gdw. $\forall i \in \{1, \dots, m\} : f_i : X \rightarrow \R$ ist $\mathcal{A}$-$\mathcal{B}_1$-mb.
+	\item $f, g$ sind $\mathcal{A}$-$\mathcal{B}_1$-mb. und $\alpha, \beta \in \R \Rightarrow fg : X \rightarrow \R$ und $\frac{1}{f} : \{x \in X | f(x) \neq 0\} \rightarrow \R$ mb.
+	\item $f : X \rightarrow \R^m$ ist $\mathcal{A}$-$\mathcal{B}_m$-mb. $\\\Rightarrow g : X \rightarrow \R; x \mapsto |f(x)|_2$ ist $\mathcal{A}$-$\mathcal{B}_1$-mb.
 	\item $X = W \dot\cup Z$ mit $\emptyset \neq W, Z \in \mathcal{A}$, $f : W \rightarrow Y$ ist $\mathcal{A}_W$-$\mathcal{B}$-mb., $g : Z \rightarrow Y$ ist $\mathcal{A}_Z$-$\mathcal{B}$-mb. $\Rightarrow h(x) = \begin{cases}
 	f(x) & x \in W \\
 	g(x) & x \in Z

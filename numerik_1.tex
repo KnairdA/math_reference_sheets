@@ -5,7 +5,7 @@ Für $e_{min}, e_{max} \in \mathbb{Z}$, $e_{min} < e_{max}$ ist ein Gleitkommasy
 \vspace*{-4mm}
 \begin{align*}
 	\mathcal{F} &= \mathcal{F}(\beta,t,e_{min},e_{max}) \\
-	            &= \{ \pm m \beta^{e-t} | m \in \mathbb{N}, \beta^{t-1} \leq m \leq \beta^t - 1 \lor m = 0, \\ & \hspace*{16mm}e_{min} \leq e \leq e_{max} \}
+	            &= \{ \pm m \beta^{e-t} | m \in \N, \beta^{t-1} \leq m \leq \beta^t - 1 \lor m = 0, \\ & \hspace*{16mm}e_{min} \leq e \leq e_{max} \}
 \end{align*}
 
 $x \in \mathcal{F} \setminus \{0\} \Rightarrow \beta^{e_{min}-1} \leq |x| \leq \beta^{e_{max}}(1-\beta^{-1})$.
@@ -18,7 +18,7 @@ $x=\pm \beta^e ( \frac{d_1}{\beta^1} + \frac{d_2}{\beta^2} + \cdots + \frac{d_t}
 
 \subsection*{Relative Maschinengenauigkeit}
 
-$fl(x) \in \mathcal{F}$ ist die $x \in \mathbb{R}$ am nächsten liegende Gleitkommazahl.
+$fl(x) \in \mathcal{F}$ ist die $x \in \R$ am nächsten liegende Gleitkommazahl.
 
 Für relative Maschinengenauigkeit $\epsilon := \frac{1}{2} \beta^{1-t}$:
 
@@ -43,7 +43,7 @@ Für $\|\Delta x\|_X \rightarrow 0$. Ein Problem $(f, x)$ ist gut konditioniert 
 
 \subsubsection*{Kondition stetig differenzierbarer Fkt.}
 
-Für $f \in C^1(E, \mathbb{R}^m)$ in Umgebung $E \subseteq \mathbb{R}^n$ von $x$:
+Für $f \in C^1(E, \R^m)$ in Umgebung $E \subseteq \R^n$ von $x$:
 
 \vspace*{-2mm}
 $$\kappa_f(x) = \frac{\|f'(x)\| \cdot \|x\|_X}{\|f(x)\|_Y}$$
@@ -52,27 +52,27 @@ $$\kappa_f(x) = \frac{\|f'(x)\| \cdot \|x\|_X}{\|f(x)\|_Y}$$
 
 \subsection*{Induzierte Matrixnorm / Operatornorm}
 
-Für Normen $\| \cdot \|_\circ$, $\| \cdot \|_\star$ auf $\mathbb{K}^n$ bzw. $\mathbb{K}^m$ ist eine Matrixnorm $\| \cdot \| : \mathbb{K}^{m \times n} \rightarrow [0,\infty)$ auf dem Vektorraum der $m \times n$-Matrizen definiert:
+Für Normen $\| \cdot \|_\circ$, $\| \cdot \|_\star$ auf $\K^n$ bzw. $\K^m$ ist eine Matrixnorm $\| \cdot \| : \K^{m \times n} \rightarrow [0,\infty)$ auf dem Vektorraum der $m \times n$-Matrizen definiert:
 
 \vspace*{-4mm}
-$$\|A\| := \max_{v \in \mathbb{K}^n \setminus \{0\}} \frac{\|Av\|_\star}{\|v\|_\circ} = \max_{\{v \in \mathbb{K}^n | \|v\|_\circ = 1 \}} \|Av\|_\star$$
+$$\|A\| := \max_{v \in \K^n \setminus \{0\}} \frac{\|Av\|_\star}{\|v\|_\circ} = \max_{\{v \in \K^n | \|v\|_\circ = 1 \}} \|Av\|_\star$$
 
 \subsubsection*{Eigenschaften}
 
-Für $A \in \mathbb{K}^{m \times n}$ gilt $\forall v \in \mathbb{K}^n : \|Av\|_\star \leq \|A\| \cdot \|v\|_\circ$
+Für $A \in \K^{m \times n}$ gilt $\forall v \in \K^n : \|Av\|_\star \leq \|A\| \cdot \|v\|_\circ$
 
 Submultiplikativität: $\|AB\| \leq \|A\| \cdot \|B\|$
 
 \subsubsection*{Matrix-$p$-Normen}
 
-Induzierte Matrixnorm bei Wahl der $p$-Normen über $\mathbb{K}^n$ bzw. $\mathbb{K}^m$:
+Induzierte Matrixnorm bei Wahl der $p$-Normen über $\K^n$ bzw. $\K^m$:
 
 \vspace*{-4mm}
-$$\|A\|_p := \max_{\{v \in \mathbb{K}^n | \|v\|_p = 1 \}} \|Av\|_p \text{ für } 1 \leq p \leq \infty$$
+$$\|A\|_p := \max_{\{v \in \K^n | \|v\|_p = 1 \}} \|Av\|_p \text{ für } 1 \leq p \leq \infty$$
 
 \subsubsection*{Spaltensummennorm}
 
-Für $A = (a_1, \cdots, a_n)$ mit $a_j \in \mathbb{K}^m$:
+Für $A = (a_1, \cdots, a_n)$ mit $a_j \in \K^m$:
 
 \vspace*{-4mm}
 $$\|A\|_1 = \max_{1 \leq j \leq n} \|a_j\|_1 = \max_{1 \leq j \leq n} \sum_{i=1}^m |a_{i,j}|$$
@@ -84,7 +84,7 @@ $$\|A\|_\infty = \max_{1 \leq i \leq m} \sum_{j=1}^n |a_{i,j}|$$
 
 \subsubsection*{Spektralnorm}
 
-Die Matrix-$2$-Norm wird so genannt, da $\|A\|_2 = \sqrt{\lambda_{max}(A^H A)}$ für $\lambda_{max}(A^H A)$ als Bezeichner des größten Eigenwerts von $A^H A \in \mathbb{K}^{n \times n}$.
+Die Matrix-$2$-Norm wird so genannt, da $\|A\|_2 = \sqrt{\lambda_{max}(A^H A)}$ für $\lambda_{max}(A^H A)$ als Bezeichner des größten Eigenwerts von $A^H A \in \K^{n \times n}$.
 
 $\|A\|_2 = \|A^H\|_2$, $\|A^H A\|_2 = \|A\|_2^2$
 
@@ -92,7 +92,7 @@ $\|Q A\|_2 = \|A\|_2$ für unitäre $Q$.
 
 \subsection*{Kondition einer Matrix}
 
-Für $A \in \mathbb{K}^{n \times n} \in GL_n{\mathbb{R}}$, $\|\cdot\|$ induzierte Matrixnorm:
+Für $A \in \K^{n \times n} \in GL_n{\R}$, $\|\cdot\|$ induzierte Matrixnorm:
 
 \vspace*{-4mm}
 \begin{align*}
@@ -104,7 +104,7 @@ Für $A \in \mathbb{K}^{n \times n} \in GL_n{\mathbb{R}}$, $\|\cdot\|$ induziert
 
 \subsection*{Cramersche Regel}
 
-Sei $A = (a_{i,j})_{ij} \in GL_n(\mathbb{R})$, $b \in \mathbb{R}^n$, $A[j] = (a_1, \cdots, a_{j-1}, b, a_{j+1}, \cdots, a_n) \in \mathbb{R}^{n \times n}$, $a_k$ k-ter Spaltenvektor von $A$. Dann bildet $x_j = \frac{det(A[j])}{det(A)}$ für $j = 1, \cdots, n$ die eindeutige Lösung $x \in \mathbb{R}^n$ s.d. $Ax=b$.
+Sei $A = (a_{i,j})_{ij} \in GL_n(\R)$, $b \in \R^n$, $A[j] = (a_1, \cdots, a_{j-1}, b, a_{j+1}, \cdots, a_n) \in \R^{n \times n}$, $a_k$ k-ter Spaltenvektor von $A$. Dann bildet $x_j = \frac{det(A[j])}{det(A)}$ für $j = 1, \cdots, n$ die eindeutige Lösung $x \in \R^n$ s.d. $Ax=b$.
 
 Aufgrund des hohen Aufwands von allg. mehr als $(n+1)!$ arithmetischen Operationen ist die Cramersche Regel nur von theoretischer Bedeutung.
 
