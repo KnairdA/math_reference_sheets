@@ -110,7 +110,7 @@ $\forall i \in \{1,\cdots,n\} : |a_{i,i}| > \sum_{j=1,j\neq i}^n |a_{i,j}|$
 
 Insbesondere sind solche $A$ regulär.
 
-\subsection*{Positive Definitheit}
+\subsection*{Positiv definite Matrizen}
 
 $A \in \R^{n \times n}$ ist positiv definit d.h. $A > 0$ falls $A=A^T$ und $\forall x \in \R^n \setminus \{0\} : x^TAx > 0$.
 
@@ -160,6 +160,37 @@ Für alle regulären Matrizen existiert eine Spaltenpivotsuchen LR-Zerlegung so,
 Für $A > 0$ existiert untere Dreiecksmatrix $L$ mit positiver Diagonale, so dass $A = LL^T$
 
 \subsection*{QR-Faktorisierung}
+
+Für alle $A \in \R^{m \times n}$ mit $m \geq n$ und $Rang(A)=n$ existiert $A=QR$ mit unitärem $Q \in \R^{m \times m}$ und injektiver oberer Dreiecksmatrix $R$.
+
+\subsubsection*{Householder-Reflexionen}
+
+$$H(v) := Id_m - 2 \frac{vv^T}{v^Tv} = Id_m - 2 \frac{vv^T}{\|v\|_2^2} \text{ für } \forall v \in \R^m \setminus \{0\}$$
+
+Solche Householder-Reflexionen $H(v)$ sind orthogonal, d.h. $H(v)^T=H(v)$ und $H(v)^2=Id_m$.
+
+Wegen $H(v)v=v-2v=-v$ und $\forall w \in spann\{v\}^\perp : H(w)w=w$ ist $H(v)$ Spiegelung an der Hyperebene $spann\{v\}^\perp$.
+
+Solche Reflexionen können durch wiederholte Anwendung Matrizen in obere Dreiecksgestalt überführen:
+
+\vspace{1mm}
+
+Gesucht ist $v \in \R^m$ für $y \in \R^m$ s.d.:
+
+\vspace{-2mm}
+$$H(v)y=y - 2 \frac{\skp{v,y}}{\|v\|_2^2}v \overset{!}{=} \alpha e_1$$
+
+Vermeidung von Auslöschung: $\alpha := -sign(y_1)\|y\|_2$
+
+Es ergibt sich mit $v:=y-\alpha e_1$: $H(y-\alpha e_1)y=\alpha e_1$.
+
+\vspace{1mm}
+
+Seien $Q_k$ die sukzessiven, auf $m \times m$ erweiterten, Householder-Reflexionen. Dann gilt:
+
+\vspace{1mm}
+
+$R:=Q_p \cdots Q_1 A$, $Q:=Q_1^T \cdots Q_p^T$ s.d. $A=QR$.
 
 \section*{Lineare Ausgleichsprobleme}
 
