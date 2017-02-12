@@ -192,6 +192,26 @@ Seien $Q_k$ die sukzessiven, auf $m \times m$ erweiterten, Householder-Reflexion
 
 $R:=Q_p \cdots Q_1 A$, $Q:=Q_1^T \cdots Q_p^T$ s.d. $A=QR$.
 
+\subsubsection*{Givens-Rotationen}
+
+Mit $c^2 + s^2 = 1, c, s \in \R$ und $l < k$:
+
+$$G(l,k) := \left(\begin{smallmatrix}
+1 &           &   &    &   &           &   &   &   &           &   \\
+  & \diagdown &   &    &   &           &   &   &   &           &   \\
+  &           & 1 &    &   &           &   &   &   &           &   \\
+  &           &   &  c &   &           &   & s &   &           &   \\
+  &           &   &    & 1 &           &   &   &   &           &   \\
+  &           &   &    &   & \diagdown &   &   &   &           &   \\
+  &           &   &    &   &           & 1 &   &   &           &   \\
+  &           &   & -s &   &           &   & c &   &           &   \\
+  &           &   &    &   &           &   &   & 1 &           &   \\
+  &           &   &    &   &           &   &   &   & \diagdown &   \\
+  &           &   &    &   &           &   &   &   &           & 1
+\end{smallmatrix}\right)$$
+
+Wobei $c$ das Diagonalelement der $l$-ten und $k$-ten Zeile, $s$ $k$-tes Element der $l$-ten Zeile, $-s$ $l$-tes Element der $k$-ten Zeile.
+
 \section*{Lineare Ausgleichsprobleme}
 
 \section*{Iterative Verfahren zur LGS Lösung}
