@@ -100,6 +100,20 @@ Für $A \in \K^{n \times n} \in GL_n{\R}$, $\|\cdot\|$ induzierte Matrixnorm:
 1 = \|Id\| = \|AA^{-1}\| &\leq \|A\| \cdot \|A^{-1}\| = \kappa(A)
 \end{align*}
 
+\section*{Besondere Matrizen}
+
+\subsection*{Diagonaldominante Matrizen}
+
+$A \in \R^{n \times n}$ ist diagonaldominant, falls:
+
+$\forall i \in \{1,\cdots,n\} : |a_{i,i}| > \sum_{j=1,j\neq i}^n |a_{i,j}|$
+
+Insbesondere sind solche $A$ regulär.
+
+\subsection*{Positive Definitheit}
+
+$A \in \R^{n \times n}$ ist positiv definit d.h. $A > 0$ falls $A=A^T$ und $\forall x \in \R^n \setminus \{0\} : x^TAx > 0$.
+
 \section*{Direkte Verfahren zur LGS Lösung}
 
 \subsection*{Cramersche Regel}
@@ -114,9 +128,38 @@ Obere Dreicksmatrizen können mittels Rückwärtssubstitution, untere Dreiecksma
 
 \subsection*{LR-Zerlegung}
 
+$A = LR$ wobei $L$ untere Dreiecksmatrix mit $1$-Diagonale und $R$ obere Dreicksmatrix.
+
+\subsubsection*{Berechnung LR-Zerlegung}
+
+Die LR-Zerlegung existiert insofern die Diagonaleinträge nicht verschwinden. Insbesondere gilt dies für diagonaldominante Matrizen.
+
+\begin{enumerate}
+	\item Spaltenweises nullen der der unteren Einträge mittels \emph{Gauß}, Matrizen $L_1, \cdots, L_{n-1}$
+	\item $L = L_1^{-1} \cdots L_{n-1}^{-1}$, $R=L_{n-1} \cdots L_1 A$
+\end{enumerate}
+
+\subsubsection*{Lösung $Ax=b$ mittels LR-Zerlegung}
+
+\begin{enumerate}
+	\item $A=LR$ berechnen
+	\item $Lz=b$ Vorwärtssubstitution
+	\item $Rx=z$ Rückwärtssubstitution
+\end{enumerate}
+
+\subsubsection*{Spaltenpivotsuche}
+
+Die normale LR-Zerlegung ist nur Vorwärts- und nicht Rückwärtsstabil. Dies kann durch Spaltenpivotsuche verbessert werden. Hier wird in jedem Schritt mittels einer Permutationsmatrix immer mit der größten verbleibenden Zeile eliminiert.
+
+\vspace{1mm}
+
+Für alle regulären Matrizen existiert eine Spaltenpivotsuchen LR-Zerlegung so, dass $PA=LR$.
+
 \subsection*{Cholesky-Zerlegung}
 
-\subsection*{QR-Zerlegung}
+Für $A > 0$ existiert untere Dreiecksmatrix $L$ mit positiver Diagonale, so dass $A = LL^T$
+
+\subsection*{QR-Faktorisierung}
 
 \section*{Lineare Ausgleichsprobleme}
 
