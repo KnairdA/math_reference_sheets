@@ -108,7 +108,7 @@ $A \in \R^{n \times n}$ ist diagonaldominant, falls:
 
 $\forall i \in \{1,\cdots,n\} : |a_{i,i}| > \sum_{j=1,j\neq i}^n |a_{i,j}|$
 
-Insbesondere sind solche $A$ regulär.
+Insbesondere sind solche $A$ regulär. Gilt nur $\geq$ so heißt die Matrix schwach diagonaldominant.
 
 \subsection*{Positiv definite Matrizen}
 
@@ -277,7 +277,47 @@ Ein Abbruchkriterium mit Toleranz $\tau > 0$ ist z.B. $\|u^m-u^{m-1}\| \leq \tau
 
 \subsection*{Lineare Iterationsverfahren}
 
+$u^{k+1} = u^k + N(b-Au^k) = (Id - NA)u^k + Nb$ zu $u^0 \in \R^n$ wobei $N \in GL_n(\R)$ das jeweilige Verfahren charakterisiert.
+
+$M := Id - NA$ heißt Iterationsmarix.
+
+\subsubsection*{Spektralradius}
+
+$\varrho(M) = \max\{|\lambda| : \lambda \in Spec(M)\}$
+
+\subsubsection*{Konvergenz}
+
+Ein lineares Iterationsverfahren konvergiert gdw. Spektralradius von $M$ $\varrho(M) < 1$.
+
+Ist $\|M\| < 1$ für induzierte Matrixnorm $\|\cdot\|$ dann konvergiert das entsprechende lineare Iterationsverfahren ebenso.
+
+Sind $A$ oder $A^T$ diagonaldominant so konvergieren sowohl das Jacobi- als auch das Gauß-Seidel-Verfahren.
+
+\subsubsection*{Gesamtschritt- / Jacobi-Verfahren}
+
+$$u_i^{k+1} = u_i^k + \frac{1}{a_{i,i}}\left(b_i - \sum_{j=1}^n a_{i,j} u_j^k \right) \text{ für } i = 1, \cdots, n$$
+
+Für $A = D - L - R$:
+
+\vspace{-4mm}
+\begin{align*}
+	u^{k+1} &= u^k + D^{-1}(b-Au^k) \\
+	        &= (Id - D^{-1}A)u^k + D^{-1}b
+\end{align*}
+
+Also: $M^{Jac} = Id - D^{-1}A = D^{-1}(L+R)$, $N^{Jac} = D^{-1}$
+
+\subsubsection*{Einzelschritt- / Gauß-Seidel-Verfahren}
+
+$$u_i^{k+1} = u_i^k + \frac{1}{a_{i,i}}\left(b_i - \sum_{j=1}^{i-1} a_{i,j} u_j^{k+1} - \sum_{j=i}^n a_{i,j} u_j^k \right)$$
+
+Für $A = D - L - R$:
+
+$M^{GS} = (D - L)^{-1}R$, $N^{GS} = (D - L)^{-1}$.
+
 \subsection*{Krylow-Raum-Verfahren}
+
+$$\mathcal{U}_m(B,v) := spann\{v,Bv,B^2v, \cdots, B^{m-1}v\} \subset \R^n$$
 
 \subsection*{cg-Verfahren}
 
