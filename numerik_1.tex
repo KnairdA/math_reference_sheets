@@ -331,7 +331,7 @@ Das Residuuum der $k$-ten Iterierten $u^k$:
 \vspace{-2mm}
 $$r^k=(I-AN)r^{k-1} = (I-AN)^kr^0$$
 
-Es gilt: $u^k \in u^0 + V_k$ mit $V_k = \mathcal{U}_k(NA,Nr^0)$
+Es gilt: $u^k \in u^0 + V_k$ mit $V_k = \mathcal{U}_k(NA,Nr^0)$ sowie $r^0 = b - Au^0$.
 
 Minimaleigenschaft der $k$-ten Iterierten bzgl. Norm $\|\cdot\|_\star$ auf $\R^n$:
 
@@ -339,6 +339,10 @@ Minimaleigenschaft der $k$-ten Iterierten bzgl. Norm $\|\cdot\|_\star$ auf $\R^n
 $$u^k = argmin\{\|v - A^{-1}b\|_\star : v \in V_k\}$$
 
 Ein Krylov-Raum-Verfahren bzgl. einer Norm $\|\cdot\|_\star$ ist nur dann sinnvoll, wenn $u^k$ mit geringem, d.h. im Bereich von zwei Matrix-Vektormultiplikationen liegendem, numerischen Aufwand aus $u^{k-1}$ hervorgeht.
+
+\subsection*{Vorkonditionierer}
+
+Anforderungen: $Nv$ sollte schnell zu berechnen sein, weiterhin sollte $N \approx A^{-1}$ möglichst gelten.
 
 \subsection*{Bezüglich $A > 0$ konjugierte Vektoren}
 
@@ -354,5 +358,15 @@ $$u^k = argmin\{\|v-A^{-1}b\|_A : v \in V_k\}$$
 Für positiv definite $A, N \in \R^{n \times n}$ sowie $b \in \R^n$ liefert das CG-Verfahren nach spätestens $n$ Schritten $A^{-1}b$. Eigentlich ist es bei exakter Arithmetik also ein direkter Verfahren, wird aber durch früheren Abbruch als iteratives Verfahren verwendet.
 
 \subsection*{GMRES-Verfahren}
+
+Das Verfahren des verallgemeinerten minimalen Residuum liefert die Lösung $Ax=b$ für $A \in GL_n(\R)$ und ist charakterisiert durch:
+
+\vspace{-4mm}
+\begin{align*}
+	u^k :&= argmin\{\|N(b-Av)\|_2 : v \in V_k\} \\
+	     &= argmin\{\|NA(A^{-1}b-v)\|_2 : v \in V_k\}
+\end{align*}
+
+Das GMRES-Verfahren ist also durch die nicht Skalarprodukt-induzierte  Norm $\|NA\cdot\|_2$ induziert.
 
 \section*{Interpolation}
