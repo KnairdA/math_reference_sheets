@@ -241,7 +241,41 @@ QR mit Householder ist ungefähr doppelt so schnell wie mit Givens. Diese sind d
 
 \section*{Lineare Ausgleichsprobleme}
 
+Finde $u^* \in \R^n$: $\|Au^*-b\|_2 = \min_{u\in \R^n} \|Au-b\|_2$
+
+Es sind äquivalent:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $u^*$ löst Ausgleichsproblem
+	\item $u^*$ löst Normalengleichung $A^TAu^*=A^Tb$
+	\item $u^*$ erfüllt $Au^* = P_Ab$ mit Ortogonalprojekt. $P_A : \R^m \rightarrow \R^m$ auf Bild von $A$
+\end{enumerate}
+
+Das Residuum $Au^*-b$ steht normal zu Bild von $A$.
+
+Ein Ausgleichsproblem ist eindeutig lösbar gdw. $Kern(A) = \{0\}$.
+
+Die Lösung mit minimaler euklidischer Norm wird Minimum-Norm-Lösung $u^+$ genannt.
+
+\subsection*{Singulärwertzerlegung}
+
+Sei $A \in \R^{m \times n}$ mit $r=Rang(A) \leq \min\{m,n\}$.
+
+Dann existiert $A=USV^T$ mit orthogonalen $U \in \R^{m \times m}$, $V \in \R^{n \times n}$ sowie Diagonalmatrix $S \in \R^{m \times n}$.
+
 \section*{Iterative Verfahren zur LGS Lösung}
+
+Ein iteratives Verfahren zur Lösung von $Au=b$ liefert zu Startvektor $u^0 \in \R^n$ eine Folge $\{u^k\}_{k\in \N_0} \subset \R^n$ mittels $\Psi_k : (\R^n)^{k+1} \rightarrow \R^n$ durch $u^{k+1} = \Psi_k(u^0, \cdots, u^k)$.
+
+Ein Verfahren konvergiert falls $\forall u^0 \in \R^n$, $b \in \R^n : \lim_{k\to \infty} u^k = A^{-1}b$
+
+\subsection*{Abbruchkriterium}
+
+Direkte Löser liefern bei exakter Arithmetik nach endlich vielen Schritten $A^{-1}b$. Bei iterativen Lösern gilt im allg. $\forall k \in \N : u^k \neq A^{-1}b$.
+
+Ein Abbruchkriterium mit Toleranz $\tau > 0$ ist z.B. $\|u^m-u^{m-1}\| \leq \tau$ oder das relative Residuum von $u^m$: $\frac{\|Au^m-b\|}{\|b\|} \leq \tau$
+
+\subsection*{Lineare Iterationsverfahren}
 
 \subsection*{Krylow-Raum-Verfahren}
 
