@@ -90,6 +90,10 @@ $\|A\|_2 = \|A^H\|_2$, $\|A^H A\|_2 = \|A\|_2^2$
 
 $\|Q A\|_2 = \|A\|_2$ für unitäre $Q$.
 
+\subsection*{Induzierte Normen}
+
+Für $A \in \R^{n \times n}$ mit $A > 0$ ist $\skp{z,z}_A := \skp{Az,z}_2$ ein Skalarprodukt auf $\R^n$. Dieses induziert die Energienorm $\|z\|_A = \sqrt{\skp{z,z}_A}$.
+
 \subsection*{Kondition einer Matrix}
 
 Für $A \in \K^{n \times n} \in GL_n{\R}$, $\|\cdot\|$ induzierte Matrixnorm:
@@ -315,11 +319,39 @@ Für $A = D - L - R$:
 
 $M^{GS} = (D - L)^{-1}R$, $N^{GS} = (D - L)^{-1}$.
 
-\subsection*{Krylow-Raum-Verfahren}
+\subsection*{Krylov-Raum-Verfahren}
 
+Der Krylov-Raum $m$-ter Ordnung bzgl. $B$ und $v$:
+
+\vspace{-4mm}
 $$\mathcal{U}_m(B,v) := spann\{v,Bv,B^2v, \cdots, B^{m-1}v\} \subset \R^n$$
 
-\subsection*{cg-Verfahren}
+Das Residuuum der $k$-ten Iterierten $u^k$:
+
+\vspace{-2mm}
+$$r^k=(I-AN)r^{k-1} = (I-AN)^kr^0$$
+
+Es gilt: $u^k \in u^0 + V_k$ mit $V_k = \mathcal{U}_k(NA,Nr^0)$
+
+Minimaleigenschaft der $k$-ten Iterierten bzgl. Norm $\|\cdot\|_\star$ auf $\R^n$:
+
+\vspace{-2mm}
+$$u^k = argmin\{\|v - A^{-1}b\|_\star : v \in V_k\}$$
+
+Ein Krylov-Raum-Verfahren bzgl. einer Norm $\|\cdot\|_\star$ ist nur dann sinnvoll, wenn $u^k$ mit geringem, d.h. im Bereich von zwei Matrix-Vektormultiplikationen liegendem, numerischen Aufwand aus $u^{k-1}$ hervorgeht.
+
+\subsection*{Bezüglich $A > 0$ konjugierte Vektoren}
+
+Vektoren $p, q \in \R^n$ sind konjugiert bzgl. $A > 0$ d.h. $A$-orthogonal, falls $Ap \perp q$, also $\skp{Ap,q}_2=\skp{p,q}_A=0$.
+
+\subsection*{CG-Verfahren}
+
+Das Verfahren der konjugierten Gradienten ist durch die Energienorm charakterisiert und definiert als:
+
+\vspace{-2mm}
+$$u^k = argmin\{\|v-A^{-1}b\|_A : v \in V_k\}$$
+
+Für positiv definite $A, N \in \R^{n \times n}$ sowie $b \in \R^n$ liefert das CG-Verfahren nach spätestens $n$ Schritten $A^{-1}b$. Eigentlich ist es bei exakter Arithmetik also ein direkter Verfahren, wird aber durch früheren Abbruch als iteratives Verfahren verwendet.
 
 \subsection*{GMRES-Verfahren}
 
