@@ -114,6 +114,10 @@ Insbesondere sind solche $A$ regulär.
 
 $A \in \R^{n \times n}$ ist positiv definit d.h. $A > 0$ falls $A=A^T$ und $\forall x \in \R^n \setminus \{0\} : x^TAx > 0$.
 
+\subsection*{Hessenberg-Matrizen}
+
+Fast obere / untere Dreiecksmatrix wobei 1. untere / obere Nebendiagonale besetzt sein kann.
+
 \section*{Direkte Verfahren zur LGS Lösung}
 
 \subsection*{Cramersche Regel}
@@ -211,6 +215,29 @@ $$G(l,k) := \left(\begin{smallmatrix}
 \end{smallmatrix}\right)$$
 
 Wobei $c$ das Diagonalelement der $l$-ten und $k$-ten Zeile, $s$ $k$-tes Element der $l$-ten Zeile, $-s$ $l$-tes Element der $k$-ten Zeile.
+
+Givens-Rotationen sind orthogonal, $G(l,k)A$ unterscheidet sich von $A$ nur in der $l$-ten und $k$-ten Zeile.
+
+\vspace{-4mm}
+$$(G(l,k)x)_i = \begin{cases}
+	 cx_l + sx_k & i=l \\
+	-sx_l + cx_k & i=k \\
+	x_i          & \text{sonst}
+\end{cases}$$
+
+$\exists \varphi \in (0,2\pi] : c=\cos{\varphi}, s=\sin{\varphi}$ d.h. $G(l,k)$ ist Rotation um $\varphi$ in Ebene $spann\{e_l,e_k\}$.
+
+Ziel: $k$-te Komponente von $x$ nullen für $x_l^2+x_k^2 \neq 0$.
+
+\vspace{-4mm}
+\begin{align*}
+	|x_l| > |x_k| : &\tau := \frac{x_k}{x_l}, c := \frac{1}{\sqrt{1+\tau^2}}, s := c\tau \\
+	|x_l| \leq |x_k| : &\tau := \frac{x_l}{x_k}, s := \frac{1}{\sqrt{1+\tau^2}}, c := s\tau
+\end{align*}
+
+Mit einer solchen Givens-Rotation können einzelne Matrixelemente genullt und $A \in \R^{m \times n}$ so sukzessive in eine obere Dreiecksmatrix transformiert werden.
+
+QR mit Householder ist ungefähr doppelt so schnell wie mit Givens. Diese sind daher nur bei strukturierten Matrizen wie Tridiagonal- oder Hessenberg-Matrizen sinnvoll einzusetzen.
 
 \section*{Lineare Ausgleichsprobleme}
 
