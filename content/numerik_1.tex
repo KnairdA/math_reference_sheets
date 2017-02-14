@@ -503,3 +503,15 @@ Für $s \in S_{4,\Delta}$, $\Delta = \{t_0,\cdots,t_{l+1}\}$ sind mögliche Rand
 \end{enumerate}
 
 Ist eine dieser Randbedingungen erfüllt, so ist $s$ eindeutig bestimmt. Ferner gilt für alle anderen interpolierenden $y \in \mathcal{C}^2(a,b)$: $\|s''\|_2 < \|y''\|_2$
+
+\subsubsection*{Momente von Splines}
+
+$M_j = s''(t_j)$ für $j = 0, \cdots, l+1$ sind die Momente des Splines $s \in S_{4,\Delta}$. Aus diesen Momenten kann der Spline vollständig rekonstruiert werden.
+
+Da $s_j := s|_{[t_j,t_{j+1}]}$ ein kubisches Polynom ist gilt für $s_j'' = s''|_{[t_j,t_{j+1}]}$:
+
+$$s_j''(t) = M_j \frac{t_{j+1}-t}{h_{j+1}} + M_{j+1} \frac{t-t_j}{h_{j+1}}$$
+
+Hierbei ist $h_{j+1} := t_{j+1} - t_j$ die Länge des Teilintervalls $[t_j,t_{j+1}]$.
+
+Zweimalige Intergration liefert an dieser Stelle $s_j$, die Integrationskonstanten lassen sich aus den Interpolationsbedingungen berechnen.
