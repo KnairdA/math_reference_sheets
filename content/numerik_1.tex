@@ -43,7 +43,7 @@ Für $\|\Delta x\|_X \rightarrow 0$. Ein Problem $(f, x)$ ist gut konditioniert 
 
 \subsubsection*{Kondition stetig differenzierbarer Fkt.}
 
-Für $f \in C^1(E, \R^m)$ in Umgebung $E \subseteq \R^n$ von $x$:
+Für $f \in \mathcal{C}^1(E, \R^m)$ in Umgebung $E \subseteq \R^n$ von $x$:
 
 \vspace*{-2mm}
 $$\kappa_f(x) = \frac{\|f'(x)\| \cdot \|x\|_X}{\|f(x)\|_Y}$$
@@ -434,3 +434,72 @@ Diese Knotenfolge liegt dichter zu den Intervallgrenzen hin und ergibt eine bess
 Zu jeder Folge von Knoten $\{t_0^{(n)},\cdots,t_n^{(n)}\}_{n \in \N}$ in $[a,b]$ gibt es ein $f \in C([a,b])$ so, dass $\{P(f|t_0^{(n)},\cdots,t_n^{(n)})\}_{n \in \N}$ für $n \to \infty$ nicht glm. gegen $f$ konvergiert.
 
 \section*{Splines}
+
+Sei $\Delta = \{t_0,\cdots,t_{l+1}\}$ ein Gitter paarweise verschiedener Knoten $a=t_0 < \cdots < t_{l+1} = b$.
+$s \in \mathcal{C}^{k-2}(a,b)$ ist Spline der Ordnung $k \in \N$ bzgl. $\Delta$ wenn sie auf jedem Interval $[t_i,t_{i+1}]$ mit einem Polynom $s_i \in \Pi_{k-1}$ übereinstimmt.
+
+$S_{k,\Delta}$ ist Raum aller Splines der Ordnung $k$ bzgl. $\Delta$.
+
+Der Spline-Raum $S_{k,\Delta}$ ist ein reeller Vektorraum mit $\Pi_{k-1}[a,b] \subset S_{k,\Delta}$.
+
+Zusätzlich gilt auch $(t-t_i)_+^{k-1} \in S_{k,\Delta}$
+
+\subsection*{Abgebrochene Potenzen}
+
+Abgebrochene Potenzen vom Grad $k-1$:
+
+$$(t-t_i)_+^{k-1} := \begin{cases}(t-t_i)^{k-1} &: t \geq t_i \\ 0 &: t < t_i\end{cases}$$
+
+Für $t_i \in \Delta$, $i \neq l+1$
+
+\subsection*{Basis des Spline-Raumes}
+
+$$\mathcal{B} = \{1,t,\cdots,t^{k-1},(t-t_1)_+^{k-1},\cdots,(t-t_l)_+^{k-1}\}$$
+
+ist eine Basis von $S_{k,\Delta}$ mit $\dim(S_{k,\Delta}) = k + l$.
+
+\subsection*{Spline-Interpolation}
+
+Interpolation einer Funktion $f$ bzgl. eines Gitters $\Delta = \{t_0,\cdots,t_{l+1}$ durch Spline der Ordnung $k$.
+
+\vspace{2mm}
+
+Im linearen Fall mit $k=2$ stimmt die Anzahl der Knoten $l+2$ mit $\dim(S_{2,\Delta})=l+2$ überein. Es gibt also genau einen Spline der $(t_i,f(t_i))$ interpoliert.
+
+$$I_2 f = \sum_{i=0}^{l+1} f(t_i) B_i$$
+
+Für $B_i \in S_{2,\Delta}$ mit $B_i(t_k) = \delta_{i,k}$
+
+\subsection*{Kubische Splines}
+
+Kubische Splines der Ordnung 4 eigenen sich für die Darstellung von Kurven, da das menschliche Auge diese als glatt empfindet.
+
+\vspace{2mm}
+
+Die Interpolationsbedingungen reichen zur eindeutigen Bestimmung eines interpolierenden Spline aus $S_{4,\Delta}$ nicht aus. Wegen $\dim(S_{4,\Delta}) - (l+2) = l+4-(l+2) = 2$ bleiben 2 Freiheitsgrade unbestimmt.
+
+Eine zusätzliche Bedingung ist, dass der interpolierende kubische Spline die minimale Krümmung aller interpolierenden $\mathcal{C}^2$-Funktionen besitzen soll.
+
+\subsubsection*{Krümmung einer Funktion}
+
+Krümmung von $y : [a,b] \rightarrow \R, y \in \mathcal{C}^2$:
+
+$$\kappa(t) := \frac{y''(t)}{(1+y'(t))^{3/2}}$$
+
+$1/\kappa(t)$ ist der Radius des \emph{Krümmungskreises}.
+
+Das Krümmungsverhalten von $y$ über ganz $[a,b]$ ist durch ein Integral messbar:
+
+$$\|y''\|_2 := \left(\int_a^b y''(t)^2 dt\right)^{1/2}$$
+
+\subsubsection*{Randbedingungen}
+
+Für $s \in S_{4,\Delta}$, $\Delta = \{t_0,\cdots,t_{l+1}\}$ sind mögliche Randbedingungen:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $s'(a) = f'(a)$ und $s'(b)=f'(b)$, \emph{vollständige Spline-Interpolation}
+	\item $s''(a) = s''(b) = 0$, \emph{natürliche Interpolation}
+	\item $s'(a) = s'(b)$ und $s''(a) = s''(b)$ falls $f$ periodisch mit Periode $b-a$, \emph{periodische Interpolation}
+\end{enumerate}
+
+Ist eine dieser Randbedingungen erfüllt, so ist $s$ eindeutig bestimmt. Ferner gilt für alle anderen interpolierenden $y \in \mathcal{C}^2(a,b)$: $\|s''\|_2 < \|y''\|_2$
