@@ -422,4 +422,15 @@ P_{i,k} &= \frac{(t_{i-k}-t)P_{i,k-1} - (t_i-t)P_{i-1,k-1}}{t_{i-k}-t_i} \\
 
 \subsection*{Tschebyscheff-Knoten}
 
+Für $i = 0,\cdots,n$:
+
+\vspace{-2mm}
+$$t_i^{[a,b]} = \frac{b+a}{2} + \frac{b-a}{2} \cos\left(\frac{2i+1}{2n+2} \pi\right)$$
+
+Diese Knotenfolge liegt dichter zu den Intervallgrenzen hin und ergibt eine bessere Interpolation als äquidistante Knoten.
+
+\subsection*{Satz von Faber}
+
+Zu jeder Folge von Knoten $\{t_0^{(n)},\cdots,t_n^{(n)}\}_{n \in \N}$ in $[a,b]$ gibt es ein $f \in C([a,b])$ so, dass $\{P(f|t_0^{(n)},\cdots,t_n^{(n)})\}_{n \in \N}$ für $n \to \infty$ nicht glm. gegen $f$ konvergiert.
+
 \section*{Splines}
