@@ -8,5 +8,7 @@ Das resultierende PDF der in _LaTeX_ gesetzten Quellen der [Analysis](https://st
 
 ## Generierung
 
-	pdflatex -jobname=analysis zusammenfassung.tex
-	pdflatex -jobname=lineare_algebra zusammenfassung.tex
+	# topics: analysis, analysis_3, lineare_algebra, numerik_1
+	make build topic=analysis
+	# continuous rebuilds:
+	make live topic=numerik_1
