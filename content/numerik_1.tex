@@ -48,6 +48,28 @@ Für $f \in \mathcal{C}^1(E, \R^m)$ in Umgebung $E \subseteq \R^n$ von $x$:
 \vspace*{-2mm}
 $$\kappa_f(x) = \frac{\|f'(x)\| \cdot \|x\|_X}{\|f(x)\|_Y}$$
 
+\subsection*{Stabilität numerischer Algorithmen}
+
+Elementaroperationen eines Computers sind mit dem relativen Fehler $\epsilon$ behaftet. Zusätzlich existiert ein Eingabefehler derselben Größenordnung. Es ist also in jedem Fall mit einem relativen Fehler $\kappa_f(x)\epsilon$ zu rechnen.
+
+\subsubsection*{Vorwärtsanalyse}
+
+\emph{Stabilitätsindikator der Vorwärtsanalyse} eines Algorithmus' $\tilde f$ zur Lösung von $(f,x)$ ist minimales $\sigma = \sigma(x) \geq 0$ für $\{x^\epsilon\}_{\epsilon > 0}$ mit $\|x-x^\epsilon\|_X \leq \epsilon \|x\|_X$:
+
+\vspace{-4mm}
+$$\frac{\|\tilde f(x^\epsilon) - f(x^\epsilon)\|_Y}{\|f(x^\epsilon)\|_Y} \leq \sigma \kappa_f(x^\epsilon)\epsilon + o(\epsilon) \text{ für } \epsilon \to 0$$
+
+Algorithmus $\tilde f$ ist stabil im Sinne der Vorwärtsanalyse, wenn $\sigma \leq$ \#Elementaroperationen.
+
+\subsubsection*{Rückwärtsanalyse}
+
+\emph{Stabilitätsindikator der Rückwärtsanalyse} ist minimales $\varrho = \varrho(x) \geq 0$ für $\{x^\epsilon\}_{\epsilon > 0}$ s.d. für bel. $\|x^\epsilon - x\|_X \leq \epsilon \|x\|_X$ Schar $\{\hat x^\epsilon\}_{\epsilon > 0}$ ex. mit $\tilde f(\hat x^\epsilon)$ s.d.
+
+\vspace{-2mm}
+$$\frac{\|\hat x^\epsilon - x^\epsilon\|_X}{\|x^\epsilon\|_X} \leq \varrho\epsilon + o(\epsilon) \text{ für } \epsilon \to 0$$
+
+Vorwärtsstabilität folgt aus Rückwärtsstabilität.
+
 \section*{Vektor- und Matrixnormen}
 
 \subsection*{Induzierte Matrixnorm / Operatornorm}
