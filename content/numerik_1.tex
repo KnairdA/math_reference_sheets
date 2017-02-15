@@ -160,6 +160,10 @@ $A \in \R^{n \times n}$ ist positiv definit d.h. $A > 0$ falls $A=A^T$ und $\for
 
 Fast obere / untere Dreiecksmatrix wobei 1. untere / obere Nebendiagonale besetzt sein kann.
 
+\subsection*{Bezüglich $A > 0$ konjugierte Vektoren}
+
+Vektoren $p, q \in \R^n$ sind konjugiert bzgl. $A > 0$ d.h. $A$-orthogonal, falls $Ap \perp q$, also $\skp{Ap,q}_2=\skp{p,q}_A=0$.
+
 \section*{Direkte Verfahren zur LGS Lösung}
 
 \subsection*{Cramersche Regel}
@@ -378,13 +382,14 @@ $$u^k = argmin\{\|v - A^{-1}b\|_\star : v \in V_k\}$$
 
 Ein Krylov-Raum-Verfahren bzgl. einer Norm $\|\cdot\|_\star$ ist nur dann sinnvoll, wenn $u^k$ mit geringem, d.h. im Bereich von zwei Matrix-Vektormultiplikationen liegendem, numerischen Aufwand aus $u^{k-1}$ hervorgeht.
 
+\vspace{-2mm}
+$$u^{k+1} = u^k + N(b-Au^k)$$
+
+$u^k$ wird in jeder Iteration entsprechend der jeweiligen Charakterisierung minimiert. 
+
 \subsection*{Vorkonditionierer}
 
 Anforderungen: $Nv$ sollte schnell zu berechnen sein, weiterhin sollte $N \approx A^{-1}$ möglichst gelten.
-
-\subsection*{Bezüglich $A > 0$ konjugierte Vektoren}
-
-Vektoren $p, q \in \R^n$ sind konjugiert bzgl. $A > 0$ d.h. $A$-orthogonal, falls $Ap \perp q$, also $\skp{Ap,q}_2=\skp{p,q}_A=0$.
 
 \subsection*{CG-Verfahren}
 
