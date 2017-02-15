@@ -566,7 +566,9 @@ Hierbei ist $h_{j+1} := t_{j+1} - t_j$ die Länge des Teilintervalls $[t_j,t_{j+
 
 Zweimalige Intergration liefert an dieser Stelle $s_j$, die Integrationskonstanten lassen sich aus den Interpolationsbedingungen berechnen.
 
-\section*{Some Matlab Basics}
+\vfill
+
+\section*{Ein paar Matlab Grundlagen}
 
 \begin{lstlisting}[frame=single,language=Matlab]
 A = [ 1 0 ; 0 1 ] % = eye(2)
@@ -578,4 +580,53 @@ c = 1:2:6         % = [ 1 3 5 ]
 A(2,:)            % = [ 3 1 ]
 A(:,1)            % = [ 1 ; 3 ]
 A.^2              % = [ 1 0 ; 9 1 ]
+\end{lstlisting}
+
+\subsection*{Beispiel: LR-Zerlegung}
+
+\begin{lstlisting}[frame=single,language=Matlab]
+function [A, L, R] = lr(A)
+  [w,h] = size(A);
+
+  if w ~= h
+    error('A is not a square matrix')
+  end
+
+  for k = 1:w-1
+    if abs(A(k,k)) < eps
+      error('No LU-decomposition');
+    end
+
+    A(k+1:w,k) = A(k+1:w,k) / A(k,k);
+    A(k+1:w,k+1:w) = A(k+1:w,k+1:w)
+                   - A(k+1:w,k)
+                   * A(k,k+1:w);
+  end
+
+  L = tril(A,-1) + eye(w);
+  R = triu(A);
+end
+\end{lstlisting}
+
+
+\subsection*{Beispiel: Vorwärtssubstitution}
+
+\begin{lstlisting}[frame=single,language=Matlab]
+function z = forwardSubstitution(L, b)
+  [w,h] = size(L);
+  
+  if w ~= h
+    error('L is not a square matrix')
+  end
+  
+  if length(b) ~= w
+    error('Size of b != size of L')
+  end
+  
+  z = zeros(h,1);
+  
+  for i = 1:h
+    z(i) = ( b(i) - L(i,:)*z ) / L(i,i);
+  end
+end
 \end{lstlisting}
