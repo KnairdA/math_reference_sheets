@@ -160,6 +160,11 @@ $A \in \R^{n \times n}$ ist positiv definit d.h. $A > 0$ falls $A=A^T$ und $\for
 
 Fast obere / untere Dreiecksmatrix wobei 1. untere / obere Nebendiagonale besetzt sein kann.
 
+\subsection*{Neumannsche-Reihe}
+
+\vspace{-2mm}
+$$(Id-M)^{-1} = \sum_{k=0}^\infty M^k$$
+
 \subsection*{Bezüglich $A > 0$ konjugierte Vektoren}
 
 Vektoren $p, q \in \R^n$ sind konjugiert bzgl. $A > 0$ d.h. $A$-orthogonal, falls $Ap \perp q$, also $\skp{Ap,q}_2=\skp{p,q}_A=0$.
@@ -207,7 +212,9 @@ Für alle regulären Matrizen existiert eine Spaltenpivotsuchen LR-Zerlegung so,
 
 \subsection*{Cholesky-Zerlegung}
 
-Für $A > 0$ existiert untere Dreiecksmatrix $L$ mit positiver Diagonale, so dass $A = LL^T$
+Für symmetrische $A > 0$ existiert untere Dreiecksmatrix $L$ mit positiver Diagonale, so dass $A = LL^T$.
+
+Sym. $A > 0$ können eindeutig als $A=LDL^T$ geschrieben werden s.d. $L$ untere Dreiecksmatrix mit 1-Diagonale, $D$ positive Diagonalmatrix. $D=D^{1/2}D^{1/2}$ und $G=LD^{1/2}$ ergibt die äquivalente Zerlegung $A=GG^T$.
 
 \subsection*{QR-Faktorisierung}
 
