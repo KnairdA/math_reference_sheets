@@ -559,9 +559,9 @@ $$\|y''\|_2 := \left(\int_a^b y''(t)^2 dt\right)^{1/2}$$
 Für $s \in S_{4,\Delta}$, $\Delta = \{t_0,\cdots,t_{l+1}\}$ sind mögliche Randbedingungen:
 
 \begin{enumerate}[label=(\alph*)]
-	\item $s'(a) = f'(a)$ und $s'(b)=f'(b)$, \emph{vollständige Spline-Interpolation}
-	\item $s''(a) = s''(b) = 0$, \emph{natürliche Interpolation}
-	\item $s'(a) = s'(b)$ und $s''(a) = s''(b)$ falls $f$ periodisch mit Periode $b-a$, \emph{periodische Interpolation}
+	\item $s'(a) = f'(a)$ und $s'(b)=f'(b)$: \emph{vollständige Spline-Interpolation}
+	\item $s''(a) = s''(b) = 0$: \emph{natürliche Interpolation}
+	\item $s'(a) = s'(b)$ und $s''(a) = s''(b)$ falls $f$ $b-a$ periodisch: \emph{periodische Interpolation}
 \end{enumerate}
 
 Ist eine dieser Randbedingungen erfüllt, so ist $s$ eindeutig bestimmt. Ferner gilt für alle anderen interpolierenden $y \in \mathcal{C}^2(a,b)$: $\|s''\|_2 < \|y''\|_2$
