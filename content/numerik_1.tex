@@ -34,12 +34,28 @@ Zu beachten ist hier die Ungültigkeit der Assoziativ- und Distributivgesetze.
 
 \subsection*{Kondition mathematischer Probleme}
 
+Ein mathematisches Problem $(f,x)$ ist die Auswertung von $f(x)$ an $x \in E$ wobei $f : E \subset X \to R \subset Y$.
+
+$X$ und $Y$ sind normierte Räume, $E$ Menge der Eingaben, $R$ Menge der Resultate.
+
+Ein Algorithmus für $f$ ist Abbildung $\tilde f : E \subset X \to Y$ s.d. $\tilde f(x)$ in endlich vielen Schritten auswertbar ist und $\tilde f(x) \approx f(x)$ gilt.
+
 Die Konditionszahl eines mathematischen Problems $(f, x)$ ist die kleinste Zahl $\kappa_f(x) \geq 0$ mit:
 
 \vspace*{-4mm}
 $$\frac{\|f(x + \Delta x) - f(x) \|_Y}{\|f(x)\|_Y} \leq \kappa_f(x) \frac{\|\Delta x\|_X}{\|x\|_X} + o(\|\Delta x \|_X)$$
 
-Für $\|\Delta x\|_X \rightarrow 0$. Ein Problem $(f, x)$ ist gut konditioniert für \emph{kleine} und schlecht konditioniert für \emph{große} Konditionszahlen $\kappa_f(x)$.
+Für $\|\Delta x\|_X \rightarrow 0$.
+
+\vspace*{-4mm}
+$$\kappa_f(x) = \limsup_{\delta \to 0} \left\{ \frac{\|f(x+\Delta x) - f(x)\|_Y \|x\|_X}{\|f(x)\|_Y \|\Delta x\}_X} \right\}$$
+
+Für $\Delta x \in X$, $x + \Delta x \in E$, $\|\Delta x\|_X \leq \delta$.
+
+Ein Problem $(f, x)$ ist gut konditioniert für \emph{kleine} und schlecht konditioniert für \emph{große} Konditionszahlen $\kappa_f(x)$.
+
+Existiert $\limsup$ nicht wird $\kappa_f(x)=\infty$ gesetzt und das Problem als \emph{schlecht gestellt} bezeichnet.
+
 
 \subsubsection*{Kondition stetig differenzierbarer Fkt.}
 
