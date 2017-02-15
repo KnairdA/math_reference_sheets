@@ -485,8 +485,18 @@ Zu jeder Folge von Knoten $\{t_0^{(n)},\cdots,t_n^{(n)}\}_{n \in \N}$ in $[a,b]$
 
 \section*{Splines}
 
+Nachteile der Polynom-Interpolation bei einer größeren Anzahl von Knoten:
+
+\begin{enumerate}
+	\item Starke Oszillation des Polynoms
+	\item Konvergenz des Polynoms gegen die interpolierte Funktion ist nicht gewährleistet
+\end{enumerate}
+
 Sei $\Delta = \{t_0,\cdots,t_{l+1}\}$ ein Gitter paarweise verschiedener Knoten $a=t_0 < \cdots < t_{l+1} = b$.
+
 $s \in \mathcal{C}^{k-2}(a,b)$ ist Spline der Ordnung $k \in \N$ bzgl. $\Delta$ wenn sie auf jedem Interval $[t_i,t_{i+1}]$ mit einem Polynom $s_i \in \Pi_{k-1}$ übereinstimmt.
+
+\subsection*{Spline-Raum}
 
 $S_{k,\Delta}$ ist Raum aller Splines der Ordnung $k$ bzgl. $\Delta$.
 
@@ -494,7 +504,7 @@ Der Spline-Raum $S_{k,\Delta}$ ist ein reeller Vektorraum mit $\Pi_{k-1}[a,b] \s
 
 Zusätzlich gilt auch $(t-t_i)_+^{k-1} \in S_{k,\Delta}$
 
-\subsection*{Abgebrochene Potenzen}
+\subsubsection*{Abgebrochene Potenzen}
 
 Abgebrochene Potenzen vom Grad $k-1$:
 
@@ -502,7 +512,7 @@ $$(t-t_i)_+^{k-1} := \begin{cases}(t-t_i)^{k-1} &: t \geq t_i \\ 0 &: t < t_i\en
 
 Für $t_i \in \Delta$, $i \neq l+1$
 
-\subsection*{Basis des Spline-Raumes}
+\subsubsection*{Basis des Spline-Raumes}
 
 $$\mathcal{B} = \{1,t,\cdots,t^{k-1},(t-t_1)_+^{k-1},\cdots,(t-t_l)_+^{k-1}\}$$
 
@@ -526,7 +536,9 @@ Kubische Splines der Ordnung 4 eigenen sich für die Darstellung von Kurven, da 
 
 \vspace{2mm}
 
-Die Interpolationsbedingungen reichen zur eindeutigen Bestimmung eines interpolierenden Spline aus $S_{4,\Delta}$ nicht aus. Wegen $\dim(S_{4,\Delta}) - (l+2) = l+4-(l+2) = 2$ bleiben 2 Freiheitsgrade unbestimmt.
+Die Interpolationsbedingungen reichen zur eindeutigen Bestimmung eines interpolierenden Spline aus $S_{4,\Delta}$ nicht aus.
+
+Wegen $\dim(S_{4,\Delta}) - (l+2) = l+4-(l+2) = 2$ bleiben zwei Freiheitsgrade unbestimmt.
 
 Eine zusätzliche Bedingung ist, dass der interpolierende kubische Spline die minimale Krümmung aller interpolierenden $\mathcal{C}^2$-Funktionen besitzen soll.
 
@@ -556,17 +568,20 @@ Ist eine dieser Randbedingungen erfüllt, so ist $s$ eindeutig bestimmt. Ferner 
 
 \subsubsection*{Momente von Splines}
 
-$M_j = s''(t_j)$ für $j = 0, \cdots, l+1$ sind die Momente des Splines $s \in S_{4,\Delta}$. Aus diesen Momenten kann der Spline vollständig rekonstruiert werden.
+Sei $h_{j+1} := t_{j+1} - t_j$ Länge von $[t_j,t_{j+1}]$.
 
-Da $s_j := s|_{[t_j,t_{j+1}]}$ ein kubisches Polynom ist gilt für $s_j'' = s''|_{[t_j,t_{j+1}]}$:
+$M_j = s''(t_j)$ für $j = 0, \cdots, l+1$ sind die Momente des Splines $s \in S_{4,\Delta}$. Aus den Momenten kann der Spline vollständig rekonstruiert werden.
 
-$$s_j''(t) = M_j \frac{t_{j+1}-t}{h_{j+1}} + M_{j+1} \frac{t-t_j}{h_{j+1}}$$
+Da $s_j := s|_{[t_j,t_{j+1}]}$ kubisch ist gilt für $s_j'' = s''|_{[t_j,t_{j+1}]}$:
 
-Hierbei ist $h_{j+1} := t_{j+1} - t_j$ die Länge des Teilintervalls $[t_j,t_{j+1}]$.
 
-Zweimalige Intergration liefert an dieser Stelle $s_j$, die Integrationskonstanten lassen sich aus den Interpolationsbedingungen berechnen.
+\begin{align*}
+\hspace{-2mm} s_j''(t) &= M_j \frac{t_{j+1}-t}{h_{j+1}} + M_{j+1} \frac{t-t_j}{h_{j+1}} \\
+\hspace{-2mm} s_j'(t)  &= -M_j \frac{(t_{j+1} - t)^2}{2h_{j+1}} + M_{j+1} \frac{(t-t_j)^2}{2h_{j+1}} + A_j \\
+\hspace{-2mm} s_j(t)   &= M_j \frac{(t_{j+1} - t)^3}{6h_{j+1}} + M_{j+1} \frac{(t-t_j)^3}{6h_{j+1}} + A_j(t-t_j) + B_j
+\end{align*}
 
-\vfill
+Die Integrationskonstanten $A_j$, $B_j$ lassen sich aus den Interpolationsbedingungen berechnen.
 
 \section*{Ein paar Matlab Grundlagen}
 
