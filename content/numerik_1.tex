@@ -565,3 +565,17 @@ $$s_j''(t) = M_j \frac{t_{j+1}-t}{h_{j+1}} + M_{j+1} \frac{t-t_j}{h_{j+1}}$$
 Hierbei ist $h_{j+1} := t_{j+1} - t_j$ die Länge des Teilintervalls $[t_j,t_{j+1}]$.
 
 Zweimalige Intergration liefert an dieser Stelle $s_j$, die Integrationskonstanten lassen sich aus den Interpolationsbedingungen berechnen.
+
+\section*{Some Matlab Basics}
+
+\begin{lstlisting}[frame=single,language=Matlab]
+A = [ 1 0 ; 0 1 ] % = eye(2)
+b = [ 3 4 ]'      % = [ 3; 4 ]
+b(1) = 4          % => b = [ 4 4 ]'
+A(2,1) = 2        % => A = [ 1 0 ; 2 1 ]
+c = 1:3           % = [ 1 2 3 ]
+c = 1:2:6         % = [ 1 3 5 ]
+A(2,:)            % = [ 3 1 ]
+A(:,1)            % = [ 1 ; 3 ]
+A.^2              % = [ 1 0 ; 9 1 ]
+\end{lstlisting}
