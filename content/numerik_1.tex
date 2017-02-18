@@ -273,7 +273,7 @@ Givens-Rotationen sind orthogonal, $G(l,k)A$ unterscheidet sich von $A$ nur in d
 
 \vspace{-4mm}
 $$(G(l,k)x)_i = \begin{cases}
-	 cx_l + sx_k & i=l \\
+	cx_l  + sx_k & i=l \\
 	-sx_l + cx_k & i=k \\
 	x_i          & \text{sonst}
 \end{cases}$$
@@ -392,7 +392,7 @@ Ein Krylov-Raum-Verfahren bzgl. einer Norm $\|\cdot\|_\star$ ist nur dann sinnvo
 \vspace{-2mm}
 $$u^{k+1} = u^k + N(b-Au^k)$$
 
-$u^k$ wird in jeder Iteration entsprechend der jeweiligen Charakterisierung minimiert. 
+$u^k$ wird in jeder Iteration entsprechend der jeweiligen Charakterisierung minimiert.
 
 \subsection*{Vorkonditionierer}
 
@@ -406,6 +406,24 @@ Das Verfahren der konjugierten Gradienten ist durch die Energienorm charakterisi
 $$u^k = argmin\{\|v-A^{-1}b\|_A : v \in V_k\}$$
 
 Für positiv definite $A, N \in \R^{n \times n}$ sowie $b \in \R^n$ liefert das CG-Verfahren nach spätestens $n$ Schritten $A^{-1}b$. Eigentlich ist es bei exakter Arithmetik also ein direkter Verfahren, wird aber durch früheren Abbruch als iteratives Verfahren verwendet.
+
+\subsubsection*{Umsetzung}
+
+Minimum $\hat x$ von $f(x)=\frac{1}{2} x^TAx - b^Tx$ ist $A\hat x = b$.
+
+$\nabla f(x) = Ax - b \overset{!}{=} 0$ ergibt Minimum da nach oben geöffnete Parabel wg. $A > 0$.
+
+Initiale Suchrichtung $p_0$ ist $r_0 = b - Ax_0$. Folgende $p_{k+1}$ ergeben sich aus $p_{k+1} = r_{k+1} - \beta_k p_k$.
+
+$p_k$ und $x_k$ sind $A$-konjugiert. $f(x_k + \alpha_k p_k)$ wird via $\alpha_k$ entlang dieser Richtung minimiert mittels:
+
+\vspace{-4mm}
+\begin{align*}
+\alpha_k &= \frac{\skp{r_k,p_k}_2}{\|p_k\|_A^2}     = \frac{\skp{r_k,r_k}_2}{\|p_k\|_A^2} \\
+\beta_k  &= \frac{\skp{r_{k+1},p_k}_A}{\|p_k\|_A^2} = \frac{\skp{r_{k+1},r_{k+1}}_2}{\|r_k\|_2^2}
+\end{align*}
+
+Es gilt also $x_{k+1} = x_k + \alpha_k p_k$.
 
 \subsection*{GMRES-Verfahren}
 
@@ -620,28 +638,5 @@ function [A, L, R] = lr(A)
 
   L = tril(A,-1) + eye(w);
   R = triu(A);
-end
-\end{lstlisting}
-
-
-\subsection*{Beispiel: Vorwärtssubstitution}
-
-\begin{lstlisting}[frame=single,language=Matlab]
-function z = forwardSubstitution(L, b)
-  [w,h] = size(L);
-  
-  if w ~= h
-    error('L is not a square matrix')
-  end
-  
-  if length(b) ~= w
-    error('Size of b != size of L')
-  end
-  
-  z = zeros(h,1);
-  
-  for i = 1:h
-    z(i) = ( b(i) - L(i,:)*z ) / L(i,i);
-  end
 end
 \end{lstlisting}
