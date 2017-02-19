@@ -447,6 +447,13 @@ Zu gegebenen Knoten $t_0 < \cdots < t_n$ und Stützwerten $f_i = f(t_i)$ für $i
 
 Zu $n+1$ Stützwerten $f_i$ und paarweise verschiedenen Knoten $t_i$ existiert dabei genau ein solches Interpolationspolynom $P=P(f|t_0,\cdots,t_n) \in \Pi_n$.
 
+\subsubsection*{Interpolationsfehler}
+
+\vspace{-4mm}
+$$\|f-P(f|t_0, \cdots, t_n)\|_\infty \leq \sup_{\tau \in [a,b]} \frac{|f^{(n+1)}(\tau)|}{(n+1)!} \|\omega_{n+1}\|_\infty$$
+
+$\omega_{n+1} \in \Pi_{n+1}$ ist das \emph{Newton-Polynom} bzgl. $t_0, \cdots, t_n$ mit $\omega_{n+1}(t) := \prod_{i=0}^n (t-t_i)$.
+
 \subsection*{Vandermonde-Matrix}
 
 $$\begin{pmatrix}
@@ -458,7 +465,7 @@ $$\begin{pmatrix}
 \begin{pmatrix}a_0 \\ \vdots \\ \vdots \\ a_n\end{pmatrix} =
 \begin{pmatrix}f_0 \\ \vdots \\ \vdots \\ f_n\end{pmatrix}$$
 
-Die Lösung der Vandermonde-Matrix beschreibt $P(f|t_0,\cdots,t_n) \in \Pi_n$, was jedoch sehr aufwändig ist.
+Die Lösung der Vandermonde-Matrix beschreibt $P(f|t_0,\cdots,t_n) \in \Pi_n$, was jedoch zu aufwändig ist.
 
 \subsection*{Lagrange-Basis}
 
