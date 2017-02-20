@@ -224,9 +224,9 @@ Für alle $A \in \R^{m \times n}$ mit $m \geq n$ und $Rang(A)=n$ existiert $A=QR
 
 $$H(v) := Id_m - 2 \frac{vv^T}{v^Tv} = Id_m - 2 \frac{vv^T}{\|v\|_2^2} \text{ für } \forall v \in \R^m \setminus \{0\}$$
 
-Solche Householder-Reflexionen $H(v)$ sind orthogonal, d.h. $H(v)^T=H(v)$ und $H(v)^2=Id_m$.
+Solche $H(v)$ sind orthogonal und symmetrisch, d.h. $H(v)^T H(v)=Id_m$ und $H(v)^2=Id_m$.
 
-Wegen $H(v)v=v-2v=-v$ und $\forall w \in spann\{v\}^\perp : H(w)w=w$ ist $H(v)$ Spiegelung an der Hyperebene $spann\{v\}^\perp$.
+Wegen $H(v)v=v-2v=-v$ und $\forall w \in spann\{v\}^\perp : H(v)w=w$ ist $H(v)$ Spiegelung an der Hyperebene $spann\{v\}^\perp$.
 
 Solche Reflexionen können durch wiederholte Anwendung Matrizen in obere Dreiecksgestalt überführen:
 
@@ -269,7 +269,7 @@ $$G(l,k) := \left(\begin{smallmatrix}
 
 Wobei $c$ das Diagonalelement der $l$-ten und $k$-ten Zeile, $s$ $k$-tes Element der $l$-ten Zeile, $-s$ $l$-tes Element der $k$-ten Zeile.
 
-Givens-Rotationen sind orthogonal, $G(l,k)A$ unterscheidet sich von $A$ nur in der $l$-ten und $k$-ten Zeile.
+Givens-Rotationen sind orthogonal und nicht symmetrisch. $G(l,k)A$ unterscheidet sich von $A$ nur in der $l$-ten und $k$-ten Zeile.
 
 \vspace{-4mm}
 $$(G(l,k)x)_i = \begin{cases}
