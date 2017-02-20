@@ -290,6 +290,10 @@ Ziel: $k$-te Komponente von $x$ nullen für $x_l^2+x_k^2 \neq 0$.
 
 Mit einer solchen Givens-Rotation können einzelne Matrixelemente genullt und $A \in \R^{m \times n}$ so sukzessive in eine obere Dreiecksmatrix transformiert werden.
 
+Für Hessenberg-Matrix $A$ ergibt sich $A=QR$ mit:
+
+$Q^T := G(n-1,n) \cdots G(1,2)$ und $R:=Q^T A$.
+
 QR mit Householder ist ungefähr doppelt so schnell wie mit Givens. Diese sind daher nur bei strukturierten Matrizen wie Tridiagonal- oder Hessenberg-Matrizen sinnvoll einzusetzen.
 
 \section*{Lineare Ausgleichsprobleme}
