@@ -62,7 +62,7 @@ Existiert $\limsup$ nicht wird $\kappa_f(x)=\infty$ gesetzt und das Problem als 
 Für $f \in \mathcal{C}^1(E, \R^m)$ in Umgebung $E \subseteq \R^n$ von $x$:
 
 \vspace*{-2mm}
-$$\kappa_f(x) = \frac{\|f'(x)\| \cdot \|x\|_X}{\|f(x)\|_Y}$$
+$$\kappa_f(x) = \frac{\|f'(x)\|_\infty \cdot \|x\|_X}{\|f(x)\|_Y}$$
 
 \subsection*{Stabilität numerischer Algorithmen}
 
@@ -385,7 +385,7 @@ Das Residuuum der $k$-ten Iterierten $u^k$:
 \vspace{-2mm}
 $$r^k=(I-AN)r^{k-1} = (I-AN)^kr^0$$
 
-Es gilt: $u^k \in u^0 + V_k$ mit $V_k = \mathcal{U}_k(NA,Nr^0)$ sowie $r^0 = b - Au^0$.
+Es gilt: $u^k \in V_k$ mit $V_k = u_0 + \mathcal{U}_k(NA,Nr^0)$ sowie $r^0 = b - Au^0$.
 
 Minimaleigenschaft der $k$-ten Iterierten bzgl. Norm $\|\cdot\|_\star$ auf $\R^n$:
 
@@ -428,7 +428,7 @@ $p_k$ und $x_k$ sind $A$-konjugiert. $f(x_k + \alpha_k p_k)$ wird via $\alpha_k$
 \beta_k  &= \frac{\skp{r_{k+1},p_k}_A}{\|p_k\|_A^2} = \frac{\skp{r_{k+1},r_{k+1}}_2}{\|r_k\|_2^2}
 \end{align*}
 
-Es gilt also $x_{k+1} = x_k + \alpha_k p_k$.
+Es gilt also $x_{k+1} = x_k + \alpha_k p_k$ und $r_{k+1} = r_k - \alpha_k A p_k$.
 
 \subsection*{GMRES-Verfahren}
 
@@ -487,8 +487,9 @@ Ein Lagrange Polynom zu Stützstelle $t_k$ nimmt an dieser $1$, an allen anderen
 \subsubsection*{Lemma von Aitken}
 
 $P = P(f|t_0,\cdots,t_n)(t) =$
+
 \vspace{-2mm}
-$$\frac{(t_0-t)P(f|t_i,\cdots,t_n)(t)-(t_n-t)P(f|t_0,\cdots,t_{n-1})(t)}{t_0-t_n}$$
+$$\frac{(t_0-t)P(f|t_1,\cdots,t_n)(t)-(t_n-t)P(f|t_0,\cdots,t_{n-1})(t)}{t_0-t_n}$$
 
 \subsubsection*{Schema von Neville}
 
