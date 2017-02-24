@@ -1,118 +1,126 @@
+% Borel Sigma-Algebra Kürzel
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\F}{\mathcal{F}}
+
 \section*{Nützliches aus der Mengenlehre}
 
 \subsection*{De Morgansche Regeln}
 
-Sei $\mathcal{B}$ ein Mengensystem.
+Sei $\B$ ein Mengensystem.
 
-$$\left(\bigcup_{B\in \mathcal{B}} B \right)^c = \bigcap_{B\in \mathcal{B}} B^c \hspace*{8mm} \left(\bigcap_{B\in \mathcal{B}} \right)^c = \bigcup_{B\in \mathcal{B}} B^c$$
+$$\left(\bigcup_{B\in \B} B \right)^c = \bigcap_{B\in \B} B^c \hspace*{8mm} \left(\bigcap_{B\in \B} \right)^c = \bigcup_{B\in \B} B^c$$
 
 \subsection*{Mengen-Ring}
 
-Ein Mengensystem $\mathcal{A}$ ist ein Ring gdw. $\forall A, B \in \mathcal{A}$:
+Ein Mengensystem $\A$ ist ein Ring gdw. $\forall A, B \in \A$:
 
 \begin{enumerate}[label=(\alph*)]
-	\item $\emptyset \in \mathcal{A}$
-	\item $B\setminus A \in \mathcal{A}$
-	\item $A \cup B \in \mathcal{A}$
+	\item $\emptyset \in \A$
+	\item $B\setminus A \in \A$
+	\item $A \cup B \in \A$
 \end{enumerate}
 
 \section*{$\sigma$-Algebren}
 
-Ein Mengensystem $\mathcal{A} \subseteq \mathcal{P}(X)$ ist $\sigma$-Algebra auf der nichtleeren Menge $X$ gdw.:
+Ein Mengensystem $\A \subseteq \powerset{X}$ ist $\sigma$-Algebra auf der nichtleeren Menge $X$ gdw.:
 
 \begin{enumerate}[label=(\alph*)]
-	\item $X \in \mathcal{A}$
-	\item $A \in \mathcal{A} \Rightarrow A^c := X\setminus A \in \mathcal{A}$
-	\item $\forall j \in \N : A_j \in \mathcal{A} \Rightarrow \bigcup_{j\in \N} A_j \in \mathcal{A}$
+	\item $X \in \A$
+	\item $A \in \A \Rightarrow A^c := X\setminus A \in \A$
+	\item $\forall j \in \N : A_j \in \A \Rightarrow \bigcup_{j\in \N} A_j \in \A$
 \end{enumerate}
 
 \subsection*{Eigenschaften von $\sigma$-Algebren}
 
-Seien $\mathcal{A}$ eine $\sigma$-Algebra auf $X$, $n \in \N$, $\forall j \in \N : A_j \in \mathcal{A}$, dann ist $\mathcal{A}$ nach den folgenden Eigenschaften abgeschlossen unter abzählbaren Mengenoperationen:
+Seien $\A$ eine $\sigma$-Algebra auf $X$, $n \in \N$, $\forall j \in \N : A_j \in \A$, dann ist $\A$ nach den folgenden Eigenschaften abgeschlossen unter abzählbaren Mengenoperationen:
 
 \begin{enumerate}[label=(\alph*)]
-	\item $\emptyset = X^c \in \mathcal{A}$
-	\item $A_1 \bigcup \cdots \bigcup A_n \in \mathcal{A}$
-	\item $A_1 \bigcap \cdots \bigcap A_n \in \mathcal{A}$
-	\item $\bigcap_{j\in \N} A_j \in \mathcal{A}$
-	\item $A_1 \setminus A_2 := A_1 \bigcap A_2^c \in \mathcal{A}$
+	\item $\emptyset = X^c \in \A$
+	\item $A_1 \bigcup \cdots \bigcup A_n \in \A$
+	\item $A_1 \bigcap \cdots \bigcap A_n \in \A$
+	\item $\bigcap_{j\in \N} A_j \in \A$
+	\item $A_1 \setminus A_2 := A_1 \bigcap A_2^c \in \A$
 \end{enumerate}
 
 \subsection*{Erzeugte $\sigma$-Algebren}
 
-Die durch das nichtleere Mengensystem $\mathcal{E} \subseteq \mathcal{P}(X)$ auf $X$ erzeugte $\sigma$-Algebra ist wie folgt definiert:
+Die durch das nichtleere Mengensystem $\E \subseteq \powerset{X}$ auf $X$ erzeugte $\sigma$-Algebra ist wie folgt definiert:
 
 \vspace*{-4mm}
-$$\sigma(\mathcal{E}) := \bigcap\{ \mathcal{A} \subseteq \mathcal{P}(X) | \mathcal{A} \text{ ist } \sigma \text{-Algebra}, \mathcal{E} \subseteq \mathcal{A} \}$$
+$$\sigma(\E) := \bigcap\{ \A \subseteq \powerset{X} | \A \text{ ist } \sigma \text{-Algebra}, \E \subseteq \A \}$$
 
-Der Erzeuger $\mathcal{E}$ ist hierbei allg. nicht eindeutig.
+Der Erzeuger $\E$ ist hierbei allg. nicht eindeutig.
 
 \subsubsection*{Eigenschaften erzeugter $\sigma$-Algebren}
 
-Sei $\emptyset \neq \mathcal{E} \subseteq \mathcal{P}(X)$, dann gilt:
+Sei $\emptyset \neq \E \subseteq \powerset{X}$, dann gilt:
 
 \begin{enumerate}[label=(\alph*)]
-	\item $\mathcal{A}$ ist $\sigma$-Algebra $\land$ $\mathcal{E} \subseteq \mathcal{A} \Rightarrow \mathcal{E} \subseteq \sigma(\mathcal{E}) \subseteq \mathcal{A}$
-	\item $\sigma(\mathcal{E})$ ist kleinste $\mathcal{E}$ enthaltende $\sigma$-Algebra.
-	\item $\mathcal{E}$ ist $\sigma$-Algebra $\Rightarrow \mathcal{E} = \sigma(\mathcal{E})$
-	\item $\mathcal{E} \subseteq \mathcal{E}' \subseteq \mathcal{P}(X) \Rightarrow \sigma(\mathcal{E}) \subseteq \sigma(\mathcal{E}')$
+	\item $\A$ ist $\sigma$-Algebra $\land$ $\E \subseteq \A \Rightarrow \E \subseteq \sigma(\E) \subseteq \A$
+	\item $\sigma(\E)$ ist kleinste $\E$ enthaltende $\sigma$-Algebra.
+	\item $\E$ ist $\sigma$-Algebra $\Rightarrow \E = \sigma(\E)$
+	\item $\E \subseteq \E' \subseteq \powerset{X} \Rightarrow \sigma(\E) \subseteq \sigma(\E')$
 \end{enumerate}
 
 \subsection*{Borelsche $\sigma$-Algebra}
 
-Sei $X$ ein metrischer Raum und $\mathcal{O}(X)$ das System der in $X$ offenen Mengen, dann ist $\mathcal{B}(X) := \sigma(\mathcal{O}(X))$ die Borelsche $\sigma$-Algebra auf $X$.
+Sei $X$ ein metrischer Raum und $\mathcal{O}(X)$ das System der in $X$ offenen Mengen, dann ist $\B(X) := \sigma(\mathcal{O}(X))$ die Borelsche $\sigma$-Algebra auf $X$.
 
-Im Speziellen wird $\mathcal{B}_m := \mathcal{B}(\R^m)$ gesetzt.
+Im Speziellen wird $\B_m := \B(\R^m)$ gesetzt.
 
-$\mathcal{B}_m$ enthält insb. alle offenen und abgeschlossenen Mengen in $\R^m$ sowie deren abzählbaren Vereinigungen und Durchschnitte.
+$\B_m$ enthält insb. alle offenen und abgeschlossenen Mengen in $\R^m$ sowie deren abzählbaren Vereinigungen und Durchschnitte.
 
 \subsubsection*{Charakterisierung}
 
 \vspace*{-4mm}
 \begin{align*}
-	\mathcal{B}_m &= \sigma(\{(a, b) | a, b \in \mathbb{Q}^m, a \leq b\}) \\
+	\B_m &= \sigma(\{(a, b) | a, b \in \mathbb{Q}^m, a \leq b\}) \\
 	              &= \sigma(\{(a, b] | a, b \in \mathbb{Q}^m, a \leq b\})
 \end{align*}
 
 \section*{Maße auf $\sigma$-Algebren}
 
-Sei $\mathcal{A}$ eine $\sigma$-Algebra auf $X$.
+Sei $\A$ eine $\sigma$-Algebra auf $X$.
 
-$\mu : \mathcal{A} \rightarrow [0, \infty]$ ist positives Maß auf $\mathcal{A}$ gdw.:
+$\mu : \A \rightarrow [0, \infty]$ ist positives Maß auf $\A$ gdw.:
 
 \begin{enumerate}[label=(\alph*)]
 	\item $\mu(\emptyset) = 0$
-	\item $\forall \text{ disjunkte } \{A_j | j \in \N\} \subseteq \mathcal{A} :\\ \hspace*{4mm} \mu(\dot\bigcup_{j\in \N} A_j) = \sum_{j\in \N} \mu(A_j)$
+	\item $\forall \text{ disjunkte } \{A_j | j \in \N\} \subseteq \A :\\ \hspace*{4mm} \mu(\dot\bigcup_{j\in \N} A_j) = \sum_{j\in \N} \mu(A_j)$
 \end{enumerate}
 
 \subsection*{Maßraum}
 
-Ein Tripel $(X, \mathcal{A}, \mu)$ ist Maßraum. Ein endlicher Maßraum erfüllt zusätzlich $\mu(X) < \infty$.
+Ein Tripel $(X, \A, \mu)$ ist Maßraum. Ein endlicher Maßraum erfüllt zusätzlich $\mu(X) < \infty$.
 
 Ein Wahrscheinlichkeitsmaß erfüllt $\mu(X) = 1$.
 
 \subsection*{Punkt- / Diracmaß}
 
-Für fest gewählte $\mathcal{A} = \mathcal{P}(X)$, $x \in X$ ist ein Wahrscheinlichkeitsmaß für $A \subseteq X$ definiert:
+Für fest gewählte $\A = \powerset{X}$, $x \in X$ ist ein Wahrscheinlichkeitsmaß für $A \subseteq X$ definiert:
 
 $$\delta_x(A) := \begin{cases}
 	1 & x \in A \\
 	0 & x \notin A
 \end{cases}$$
 
-Dieses wird Punkt- / Diracmaß auf $\mathcal{A}$ genannt.
+Dieses wird Punkt- / Diracmaß auf $\A$ genannt.
 
 \subsection*{Zählmaß}
 
-Sei $\mathcal{A} = \mathcal{P}(\N)$ und $\forall j \in \N : p_j \in [0, \infty]$ fest gewählt.
+Sei $\A = \powerset{\N}$ und $\forall j \in \N : p_j \in [0, \infty]$ fest gewählt.
 
-$\mu(A) := \sum_{j\in A} p_j$ für $A \subseteq \N$ ist Maß auf $\mathcal{P}(\N)$.
+$\mu(A) := \sum_{j\in A} p_j$ für $A \subseteq \N$ ist Maß auf $\powerset{\N}$.
 
 Gilt zusätzlich $\forall j \in \N : p_j = 1$ so heißt $\mu$ Zählmaß.
 
 \subsection*{Eigenschaften von Maßen}
 
-Sei $(X, \mathcal{A}, \mu)$ Maßraum und $A, B, A_j \in \mathcal{A}$ für $j \in \N$.
+Sei $(X, \A, \mu)$ Maßraum und $A, B, A_j \in \A$ für $j \in \N$.
 
 \begin{description}[leftmargin=!,labelwidth=26mm]
 	\item[Monotonie] $A \subseteq B \Rightarrow \mu(A) \leq \mu(B)$
@@ -127,62 +135,59 @@ Für endliche Maße gilt insb. $\mu(A^c) = \mu(X) - \mu(A)$.
 
 \subsection*{Prämaß}
 
-Eine Abb. $f : \mathcal{A} \rightarrow [0, \infty)$ ist ein Prämaß auf Ring $\mathcal{A}$ gdw.:
+Eine Abb. $f : \A \rightarrow [0, \infty)$ ist ein Prämaß auf Ring $\A$ gdw.:
 
 \begin{enumerate}[label=(\alph*)]
 	\item $\mu(\emptyset) = 0$
-	\item $\{A_j | j \in \N\} \subseteq \mathcal{A}$ disjunkt und $A = \bigcup_{j\in \N} A_j \in \mathcal{A} \Rightarrow \mu(A) = \sum_{j\in \N} \mu(A_j)$
+	\item $\{A_j | j \in \N\} \subseteq \A$ disjunkt und $A = \bigcup_{j\in \N} A_j \in \A \Rightarrow \mu(A) = \sum_{j\in \N} \mu(A_j)$
 \end{enumerate}
 
 \section*{Lebesguemaß}
 
 \subsection*{System der Intervalle}
 
-Sei $I = (a, b] \subseteq \R^m$ für $a, b \in \R^m$ mit $a \leq b$, dann wird das System von Intervallen $\mathcal{J}_m$ definiert:
+Sei $I = (a, b] \subseteq \R^m$ für $a, b \in \R^m$ mit $a \leq b$, dann wird das System von Intervallen $\J_m$ definiert:
 
 $\lambda(I) = \lambda_m(I) := (b_1 - a_1) \cdot \hdots \cdot (b_m - a_m)$
 
 \subsection*{Ring der Figuren}
 
-$$\mathcal{F}_m = \left\{ A = \bigcup_{j=1}^n I_j | I_j \in \mathcal{J}_m, n \in \N \right\}$$
+$$\F_m = \left\{ A = \bigcup_{j=1}^n I_j | I_j \in \J_m, n \in \N \right\}$$
 
 \subsubsection*{Eigenschaften}
 
-Seien $I_1, I_2 \in \mathcal{J}_m$:
+Seien $I_1, I_2 \in \J_m$:
 
 \begin{enumerate}[label=(\alph*)]
-	\item $\sigma(\mathcal{F}_m) = \mathcal{B}_m$
-	\item $I_1 \cap I_2 \in \mathcal{J}_m$
-	\item $I_1 \setminus I_2 \in \mathcal{F}_m$ sowie endliche Vereinigung disjunkter Intervalle aus $\mathcal{J}_m$
-	\item $\forall A \in \mathcal{F}_m: A$ ist endliche Vereinigung disjunkter Intervalle aus $\mathcal{J}_m$
-	\item $\mathcal{F}_m$ ist Ring
+	\item $\sigma(\F_m) = \B_m$
+	\item $I_1 \cap I_2 \in \J_m$
+	\item $I_1 \setminus I_2 \in \F_m$ sowie endliche Vereinigung disjunkter Intervalle aus $\J_m$
+	\item $\forall A \in \F_m: A$ ist endliche Vereinigung disjunkter Intervalle aus $\J_m$
+	\item $\F_m$ ist Ring
 \end{enumerate}
 
 \section*{Messbare Funktionen}
 
-Sei $\mathcal{A}$ eine $\sigma$-Algebra auf $X\neq \emptyset$ und $\mathcal{B}$ eine $\sigma$-Algebra auf $Y\neq \emptyset$ sowie $f : X \rightarrow Y$ Funktion.
+Sei $\A$ eine $\sigma$-Algebra auf $X\neq \emptyset$ und $\B$ eine $\sigma$-Algebra auf $Y\neq \emptyset$ sowie $f : X \rightarrow Y$ Funktion.
 
-$f$ heißt ($\mathcal{A}$-$\mathcal{B}$-)messbar gdw. $\forall B \in \mathcal{B} : f^{-1}(B) \in \mathcal{A}$
+$f$ heißt ($\A$-$\B$-)messbar gdw. $\forall B \in \B : f^{-1}(B) \in \A$
 
 \subsection*{Borel-Messbarkeit}
 
 Seien $X, Y$ metrische Räume.
 
-Die Funktion $f : X \rightarrow Y$ heißt Borel-messbar, wenn sie $\mathcal{B}(X)$-$\mathcal{B}(Y)$-messbar ist.
+Die Funktion $f : X \rightarrow Y$ heißt Borel-messbar, wenn sie $\B(X)$-$\B(Y)$-messbar ist.
 
 \subsection*{Eigenschaften}
 
-Seien $\mathcal{A}, \mathcal{B}, \mathcal{C}$ $\sigma$-Algebren auf $X, Y, Z \neq \emptyset$.
+Seien $\A, \B, \C$ $\sigma$-Algebren auf $X, Y, Z \neq \emptyset$.
 
 \begin{enumerate}[label=(\alph*)]
-	\item $f : X \rightarrow Y$ ist $\mathcal{A}$-$\mathcal{B}$-mb., $g : Y \rightarrow Z$ ist $\mathcal{B}$-$\mathcal{C}$-mb. $\Rightarrow g \circ f : X \rightarrow Z$ ist $\mathcal{A}$-$\mathcal{C}$-mb.
-	\item $\emptyset \neq \mathcal{E} \subseteq \mathcal{P}(Y)$, $\mathcal{B} = \sigma(\mathcal{E})$, $f: X \rightarrow Y$ dann ist $f$ messbar gdw. $\forall E \in \mathcal{E} : f^{-1}(E) \in \mathcal{A}$
+	\item $f : X \rightarrow Y$ ist $\A$-$\B$-mb., $g : Y \rightarrow Z$ ist $\B$-$\C$-mb. $\Rightarrow g \circ f : X \rightarrow Z$ ist $\A$-$\C$-mb.
+	\item $\emptyset \neq \E \subseteq \powerset{Y}$, $\B = \sigma(\E)$, $f: X \rightarrow Y$ dann ist $f$ messbar gdw. $\forall E \in \E : f^{-1}(E) \in \A$
 	\item $X, Y$ metrische Räume, $f : X \rightarrow Y$ stetig $\Rightarrow f$ ist Borel-messbar
-	\item $f : X \rightarrow \R^m$ ist $\mathcal{A}$-$\mathcal{B}_m$-mb. gdw. $\forall i \in \{1, \dots, m\} : f_i : X \rightarrow \R$ ist $\mathcal{A}$-$\mathcal{B}_1$-mb.
-	\item $f, g$ sind $\mathcal{A}$-$\mathcal{B}_1$-mb. und $\alpha, \beta \in \R \Rightarrow fg : X \rightarrow \R$ und $\frac{1}{f} : \{x \in X | f(x) \neq 0\} \rightarrow \R$ mb.
-	\item $f : X \rightarrow \R^m$ ist $\mathcal{A}$-$\mathcal{B}_m$-mb. $\\\Rightarrow g : X \rightarrow \R; x \mapsto |f(x)|_2$ ist $\mathcal{A}$-$\mathcal{B}_1$-mb.
-	\item $X = W \dot\cup Z$ mit $\emptyset \neq W, Z \in \mathcal{A}$, $f : W \rightarrow Y$ ist $\mathcal{A}_W$-$\mathcal{B}$-mb., $g : Z \rightarrow Y$ ist $\mathcal{A}_Z$-$\mathcal{B}$-mb. $\Rightarrow h(x) = \begin{cases}
-	f(x) & x \in W \\
-	g(x) & x \in Z
-\end{cases}$ ist $\mathcal{A}$-$\mathcal{B}$-mb.
+	\item $f : X \rightarrow \R^m$ ist $\A$-$\B_m$-mb. gdw. $\forall i \in \{1, \dots, m\} : f_i : X \rightarrow \R$ ist $\A$-$\B_1$-mb.
+	\item $f, g$ sind $\A$-$\B_1$-mb. und $\alpha, \beta \in \R \Rightarrow fg : X \rightarrow \R$ und $\frac{1}{f} : \{x \in X | f(x) \neq 0\} \rightarrow \R$ mb.
+	\item $f : X \rightarrow \R^m$ ist $\A$-$\B_m$-mb. $\\\Rightarrow g : X \rightarrow \R; x \mapsto |f(x)|_2$ ist $\A$-$\B_1$-mb.
+	\item $X = W \dot\cup Z$ mit $\emptyset \neq W, Z \in \A$, $f : W \rightarrow Y$ ist $\A_W$-$\B$-mb., $g : Z \rightarrow Y$ ist $\A_Z$-$\B$-mb. $\Rightarrow h(x) = \begin{cases} f(x) & x \in W \\ g(x) & x \in Z \end{cases}$ ist $\A$-$\B$-mb.
 \end{enumerate}
