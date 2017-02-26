@@ -86,7 +86,7 @@ $\B_m$ enthält insb. alle offenen und abgeschlossenen Mengen in $\R^m$ sowie de
 
 Sei $\A$ eine $\sigma$-Algebra auf $X$.
 
-$\mu : \A \rightarrow [0, \infty]$ ist positives Maß auf $\A$ gdw.:
+$\mu : \A \to [0, \infty]$ ist positives Maß auf $\A$ gdw.:
 
 \begin{enumerate}[label=(\alph*)]
 	\item $\mu(\emptyset) = 0$
@@ -135,7 +135,7 @@ Für endliche Maße gilt insb. $\mu(A^c) = \mu(X) - \mu(A)$.
 
 \subsection*{Prämaß}
 
-Eine Abb. $f : \A \rightarrow [0, \infty)$ ist ein Prämaß auf Ring $\A$ gdw.:
+Eine Abb. $f : \A \to [0, \infty)$ ist ein Prämaß auf Ring $\A$ gdw.:
 
 \begin{enumerate}[label=(\alph*)]
 	\item $\mu(\emptyset) = 0$
@@ -168,7 +168,7 @@ Seien $I_1, I_2 \in \J_m$:
 
 \section*{Messbare Funktionen}
 
-Sei $\A$ eine $\sigma$-Algebra auf $X\neq \emptyset$ und $\B$ eine $\sigma$-Algebra auf $Y\neq \emptyset$ sowie $f : X \rightarrow Y$ Funktion.
+Sei $\A$ eine $\sigma$-Algebra auf $X \neq \emptyset$ und $\B$ eine $\sigma$-Algebra auf $Y \neq \emptyset$ sowie $f : X \to Y$ Funktion.
 
 $f$ heißt ($\A$-$\B$-)messbar gdw. $\forall B \in \B : f^{-1}(B) \in \A$
 
@@ -176,18 +176,63 @@ $f$ heißt ($\A$-$\B$-)messbar gdw. $\forall B \in \B : f^{-1}(B) \in \A$
 
 Seien $X, Y$ metrische Räume.
 
-Die Funktion $f : X \rightarrow Y$ heißt Borel-messbar, wenn sie $\B(X)$-$\B(Y)$-messbar ist.
+Die Funktion $f : X \to Y$ heißt Borel-messbar, wenn sie $\B(X)$-$\B(Y)$-messbar ist.
 
 \subsection*{Eigenschaften}
 
 Seien $\A, \B, \C$ $\sigma$-Algebren auf $X, Y, Z \neq \emptyset$.
 
 \begin{enumerate}[label=(\alph*)]
-	\item $f : X \rightarrow Y$ ist $\A$-$\B$-mb., $g : Y \rightarrow Z$ ist $\B$-$\C$-mb. $\Rightarrow g \circ f : X \rightarrow Z$ ist $\A$-$\C$-mb.
-	\item $\emptyset \neq \E \subseteq \powerset{Y}$, $\B = \sigma(\E)$, $f: X \rightarrow Y$ dann ist $f$ messbar gdw. $\forall E \in \E : f^{-1}(E) \in \A$
-	\item $X, Y$ metrische Räume, $f : X \rightarrow Y$ stetig $\Rightarrow f$ ist Borel-messbar
-	\item $f : X \rightarrow \R^m$ ist $\A$-$\B_m$-mb. gdw. $\forall i \in \{1, \dots, m\} : f_i : X \rightarrow \R$ ist $\A$-$\B_1$-mb.
-	\item $f, g$ sind $\A$-$\B_1$-mb. und $\alpha, \beta \in \R \Rightarrow fg : X \rightarrow \R$ und $\frac{1}{f} : \{x \in X | f(x) \neq 0\} \rightarrow \R$ mb.
-	\item $f : X \rightarrow \R^m$ ist $\A$-$\B_m$-mb. $\\\Rightarrow g : X \rightarrow \R; x \mapsto |f(x)|_2$ ist $\A$-$\B_1$-mb.
-	\item $X = W \dot\cup Z$ mit $\emptyset \neq W, Z \in \A$, $f : W \rightarrow Y$ ist $\A_W$-$\B$-mb., $g : Z \rightarrow Y$ ist $\A_Z$-$\B$-mb. $\Rightarrow h(x) = \begin{cases} f(x) & x \in W \\ g(x) & x \in Z \end{cases}$ ist $\A$-$\B$-mb.
+	\item $f : X \to Y$ ist $\A$-$\B$-mb., $g : Y \to Z$ ist $\B$-$\C$-mb. $\Rightarrow g \circ f : X \to Z$ ist $\A$-$\C$-mb.
+	\item $\emptyset \neq \E \subseteq \powerset{Y}$, $\B = \sigma(\E)$, $f: X \to Y$ dann ist $f$ messbar gdw. $\forall E \in \E : f^{-1}(E) \in \A$
+	\item $X, Y$ metrische Räume, $f : X \to Y$ stetig $\Rightarrow f$ ist Borel-messbar
+	\item $f : X \to \R^m$ ist $\A$-$\B_m$-mb. gdw. $\forall i \in \{1, \dots, m\} : f_i : X \to \R$ ist $\A$-$\B_1$-mb.
+	\item $f, g$ sind $\A$-$\B_1$-mb. und $\alpha, \beta \in \R \Rightarrow fg : X \to \R$ und $\frac{1}{f} : \{x \in X | f(x) \neq 0\} \to \R$ mb.
+	\item $f : X \to \R^m$ ist $\A$-$\B_m$-mb. $\\\Rightarrow g : X \to \R; x \mapsto |f(x)|_2$ ist $\A$-$\B_1$-mb.
+	\item{
+		$X = W \dot\cup Z$ mit $\emptyset \neq W, Z \in \A$, $f : W \to Y$ ist $\A_W$-$\B$-mb., $g : Z \to Y$ ist $\A_Z$-$\B$-mb. $\Rightarrow h(x) = \begin{cases}
+			f(x) & x \in W \\
+			g(x) & x \in Z
+		\end{cases}$ ist $\A$-$\B$-mb.
+	}
+	\item Stückw. stg. $f: [a,b] \to \R$ sind Borel-mb.
 \end{enumerate}
+
+\subsection*{Borel-Messbarkeit in $\overline \R$}
+
+Für $f, g : X \to \overline \R$ seien für $=, \neq, \leq, <$ usw.:
+
+\vspace{-4mm}
+\begin{align*}
+	\{ f = g \} &= \{ x \in X | f(x) = g(x) \}\\
+	\{ f \leq g \} &= \{ x \in X | f(x) \leq g(x) \}
+\end{align*}
+
+Sei die Borelsche $\sigma$-Algebra $\overline \B_1$ auf $\overline \R$ definiert als: $\overline \B_1 := \{ B \cup E | B \in \B_1, E \subseteq \{+\infty, -\infty\} \}$
+
+Weiterhin gilt: $\overline \B_1 = \sigma(\{ [-\infty,a] | a \in \Q \})$
+
+Äquivalent sind für $\leq, <, \geq, >$:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $f: X \to \overline \R$ ist messbar
+	\item $\forall a \in \Q : \{f \leq a\} \in \B(X)$
+\end{enumerate}
+
+\subsection*{Konvergenzeigenschaften Borel-mb. Fkt.}
+
+Seien $f_n : X \to \overline \R$ für alle $n \in \N$ $\A-\overline \B_1$-messbar
+
+\vspace{-4mm}
+$$\Rightarrow \sup_{n \in \N} f_n, \inf_{n \in \N} f_n, \varliminf_{n \to \infty} f_n, \varlimsup_{n \to \infty} f_n \ \ \A-\overline \B_1 \text{-messbar}$$
+
+\vspace{-4mm}
+$$\forall x \in X : \lim_{n \to \infty} f_n(x) \in \overline \R \Rightarrow \lim_{n \to \infty} f_n \text{ ist } \A-\overline \B_1-\text{mb.}$$
+
+$f : [a,b] \to \R$ diffbar. $\Rightarrow f'$ ist $\B([a,b])$-$\B_1$-mb.
+
+\vspace{2mm}
+
+Sei $f : X \to \overline \R$, $X_j \in \A$ mit $X_j \uparrow$, $\cup_{j \in \N} X_j = X$ s.d. $\forall j \in \N : \restrictedto{f}{X_j} : X_j \to \overline \R$ ist $\A_{X_j}$-$\overline \B_1$-mb.
+
+$\Rightarrow f$ ist $\A$-$\overline \B_1$-mb.
