@@ -3,8 +3,9 @@
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\C}{\mathcal{C}}
 \newcommand{\E}{\mathcal{E}}
-\newcommand{\J}{\mathcal{J}}
 \newcommand{\F}{\mathcal{F}}
+\newcommand{\J}{\mathcal{J}}
+\renewcommand{\L}{\mathcal{L}}
 
 \section*{Nützliches aus der Mengenlehre}
 
@@ -263,3 +264,57 @@ Sei $f : X \to \overline R$ messbar, dann gelten:
 \end{enumerate}
 
 $f : X \to \overline\R$ ist $\A-\overline\B_1$-mb. gdw. einfache Fkt. $f_n : X \to \R$ ex., welche punktweise gegen $f$ konv.
+
+\section*{Lebesgue-Integral}
+
+\subsection*{Integral für nichtnegative einfache Fkt.}
+
+$$\int f d\mu = \int_X f(x) d\mu(x) := \sum_{j=1}^n y_j \mu(A_j) \in [0, \infty]$$
+
+\subsection*{Integral für nichtnegative Funktionen}
+
+Sei $f : X \to [0, \infty]$ $\A-\overline\B_+$-mb. und $f_n$ mit $\lim_{n \to \infty} f_n(x) = f(x)$ gegeben:
+
+\vspace{-4mm}
+\begin{align*}
+	\int_X f(x) d\mu(x) :&= \lim_{n \to \infty} \int_X f_n(x) d\mu(x) \\
+	                &= \sup_{n \in \N} \int_X f_n(x) d\mu(x) \in [0,\infty]
+\end{align*}
+
+Grundlegende Integraleigenschaften sind erfüllt.
+
+\subsection*{Monotone Konvergenz}
+
+Sei $(X, \A, \mu)$ ein Maßraum, $f_n : X \to [0,\infty]$ $\A-\overline\B_+$-mb. und $f_n \leq f_{n+1}$. Dann ist $f : X \to [0,\infty]$ $\A-\overline\B_+$-mb. und es gilt:
+
+\vspace{-4mm}
+\begin{align*}
+	\int_X f(x) d\mu(x) &= \int_X \lim_{n \to \infty} f_n(x) d\mu(x)\\
+	               &= \lim_{n \to \infty} \int_X f_n(x) d\mu(x)
+\end{align*}
+
+Dies gilt nicht ohne Monotonie oder für eine fallende Folge $(f_n)_{n \in \N}$.
+
+\subsection*{Integral für $\overline\R$-wertige Funktionen}
+
+Sei $f : X \to \overline\R$ eine $\A-\overline\B_1$-mb. Funktion. Dann sind auch $f_+$ und $f_-$ mb. $f$ ist Lebesgue-integrierbar, wenn:
+
+\vspace{-4mm}
+$$\int_X f_+(x) d\mu(x) < \infty \text{ und } \int_X f_-(x) d\mu(x) < \infty$$
+
+Das Lebesgue-Integral ist dann definiert durch:
+
+$$\int f d\mu = \int_X f_+(x) d\mu(x) - \int_X f_-(x) d\mu(x)$$
+
+$\L^1(X,\A,\mu) = \L^1(\mu) = \L^1(X) := \{ f : X \to \R | f \text{ ib.}\}$
+
+\subsubsection*{Charakterisierung der Integrierbarkeit}
+
+Für $\A-\overline\B_1$-mb. Fkt. $f : X \to \overline\R$ sind äquivalent:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $f$ ist integrierbar
+	\item Es ex. integrierbare Fkt. $u, b : X \to [0,\infty]$ mit $f=u-v$ wobei $\not\exists x \in X : u(x)=v(x)=\infty$
+	\item Es ex. ib. Fkt. $g : X \to [0,\infty]$ mit $|f| \leq g$
+	\item $|f| : X \to [0,\infty]$ ist ib d.h. $\int_X |f| d\mu < \infty$
+\end{enumerate}
