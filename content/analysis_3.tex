@@ -186,7 +186,7 @@ Seien $\A, \B, \C$ $\sigma$-Algebren auf $X, Y, Z \neq \emptyset$.
 	\item $f : X \to Y$ ist $\A$-$\B$-mb., $g : Y \to Z$ ist $\B$-$\C$-mb. $\Rightarrow g \circ f : X \to Z$ ist $\A$-$\C$-mb.
 	\item $\emptyset \neq \E \subseteq \powerset{Y}$, $\B = \sigma(\E)$, $f: X \to Y$ dann ist $f$ messbar gdw. $\forall E \in \E : f^{-1}(E) \in \A$
 	\item $X, Y$ metrische Räume, $f : X \to Y$ stetig $\Rightarrow f$ ist Borel-messbar
-	\item $f : X \to \R^m$ ist $\A$-$\B_m$-mb. gdw. $\forall i \in \{1, \dots, m\} : f_i : X \to \R$ ist $\A$-$\B_1$-mb.
+	\item $f : X \to \R^m$ ist $\A$-$\B_m$-mb. gdw. $f_i : X \to \R$ ist $\A$-$\B_1$-mb.
 	\item $f, g$ sind $\A$-$\B_1$-mb. und $\alpha, \beta \in \R \Rightarrow fg : X \to \R$ und $\frac{1}{f} : \{x \in X | f(x) \neq 0\} \to \R$ mb.
 	\item $f : X \to \R^m$ ist $\A$-$\B_m$-mb. $\\\Rightarrow g : X \to \R; x \mapsto |f(x)|_2$ ist $\A$-$\B_1$-mb.
 	\item{
@@ -196,6 +196,7 @@ Seien $\A, \B, \C$ $\sigma$-Algebren auf $X, Y, Z \neq \emptyset$.
 		\end{cases}$ ist $\A$-$\B$-mb.
 	}
 	\item Stückw. stg. $f: [a,b] \to \R$ sind Borel-mb.
+	\item Für diffbare $f : [a,b] \to \R$ ist $f' : [a,b] \to \R$ $\B([a,b])-\B_1$-mb.
 \end{enumerate}
 
 \subsection*{Borel-Messbarkeit in $\overline \R$}
@@ -236,3 +237,29 @@ $f : [a,b] \to \R$ diffbar. $\Rightarrow f'$ ist $\B([a,b])$-$\B_1$-mb.
 Sei $f : X \to \overline \R$, $X_j \in \A$ mit $X_j \uparrow$, $\cup_{j \in \N} X_j = X$ s.d. $\forall j \in \N : \restrictedto{f}{X_j} : X_j \to \overline \R$ ist $\A_{X_j}$-$\overline \B_1$-mb.
 
 $\Rightarrow f$ ist $\A$-$\overline \B_1$-mb.
+
+\subsection*{Positiv- und Negativteil einer Funktion}
+
+Für $f : X \to \overline \R$: $f_+ = \max\{f,0\} : X \to [0, \infty]$
+
+\hspace{20.1mm} $f_- = \max\{-f,0\} : X \to [0, \infty]$
+
+Es gelten $f = f_+ - f_-$, $|f| = f_+ + f_-$
+
+$f$ ist $\A-\overline \B_1$-mb. gdw. $f_+$ und $f_-$ $\A-\overline \B_+$-mb. sind.
+
+Dann ist auch $|f| : x \mapsto |f(x)|$ $\A-\overline \B_+$-mb.
+
+\subsection*{Einfache Funktionen}
+
+Messbare $f : X \to \R$ heißt einfach, wenn sie nur endlich viele Werte annimmt. Für $A_j := f^{-1}(\{y_j\}) \in \A$ ist $f = \sum_{j=1}^n y_j \mathbbm{1}_{A_j}$  die Normalform von $f$.
+
+Sei $f : X \to \overline R$ messbar, dann gelten:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\exists \text{ einfache } f_n : X \to \R$ mit $\lim_{n \to \infty} f_n = f$ punktweise und $\forall n \in \N : |f_n| \leq |f|$
+	\item Für beschränkte $f$ gilt (a) mit glm. Konv.
+	\item Für $f \geq 0$ gilt (a) mit $f_n \leq f_{n+1} \leq f$
+\end{enumerate}
+
+$f : X \to \overline\R$ ist $\A-\overline\B_1$-mb. gdw. einfache Fkt. $f_n : X \to \R$ ex., welche punktweise gegen $f$ konv.
