@@ -387,3 +387,15 @@ Konvergiert $f_n$ fast überall gegen messbares $f : X \to [0,\infty]$, dann:
 $$\int_X f d\mu \leq \liminf_{n \to \infty} \int_X f_n d\mu$$
 
 \subsection*{Majorisierte Konvergenz (Lebesgue)}
+
+Sei $f, f_n : X \to \overline\R$ messbar und $g : X \to [0,\infty]$ integrierbar. Konvergiere $(f_n)$ in $\overline\R$ f.ü. gegen $f$ und $\forall n \in \N : |f_n| \leq g$ f.ü.
+
+Dann sind $f$ und $f_n$ für alle $n \in \N$ integrierbar und:
+
+\vspace{-4mm}
+\begin{align*}
+	\lim_{n \to \infty} \int_X f_n d\mu &= \int_X f d\mu \\
+	|\int_X f_n d\mu - \int_X f d\mu| &\leq \int_{X \setminus N} |f_n - f| d\mu \to 0
+\end{align*}
+
+Mit $N := \{|f| = \infty\} \cup \cup_{n \in \N} \{|f_n| = \infty\}$ Nullmenge.
