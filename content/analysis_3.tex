@@ -318,3 +318,16 @@ Für $\A-\overline\B_1$-mb. Fkt. $f : X \to \overline\R$ sind äquivalent:
 	\item Es ex. ib. Fkt. $g : X \to [0,\infty]$ mit $|f| \leq g$
 	\item $|f| : X \to [0,\infty]$ ist ib d.h. $\int_X |f| d\mu < \infty$
 \end{enumerate}
+
+\subsubsection*{Eigenschaften des Integrals}
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\int_Y \restrictedto{f}{Y}(x) d\mu_Y(x) = \int_X \mathbbm{1}_Y(x) f(x) d\mu(x)$
+	\item $\int_X \alpha f(x) d\mu(x) = \alpha \int_X f(x) d\mu(x)$
+	\item $\int_{X_0} (f + g) d\mu = \int_X f d\mu + \int_X g d\mu$
+	\item $\max\{f,g\}$ und $\min\{f,g\} : X \to \overline\R$ sind ib.
+	\item Sei $f \leq g$. Dann ist $\int_X f d\mu \leq \int_X g d\mu$
+	\item $|\int_X f d\mu| \leq \int_X |f| d\mu$
+\end{enumerate}
+
+$\L^1(\mu)$ ist Vektorraum und das Integral ist eine lineare Abbildung von $\L^1(\mu)$ nach $\R$.
