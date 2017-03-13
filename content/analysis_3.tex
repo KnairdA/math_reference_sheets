@@ -343,3 +343,47 @@ Sei $f$ einfach mit $f := \sum_{j=1}^n y_j \mathbbm{1}_{B_j}$ mit $y_j \in \R$, 
 Sei $f : [a,b] \to \R$ stckw. stetig. Dann ist $f$ Lebesgue- und Riemann-integrierbar, die beiden Integrale stimmen überein.
 
 Der Hauptsatz der Differential- und Integralrechnung gilt auch für das Lebesgue-Integral.
+
+\subsection*{Nullmengen}
+
+Mengen $N \in \A$ mit $\mu(N) = 0$ heißen Nullmengen.
+
+Die rationalen Zahlen $\Q$ und die Cantor-Menge sind $\lambda_1$-Nullmengen, Hyperebenen in $\R^m$ sind $\lambda_m$-Nullmengen.
+
+\subsubsection*{Eigenschaften von Nullmengen}
+
+\begin{enumerate}[label=(\alph*)]
+	\item $M, N \in \A$, $M \subseteq N$ ist $\mu$-Nullmenge \\ $\Rightarrow$ $M$ ist $\mu$-Nullmenge
+	\item $\forall j \in \N : N_j$ ist Nullmenge \\ $\Rightarrow N = \cup_{j \in \N} N_j$ ist Nullmenge
+	\item Überabzählbare Vereinigungen von Nullmengen können das Maß $\infty$ besitzen
+	\item Borelmenge $A$ ist $\lambda_m$-Nullmenge gdw. für $\forall \epsilon > 0$  offene Intervalle $I_j$ existieren s.d. $A \subseteq \cup_{j \in \N} I_j$ und $\sum_{j=1}^\infty \lambda_m(I_j) \leq \epsilon$
+	\item $\lambda_m$-Nullmenge hat keinen inneren Punkt
+\end{enumerate}
+
+Ein Maßraum $(X,\A,\mu)$ heißt vollständig, wenn $\forall M \in$ Nullmenge $N : M \in \A$.
+
+\vspace{2mm}
+
+$\tilde \A := \{ \tilde A = A \cup M | A \in \A, M \subseteq N$ für eine $\mu$-Nullmenge $N\}$ ergibt Vervollständigung $(X,\tilde\A,\tilde\mu)$ eines beliebigen Maßraum $(X,\A,\mu)$.
+
+\subsubsection*{Definition fast überall}
+
+Eine Eigenschaft $E$ besteht für fast alle $x \in X$ oder fast überall. wenn es Nullmengen $N$ gibt s.d. $E$ für alle $x \in X \setminus N$ gilt.
+
+\vspace{2mm}
+
+Sei $f : X \to \overline\R$ ib. Dann ist $\{|f|=\infty\}$ eine Nullmenge, $f$ ist also fast überall endlich.
+
+\subsection*{Lemma von Fatou}
+
+Sei $f_n : X \to [0,\infty]$ für alle $n \in \N$ mb. Dann:
+
+\vspace{-2mm}
+$$\int_X \liminf_{n \to \infty} f_n d\mu \leq \liminf_{n \to \infty} \int_X f_n d\mu$$
+
+Konvergiert $f_n$ fast überall gegen messbares $f : X \to [0,\infty]$, dann:
+
+\vspace{-2mm}
+$$\int_X f d\mu \leq \liminf_{n \to \infty} \int_X f_n d\mu$$
+
+\subsection*{Majorisierte Konvergenz (Lebesgue)}
