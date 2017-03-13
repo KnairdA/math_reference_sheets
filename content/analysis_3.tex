@@ -235,9 +235,9 @@ $f : [a,b] \to \R$ diffbar. $\Rightarrow f'$ ist $\B([a,b])$-$\B_1$-mb.
 
 \vspace{2mm}
 
-Sei $f : X \to \overline \R$, $X_j \in \A$ mit $X_j \uparrow$, $\cup_{j \in \N} X_j = X$ s.d. $\forall j \in \N : \restrictedto{f}{X_j} : X_j \to \overline \R$ ist $\A_{X_j}$-$\overline \B_1$-mb.
+Sei $f : X \to \overline \R$, $X_j \in \A$ mit $X_j \uparrow$, $\cup_{j \in \N} X_j = X$ s.d. $\forall j \in \N : \restrictedto{f}{X_j} : X_j \to \overline \R$ ist $\A_{X_j}$-$\overline\B_1$-mb.
 
-$\Rightarrow f$ ist $\A$-$\overline \B_1$-mb.
+$\Rightarrow f$ ist $\A$-$\overline\B_1$-mb.
 
 \subsection*{Positiv- und Negativteil einer Funktion}
 
@@ -247,9 +247,9 @@ Für $f : X \to \overline \R$: $f_+ = \max\{f,0\} : X \to [0, \infty]$
 
 Es gelten $f = f_+ - f_-$, $|f| = f_+ + f_-$
 
-$f$ ist $\A-\overline \B_1$-mb. gdw. $f_+$ und $f_-$ $\A-\overline \B_+$-mb. sind.
+$f$ ist $\A$-$\overline\B_1$-mb. gdw. $f_+$ und $f_-$ $\A$-$\overline\B_+$-mb. sind.
 
-Dann ist auch $|f| : x \mapsto |f(x)|$ $\A-\overline \B_+$-mb.
+Dann ist auch $|f| : x \mapsto |f(x)|$ $\A$-$\overline\B_+$-mb.
 
 \subsection*{Einfache Funktionen}
 
@@ -263,7 +263,7 @@ Sei $f : X \to \overline R$ messbar, dann gelten:
 	\item Für $f \geq 0$ gilt (a) mit $f_n \leq f_{n+1} \leq f$
 \end{enumerate}
 
-$f : X \to \overline\R$ ist $\A-\overline\B_1$-mb. gdw. einfache Fkt. $f_n : X \to \R$ ex., welche punktweise gegen $f$ konv.
+$f : X \to \overline\R$ ist $\A$-$\overline\B_1$-mb. gdw. einfache Fkt. $f_n : X \to \R$ ex., welche punktweise gegen $f$ konv.
 
 \section*{Lebesgue-Integral}
 
@@ -273,7 +273,7 @@ $$\int f d\mu = \int_X f(x) d\mu(x) := \sum_{j=1}^n y_j \mu(A_j) \in [0, \infty]
 
 \subsection*{Integral für nichtnegative Funktionen}
 
-Sei $f : X \to [0, \infty]$ $\A-\overline\B_+$-mb. und $f_n$ mit $\lim_{n \to \infty} f_n(x) = f(x)$ gegeben:
+Sei $f : X \to [0, \infty]$ $\A$-$\overline\B_+$-mb. und $f_n$ mit $\lim_{n \to \infty} f_n(x) = f(x)$ gegeben:
 
 \vspace{-4mm}
 \begin{align*}
@@ -285,7 +285,7 @@ Grundlegende Integraleigenschaften sind erfüllt.
 
 \subsection*{Monotone Konvergenz}
 
-Sei $(X, \A, \mu)$ ein Maßraum, $f_n : X \to [0,\infty]$ $\A-\overline\B_+$-mb. und $f_n \leq f_{n+1}$. Dann ist $f : X \to [0,\infty]$ $\A-\overline\B_+$-mb. und es gilt:
+Sei $(X, \A, \mu)$ ein Maßraum, $f_n : X \to [0,\infty]$ $\A$-$\overline\B_+$-mb. und $f_n \leq f_{n+1}$. Dann ist $f : X \to [0,\infty]$ $\A$-$\overline\B_+$-mb. und es gilt:
 
 \vspace{-4mm}
 \begin{align*}
@@ -297,7 +297,7 @@ Dies gilt nicht ohne Monotonie oder für eine fallende Folge $(f_n)_{n \in \N}$.
 
 \subsection*{Integral für $\overline\R$-wertige Funktionen}
 
-Sei $f : X \to \overline\R$ eine $\A-\overline\B_1$-mb. Funktion. Dann sind auch $f_+$ und $f_-$ mb. $f$ ist Lebesgue-integrierbar, wenn:
+Sei $f : X \to \overline\R$ eine $\A$-$\overline\B_1$-mb. Funktion. Dann sind auch $f_+$ und $f_-$ mb. $f$ ist Lebesgue-integrierbar, wenn:
 
 \vspace{-4mm}
 $$\int_X f_+(x) d\mu(x) < \infty \text{ und } \int_X f_-(x) d\mu(x) < \infty$$
@@ -328,6 +328,18 @@ Für $\A-\overline\B_1$-mb. Fkt. $f : X \to \overline\R$ sind äquivalent:
 	\item $\max\{f,g\}$ und $\min\{f,g\} : X \to \overline\R$ sind ib.
 	\item Sei $f \leq g$. Dann ist $\int_X f d\mu \leq \int_X g d\mu$
 	\item $|\int_X f d\mu| \leq \int_X |f| d\mu$
+	\item Sei $h : X \to \R$ mb. und beschränkt mit $\mu(\{h \neq 0\}) < \infty$. Dann ist $h$ integrierbar und: $|\int_X h d\mu| \leq \|h\|_\infty \mu(\{h \neq 0\})$
+	\item Sei $A \in \A$ mit $\mu(A) = 0$ und $h : X \to \overline\R$ $\A$-$\overline\B_1$-mb. Dann ist $\mathbbm{1}_A h : X \to \overline\R$ ib. und $\int_A h d\mu = 0$
 \end{enumerate}
 
 $\L^1(\mu)$ ist Vektorraum und das Integral ist eine lineare Abbildung von $\L^1(\mu)$ nach $\R$.
+
+\vspace{2mm}
+
+Sei $f$ einfach mit $f := \sum_{j=1}^n y_j \mathbbm{1}_{B_j}$ mit $y_j \in \R$, $B_j \in \A$ und $\mu(B_j) < \infty$. Dann: $\int_X f d\mu = \sum_{j=1}^n y_j \mu(B_j)$
+
+\subsubsection*{Übereinstimmung Riemann-Integral}
+
+Sei $f : [a,b] \to \R$ stckw. stetig. Dann ist $f$ Lebesgue- und Riemann-integrierbar, die beiden Integrale stimmen überein.
+
+Der Hauptsatz der Differential- und Integralrechnung gilt auch für das Lebesgue-Integral.
