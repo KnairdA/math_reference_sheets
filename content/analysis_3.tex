@@ -454,3 +454,19 @@ Daraus folgt:
 \int_{\R^m} \mathbbm{1}_C(z) dz &= \int_{\R^k} \left( \int_{\R^l} \mathbbm{1}_C(x,y) dy \right) dx\\
                          &= \int_{\R^l} \left( \int_{\R^k} \mathbbm{1}_C(x,y) dx \right) dy
 \end{align*}
+
+\subsection*{Satz von Tonelli}
+
+Sei $f : \R^m \to [0,\infty]$ messbar. Dann:
+
+\vspace{-4mm}
+\begin{align*}
+	\int_{\R^m} f(z) dz &= \int_{\R^k} \left( \int_{\R^l} f(x,y) dy \right) dx\\
+	             &= \int_{\R^l} \left( \int_{\R^k} f(x,y) dx \right) dy
+\end{align*}
+
+\subsection*{Satz von Fubini}
+
+Sei $f : \R^m \to \overline\R$ integrierbar. Dann ex. Nullmengen $M \in \B_k$ und $N \in \B_l$ s.d. $f^x : \R^l \to \overline\R$ für alle $x \in \R^k \setminus M$ und $f_y : \R^k \to \overline\R$ für alle $y \in \R^l \setminus N$ integrierbar sind.
+
+Dann sind $x \mapsto \int_{\R^l} f(x,y) dy$ und $y \mapsto \int_{\R^k} f(x,y) dx$ integrierbar und es gilt der Satz von Tonelli.
