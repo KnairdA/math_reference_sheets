@@ -481,3 +481,37 @@ Dann ist $\phi(A^\circ)$ offen, $\phi : A^\circ \to \phi(A^\circ)$ Diffeomorphis
 	\item Sei $f: \phi(A) \to [0,\infty]$ messbar. Dann: \vspace{-2mm} $$\int_{\phi(A)} f(y) dy = \int_A f(\phi(x))|\det \phi'(x)| dx$$
 	\item Sei $f : \phi(A) \to \overline\R$ messbar. Dann ist $f$ auf $\phi(A)$ ib. gdw. $x \mapsto f(\phi(x))|\det(\phi'(x))|$ auf $A$ integrierbar ist. Es gilt dann auch (a).
 \end{enumerate}
+
+\section*{Differentialgeometrie}
+
+\subsection*{$C^1$-Hyperflächen}
+
+Eine Menge $M \subseteq \R^m$ ist eingebettete $C^1$-Hyperfläche, wenn $\forall x \in M$ offene Mengen $U, V \subseteq \R^m$ und Diffeomorphismus $\psi : V \to U$ existieren s.d. $x \in V$ und $\psi(V \cap M) = U \cap (\R^{m-1} \times \{0\})$ gilt.
+
+Die Abbildung $\psi$ heißt dann Karte.
+
+\subsection*{Gramsche Determinante}
+
+Sei $F : U \to W$ eine Parametrisierung. Dann ist:
+
+\vspace{-2mm}
+$$g_F(t) = \det(F'(t)^TF'(t))$$
+
+die \emph{Gramsche Determinante} von $F$.
+
+\subsection*{Oberflächenintegral}
+
+Sei $F : U \to W$ eine Parametrisierung, $M_0 = F(U) \subseteq \R^m$ ein offenes Flächenstück. Sei weiter $f : M_0 \to \overline\R$ messbar und nichtnegativ oder die Funktion $g := f \circ F \sqrt{g_f}$ integrierbar. Dann:
+
+\vspace{-4mm}
+$$\int_{M_0} f d\sigma = \int_{M_0} f(x) d\sigma(x) := \int_U f(F(t))\sqrt{g_F(t)} dt$$
+
+\subsubsection*{Oberflächenmaß}
+
+Sei $B \in \B(M_0)$ dann ist $\mathbbm{1}_B$ messbar und $F^{-1}(B) \in \B(U)$. Dann ist das Oberflächenmaß definiert:
+
+\vspace{-4mm}
+\begin{align*}
+\sigma(B) := \int_{M_0} \mathbbm{1}_B d\sigma &= \int_U \mathbbm{1}_B(F(t)) \sqrt{g_F(t)} dt\\
+                             &= \int_{F^{-1}(B)} \sqrt{g_F(t)} dt
+\end{align*}
