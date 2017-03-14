@@ -470,3 +470,14 @@ Sei $f : \R^m \to [0,\infty]$ messbar. Dann:
 Sei $f : \R^m \to \overline\R$ integrierbar. Dann ex. Nullmengen $M \in \B_k$ und $N \in \B_l$ s.d. $f^x : \R^l \to \overline\R$ für alle $x \in \R^k \setminus M$ und $f_y : \R^k \to \overline\R$ für alle $y \in \R^l \setminus N$ integrierbar sind.
 
 Dann sind $x \mapsto \int_{\R^l} f(x,y) dy$ und $y \mapsto \int_{\R^k} f(x,y) dx$ integrierbar und es gilt der Satz von Tonelli.
+
+\subsection*{Transformationssatz}
+
+Sei $U \subseteq \R^m$ offen, $\phi \in C^1(U,\R^m)$ injektiv und $A \in \B_m$ mit $A \subseteq U$ s.d. $A^\circ \neq \emptyset$ und $A \setminus A^\circ$ Nullmenge ist. Sei $\phi(A) \in \B_m$ und $\forall x \in A^\circ : \det \phi'(x) \neq 0$.
+
+Dann ist $\phi(A^\circ)$ offen, $\phi : A^\circ \to \phi(A^\circ)$ Diffeomorphismus und $\phi(A) \setminus \phi(A^\circ)$ Nullmenge. Weiter:
+
+\begin{enumerate}[label=(\alph*)]
+	\item Sei $f: \phi(A) \to [0,\infty]$ messbar. Dann: \vspace{-2mm} $$\int_{\phi(A)} f(y) dy = \int_A f(\phi(x))|\det \phi'(x)| dx$$
+	\item Sei $f : \phi(A) \to \overline\R$ messbar. Dann ist $f$ auf $\phi(A)$ ib. gdw. $x \mapsto f(\phi(x))|\det(\phi'(x))|$ auf $A$ integrierbar ist. Es gilt dann auch (a).
+\end{enumerate}
