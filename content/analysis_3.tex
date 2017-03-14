@@ -428,3 +428,29 @@ Sei $U \subseteq \R^k$ offen, $j \in \{1,\cdots,k\}$, $(X,\A,\mu)$ Maßraum und 
 Dann ist $forall t \in U$ die Abbildung $x \mapsto \frac{\partial}{\partial t_j} f(t,x)$ integierbar und es ex. die partielle Ableitung:
 
 $$\frac{\partial}{\partial t_j} \int_X f(t,x) dx = \int_X \frac{\partial f}{\partial t_j} (t,x) dx$$
+
+\section*{Iterierte Integrale}
+
+Darstellung von Integralen auf $\R^m$ als Komposition von Integralen auf $\R^k$ und $\R^l$ mit $m = k + l$.
+
+Für $C \subseteq \R^m$ sind die Schnitte definiert:
+
+\vspace{-4mm}
+\begin{align*}
+	C_y &= \{ x \in \R^k | (x,y) \in C \} &\text{ für feste } y \in \R^l\\
+	C^x &= \{ y \in \R^l | (x,y) \in C \} &\text{ für feste } x \in \R^k
+\end{align*}
+
+\subsection*{Prinzip des Cavalieri}
+
+Für beliebige $C \in \B_m$ gilt:
+
+$$\lambda_m(C) = \int_{\R^k} \lambda_l(C^x) dx = \int_{\R^l} \lambda_k(C_y) dy$$
+
+Daraus folgt:
+
+\vspace{-4mm}
+\begin{align*}
+\int_{\R^m} \mathbbm{1}_C(z) dz &= \int_{\R^k} \left( \int_{\R^l} \mathbbm{1}_C(x,y) dy \right) dx\\
+                         &= \int_{\R^l} \left( \int_{\R^k} \mathbbm{1}_C(x,y) dx \right) dy
+\end{align*}
