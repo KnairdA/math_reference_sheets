@@ -399,3 +399,32 @@ Dann sind $f$ und $f_n$ für alle $n \in \N$ integrierbar und:
 \end{align*}
 
 Mit $N := \{|f| = \infty\} \cup \cup_{n \in \N} \{|f_n| = \infty\}$ Nullmenge.
+
+\subsection*{Stetigkeitssatz}
+
+Sei $M$ metrischer Raum, $t_0 \in M$, $(X,\A,\mu)$ Maßraum und $f : M \times X \to \R$ erfülle:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\forall t \in M$ ist $x \mapsto f(t,x)$ messbar
+	\item Es ex. ib. $g : X \to [0,\infty]$ und Nullmengen $N_t$ für $t \in M$, dass $|f(t,x)| \leq g(x)$ für alle $t \in M$ und $x \in X \setminus N_t$ gilt
+	\item Es ex. Nullmenge $N$ s.d. $t \mapsto f(t,x)$ für $x \in X \setminus N$ bei $t_0$ stetig ist
+\end{enumerate}
+
+Dann ist $\forall t \in M$ die Fkt. $X \to \R; x \mapsto f(t,x)$ ib. und es gilt:
+
+\vspace{-2mm}
+$$\lim_{t \to t_0} \int_X f(t,x) d\mu(x) = \int_X f(t_0,x) d\mu(x)$$
+
+\subsection*{Differentiationssatz}
+
+Sei $U \subseteq \R^k$ offen, $j \in \{1,\cdots,k\}$, $(X,\A,\mu)$ Maßraum und $f : U \times X \to \R$ erfülle:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\forall t \in U : x \mapsto f(t,x)$ ist integrierbar
+	\item $\exists$ Nullmenge $N_1 \forall t \in U \land x \in X \setminus N_1 : \frac{\partial}{\partial t_j} f(t,x)$ existiert
+	\item $\exists$ Nullmenge $N_2$ und ib. $g : X \to [0,\infty] : \forall x \in X \setminus N_2, t \in U : |\frac{\partial f}{\partial t_j} (t,x)| \leq g(x)$
+\end{enumerate}
+
+Dann ist $forall t \in U$ die Abbildung $x \mapsto \frac{\partial}{\partial t_j} f(t,x)$ integierbar und es ex. die partielle Ableitung:
+
+$$\frac{\partial}{\partial t_j} \int_X f(t,x) dx = \int_X \frac{\partial f}{\partial t_j} (t,x) dx$$
