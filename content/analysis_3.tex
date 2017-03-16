@@ -425,7 +425,7 @@ Sei $U \subseteq \R^k$ offen, $j \in \{1,\cdots,k\}$, $(X,\A,\mu)$ Maßraum und 
 	\item $\exists$ Nullmenge $N_2$ und ib. $g : X \to [0,\infty] : \forall x \in X \setminus N_2, t \in U : |\frac{\partial f}{\partial t_j} (t,x)| \leq g(x)$
 \end{enumerate}
 
-Dann ist $forall t \in U$ die Abbildung $x \mapsto \frac{\partial}{\partial t_j} f(t,x)$ integierbar und es ex. die partielle Ableitung:
+Dann ist $\forall t \in U$ die Abbildung $x \mapsto \frac{\partial}{\partial t_j} f(t,x)$ integierbar und es ex. die partielle Ableitung:
 
 $$\frac{\partial}{\partial t_j} \int_X f(t,x) dx = \int_X \frac{\partial f}{\partial t_j} (t,x) dx$$
 
@@ -492,16 +492,22 @@ Die Abbildung $\psi$ heißt dann Karte.
 
 \subsection*{Gramsche Determinante}
 
-Sei $F : U \to W$ eine Parametrisierung. Dann ist:
+Sei $F : U \to W$ eine Parametrisierung. Dann ist
 
 \vspace{-2mm}
 $$g_F(t) = \det(F'(t)^TF'(t))$$
 
 die \emph{Gramsche Determinante} von $F$.
 
+\vspace{2mm}
+
+Im Graphenfall $F(t) = (t,h(t))$ für $t \in U$, $U \subseteq \R^{m-1}$ offen und $h \in C^1(U,\R)$ gilt:
+
+$\sqrt{g_F(t)} = \sqrt{1+|\nabla h(t)|_2^2}$
+
 \subsection*{Oberflächenintegral}
 
-Sei $F : U \to W$ eine Parametrisierung, $M_0 = F(U) \subseteq \R^m$ ein offenes Flächenstück. Sei weiter $f : M_0 \to \overline\R$ messbar und nichtnegativ oder die Funktion $g := f \circ F \sqrt{g_f}$ integrierbar. Dann:
+Sei $F : U \to W$ eine Parametrisierung, $M_0 = F(U) \subseteq \R^m$ ein offenes Flächenstück. Sei weiter $f : M_0 \to \overline\R$ messbar und nichtnegativ oder die Funktion $g := f \circ F \sqrt{g_F}$ integrierbar. Dann:
 
 \vspace{-4mm}
 $$\int_{M_0} f d\sigma = \int_{M_0} f(x) d\sigma(x) := \int_U f(F(t))\sqrt{g_F(t)} dt$$
@@ -515,3 +521,11 @@ Sei $B \in \B(M_0)$ dann ist $\mathbbm{1}_B$ messbar und $F^{-1}(B) \in \B(U)$. 
 \sigma(B) := \int_{M_0} \mathbbm{1}_B d\sigma &= \int_U \mathbbm{1}_B(F(t)) \sqrt{g_F(t)} dt\\
                              &= \int_{F^{-1}(B)} \sqrt{g_F(t)} dt
 \end{align*}
+
+\subsection*{Divergenzsatz von Gauß}
+
+Sei $D \subseteq \R^m$ offen und beschränkt mit dünnsingulärem $C^1$-Rand, $f \in C(D,\R^m) \cap C_b^1(D,\R^m)$ und $(f|\nu) \in \L^1(\partial D,\sigma)$. Dann:
+
+$$\int_D div f(x) dx = \int_{\partial D} (f(x)|\nu(x)) d\sigma(x)$$
+
+Mit $div f(x) := spur f'(x) = \partial_1 f_1(x) + \cdots + \partial_m f_m(x)$.
