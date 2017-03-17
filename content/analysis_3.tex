@@ -528,4 +528,19 @@ Sei $D \subseteq \R^m$ offen und beschränkt mit dünnsingulärem $C^1$-Rand, $f
 
 $$\int_D div f(x) dx = \int_{\partial D} (f(x)|\nu(x)) d\sigma(x)$$
 
-Mit $div f(x) := spur f'(x) = \partial_1 f_1(x) + \cdots + \partial_m f_m(x)$.
+Mit $\text{div} f(x) := \text{spur} f'(x) = \partial_1 f_1(x) + \cdots + \partial_m f_m(x)$.
+
+\section*{Lebesguesche Räume}
+
+Für messbare $f : X \to \overline\R$:
+
+\vspace{-4mm}
+\begin{align*}
+\|f\|_p &= \left(\int_X |f|^p d\mu\right)^\frac{1}{p} \text{ für } p \in [1,\infty)\\
+\|f\|_\infty &= \text{esssup}_{x \in X} \|f(x)\|\\
+      &= \inf\left\{ c > 0 | \exists \text{ NM } N_c : \forall x \in X \setminus N_c : |f(x)| \leq c\right\}
+\end{align*}
+
+\subsection*{$L^p$-Räume}
+
+$$\L^p(X,\A,\mu) := \{ f : X \to \R | f \text{ mb.}, \|f\|_p < \infty\}$$
