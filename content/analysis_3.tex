@@ -355,7 +355,7 @@ Der Hauptsatz der Differential- und Integralrechnung gilt auch für das Lebesgue
 
 Mengen $N \in \A$ mit $\mu(N) = 0$ heißen Nullmengen.
 
-Die rationalen Zahlen $\Q$ und die Cantor-Menge sind $\lambda_1$-Nullmengen, Hyperebenen in $\R^m$ sind $\lambda_m$-Nullmengen.
+Die rationalen Zahlen $\Q$ sind eine $\lambda_1$-Nullmenge, Hyperebenen in $\R^m$ sind $\lambda_m$-Nullmengen.
 
 \subsubsection*{Eigenschaften von Nullmengen}
 
@@ -367,7 +367,7 @@ Die rationalen Zahlen $\Q$ und die Cantor-Menge sind $\lambda_1$-Nullmengen, Hyp
 	\item $\lambda_m$-Nullmenge hat keinen inneren Punkt
 \end{enumerate}
 
-Ein Maßraum $(X,\A,\mu)$ heißt vollständig, wenn $\forall M \in$ Nullmenge $N : M \in \A$.
+Ein Maßraum $(X,\A,\mu)$ heißt vollständig, wenn $\forall M \subseteq$ Nullmenge $N : M \in \A$.
 
 \vspace{2mm}
 
@@ -388,7 +388,7 @@ Sei $f_n : X \to [0,\infty]$ für alle $n \in \N$ mb. Dann:
 \vspace{-2mm}
 $$\int_X \liminf_{n \to \infty} f_n d\mu \leq \liminf_{n \to \infty} \int_X f_n d\mu$$
 
-Konvergiert $f_n$ fast überall gegen messbares $f : X \to [0,\infty]$, dann:
+Konvergiert $f_n$ f.ü. gegen mb. $f : X \to [0,\infty]$:
 
 \vspace{-2mm}
 $$\int_X f d\mu \leq \liminf_{n \to \infty} \int_X f_n d\mu$$
@@ -397,7 +397,7 @@ $$\int_X f d\mu \leq \liminf_{n \to \infty} \int_X f_n d\mu$$
 
 Sei $f, f_n : X \to \overline\R$ messbar und $g : X \to [0,\infty]$ integrierbar. Konvergiere $(f_n)$ in $\overline\R$ f.ü. gegen $f$ und $\forall n \in \N : |f_n| \leq g$ f.ü.
 
-Dann sind $f$ und $f_n$ für alle $n \in \N$ integrierbar und:
+Dann sind $f$ und $f_n$ für $\forall n \in \N$ integrierbar und:
 
 \vspace{-4mm}
 \begin{align*}
@@ -556,6 +556,7 @@ $$\L^p(X,\A,\mu) := \{ f : X \to \R | f \text{ mb.}, \|f\|_p < \infty\}$$
 
 Sei $\frac{1}{p} + \frac{1}{p'} = 1$ mit:
 
+\vspace{-4mm}
 $$p' = \begin{cases}
 	\frac{p}{p-1} & p \in (1, \infty) \\
 	\infty        & p = 1 \\
