@@ -90,6 +90,7 @@ Sei $\A$ eine $\sigma$-Algebra auf $X$.
 $\mu : \A \to [0, \infty]$ ist positives Maß auf $\A$ gdw.:
 
 \begin{enumerate}[label=(\alph*)]
+	\item $\mu$ wohldefiniert und nichtnegativ
 	\item $\mu(\emptyset) = 0$
 	\item $\forall \text{ disjunkte } \{A_j | j \in \N\} \subseteq \A :\\ \hspace*{4mm} \mu(\dot\bigcup_{j\in \N} A_j) = \sum_{j\in \N} \mu(A_j)$
 \end{enumerate}
@@ -550,3 +551,20 @@ Für messbare $f : X \to \overline\R$:
 \subsection*{$L^p$-Räume}
 
 $$\L^p(X,\A,\mu) := \{ f : X \to \R | f \text{ mb.}, \|f\|_p < \infty\}$$
+
+\subsection*{Hölder Ungleichung}
+
+Sei $\frac{1}{p} + \frac{1}{p'} = 1$ mit:
+
+$$p' = \begin{cases}
+	\frac{p}{p-1} & p \in (1, \infty) \\
+	\infty        & p = 1 \\
+	1        & p = \infty
+\end{cases}$$
+
+Dann liegt für $f \in \L^p(\mu)$, $g \in \L^{p'}(\mu)$ das Produkt $fg \in \L^1(\mu)$ und die Höldersche Ungleichung gilt:
+
+\vspace{-4mm}
+$$\left| \int_X fg d\mu \right| \leq \int_X |fg| d\mu = \|fg\|_1 \leq \|f\|_p \|g\|_{p'}$$
+
+\subsection*{Minkowski Ungleichung}
