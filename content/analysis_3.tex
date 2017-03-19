@@ -557,6 +557,24 @@ $$\int_D div f(x) dx = \int_{\partial D} (f(x)|\nu(x)) d\sigma(x)$$
 
 Mit $\text{div} f(x) := \text{spur} f'(x) = \partial_1 f_1(x) + \cdots + \partial_m f_m(x)$ und $\nu$ ist äußere Einheitsnormale.
 
+\subsection*{Satz von Stokes in $\R^3$}
+
+Für $f \in C^1(D,\R^3)$ ist die Rotation definiert:
+
+$$\text{rot} f(x) = \begin{pmatrix}
+	\partial_2 f_3(x) - \partial_3 f_2(x) \\
+	\partial_3 f_1(x) - \partial_1 f_3(x) \\
+	\partial_1 f_2(x) - \partial_2 f_1(x)
+\end{pmatrix}$$
+
+Dann gilt mit der äußeren Einheitsnormalen $n$:
+
+$$\int_M (\text{rot} f(x) | n(x)) d\mu(x) = \int_{\partial_2 M} f \cdot dx$$
+
+Dabei ist das \emph{Kurvenintegral zweiter Art} geg. als:
+
+$$\int_{\partial_2 M} f \cdot dx = \int_a^b (f(\varphi(\tau))|\varphi'(\tau)) d\tau$$
+
 \section*{Lebesguesche Räume}
 
 Für messbare $f : X \to \overline\R$:
