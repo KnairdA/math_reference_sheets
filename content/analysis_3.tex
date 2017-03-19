@@ -508,6 +508,18 @@ die \emph{Gramsche Determinante} von $F$.
 
 \vspace{2mm}
 
+Für $m = 3$ gilt insbesondere:
+
+\vspace{-4mm}
+\begin{align*}
+g_F(t) &= |\partial_1F(t) \times \partial_2F(t)|_2^2\\
+       &= \left|\begin{pmatrix}
+	\partial_1 F_2(t) \partial_2 F_3(t) - \partial_1 F_3(t) \partial_2 F_2(t) \\
+	\partial_1 F_3(t) \partial_2 F_1(t) - \partial_1 F_1(t) \partial_2 F_3(t) \\
+	\partial_1 F_1(t) \partial_2 F_2(t) - \partial_1 F_2(t) \partial_2 F_1(t)
+\end{pmatrix}\right|_2^2
+\end{align*}
+
 Im Graphenfall $F(t) = (t,h(t))$ für $t \in U$, $U \subseteq \R^{m-1}$ offen und $h \in C^1(U,\R)$ gilt:
 
 $\sqrt{g_F(t)} = \sqrt{1+|\nabla h(t)|_2^2}$
