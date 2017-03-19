@@ -14,3 +14,7 @@ Das resultierende PDF der in _LaTeX_ gesetzten Quellen der [Analysis](https://st
 	make build topic=analysis
 	# continuous rebuilds:
 	make live topic=numerik_1
+
+## Vorschau
+
+[![Übersicht aller Zusammenfassungen](https://static.kummerlaender.eu/media/math_reference_sheet_overview_scaled.png)](https://static.kummerlaender.eu/media/math_reference_sheet_overview.png)
