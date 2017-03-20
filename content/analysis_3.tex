@@ -510,7 +510,9 @@ $$\int_X f d\mu := \int_X \text{Re} f d\mu + i \int_X \text{Im} f d\mu$$
 
 Eine Menge $M \subseteq \R^m$ ist eingebettete $C^1$-Hyperfläche, wenn $\forall x \in M$ offene Mengen $U, V \subseteq \R^m$ und Diffeomorphismus $\psi : V \to U$ existieren s.d. $x \in V$ und $\psi(V \cap M) = U \cap (\R^{m-1} \times \{0\})$ gilt.
 
-Die Abbildung $\psi$ heißt dann Karte.
+\spacing
+
+Abbildung $\psi$ heißt Karte mit Kartengebiet $V$.
 
 \subsection*{$C^k$-Hyperflächen}
 
@@ -543,9 +545,13 @@ g_F(t) &= |\partial_1F(t) \times \partial_2F(t)|_2^2\\
 \end{pmatrix}\right|_2^2
 \end{align*}
 
-Im Graphenfall $F(t) = (t,h(t))$ für $t \in U$, $U \subseteq \R^{m-1}$ offen und $h \in C^1(U,\R)$ gilt:
+Im Graphenfall $F(t) = (t,h(t))$ für $t \in U$, $U \subseteq \R^{m-1}$ offen und $h \in C^1(U,\R)$ gilt: $\sqrt{g_F(t)} = \sqrt{1+|\nabla h(t)|_2^2}$
 
-$\sqrt{g_F(t)} = \sqrt{1+|\nabla h(t)|_2^2}$
+\spacing
+
+Für die $m$-dim. Param. mit Polarkoordinaten gilt:
+
+$\sqrt{g_F(r,\varphi,\theta)} = r^{m-1} \cos^1(\theta_1) \cdots \cos^{m-2}(\theta_{m-2})$
 
 \subsection*{Oberflächenintegral}
 
@@ -603,7 +609,7 @@ Für messbare $f : X \to \overline\R$:
 
 \subsection*{$\L^p$-Räume}
 
-\vspace{-2mm}
+\vspace{-4mm}
 \begin{align*}
 \L^p(X,\A,\mu) &:= \{ f : X \to \R | f \text{ mb.}, \|f\|_p < \infty\} \\
 \L_\mathbb{C}^p(X,\A,\mu) &:= \{ f : X \to \mathbb{C} | f \text{ mb.}, |f| \in \L^p(\mu) \}
