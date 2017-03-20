@@ -492,6 +492,18 @@ Dann ist $\phi(A^\circ)$ offen, $\phi : A^\circ \to \phi(A^\circ)$ Diffeomorphis
 	\item Sei $f : \phi(A) \to \overline\R$ messbar. Dann ist $f$ auf $\phi(A)$ ib. gdw. $x \mapsto f(\phi(x))|\det(\phi'(x))|$ auf $A$ integrierbar ist. Es gilt dann auch (a).
 \end{enumerate}
 
+\section*{Komplexe Integrale}
+
+Der metrische Raum $\mathbb{C}$ ist homöomorph zu $\R^2$, $\B(\mathbb{C})$ wird mit $\B_2$ identifiziert.
+
+$f : X \to \mathbb{C}$ ist $\A$-$\B(\mathbb{C})$-mb. gdw. $\text{Re} f, \text{Im} f : X \to \R$ $\A$-$\B_1$-messbar sind.
+
+Für die Integrierbarkeit von mb. $f : X \to \mathbb{C}$ gilt:
+
+$|f| : X \to [0,\infty)$ ib. $\Leftrightarrow \text{Re} f, \text{Im} f : X \to \R$ ib.
+
+$$\int_X f d\mu := \int_X \text{Re} f d\mu + i \int_X \text{Im} f d\mu$$
+
 \section*{Differentialgeometrie}
 
 \subsection*{$C^1$-Hyperflächen}
@@ -591,7 +603,11 @@ Für messbare $f : X \to \overline\R$:
 
 \subsection*{$\L^p$-Räume}
 
-$$\L^p(X,\A,\mu) := \{ f : X \to \R | f \text{ mb.}, \|f\|_p < \infty\}$$
+\vspace{-2mm}
+\begin{align*}
+\L^p(X,\A,\mu) &:= \{ f : X \to \R | f \text{ mb.}, \|f\|_p < \infty\} \\
+\L_\mathbb{C}^p(X,\A,\mu) &:= \{ f : X \to \mathbb{C} | f \text{ mb.}, |f| \in \L^p(\mu) \}
+\end{align*}
 
 $\L^p(\mu)$ ist für $p \in [1,\infty]$ ein $\R$-Vektorraum. Zusätzlich ist $f \to \|f\|_p$ homogen und erfüllt die $\Delta$-UGL, ist jedoch bei Existenz einer $\mu$-Nullmenge $N \neq \emptyset$ nicht definit wg. $\|\1_N\|_p = 0$ und $\1_N \neq 0$.
 
