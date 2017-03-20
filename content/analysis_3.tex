@@ -7,6 +7,9 @@
 \newcommand{\J}{\mathcal{J}}
 \renewcommand{\L}{\mathcal{L}}
 
+% indicator function symbol
+\newcommand{\1}{\mathbbm{1}}
+
 \section*{Nützliches aus der Mengenlehre}
 
 \subsection*{De Morgansche Regeln}
@@ -254,7 +257,7 @@ Dann ist auch $|f| : x \mapsto |f(x)|$ $\A$-$\overline\B_+$-mb.
 
 \subsection*{Einfache Funktionen}
 
-Messbare $f : X \to \R$ heißt einfach, wenn sie nur endlich viele Werte annimmt. Für $A_j := f^{-1}(\{y_j\}) \in \A$ ist $f = \sum_{j=1}^n y_j \mathbbm{1}_{A_j}$  die Normalform von $f$.
+Messbare $f : X \to \R$ heißt einfach, wenn sie nur endlich viele Werte annimmt. Für $A_j := f^{-1}(\{y_j\}) \in \A$ ist $f = \sum_{j=1}^n y_j \1_{A_j}$  die Normalform von $f$.
 
 Sei $f : X \to \overline R$ messbar, dann gelten:
 
@@ -329,21 +332,21 @@ Für $\A-\overline\B_1$-mb. Fkt. $f : X \to \overline\R$ sind äquivalent:
 \subsubsection*{Eigenschaften des Integrals}
 
 \begin{enumerate}[label=(\alph*)]
-	\item $\int_Y \restrictedto{f}{Y}(x) d\mu_Y(x) = \int_X \mathbbm{1}_Y(x) f(x) d\mu(x)$
+	\item $\int_Y \restrictedto{f}{Y}(x) d\mu_Y(x) = \int_X \1_Y(x) f(x) d\mu(x)$
 	\item $\int_X \alpha f(x) d\mu(x) = \alpha \int_X f(x) d\mu(x)$
 	\item $\int_{X_0} (f + g) d\mu = \int_X f d\mu + \int_X g d\mu$
 	\item $\max\{f,g\}$ und $\min\{f,g\} : X \to \overline\R$ sind ib.
 	\item Sei $f \leq g$. Dann ist $\int_X f d\mu \leq \int_X g d\mu$
 	\item $|\int_X f d\mu| \leq \int_X |f| d\mu$
 	\item Sei $h : X \to \R$ mb. und beschränkt mit $\mu(\{h \neq 0\}) < \infty$. Dann ist $h$ integrierbar und: $|\int_X h d\mu| \leq \|h\|_\infty \mu(\{h \neq 0\})$
-	\item Sei $A \in \A$ mit $\mu(A) = 0$ und $h : X \to \overline\R$ $\A$-$\overline\B_1$-mb. Dann ist $\mathbbm{1}_A h : X \to \overline\R$ ib. und $\int_A h d\mu = 0$
+	\item Sei $A \in \A$ mit $\mu(A) = 0$ und $h : X \to \overline\R$ $\A$-$\overline\B_1$-mb. Dann ist $\1_A h : X \to \overline\R$ ib. und $\int_A h d\mu = 0$
 \end{enumerate}
 
 $\L^1(\mu)$ ist Vektorraum und das Integral ist eine lineare Abbildung von $\L^1(\mu)$ nach $\R$.
 
 \spacing
 
-Sei $f$ einfach mit $f := \sum_{j=1}^n y_j \mathbbm{1}_{B_j}$ mit $y_j \in \R$, $B_j \in \A$ und $\mu(B_j) < \infty$. Dann: $\int_X f d\mu = \sum_{j=1}^n y_j \mu(B_j)$
+Sei $f$ einfach mit $f := \sum_{j=1}^n y_j \1_{B_j}$ mit $y_j \in \R$, $B_j \in \A$ und $\mu(B_j) < \infty$. Dann: $\int_X f d\mu = \sum_{j=1}^n y_j \mu(B_j)$
 
 \subsubsection*{Übereinstimmung Riemann-Integral}
 
@@ -458,8 +461,8 @@ Daraus folgt:
 
 \vspace{-4mm}
 \begin{align*}
-\int_{\R^m} \mathbbm{1}_C(z) dz &= \int_{\R^k} \left( \int_{\R^l} \mathbbm{1}_C(x,y) dy \right) dx\\
-                         &= \int_{\R^l} \left( \int_{\R^k} \mathbbm{1}_C(x,y) dx \right) dy
+\int_{\R^m} \1_C(z) dz &= \int_{\R^k} \left( \int_{\R^l} \1_C(x,y) dy \right) dx\\
+                         &= \int_{\R^l} \left( \int_{\R^k} \1_C(x,y) dx \right) dy
 \end{align*}
 
 \subsection*{Satz von Tonelli}
@@ -541,11 +544,11 @@ $$\int_{M_0} f d\sigma = \int_{M_0} f(x) d\sigma(x) := \int_U f(F(t))\sqrt{g_F(t
 
 \subsubsection*{Oberflächenmaß}
 
-Sei $B \in \B(M_0)$ dann ist $\mathbbm{1}_B$ messbar und $F^{-1}(B) \in \B(U)$. Dann ist das Oberflächenmaß definiert:
+Sei $B \in \B(M_0)$ dann ist $\1_B$ messbar und $F^{-1}(B) \in \B(U)$. Dann ist das Oberflächenmaß definiert:
 
 \vspace{-4mm}
 \begin{align*}
-\sigma(B) := \int_{M_0} \mathbbm{1}_B d\sigma &= \int_U \mathbbm{1}_B(F(t)) \sqrt{g_F(t)} dt\\
+\sigma(B) := \int_{M_0} \1_B d\sigma &= \int_U \1_B(F(t)) \sqrt{g_F(t)} dt\\
                              &= \int_{F^{-1}(B)} \sqrt{g_F(t)} dt
 \end{align*}
 
@@ -586,9 +589,30 @@ Für messbare $f : X \to \overline\R$:
       &= \inf\left\{ c > 0 | \exists \text{ NM } N_c : \forall x \in X \setminus N_c : |f(x)| \leq c\right\}
 \end{align*}
 
-\subsection*{$L^p$-Räume}
+\subsection*{$\L^p$-Räume}
 
 $$\L^p(X,\A,\mu) := \{ f : X \to \R | f \text{ mb.}, \|f\|_p < \infty\}$$
+
+$\L^p(\mu)$ ist für $p \in [1,\infty]$ ein $\R$-Vektorraum. Zusätzlich ist $f \to \|f\|_p$ homogen und erfüllt die $\Delta$-UGL, ist jedoch bei Existenz einer $\mu$-Nullmenge $N \neq \emptyset$ nicht definit wg. $\|\1_N\|_p = 0$ und $\1_N \neq 0$.
+
+\vspace{-4mm}
+\begin{align*}
+\mathcal{N} &= \{ f : X \to \R | f \text{ ist mb.}, f = 0 \text{ f.ü.}\} \\
+L^p(X,\A,\mu) &= \L^p(\mu) / \mathcal{N}
+\end{align*}
+
+Der Quotientenraum $L^p(\mu)$ ist $\R$-Vektorraum mit Restklassen $\hat f = f + \mathcal{N}$ für $f \in \L^p(\mu)$. Es gilt $\hat f = \hat g$ gdw. alle $f \in \hat f$ und $g \in \hat g$ fast überall gleich sind.
+
+\spacing
+
+$(L^p(\mu),\|\cdot\|_p)$ ist $\forall p \in [1,\infty]$ normierter Vektorraum.
+
+\subsubsection*{Einfache Funktionen in $\L^p$}
+
+Sei $(X,\A,\mu)$ Maßraum und $f \in L^p(\mu)$. Dann liegt $E = \{ f \in L^p(\mu) | f \text{ ist einfach} \}$ dicht in $L^p(\mu)$, d.h:
+
+\vspace{-4mm}
+$$\forall f \in L^p(\mu), \epsilon > 0 \exists \text{ einf. } g \in L^p(\mu) : \| f - g \|_p \leq \epsilon$$
 
 \subsection*{Hölder Ungleichung}
 
