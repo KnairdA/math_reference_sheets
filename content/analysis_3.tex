@@ -474,8 +474,8 @@ Sei $f : \R^m \to [0,\infty]$ messbar. Dann:
 
 \vspace{-4mm}
 \begin{align*}
-	\int_{\R^m} f(z) dz &= \int_{\R^k} \left( \int_{\R^l} f(x,y) dy \right) dx\\
-	             &= \int_{\R^l} \left( \int_{\R^k} f(x,y) dx \right) dy
+	\int_{\R^m} f(z) \ dz &= \int_{\R^k} \left( \int_{\R^l} f(x,y) dy \right) dx\\
+	               &= \int_{\R^l} \left( \int_{\R^k} f(x,y) dx \right) dy
 \end{align*}
 
 \subsection*{Satz von Fubini}
@@ -494,18 +494,6 @@ Dann ist $\phi(A^\circ)$ offen, $\phi : A^\circ \to \phi(A^\circ)$ Diffeomorphis
 	\item Sei $f: \phi(A) \to [0,\infty]$ messbar. Dann: \vspace{-2mm} $$\int_{\phi(A)} f(y) dy = \int_A f(\phi(x))|\det \phi'(x)| dx$$
 	\item Sei $f : \phi(A) \to \overline\R$ messbar. Dann ist $f$ auf $\phi(A)$ ib. gdw. $x \mapsto f(\phi(x))|\det(\phi'(x))|$ auf $A$ integrierbar ist. Es gilt dann auch (a).
 \end{enumerate}
-
-\section*{Komplexe Integrale}
-
-Der metrische Raum $\mathbb{C}$ ist homöomorph zu $\R^2$, $\B(\mathbb{C})$ wird mit $\B_2$ identifiziert.
-
-$f : X \to \mathbb{C}$ ist $\A$-$\B(\mathbb{C})$-mb. gdw. $\text{Re} f, \text{Im} f : X \to \R$ $\A$-$\B_1$-messbar sind.
-
-Für die Integrierbarkeit von mb. $f : X \to \mathbb{C}$ gilt:
-
-$|f| : X \to [0,\infty)$ ib. $\Leftrightarrow \text{Re} f, \text{Im} f : X \to \R$ ib.
-
-$$\int_X f d\mu := \int_X \text{Re} f d\mu + i \int_X \text{Im} f d\mu$$
 
 \section*{Differentialgeometrie}
 
@@ -581,7 +569,7 @@ Sei $D \subseteq \R^m$ offen und beschränkt mit dünnsingulärem $C^1$-Rand, $f
 
 $$\int_D div f(x) dx = \int_{\partial D} (f(x)|\nu(x)) d\sigma(x)$$
 
-Mit $\text{div} f(x) := \text{spur} f'(x) = \partial_1 f_1(x) + \cdots + \partial_m f_m(x)$ und $\nu$ ist äußere Einheitsnormale.
+Mit $\text{div} f(x) := \text{spur} \ f'(x) = \partial_1 f_1(x) + \cdots + \partial_m f_m(x)$ und $\nu$ ist äußere Einheitsnormale.
 
 \subsection*{Satz von Stokes in $\R^3$}
 
@@ -589,15 +577,14 @@ Für $f \in C^1(D,\R^3)$ ist die Rotation definiert:
 
 \vspace{-4mm}
 $$\text{rot} \ f(x) = \begin{pmatrix}
-	\partial_1 \\	
-	\partial_2 \\	
+	\partial_1 \\
+	\partial_2 \\
 	\partial_3
 \end{pmatrix} \times \begin{pmatrix}
 	f_1 \\
 	f_2 \\
 	f_3
-\end{pmatrix} = 
-\begin{pmatrix}
+\end{pmatrix} = \begin{pmatrix}
 	\partial_2 f_3(x) - \partial_3 f_2(x) \\
 	\partial_3 f_1(x) - \partial_1 f_3(x) \\
 	\partial_1 f_2(x) - \partial_2 f_1(x)
@@ -605,11 +592,16 @@ $$\text{rot} \ f(x) = \begin{pmatrix}
 
 Dann gilt mit der äußeren Einheitsnormalen $n$:
 
-$$\int_M (\text{rot} f(x) | n(x)) d\mu(x) = \int_{\partial_2 M} f \cdot dx$$
+$$\int_M (\text{rot} \ f(x) | n(x)) d\mu(x) = \int_{\partial_2 M} f \cdot \ dx$$
 
 Dabei ist das \emph{Kurvenintegral zweiter Art} geg. als:
 
 $$\int_{\partial M} f \cdot dx = \int_a^b (f(\varphi(\tau))|\varphi'(\tau)) d\tau$$
+
+Im Rahmen des Divergenzsatz von Gauß sei $f = \text{rot} \ g$ für $g \in C^2(\overline D,\R^3)$. Dann ist div rot $g$ = 0 und:
+
+\vspace{-2mm}
+$$\int_{\partial D} (\text{rot} \ g|\nu) \ d\sigma = 0$$
 
 \section*{Lebesguesche Räume}
 
@@ -621,6 +613,12 @@ Für messbare $f : X \to \overline\R$:
 \|f\|_\infty &= \text{esssup}_{x \in X} \|f(x)\|\\
       &= \inf\left\{ c > 0 | \exists \text{ NM } N_c : \forall x \in X \setminus N_c : |f(x)| \leq c\right\}
 \end{align*}
+
+\emph{esssup} bezeichnet das \emph{wesentliche Supremum}.
+
+\spacing
+
+Die Konvergenz $\| f_n - f \|_p \to 0$ heißt für $p \in [1,\infty)$ die \emph{Konvergenz im p-ten Mittel}. $\| f_n - f \|_1$ ist gerade die Fläche zwischen den Graphen von $f$ und $f_n$
 
 \subsection*{$\L^p$-Räume}
 
@@ -694,4 +692,16 @@ Sei $(X,\A,\mu)$ Maßraum und $f \in L^p(\mu)$. Dann liegt $E = \{ f \in L^p(\mu
 
 \vspace{-4mm}
 $$\forall f \in L^p(\mu), \epsilon > 0 \exists \text{ einf. } g \in L^p(\mu) : \| f - g \|_p \leq \epsilon$$
+
+\section*{Komplexe Integrale}
+
+Der metrische Raum $\mathbb{C}$ ist homöomorph zu $\R^2$, $\B(\mathbb{C})$ wird mit $\B_2$ identifiziert.
+
+$f : X \to \mathbb{C}$ ist $\A$-$\B(\mathbb{C})$-mb. gdw. $\text{Re} f, \text{Im} f : X \to \R$ $\A$-$\B_1$-messbar sind.
+
+Für die Integrierbarkeit von mb. $f : X \to \mathbb{C}$ gilt:
+
+$|f| : X \to [0,\infty)$ ib. $\Leftrightarrow \text{Re} f, \text{Im} f : X \to \R$ ib.
+
+$$\int_X f d\mu := \int_X \text{Re} f d\mu + i \int_X \text{Im} f d\mu$$
 
