@@ -257,7 +257,10 @@ Dann ist auch $|f| : x \mapsto |f(x)|$ $\A$-$\overline\B_+$-mb.
 
 \subsection*{Einfache Funktionen}
 
-Messbare $f : X \to \R$ heißt einfach, wenn sie nur endlich viele Werte annimmt. Für $A_j := f^{-1}(\{y_j\}) \in \A$ ist $f = \sum_{j=1}^n y_j \1_{A_j}$  die Normalform von $f$.
+Messbare $f : X \to \R$ heißt einfach, wenn sie nur endlich viele Werte annimmt. Die Normalform von $f$ ist für $f^{-1}(\{y\}) \in \A$ mit $y \in f(X)$ definiert:
+
+\vspace{-2mm}
+$$f = \sum_{y \in f(X)} y \cdot \1_{f^{-1}(\{y\})}$$
 
 Sei $f : X \to \overline R$ messbar, dann gelten:
 
@@ -273,19 +276,19 @@ $f : X \to \overline\R$ ist $\A$-$\overline\B_1$-mb. gdw. einfache Fkt. $f_n : X
 
 \subsection*{Integral für nichtnegative einfache Fkt.}
 
-$$\int f d\mu = \int_X f(x) d\mu(x) := \sum_{j=1}^n y_j \mu(A_j) \in [0, \infty]$$
+$$\int f d\mu = \int_X f(x) d\mu(x) := \sum_{y \in f(X)} y \cdot \mu(f^{-1}(\{y\}))$$
 
 \subsection*{Integral für nichtnegative Funktionen}
 
-Sei $f : X \to [0, \infty]$ $\A$-$\overline\B_+$-mb. und $f_n$ mit $\lim_{n \to \infty} f_n(x) = f(x)$ gegeben:
+Sei $f : X \to [0, \infty]$ $\A$-$\overline\B_+$-mb. und steigende Folge einfacher $f_n \leq f$ mit $\displaystyle\lim_{n \to \infty} f_n(x) = f(x)$ gegeben:
 
-\vspace{-4mm}
-\begin{align*}
-	\int_X f(x) d\mu(x) :&= \lim_{n \to \infty} \int_X f_n(x) d\mu(x) \\
-	                &= \sup_{n \in \N} \int_X f_n(x) d\mu(x) \in [0,\infty]
-\end{align*}
+\vspace{-2mm}
+$$\int_X f \ d\mu := \lim_{n \to \infty} \int_X f_n \ d\mu = \sup_{n \in \N} \int_X f_n \ d\mu$$
 
 Grundlegende Integraleigenschaften sind erfüllt.
+
+\vspace{-4mm}
+$$\int_X f \ d\mu = \sup\left\{ \int_X g \ d\mu | g \text{ einfach}, 0 \leq g \leq f \right\}$$
 
 \subsection*{Monotone Konvergenz}
 
@@ -405,7 +408,7 @@ Dann sind $f$ und $f_n$ für $\forall n \in \N$ integrierbar und:
 \vspace{-4mm}
 \begin{align*}
 	\lim_{n \to \infty} \int_X f_n d\mu &= \int_X f d\mu \\
-	|\int_X f_n d\mu - \int_X f d\mu| &\leq \int_{X \setminus N} |f_n - f| d\mu \to 0
+	\left|\int_X f_n d\mu - \int_X f d\mu\right| &\leq \int_{X \setminus N} |f_n - f| d\mu \to 0
 \end{align*}
 
 Mit $N := \{|f| = \infty\} \cup \cup_{n \in \N} \{|f_n| = \infty\}$ Nullmenge.
@@ -435,7 +438,7 @@ Sei $U \subseteq \R^k$ offen, $j \in \{1,\cdots,k\}$, $(X,\A,\mu)$ Maßraum und 
 	\item $\exists$ Nullmenge $N_2$ und ib. $g : X \to [0,\infty] : \forall x \in X \setminus N_2, t \in U : |\frac{\partial f}{\partial t_j} (t,x)| \leq g(x)$
 \end{enumerate}
 
-Dann ist $\forall t \in U$ die Abbildung $x \mapsto \frac{\partial}{\partial t_j} f(t,x)$ integierbar und es ex. die partielle Ableitung:
+Dann ist $\forall t \in U$ die Abbildung $x \mapsto \frac{\partial}{\partial t_j} f(t,x)$ integierbar und es existiert die partielle Ableitung:
 
 $$\frac{\partial}{\partial t_j} \int_X f(t,x) dx = \int_X \frac{\partial f}{\partial t_j} (t,x) dx$$
 
