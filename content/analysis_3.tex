@@ -530,9 +530,9 @@ Eine Borelmenge $M \subseteq \R^m$ ist \emph{dünnsinguläre} $C^k$-Hyperfläche
 Sei $F : U \to W$ eine Parametrisierung. Dann ist
 
 \vspace{-2mm}
-$$g_F(t) = \det(F'(t)^TF'(t))$$
+$$g_F(t) = \transpose{\det(F'(t)}F'(t))$$
 
-die \emph{Gramsche Determinante} von $F$.
+die \emph{Gramsche Determinante} von $F$. Die Matrix $\transpose{F'(t)}F'(t) \in L(\R^{m-1})$ ist sym. und positiv definit.
 
 \spacing
 
@@ -573,6 +573,8 @@ Sei $B \in \B(M_0)$ dann ist $\1_B$ messbar und $F^{-1}(B) \in \B(U)$. Dann ist 
                              &= \int_{F^{-1}(B)} \sqrt{g_F(t)} dt
 \end{align*}
 
+Maß ist unabhg. der Wahl der Parametrisierung.
+
 \subsection*{Divergenzsatz von Gauß}
 
 Sei $D \subseteq \R^m$ offen und beschränkt mit dünnsingulärem $C^1$-Rand, $f \in C(D,\R^m) \cap C_b^1(D,\R^m)$ und $(f|\nu) \in \L^1(\partial D,\sigma)$. Dann:
@@ -585,7 +587,17 @@ Mit $\text{div} f(x) := \text{spur} f'(x) = \partial_1 f_1(x) + \cdots + \partia
 
 Für $f \in C^1(D,\R^3)$ ist die Rotation definiert:
 
-$$\text{rot} f(x) = \begin{pmatrix}
+\vspace{-4mm}
+$$\text{rot} \ f(x) = \begin{pmatrix}
+	\partial_1 \\	
+	\partial_2 \\	
+	\partial_3
+\end{pmatrix} \times \begin{pmatrix}
+	f_1 \\
+	f_2 \\
+	f_3
+\end{pmatrix} = 
+\begin{pmatrix}
 	\partial_2 f_3(x) - \partial_3 f_2(x) \\
 	\partial_3 f_1(x) - \partial_1 f_3(x) \\
 	\partial_1 f_2(x) - \partial_2 f_1(x)
@@ -597,7 +609,7 @@ $$\int_M (\text{rot} f(x) | n(x)) d\mu(x) = \int_{\partial_2 M} f \cdot dx$$
 
 Dabei ist das \emph{Kurvenintegral zweiter Art} geg. als:
 
-$$\int_{\partial_2 M} f \cdot dx = \int_a^b (f(\varphi(\tau))|\varphi'(\tau)) d\tau$$
+$$\int_{\partial M} f \cdot dx = \int_a^b (f(\varphi(\tau))|\varphi'(\tau)) d\tau$$
 
 \section*{Lebesguesche Räume}
 
@@ -632,13 +644,6 @@ Der Quotientenraum $L^p(\mu)$ ist $\R$-Vektorraum mit Restklassen $\hat f = f + 
 
 $(L^p(\mu),\|\cdot\|_p)$ ist $\forall p \in [1,\infty]$ normierter Vektorraum.
 
-\subsubsection*{Einfache Funktionen in $\L^p$}
-
-Sei $(X,\A,\mu)$ Maßraum und $f \in L^p(\mu)$. Dann liegt $E = \{ f \in L^p(\mu) | f \text{ ist einfach} \}$ dicht in $L^p(\mu)$, d.h:
-
-\vspace{-4mm}
-$$\forall f \in L^p(\mu), \epsilon > 0 \exists \text{ einf. } g \in L^p(\mu) : \| f - g \|_p \leq \epsilon$$
-
 \subsection*{Hölder Ungleichung}
 
 Sei $\frac{1}{p} + \frac{1}{p'} = 1$ mit:
@@ -662,6 +667,19 @@ Seien $f, g \in \L^p(\mu)$. Dann gilt $f + g \in \L^p(\mu)$ und:
 \vspace{-2mm}
 $$\| f + g \|_p \leq \|f\|_p + \|g\|_p$$
 
+\subsection*{Konvergenz in $\L^p$}
+
+Sei $\mu(X) < \infty$ und $1 \leq p \leq q \leq \infty$. Dann gilt $\L^q(\mu) \subseteq \L^p(mu)$ und für $f \in L^q(\mu)$:
+
+\vspace{-2mm}
+$$\|f\|_p \leq \mu(X)^{\frac{1}{p} - \frac{1}{q}} \|f\|_q$$
+
+Die Konvergenz $\| f - f_n \|_p \to 0$ folgt also in diesem Fall aus $\| f - f_n \|_q \to 0$ für $n \to \infty$.
+
+\spacing
+
+Sei $1 \leq p < \infty$, $f_n, f : X \to \R$ mb., $g \in \L^p(\mu)$, $\forall n \in \N : |f_n| \leq g$ f.ü. und $(f_n)$ konvergiere gegen $f$. Dann gilt: $f_n, f \in \L^p(\mu)$ und $\lim_{n \to \infty} \|f - f_n\|_p = 0$.
+
 \subsection*{Satz von Riesz-Fischer}
 
 Sei $1 \leq p < \infty$, $(f_n)$ Cauchyfolge in $\L^p(\mu)$ bzgl. $\|\cdot\|_p$.
@@ -669,3 +687,11 @@ Sei $1 \leq p < \infty$, $(f_n)$ Cauchyfolge in $\L^p(\mu)$ bzgl. $\|\cdot\|_p$.
 Dann existieren $f, h \in \L^p(\mu)$ und Teilfolge $(f_{n_j})_j$ s.d. diese f.ü. gegen $f$ strebt, $\forall j \in \N : |f_{n_j}| \leq h$ f.ü. gilt und $\displaystyle\lim_{n \to \infty} \|f_n - f\|_p = 0$ gilt.
 
 $L^p(\mu)$ ist ein Banach-, für $p=2$ ein Hilbertraum.
+
+\subsubsection*{Einfache Funktionen in $\L^p$}
+
+Sei $(X,\A,\mu)$ Maßraum und $f \in L^p(\mu)$. Dann liegt $E = \{ f \in L^p(\mu) | f \text{ ist einfach} \}$ dicht in $L^p(\mu)$, d.h:
+
+\vspace{-4mm}
+$$\forall f \in L^p(\mu), \epsilon > 0 \exists \text{ einf. } g \in L^p(\mu) : \| f - g \|_p \leq \epsilon$$
+
