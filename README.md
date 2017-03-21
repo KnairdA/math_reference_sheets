@@ -4,9 +4,9 @@
 
 Diese Zusammenfassungen schließen große Teile dessen ein, was ich für die Prüfungen zu den _Analysis I&II_ sowie _Lineare Algebra I&II_ Vorlesungen wiederholt habe, welche ich im Rahmen meines Mathematikstudiums am KIT besucht habe.
 
-Zum Ende meines nunmehr schon dritten Semesters steht eine _Numerik 1_ Zusammenfassung bereit.
+Zum Ende meines nunmehr schon dritten Semesters stehen zusätzlich Zusammenfassungen der Inhalte aus _Numerik 1_ und _Analysis 3_ bereit.
 
-Das resultierende PDF der in _LaTeX_ gesetzten Quellen der [Analysis](https://static.kummerlaender.eu/media/ana12_zusammenfassung.pdf), [Lineare Algebra](https://static.kummerlaender.eu/media/la12_zusammenfassung.pdf) sowie [Numerik 1](https://static.kummerlaender.eu/media/numa1_zusammenfassung.pdf) Kurzzusammenfassungen steht auf meiner Webseite zum Download bereit.
+Die resultierenden PDF der in _LaTeX_ gesetzten Quellen der [Analysis](https://static.kummerlaender.eu/media/ana12_zusammenfassung.pdf), [Lineare Algebra](https://static.kummerlaender.eu/media/la12_zusammenfassung.pdf), [Numerik 1](https://static.kummerlaender.eu/media/numa1_zusammenfassung.pdf) sowie [Analysis 3](https://static.kummerlaender.eu/media/ana3_zusammenfassung.pdf) Kurzzusammenfassungen stehen auf meiner Webseite zum Download bereit.
 
 ## Generierung
 
