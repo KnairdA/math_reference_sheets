@@ -40,7 +40,7 @@ Ein Mengensystem $\A \subseteq \powerset{X}$ ist $\sigma$-Algebra auf der nichtl
 
 \subsection*{Eigenschaften von $\sigma$-Algebren}
 
-Seien $\A$ eine $\sigma$-Algebra auf $X$, $n \in \N$, $\forall j \in \N : A_j \in \A$, dann ist $\A$ nach den folgenden Eigenschaften abgeschlossen unter abzählbaren Mengenoperationen:
+Seien $\A$ eine $\sigma$-Algebra auf $X$, $n \in \N$, $\forall j \in \N : A_j \in \A$, dann ist $\A$ nach den folgenden Eigenschaften abgeschlossen unter abzählbaren Operationen:
 
 \begin{enumerate}[label=(\alph*)]
 	\item $\emptyset = X^c \in \A$
@@ -80,11 +80,9 @@ $\B_m$ enthält insb. alle offenen und abgeschlossenen Mengen in $\R^m$ sowie de
 
 \subsubsection*{Charakterisierung}
 
-\vspace*{-4mm}
-\begin{align*}
-	\B_m &= \sigma(\{(a, b) | a, b \in \mathbb{Q}^m, a \leq b\}) \\
-	              &= \sigma(\{(a, b] | a, b \in \mathbb{Q}^m, a \leq b\})
-\end{align*}
+$$\B_m = \sigma(\{(a, b) | a, b \in \mathbb{Q}^m, a \leq b\})$$
+
+Analoges gilt auch für andere Intervalle.
 
 \section*{Maße auf $\sigma$-Algebren}
 
@@ -108,12 +106,11 @@ Ein Wahrscheinlichkeitsmaß erfüllt $\mu(X) = 1$.
 
 Für fest gewählte $\A = \powerset{X}$, $x \in X$ ist ein Wahrscheinlichkeitsmaß für $A \subseteq X$ definiert:
 
+\vspace{-2mm}
 $$\delta_x(A) := \begin{cases}
 	1 & x \in A \\
 	0 & x \notin A
 \end{cases}$$
-
-Dieses wird Punkt- / Diracmaß auf $\A$ genannt.
 
 \subsection*{Zählmaß}
 
@@ -140,7 +137,7 @@ Für endliche Maße gilt insb. $\mu(A^c) = \mu(X) - \mu(A)$.
 
 \subsection*{Prämaß}
 
-Eine Abb. $f : \A \to [0, \infty)$ ist ein Prämaß auf Ring $\A$ gdw.:
+Ein $f : \A \to [0, \infty)$ ist ein Prämaß auf Ring $\A$ gdw.:
 
 \begin{enumerate}[label=(\alph*)]
 	\item $\mu(\emptyset) = 0$
@@ -610,7 +607,7 @@ Für messbare $f : X \to \overline\R$:
 \vspace{-4mm}
 \begin{align*}
 \|f\|_p &= \left(\int_X |f|^p d\mu\right)^\frac{1}{p} \text{ für } p \in [1,\infty)\\
-\|f\|_\infty &= \text{esssup}_{x \in X} \|f(x)\|\\
+\|f\|_\infty &= \text{esssup}_{x \in X} |f(x)|\\
       &= \inf\left\{ c > 0 | \exists \text{ NM } N_c : \forall x \in X \setminus N_c : |f(x)| \leq c\right\}
 \end{align*}
 
