@@ -126,7 +126,7 @@ Sei $(X, \A, \mu)$ Maßraum und $A, B, A_j \in \A$ für $j \in \N$.
 
 \begin{description}[leftmargin=!,labelwidth=26mm]
 	\item[Monotonie] $A \subseteq B \Rightarrow \mu(A) \leq \mu(B)$
-	\item[$\sigma$-Subadditivität] $\mu(\dot\bigcup_{j\in \N} A_j) \leq \sum_{j\in \N} \mu(A_j)$
+	\item[$\sigma$-Subadditivität] $\mu(\bigcup_{j\in \N} A_j) \leq \sum_{j\in \N} \mu(A_j)$
 	\item[Stetigkeit (unten)] $A_j \uparrow \Rightarrow \displaystyle\lim_{j\to \infty} \mu(A_j) = \mu(\bigcup_{j\in \N} A_j)$
 	\item[Stetigkeit (oben)] $A_j \downarrow \land \hspace*{1mm} \mu(A_1) < \infty \\ \hspace*{4mm}\Rightarrow \displaystyle\lim_{j\to \infty} \mu(A_j) = \mu(\bigcap_{j\in \N} A_j)$
 \end{description}
@@ -320,7 +320,7 @@ $\L^1(X,\A,\mu) = \L^1(\mu) = \L^1(X) := \{ f : X \to \R | f \text{ ib.}\}$
 
 \subsubsection*{Charakterisierung der Integrierbarkeit}
 
-Für $\A-\overline\B_1$-mb. Fkt. $f : X \to \overline\R$ sind äquivalent:
+Für $\A$-$\overline\B_1$-mb. Fkt. $f : X \to \overline\R$ sind äquivalent:
 
 \begin{enumerate}[label=(\alph*)]
 	\item $f$ ist integrierbar
@@ -587,18 +587,21 @@ $$\text{rot} \ f(x) = \begin{pmatrix}
 	\partial_1 f_2(x) - \partial_2 f_1(x)
 \end{pmatrix}$$
 
-Dann gilt mit der äußeren Einheitsnormalen $n$:
+Sei $F : U \to D$ $C^2$-Parametrisierung mit offenen, beschränken $U \subseteq \R^2$, $D \subseteq \R^3$. Die äußere Einheitsnormale $n$ an $M = F(U) \subseteq D$ sei:
 
-$$\int_M (\text{rot} \ f(x) | n(x)) d\mu(x) = \int_{\partial_2 M} f \cdot \ dx$$
+\vspace{-4mm}
+$$n(F(t)) = \frac{1}{|\partial_1 F(t) \times \partial_2 F(t)|_2} \partial_1 F(t) \times \partial_2 F(t)$$
+
+Weiter sei $\partial U$ geschlossene und doppelpunktfreie $C^1$-Kurve mit Parametrisierung $\gamma : (a,b) \to \partial U$ im Gegenuhrzeigersinn s.d. $\partial M$ $C^1$-Kurve mit Parametrisierung $\varphi = F \circ \gamma$ ist.
+Dann gilt:
+
+\vspace{-2mm}
+$$\int_M (\text{rot} \ f(x) | n(x)) d\mu(x) = \int_{\partial M} f \cdot \ dx$$
 
 Dabei ist das \emph{Kurvenintegral zweiter Art} geg. als:
 
-$$\int_{\partial M} f \cdot dx = \int_a^b (f(\varphi(\tau))|\varphi'(\tau)) d\tau$$
-
-Im Rahmen des Divergenzsatz von Gauß sei $f = \text{rot} \ g$ für $g \in C^2(\overline D,\R^3)$. Dann ist div rot $g$ = 0 und:
-
 \vspace{-2mm}
-$$\int_{\partial D} (\text{rot} \ g|\nu) \ d\sigma = 0$$
+$$\int_{\partial M} f \cdot dx = \int_a^b (f(\varphi(\tau))|\varphi'(\tau)) d\tau$$
 
 \section*{Lebesguesche Räume}
 
@@ -701,4 +704,3 @@ Für die Integrierbarkeit von mb. $f : X \to \mathbb{C}$ gilt:
 $|f| : X \to [0,\infty)$ ib. $\Leftrightarrow \text{Re} f, \text{Im} f : X \to \R$ ib.
 
 $$\int_X f d\mu := \int_X \text{Re} f d\mu + i \int_X \text{Im} f d\mu$$
-
