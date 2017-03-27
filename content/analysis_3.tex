@@ -504,7 +504,7 @@ Abbildung $\psi$ heißt Karte mit Kartengebiet $V$.
 
 \subsection*{$C^k$-Hyperflächen}
 
-Liegt die Karte $\psi$ einer $C^1$-Hyperfläche $M$ in $C^k(CV,\R^m)$, dann ist $M$ eine $C^k$-Hyperfläche.
+Liegt die Karte $\psi$ einer $C^1$-Hyperfläche $M$ in $C^k(V,\R^m)$, dann ist $M$ eine $C^k$-Hyperfläche.
 
 \subsection*{Dünnsinguläre $C^k$-Hyperflächen}
 
@@ -562,11 +562,14 @@ Maß ist unabhg. der Wahl der Parametrisierung.
 
 \subsection*{Divergenzsatz von Gauß}
 
-Sei $D \subseteq \R^m$ offen und beschränkt mit dünnsingulärem $C^1$-Rand, $f \in C(D,\R^m) \cap C_b^1(D,\R^m)$ und $(f|\nu) \in \L^1(\partial D,\sigma)$. Dann:
+Sei $D \subseteq \R^m$ offen und beschränkt mit dünnsingulärem $C^1$-Rand, liege $f \in C(\overline D,\R^m) \cap C_b^1(D,\R^m)$ und $(f|\nu) \in \L^1(\partial D,\sigma)$. Dann:
 
 $$\int_D div f(x) dx = \int_{\partial D} (f(x)|\nu(x)) d\sigma(x)$$
 
-Mit $\text{div} f(x) := \text{spur} \ f'(x) = \partial_1 f_1(x) + \cdots + \partial_m f_m(x)$ und $\nu$ ist äußere Einheitsnormale.
+Mit $\text{div} f(x) := \text{spur} \ f'(x) = \partial_1 f_1(x) + \cdots + \partial_m f_m(x)$ und $\nu$ ist äußere Einheitsnormale an $\partial D$:
+
+\vspace{-4mm}
+$$\nu(x) = \tfrac{1}{\sqrt{1+|\nabla h(x')|_2^2}} \begin{pmatrix} -\nabla h(x') \\ 1 \end{pmatrix}, \ \ x = (x',x_m)$$
 
 \subsection*{Satz von Stokes in $\R^3$}
 
