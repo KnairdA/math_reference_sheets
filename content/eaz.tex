@@ -88,6 +88,14 @@ Ein assoziatives Magma heißt \emph{Halbgruppe}.
 
 Ein assoziatives Magma mit beiseitigem Neutralelement heißt \emph{Monoid}.
 
+\subsection*{Magmenhomomorphismen}
+
+Seien $(M,\star)$, $(N,\circ)$ Magmen.
+
+$\Phi : M \rightarrow N$ ist Magmenhomomorphismus, wenn:
+
+$\forall m_1, m_2 \in M : \Phi(m_1 \star m_2) = f(m_1) \circ f(m_2)$
+
 \subsection*{Untermagmen}
 
 $U \subseteq M$ ist Untermagma gdw.: $U \star U \subseteq U$.
@@ -176,6 +184,10 @@ Ist $U \leq G$ ein Normalteiler, so schreibt man $U \triangleleft G$.
 
 Untergruppen abelscher Gruppen sind normal.
 
+\subsection*{Einfachheit}
+
+Die nichttriviale Gruppe $G$ heißt \emph{einfach}, wenn sie keine Normalteiler außer $G$ und $\{e_G\}$ besitzt.
+
 \subsection*{Nebenklassen}
 
 Seien $U \leq G$ Gruppen. Dann sind $g, h \in G$ \emph{kongruent modulo $U$}, wenn $g^{-1}h \in U$. Diese Relation bildet Äquivalenzklassen $gU = \{gu | u \in U\}$.
@@ -184,11 +196,50 @@ Diese Äquivalenzklassen heißen \emph{Linksnebenklassen} nach $U$, die Menge al
 
 $\pi_U : G \rightarrow G/U, g \mapsto gU$ ist kanonische Projektion.
 
+\subsection*{Faktorgruppen}
+
+Sei $N \triangleleft G$. $(gN) \cdot (hN) := ghN$ definiert auf $G/N$ eine wohldefinierte Verknüpfung. $G/N$ ist mit dieser Verknüpfung die \emph{Faktorgruppe von $G$ modulo $N$}.
+
+Die kanonische Projektion $\pi_N$ ist Gruppenhomomorphismus mit Kern $N$. Jeder Normalteiler kann also als Kern eines Gruppenhomomorphismus realisiert werden.
+
 \section*{Gruppenhomomorphismen}
 
-\section*{Faktorgruppen}
+Seien $(G,\star)$, $(H,\circ)$ Gruppen.
 
-\subsection*{Gruppenoperationen}
+$f : G \rightarrow H$ ist Gruppenhomomorphismus, wenn:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\forall x, y \in G : f(x \star y) = f(x) \circ f(y)$
+	\item $f(e_G) = e_H$
+	\item $\forall x \in G : f(x^{-1}) = f(x)^{-1}$
+\end{enumerate}
+
+Ist $f : G \rightarrow H$ ein Magmenhomomorphismus gilt:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $f$ ist Gruppenhomomorphismus
+	\item $f^{-1}(\{e_H\}) \leq G$
+	\item $f(G) \leq H$
+	\item $f$ ist injektiv $\iff f^{-1}(\{e_H\}) = \{e_G\}$
+\end{enumerate}
+
+\subsection*{Kern}
+
+Sei $f : G \rightarrow H$ Gruppenhomomorphismus.
+
+Dann heißt $f^{-1}(\{e_H\}) \leq G$ Kern von $f$.
+
+\subsection*{Konjugation}
+
+Sei $G$ Gruppe, $g \in G$ fest gewählt.
+
+$\kappa_g : G \rightarrow G, x \mapsto gxg^{-1}$ heißt \emph{Konjugation} und ist Gruppenautomorphismus. $x, y \in G$ heißen \emph{zueinander konjugiert}, wenn $\exists g \in G : y = gxg^{-1}$.
+
+\subsection*{Freie Gruppe}
+
+Sei $S$ eine Menge. $F$ ist eine \emph{freie Gruppe über $S$} mit Abbildung $f : S \rightarrow F$ wenn für beliebige Gruppen $G$, Abbildungen $\varphi : S \rightarrow G$ genau ein Gruppenhomomorphismus $\Phi : F \rightarrow G$ existiert, für den $\forall s \in S : \varphi(s) = \Phi(f(s))$ gilt.
+
+\section*{Gruppenoperationen}
 
 \section*{Sylowsätze}
 
