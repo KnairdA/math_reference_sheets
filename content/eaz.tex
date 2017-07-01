@@ -1,0 +1,149 @@
+\section*{Teilbarkeit}
+
+Sei $n \in \N$. $d \in \N$ ist Teiler von $n$, falls $\exists t \in \N : d \cdot t = n$. Man schreibt $d \mid n$. $n$ ist Vielfaches von $d$.
+
+Die Menge aller Teiler ist endlich da $\forall d \mid n : d \leq n$.
+
+Der \emph{größte gemeinsame Teiler} von $m$ und $n$ wird notiert als $ggT(m,n)$ oder $(m,n)$.
+
+Das \emph{kleinste gemeinsame Vielfache} ist $kgV(m,n)$.
+
+Zahlen $m, n \in \N$ heißen \emph{teilerfremd}, wenn $1 \in \N$ der einzige gemeinsame Teiler ist.
+
+\subsection*{$ggT$ als Linearkombination}
+
+Für $m, n \in \Z$ ex. $c, d \in \Z$ s.d. $mc + nd = ggT(m,n)$
+
+\subsection*{Division mit Rest}
+
+\section*{Primzahlen}
+
+\section*{Magmen}
+
+Ein Magma ist Menge mit Verknüpfung $(M, \star)$ wobei $\star : M \times M \to M$ eine Abbildung ist.
+
+\vspace*{2mm}
+
+Ein Magma ist \emph{assoziativ} gdw.:
+
+$\forall l, m, n \in M : ( l \star m ) \star n = l \star ( m \star n )$
+
+Ein Magma ist \emph{kommutativ} gdw.:
+
+$\forall m, n \in M : m \star n = n \star m$
+
+Ein assoziatives Magma heißt \emph{Halbgruppe}.
+
+Ein assoziatives Magma mit beiseitigem Neutralelement heißt \emph{Monoid}.
+
+\subsection*{Untermagmen}
+
+$U \subseteq M$ ist Untermagma gdw.: $U \star U \subseteq U$.
+
+\vspace*{2mm}
+
+$\cap_{i \in I} U_i$ ist Untermagma von $M$.
+
+Für $X \subseteq M$ ist $\langle X \rangle_{\text{Magma}}$ Schnitt aller Untermagmen $U$ von $M$ mit $X \subseteq U$.
+
+$\langle X \rangle_{\text{Magma}}$ heißt Magmenerzeugnis von $X$ in $M$.
+
+\subsection*{Untermonoide}
+
+Ein Untermonoid eines Monoids $M$, d.h. eines assoziativen Magmas mit Neutralelement, ist ein Untermagma mit beidseitigem Neutralelement.
+
+\subsection*{Symmetrische Gruppen}
+
+$\text{Sym}(D) := \{ \sigma \in \text{Abb}(D,D) | \sigma \text{ ist bijektiv}\}$
+
+$\text{Sym}(D)$ ist Untermagma von $\text{Abb}(D,D)$.
+
+$S_d$ für $d \in \N$ ist die aus genau $d$ Elementen bestehende symmetrische Gruppe.
+
+\section*{Gruppen}
+
+Eine Gruppe ist ein assoziatives Magma $(M, \star)$ mit beidseitig neutralem Element $e$ und mindestens einer Inversen bzgl. $\star$ für $\forall m \in M$.
+
+Eine Gruppe heißt \emph{kommutativ} bzw. \emph{abelsch} wenn sie als Magma kommutativ ist.
+
+\subsection*{Untergruppen}
+
+Eine Untergruppe ist ein Untermagma $\emptyset \neq U \leq G$ welches unter Inversenbildung abgeschlossen ist.
+
+$U \neq \emptyset \implies x \in U \implies x^{-1} \in U \implies e_G \in U$
+
+$U \leq G \iff \emptyset \neq U \subseteq G \land \forall x, y \in U : xy^{-1} \in U$
+
+Schnitt von Untergruppen ist selbst Untergruppe.
+
+\subsection*{Gruppenerzeugnis}
+
+Der Schnitt aller ein $M \subset G$ beinhalten Untergruppen wird geschrieben als $\langle M \rangle$ und bezeichnet als (Gruppen-)Erzeugnis von $M$.
+
+$\langle M \rangle = \{ x_1 \cdots x_k | k \in \N_0, \forall i \leq k : x_i \in M \lor x_i^{-1} \in M \}$
+
+\subsection*{Zyklische Gruppen}
+
+Gruppe $G$ ist \emph{zyklisch}, wenn $\exists a \in G : G = \langle a \rangle$.
+
+$\forall n \in \N : [1]$ erzeugt $\Z / n\Z$.
+
+$\langle g \rangle = \{ g^k | k \in \Z \}$ ist von $g$ erzeugte zyklische Grp.
+
+\subsubsection*{Ordnung}
+
+Die Ordnung einer Gruppe ist ihre Kardinalität. Die Ordnung eines $g \in G$ ist die Ordnung der von $g$ erzeugten Untergruppe.
+
+Hat $\langle g \rangle$ endliche Ordnung so $\exists k \in \N : g^k = e_G$.
+
+\subsubsection*{Satz von Lagrange}
+
+Sei $G$ endliche Gruppe und $H \leq G$. Dann ist die Ordnung von $H$ ein Teiler der Ordnung von $G$.
+
+\subsubsection*{Index}
+
+Sei $g_1 \sim g_2 := g_1 g_2^{-1} \in H$ Äquivalenzrel. auf $G$.
+
+Die Äquivalenzklasse von $g \in G$ ist definiert als: $[g] = Hg := \{ hg | h \in H\}$.
+
+Für Gruppen $H \leq G$ heißt die Anzahl der Äquivalenzklassen bzgl. $\sim$ Index von $H$ in $G$, geschrieben als $(G : H)$.
+
+Entsprechend gilt für endl. Grp.: $\#G = \#H \cdot (G : H)$.
+
+\subsubsection*{Primzahlordnung einer Gruppe}
+
+In jeder endlichen Gruppe ist Ordnung jedes Elements ein Teiler der Gruppenordnung. Daraus folgt, dass jede Gruppe mit Primzahlordnung eine zyklische Gruppe ist. $G = \langle g \rangle \iff g \neq e_G$
+
+\subsection*{Normalteiler}
+
+Eine $N \leq G$ ist Normalteiler, falls $\forall n \in N, g \in G : gng^{-1} \in N$ gilt. d.h. $N$ ist invariant unter allen inneren Automorphismen.
+
+Es gilt für Normalteiler $N$: $\forall g \in G : gNg^{-1} = N$
+
+Ist $U \leq G$ ein Normalteiler, so schreibt man $U \triangleleft G$.
+
+Untergruppen abelscher Gruppen sind normal.
+
+\subsection*{Nebenklassen}
+
+Seien $U \leq G$ Gruppen. Dann sind $g, h \in G$ \emph{kongruent modulo $U$}, wenn $g^{-1}h \in U$. Diese Relation bildet Äquivalenzklassen $gU = \{gu | u \in U\}$.
+
+Diese Äquivalenzklassen heißen \emph{Linksnebenklassen} nach $U$, die Menge aller Nebenklassen heißt \emph{Faktorraum} $G/U$.
+
+$\pi_U : G \rightarrow G/U, g \mapsto gU$ ist kanonische Projektion.
+
+\section*{Gruppenhomomorphismen}
+
+\section*{Faktorgruppen}
+
+\subsection*{Gruppenoperationen}
+
+\section*{Sylowsätze}
+
+\section*{Ringe}
+
+\section*{Nullteiler}
+
+\section*{Ideale}
+
+\section*{Magmen}
