@@ -16,7 +16,59 @@ Für $m, n \in \Z$ ex. $c, d \in \Z$ s.d. $mc + nd = ggT(m,n)$
 
 \subsection*{Division mit Rest}
 
+$\forall k \in \Z, n \in \N \exists! d \in \Z, r \in \{0,\cdots,n-1\}: k = dn+r$.
+
+$r$ ist Rest der Division von $k$ durch $n$.
+
 \section*{Primzahlen}
+
+Eine \emph{Primzahl} ist ein $1 < n \in \N$ welches keinen natürlichen Teiler außer $1$ und $p$ hat.
+
+$\Primes = \{ n \in \N | n > 1, \forall d,t < n : d \cdot t \neq n \}$
+
+\subsection*{Fundamentalsatz der Arithmetik}
+
+Jedes $n \in \N$ lässt sich eindeutig als sortiertes Produkt von Primzahlen schreiben.
+
+\subsection*{$p$-adische Bewertung}
+
+Sei $p \in \Primes$. Dann:
+
+$\forall 0 \neq k \in \Z \exists! v_p(k) \in \N_0 : p^{v_p(k)} \mid k \land p^{v_p(k)+1} \nmid k$
+
+Insb.: $k = \pm \displaystyle\prod_{p \in \Primes} p^{v_p(k)}$
+
+\vspace*{-4mm}
+\begin{align*}
+\forall k, l \in \Z: v_p(k+l)   &\geq \min\{v_p(k),v_p(l)\} \\
+             v_p(k \cdot l) &= v_p(k) + v_p(l)
+\end{align*}
+
+Weiterhin gilt für $a, b \in \N$:
+
+$b \mid a \iff \forall p \in \Primes : v_p(b) \leq v_p(a)$
+
+$ggT(a,b) = \displaystyle\prod_{p \in \Primes} p^{e_p}$ mit $e_p = \min\{v_p(a),v_p(b)\}$
+
+$kgV(a,b) = \displaystyle\prod_{p \in \Primes} p^{f_p}$ mit $f_p = \max\{v_p(a),v_p(b)\}$
+
+\subsection*{Kleiner Satz von Fermat}
+
+Sei $p \in \Primes, c \in \Z$. Dann gilt $p \mid c^p - c$.
+
+\subsection*{Primzahlverteilung}
+
+Sei $k \in \N$. Dann ex. $M \in \N$ s.d. zwischen $M$ und $M+k$ keine Primzahl liegt.
+
+$\forall \epsilon > 0 \exists x_0 \in \R \forall x \geq x_0 \exists p \in \Primes : p \in [x,(1+\epsilon)x]$
+
+\vspace*{2mm}
+
+Die Funktion $\pi(x) := \#\{ p \in \Primes | p \leq x \}$ zählt die Anzahl der Primzahlen unterhalb $x \in \R$.
+
+Der \emph{Primzahlsatz} besagt: $\lim_{x \to \infty} \pi(x) \cdot \frac{\log{x}}{x} = 1$.
+
+Der \emph{Dichtheitssatz} besagt: Die Menge aller Brüche $p/l$ mit $p, l \in \Primes$ liegt dicht in $\R_{\geq 0}$.
 
 \section*{Magmen}
 
