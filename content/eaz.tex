@@ -365,3 +365,24 @@ Seien $R$ kommutativer Ring, $I, J$ Ideale in $R$ s.d. $I + J = R$. Dann existie
 
 $\Phi : R/(I \cap J) \to R/I \times R/J$
 
+\section*{Moduln}
+
+Sei $R$ Ring. Ein $R$-Modul ist eine abelsche Gruppe $M$ mit Abbildung $\cdot : R \times M \to M$ s.d.:
+
+\vspace*{-4mm}
+\begin{alignat*}{3}
+	&\forall r, s \in R, m \in M &&: (r+s)\cdot m &&= r\cdot m + s\cdot m \\
+	&\forall r \in R, m, n \in M &&: r \cdot (m+n) &&= r\cdot m + r\cdot n \\
+	&\forall r, s \in R, m \in M &&: (rs)\cdot m &&= r\cdot(s\cdot m) \\
+	&\forall m \in M &&: 1\cdot m &&= m
+\end{alignat*}
+
+Diese Bedingungen sind von VRäumen bekannt.
+
+\subsection*{Untermoduln}
+
+Sei $M$ ein $R$-Modul und $U \subseteq M$.
+
+Dann ist $U$ \emph{Untermodul} von $M$, wenn $U$ additive Untergruppe ist und unter der skalaren Multiplikation $\cdot$ mit Elementen aus $R$ invariant ist:
+
+$U \leq M \land \forall r \in R, u \in U : r \cdot u \in U$
