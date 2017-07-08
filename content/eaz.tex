@@ -241,6 +241,41 @@ Sei $S$ eine Menge. $F$ ist eine \emph{freie Gruppe über $S$} mit Abbildung $f 
 
 \section*{Gruppenoperationen}
 
+Sei $(G,*)$ Gruppe, $M$ Menge.
+
+$\circ : G \times M \rightarrow M$ ist Gruppenoperation, wenn:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\forall m \in M : e_G \circ m = m$
+	\item $\forall m \in M, g_1, g_2 \in G : g_1 \circ ( g_2 \circ m ) = ( g_1 * g_2 ) \circ m$
+\end{enumerate}
+
+Es gilt: $\forall \Phi \in Hom(G,Sym(M)) : g \circ m := \Phi(g)(m)$ ist Operation von $G$ auf $M$.
+
+Für jede Operation $\circ$ von $G$ auf $M$ ex. ein $\Phi \in Hom(G,M)$ s.d. $\circ$ so konstruiert werden kann.
+
+\subsection*{Bahnen}
+
+Auf $M$ definiert $m_1 \sim m_2 := \exists g \in G : m_1 = g \circ m_2$ eine Äquivalenzrelation.
+
+Ihre Äquivalenzklassen werden \emph{Bahnen} oder \emph{Orbiten} genannt. d.h. $G \circ m = \{ g \circ m | g \in G \}$ ist Bahn.
+
+\subsubsection*{Transitivität}
+
+Operation mit genau einer Bahn heißt \emph{transitiv}. d.h. $\exists m_0 \in M \forall m \in M \exists g \in G : m = g \circ m_0$.
+
+\subsubsection*{Stabilisator}
+
+$Stab_G(m) := \{ g \in G | g \circ m = m \}$ ist Stab. von $m$ in $G$.
+
+\emph{Fixpunkt} von $G$ auf $M$ ist $m \in M$: $Stab_G(m) = G$.
+
+\subsubsection*{Bahnbilanzformel}
+
+Sei $G$ auf endlichem $M$ operierende Gruppe und $R \subseteq M$ ein Vertretersystem der Bahnen. Dann:
+
+$\#M = \sum_{r \in R} (G : Stab_G(r))$
+
 \section*{Sylowsätze}
 
 \section*{Ringe}
@@ -250,3 +285,5 @@ Sei $S$ eine Menge. $F$ ist eine \emph{freie Gruppe über $S$} mit Abbildung $f 
 \section*{Ideale}
 
 \section*{Magmen}
+
+\section*{Chinesischer Restsatz}
