@@ -303,10 +303,54 @@ Sei $G$ endliche Gruppe, $p \in Primes$, $\#G = p^e \cdot f$:
 
 \section*{Ringe}
 
-\section*{Nullteiler}
+Ein \emph{Ring} ist Menge $R$ mit Verknüpfungen $+$ und $*$ s.d. $(R,+)$ abelsche Gruppe mit Neutralelement $0$ ist, $*$ assoziativ ist, neutrales Element $1$ besitzt und die Distributivgesetze gelten:
 
-\section*{Ideale}
+$\forall a, b, c, d \in R : (a+b)*c = ac+bc \land a*(c+d) = ac + ad$
 
-\section*{Magmen}
+Ist $*$ kommutativ, heißt $R$ kommutativer Ring.
 
-\section*{Chinesischer Restsatz}
+\subsection*{Ringhomomorphismen}
+
+$\Phi : R \to S$ ist \emph{Ringhomomorphismus} zwischen Ringen $R$ und $S$, wenn es bzgl. $+$ und $*$ ein Magmenhomomorphismus ist und $\Phi(1_R) = 1_S$ gilt.
+
+\subsection*{Einheitengruppe}
+
+$R^\times := \{ r \in R : \exists r^{-1} \in R : r r^{-1} = r^{-1} r = 1_R \}$
+
+$(R^\times, *)$ ist Einheitengruppe.
+
+\subsection*{Teilringe}
+
+Ein \emph{Teilring} von Ring $R$ ist $T \subseteq R$ s.d. $T$ bzgl. $+$ Untergruppe und bzgl. $*$ Untermonoid von $R$ ist.
+
+\subsection*{Nullteiler}
+
+$a \in R$ ist \emph{Nullteiler} in Ring $R$, wenn:
+
+$\exists b \in R, b \neq 0 : ab = 0 \lor ba = 0$
+
+Ist $0$ einziger Nullteiler in $R$, so ist $R$ \emph{nullteilerfrei}.
+
+$R$ heißt \emph{Integritätsbereich}, wenn $R$ kommutativ und nullteilerfrei ist.
+
+Teilringe von Integritätsbereichen sind integer.
+
+\subsection*{Charakteristik}
+
+Sei $R$ Ring. Dann $\exists! \Phi \in Hom_{Ring}(\Z,R)$.
+
+Sei $n \in \N_0$ nichtnegativer Erzeuger des Kerns von $\Phi$. Dann heißt $n$ die Charakteristik $char(R)$ von $R$.
+
+Die Charakteristik eines nullteilerfreien Rings $R$ ist entweder $0$ oder Primzahl $p \in \Primes$.
+
+\subsection*{Ideale}
+
+Ein \emph{Ideal} in Ring $R$ ist $I \subseteq R$ s.d. $(I,+) \leq R$ und $\forall x \in I, r \in R : xr \in I \land rx \in I$.
+
+Kerne von Ringhomomorphismen sind ideal und Ideale sind Kerne von Ringhomomorphismen.
+
+\subsection*{Körper}
+
+Ring $R$ heißt Körper, wenn $R$ kommutativ ist und $0 \neq 1$ sowie $R^\times = R \setminus \{0\}$ gelten. Ein Körper ist insb. ein Integritätsbereich.
+
+\subsection*{Chinesischer Restsatz}
