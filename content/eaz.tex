@@ -386,3 +386,59 @@ Sei $M$ ein $R$-Modul und $U \subseteq M$.
 Dann ist $U$ \emph{Untermodul} von $M$, wenn $U$ additive Untergruppe ist und unter der skalaren Multiplikation $\cdot$ mit Elementen aus $R$ invariant ist:
 
 $U \leq M \land \forall r \in R, u \in U : r \cdot u \in U$
+
+\section*{Polynomringe}
+
+Für kommutativen Ring $R$ ist definiert:
+
+$R[X] := \left\{ \displaystyle\sum_{i=0}^d r_i X^i \middle| d \in \N_0, r_i \in R \right\}$
+
+$(R[X], +, *)$ ist kommutativer Ring.
+
+Für $f, g \in R[X]$ gilt:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $deg(f+g) \leq \max(deg(f),deg(g))$
+	\item $deg(f*g) \leq deg(f) + deg(g)$
+	\item Für nullteilerfreie $R$ gilt in (b) Gleichheit
+\end{enumerate}
+
+Ist $R$ nullteilerfrei so ist auch $R[X]$ nullteilerfrei und es gilt $(R[X])^\times = R^\times$.
+
+\subsection*{Polynomdivison}
+
+Sei $R$ kommutativer Ring, $f, g \in R[X]$ und $g \neq 0$ mit Einheit als Leitkoeffizient.
+
+Dann $\exists h, r \in R[X] : f = gh+r$ mit $deg(r) < deg(g)$.
+
+\section*{Algebren}
+
+\newcommand{\A}{\mathcal{A}}
+
+Eine $R$-Algebra über Ring $R$ ist Ring $\A$ mit Ringhomomorphismus $\sigma : R \to \A$ s.d. $\forall r \in R, a \in \A : \sigma(r) \cdot a = a \cdot \sigma(r)$ gilt. d.h. $\sigma(r)$ kommutiert mit $a$.
+
+$\sigma$ ist \emph{Strukturhomomorphismus} von $\A$.
+
+$\A$ ist ein $R$-Modul mit Vorschrift $(r,a) \mapsto \sigma(r) \cdot a$.
+
+Die Multiplikation in $\A$ ist bilinear.
+
+Insb. gilt $\forall r, s \in R : \sigma(r)\sigma(s) = \sigma(s)\sigma(r)$
+
+\subsection*{Zentrum}
+
+Für Ring $A$ ist das \emph{Zentrum} definiert als:
+
+$Z(A) := \{ r \in A | \forall a \in A : ra=ar \}$
+
+$Z(A)$ ist Teilring von $A$ und zugleich größter Teilring $R$ s.d. $A$ durch die Inklusion von $R$ nach $A$ zu einer $R$-Algebra wird.
+
+\vspace*{2mm}
+
+Für bel. kommutative Ringe $R$ ist $R[X]$ eine $R$-Algebra vermöge $\sigma : R \to R[X], r \mapsto r = rX^0$.
+
+\subsection*{Algebrenhomomorphismen}
+
+Seien $(A, \sigma), (B, \tau)$ $R$-Algebren.
+
+Ein Ringhomomorphismus $\Phi : A \to B$ ist zugleich Algebrenhomomorphismus, wenn $\Phi \circ \sigma = \tau$ gilt.
