@@ -8,6 +8,8 @@ Zum Ende meines nunmehr schon dritten Semesters stehen zusätzlich Zusammenfassu
 
 Die resultierenden PDF der in _LaTeX_ gesetzten Quellen der [Analysis](https://static.kummerlaender.eu/media/ana12_zusammenfassung.pdf), [Lineare Algebra](https://static.kummerlaender.eu/media/la12_zusammenfassung.pdf), [Numerik 1](https://static.kummerlaender.eu/media/numa1_zusammenfassung.pdf) sowie [Analysis 3](https://static.kummerlaender.eu/media/ana3_zusammenfassung.pdf) Kurzzusammenfassungen stehen auf meiner Webseite zum Download bereit.
 
+Zusammenfassungen der Vorlesungen _Einführung in die Algebra und Zahlentheorie_ sowie _Markov-Ketten_ sind in Arbeit.
+
 ## Generierung
 
 	# topics: analysis, analysis_3, lineare_algebra, numerik_1
