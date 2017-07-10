@@ -94,14 +94,46 @@ f_{ij}^{(n)} :&= \P(T_j = n | X_0 = i) = \P_i(T_j = n) \\
 
 $f_{ij}^{(n)}$ beschreibt die Wahrscheinlichkeit von $i$ startend nach genau $n$ Schritten in $j$ anzugelangen.
 
+$f_{ij}^* := \sum_{n=0}^\infty f_{ij}^{(n)} = \P_i(\exists n \in \N : X_n = j)$
+
 \vspace*{2mm}
 
 Ein Zustand $i \in S$ mit $f_{ii}^* = 1$ ist \emph{rekurrent}.
 
 Gilt $f_{ii}^* \neq 1$ so ist $i \in S$ \emph{transient}.
 
+$\forall n \in \N, i, j \in S : p_{ij}^{(n)} = \displaystyle\sum_{k=1}^n f_{ij}^{(k)} p_{jj}^{(n-k)}$
+
 Zustand $i \in S$ ist rekurrent gdw. $\displaystyle\sum_{n = 0}^\infty p_{ii}^{(n)} = \infty$.
 
 \subsubsection*{Solidaritätsprinzip}
 
 Ist Zustand $i \in S$ rekurrent bzw. transient, so ist $\forall j \in K(i)$ seiner Klasse rekurrent bzw. transient.
+
+\vspace*{2mm}
+
+Liegen $i, j \in S$ in der selben rekurrenten Klasse, so gilt: $f_{ij}^* = f_{ji}^* = 1$.
+
+\subsubsection*{Abgeschlossenheit}
+
+Ist eine Klasse $K \subseteq S$ rekurrent so ist $S$ abgeschlossen, d.h. $(p_{ij}, i,j \in K)$ ist stochastisch.
+
+\vspace*{2mm}
+
+Ist eine Klasse $K \subseteq S$ abgeschlossen und endlich, so ist $K$ rekurrent.
+
+\section*{Absorptionswahrscheinlichkeiten}
+
+Zustandsmenge $S$ ist zerlegbar in rekurrente Klassen $K_1, \dots, K_m$ und eine Menge transienter Zustände $T$ s.d. $S = T \cup K_1 \cup \cdots \cup K_m$.
+
+\vspace*{1mm}
+
+Sei $\tau = \inf\{ n \geq 0 | X_n \notin T\}$ die Austrittszeit aus der transienten Menge, d.h. der Zeitpunkt der Absorption in eine der rekurrenten Klassen.
+
+\vspace*{1mm}
+
+Sei $i \in T, k \in T^c$ und $u_{ik} = \P_i(X_\tau = k)$.
+
+\vspace*{2mm}
+
+Für $i \in T, j \in T^c$ gilt: $u_{ij} = \displaystyle\sum_{k \in T} p_{ik} u_{kj} + p_{ij}$
