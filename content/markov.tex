@@ -137,3 +137,17 @@ Sei $i \in T, k \in T^c$ und $u_{ik} = \P_i(X_\tau = k)$.
 \vspace*{2mm}
 
 Für $i \in T, j \in T^c$ gilt: $u_{ij} = \displaystyle\sum_{k \in T} p_{ik} u_{kj} + p_{ij}$
+
+\section*{Stationäre Verteilungen}
+
+Sei $(X_n)$ MK mit Übergangsmatrix $P$. Ein Maß $\nu : S \to \R_{\geq 0}$ ist \emph{invariant} für $P$, falls $\nu \cdot P = \nu$ d.h:
+
+$\displaystyle\sum_{i \in S} \nu(i) \cdot p_{ij} = \nu(j)$ für $j \in S$
+
+Ist $\nu$ eine Verteilung (d.h. $\sum_{i \in S} \nu(i) = 1$) und invariant für $P$, so ist $\nu$ eine \emph{stationäre Verteilung}.
+
+\vspace*{1mm}
+
+Eine mit stationärer Verteilung $\nu$ gestartete MK hat zu jedem Zeitpunkt Verteilung $\nu$:
+
+$\P_\nu(X_n = j) = \sum_{i \in S} \nu(i) \cdot p_{ij}^{(n)} = \nu(j)$

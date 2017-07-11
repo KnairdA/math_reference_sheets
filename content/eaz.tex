@@ -447,4 +447,61 @@ Ein Ringhomomorphismus $\Phi : A \to B$ ist zugleich Algebrenhomomorphismus, wen
 
 \section*{Quotientenkörper}
 
+Sei $R$ Integritätsbereich. Dann ex. Körper $Q$ mit Teilring $R$ und Eigenschaften:
 
+Ist $K$ bel. Körper und $\phi : R \to K$ injektiver Ringhomomorphismus, dann lässt sich $\phi$ zu einem Ringhomomorphismus $\tilde\phi : Q \to K$ fortsetzen.
+
+Der Körper $Q$ heißt \emph{Quotientenkörper} von $R$.
+
+\vspace*{2mm}
+
+Der Quotientenkörper von $\Z$ ist $\Q$.
+
+Der Quotientenkörper von $K[X]$ ist Körper rationaler Funktionen $K(X) := \{ \frac{f}{g} | f, g \in K[X], g \neq 0 \}$.
+
+\section*{Quadratische Reste}
+
+Sei $F$ endlicher Körper mit $q$ Elementen und Charakteristik $p > 2$. Ein $a \in F^\times$ ist \emph{Quadrat} in $F$, wenn $\exists b \in F : b^2 = a$.
+
+Das Bild von $F^\times \to F^\times, b \mapsto b^2$ ist Quadratmenge.
+
+\subsection*{Legendre-Symbole}
+
+\newcommand{\legendre}[2]{\left(\frac{#1}{#2}\right)}
+
+Sei $p \geq 3$ Primzahl. Für $a \in \Z$ ist def.:
+
+\vspace*{-2mm}
+$$\legendre{a}{p} = \begin{cases}
+	0  & p | a \\
+	1  & \exists x \in \Z \setminus p\Z : a \equiv x^2 \ (mod \ p) \\
+	-1 & \text{sonst}
+\end{cases}$$
+
+$\legendre{a}{p}$ ist das \emph{Legendre-Symbol} von $a$ modulo $p$.
+
+\subsubsection*{Berechnen von Legendre-Symbolen}
+
+Sei $a \in \Z, m, n \in \Z : a=mn, p \in \Primes$:
+
+\vspace*{-4mm}
+\begin{align*}
+	\legendre{a}{p} &= \legendre{a-p}{p} \\
+	\legendre{m \cdot n}{p} &= \legendre{m}{p}\legendre{n}{p}
+\end{align*}
+
+\pagebreak
+
+\vspace*{-8mm}
+\begin{align*}
+	\legendre{2}{p} &= (-1)^{\frac{p^2-1}{8}} \\
+	\legendre{-1}{p} &= (-1)^{\frac{p-1}{2}}
+\end{align*}
+
+Sei $m, n \in \Primes$ mit $l, p \neq 2$:
+
+\vspace*{-4mm}
+\begin{align*}
+	\legendre{p}{l}\legendre{l}{p} &= (-1)^{\frac{l-1}{2}\cdot\frac{p-1}{2}} \\
+	\legendre{p}{l} &= (-1)^{\frac{l-1}{2}\cdot\frac{p-1}{2}} \legendre{l}{p}
+\end{align*}
