@@ -30,7 +30,7 @@ $p_{ij}$ heißen \emph{Übergangswahrscheinlichkeiten}.
 
 $\nu(i) = \P(X_0=i)$ def. für $i \in S$ die \emph{Startverteilung}.
 
-\vspace*{2mm}
+\spacing
 
 Jede Folge unabhängiger ZV ist Markov-Kette.
 
@@ -70,13 +70,13 @@ Die Relation $i \sim j := (i \leftrightarrow j) \lor (i = j)$ definiert eine Äq
 
 Zustandsmenge $S$ lässt sich in Äquivalenzklassen $K(i) := \{j \in S | i \sim j\}$ partitionieren.
 
-\vspace*{2mm}
+\spacing
 
 $J \subset S$ ist \emph{abgeschlossen}, wenn $\not\exists j \in J, i \in S \setminus J : j \rightsquigarrow i$.
 
 Die Markov-Kette $(X_n)$ ist \emph{irreduzibel}, falls $S$ nur aus einer Klasse besteht. d.h. $\forall i, j \in S, i \neq j : i \leftrightarrow j$.
 
-\vspace*{2mm}
+\spacing
 
 $J \subset S$ ist abg. gdw. $(p_{ij}, i,j \in J)$ stochastisch ist.
 
@@ -96,7 +96,7 @@ $f_{ij}^{(n)}$ beschreibt die Wahrscheinlichkeit von $i$ startend nach genau $n$
 
 $f_{ij}^* := \sum_{n=0}^\infty f_{ij}^{(n)} = \P_i(\exists n \in \N : X_n = j)$
 
-\vspace*{2mm}
+\spacing
 
 Ein Zustand $i \in S$ mit $f_{ii}^* = 1$ ist \emph{rekurrent}.
 
@@ -110,7 +110,7 @@ Zustand $i \in S$ ist rekurrent gdw. $\displaystyle\sum_{n = 0}^\infty p_{ii}^{(
 
 Ist Zustand $i \in S$ rekurrent bzw. transient, so ist $\forall j \in K(i)$ seiner Klasse rekurrent bzw. transient.
 
-\vspace*{2mm}
+\spacing
 
 Liegen $i, j \in S$ in der selben rekurrenten Klasse, so gilt: $f_{ij}^* = f_{ji}^* = 1$.
 
@@ -118,7 +118,7 @@ Liegen $i, j \in S$ in der selben rekurrenten Klasse, so gilt: $f_{ij}^* = f_{ji
 
 Ist eine Klasse $K \subseteq S$ rekurrent so ist $S$ abgeschlossen, d.h. $(p_{ij}, i,j \in K)$ ist stochastisch.
 
-\vspace*{2mm}
+\spacing
 
 Ist eine Klasse $K \subseteq S$ abgeschlossen und endlich, so ist $K$ rekurrent.
 
@@ -134,15 +134,19 @@ Sei $\tau = \inf\{ n \geq 0 | X_n \notin T\}$ die Austrittszeit aus der transien
 
 Sei $i \in T, k \in T^c$ und $u_{ik} = \P_i(X_\tau = k)$.
 
-\vspace*{2mm}
+\spacing
 
 Für $i \in T, j \in T^c$ gilt: $u_{ij} = \displaystyle\sum_{k \in T} p_{ik} u_{kj} + p_{ij}$
 
 \section*{Stationäre Verteilungen}
 
-Sei $(X_n)$ MK mit Übergangsmatrix $P$. Ein Maß $\nu : S \to \R_{\geq 0}$ ist \emph{invariant} für $P$, falls $\nu \cdot P = \nu$ d.h:
+Sei $(X_n)$ MK mit Übergangsmatrix $P$ und Startverteilung $\nu$. Dann ist $X_n \sim \nu \cdot P^n$. Die Verteilung hängt i.A. von $n$ und $\nu$ ab.
 
-$\displaystyle\sum_{i \in S} \nu(i) \cdot p_{ij} = \nu(j)$ für $j \in S$
+\vspace*{1mm}
+
+Ein Maß $\nu : S \to \R_{\geq 0}$ ist \emph{invariant} für $P$, falls $\nu \cdot P = \nu$ d.h: $\sum_{i \in S} \nu(i) \cdot p_{ij} = \nu(j)$ für $j \in S$
+
+\vspace*{1mm}
 
 Ist $\nu$ eine Verteilung (d.h. $\sum_{i \in S} \nu(i) = 1$) und invariant für $P$, so ist $\nu$ eine \emph{stationäre Verteilung}.
 
@@ -151,3 +155,33 @@ Ist $\nu$ eine Verteilung (d.h. $\sum_{i \in S} \nu(i) = 1$) und invariant für 
 Eine mit stationärer Verteilung $\nu$ gestartete MK hat zu jedem Zeitpunkt Verteilung $\nu$:
 
 $\P_\nu(X_n = j) = \sum_{i \in S} \nu(i) \cdot p_{ij}^{(n)} = \nu(j)$
+
+\subsection*{Existenz und Eindeutigkeit}
+
+Sei $(X_n)$ irreduzibel und rekurrent und $k \in S$. Dann ist ein Maß $\gamma_k$ definiert mit Eigenschaften:
+
+$\gamma_k(i) := \mathbb{E}_k\left[\displaystyle\sum_{n=1}^{T^k} \mathbbm{1}_{[X_n=i]}\right]$ für bel. $k \in S$
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\gamma_k$ ist ein invariantes Maß
+	\item $0 < \gamma_k < \infty$
+	\item $\gamma_k$ ist das einzige invariante Maß mit $\gamma_k(k) = 1$. Es ist eindeutig bis auf Vielfache.
+\end{enumerate}
+
+Ist $S$ zusätzlich endlich existiert eine eindeutige stationäre Verteilung.
+
+Ist $(X_n$ jedoch neben irreduzibel auch transient, existiert keine stationäre Verteilung.
+
+\subsection*{Mittlere Rückkehrzeit}
+
+Die \emph{mittlere Rückkehrzeit} des Zustands $i \in S$ ist:
+
+\vspace*{-4mm}
+\begin{align*}
+m_i :&= \mathbb{E}_i[T_i] = \sum_{n=1}^\infty n \cdot \P_i(T_i = n) + \infty \cdot (1-f_{ii}^*) \\
+&= \sum_{n=1}^\infty n \cdot f_{ii}^{(n)} + \infty \cdot (1- f_{ii}^*)
+\end{align*}
+
+$i \in S$ ist \emph{positiv rekurrent}, wenn $m_i < \infty$.
+
+$i \in S$ ist \emph{nullrekurrent}, wenn $m_i = \infty$.
