@@ -505,3 +505,69 @@ Sei $m, n \in \Primes$ mit $l, p \neq 2$:
 	\legendre{p}{l}\legendre{l}{p} &= (-1)^{\frac{l-1}{2}\cdot\frac{p-1}{2}} \\
 	\legendre{p}{l} &= (-1)^{\frac{l-1}{2}\cdot\frac{p-1}{2}} \legendre{l}{p}
 \end{align*}
+
+\section*{Teilbarkeit in Ringen}
+
+Sei $R$ kommutativer Ring. $a \in R$ ist Teiler von $b \in R$, falls $\exists c \in R : b = c \cdot a$. Kurz $a | b$ bzw. $a |_R b$.
+
+In $R$ ist Faktor $c$ i.A. nicht eindeutig.
+
+Ist $R$ nullteilerfrei und $a \neq 0$, so ist $c$ eindeutig.
+
+\subsection*{Assoziiertheit}
+
+$a, b \in R$ sind \emph{assoziiert}, wenn $\exists e \in R^\times : b = a\cdot e$.
+
+$a, b \in \Z$ sind also assoziiert, wenn sie bis auf ihr Vorzeichen übereinstimmen.
+
+Assoziiertheit ist eine Äquivalenzrelation auf $R$.
+
+Die Äquivalenzklasse von $a \in R$ ist $a \cdot R^\times$.
+
+\subsubsection*{Ordnungsrelation}
+
+Sei $R$ kommutativ und nullteilerfrei. Dann ist
+
+$aR^\times \preccurlyeq bR^\times \iff a | b$
+
+Ordnungsrelation auf der Menge der Assoziiertenklassen.
+
+\subsubsection*{$ggT$ in Ringen}
+
+$g \in R$ ist \emph{größter gemeinsamer Teiler} von $a, b \in R$, wenn $g$ gemeinsamer Teiler ist und alle gemeinsamen Teiler von $a, b$ auch $g$ teilen.
+
+$a, b \in R$ sind \emph{teilerfremd}, wenn die Einheiten in $R$ die einzigen gemeinsamen Teiler sind.
+
+\spacing
+
+$ggT(a,e)$ für $a \in R, e \in R^\times$ ist Assoziiertenklasse von $1$, also $R^\times$. $ggT(a,0) = a\cdot R^\times$ da alles $0$ teilt.
+
+Ist $d$ ein gemeinsamer Teiler von $a, b$, dann gilt auch $d |(ax+by)$ für $x,y \in R$.
+
+\subsection*{Hauptidealringe}
+
+$\{ax+by | x,y \in R\}$ ist Ideal in $R$.
+
+$I \subseteq R$ ist \emph{Hauptideal}, wenn $\exists g \in I : I = Rg$. Die Menge aller Vielfachen von $g$ in $R$ wird geschrieben als $(g) := Rg$.
+
+\spacing
+
+Ein nullteilerfreier kummutativer Ring $R$, in dem jedes Ideal ein Hauptideal ist, heißt \emph{Hauptidealring}.
+
+\subsubsection*{Assoziiertenklassen und Ideale}
+
+Sei $R$ ein solcher Hauptidealring. Dann:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $g, h \in R$ sind Erzeuger des selben Hauptideals $Rg = Rh \iff g$ und $h$ assoziiert sind.
+	\item $\forall \emptyset \neq S \subseteq R \exists m \in S : m$ ist bzgl. Teilbarkeit minimal.
+\end{enumerate}
+
+\subsubsection*{Chinesischer Restsatz für Hauptidealringe}
+
+Seien $R$ Hauptidealring, $r, s \in R$ teilerfremd (d.h. $1=rx+sy$ für geeignete $x, y \in R$). Dann gilt für Ideale $I = Rr, J = Rs$ der Chinesische Restsatz s.d.:
+
+\vspace*{-2mm}
+$$R/(Rrs) \cong R/(Rr) \times R/(Rs)$$
+
+$\forall a, b \in R \exists x \in R : x \equiv a \ (mod \ Rr) \land x \equiv b \ (mod \ Rs)$
