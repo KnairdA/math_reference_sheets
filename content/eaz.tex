@@ -544,7 +544,7 @@ $ggT(a,e)$ für $a \in R, e \in R^\times$ ist Assoziiertenklasse von $1$, also $
 
 Ist $d$ ein gemeinsamer Teiler von $a, b$, dann gilt auch $d |(ax+by)$ für $x,y \in R$.
 
-\subsection*{Hauptidealringe}
+\section*{Hauptidealringe}
 
 $\{ax+by | x,y \in R\}$ ist Ideal in $R$.
 
@@ -563,7 +563,7 @@ Sei $R$ ein solcher Hauptidealring. Dann:
 	\item $\forall \emptyset \neq S \subseteq R \exists m \in S : m$ ist bzgl. Teilbarkeit minimal.
 \end{enumerate}
 
-\subsubsection*{Chinesischer Restsatz für Hauptidealringe}
+\subsection*{Chinesischer Restsatz für Hauptidealringe}
 
 Seien $R$ Hauptidealring, $r, s \in R$ teilerfremd (d.h. $1=rx+sy$ für geeignete $x, y \in R$). Dann gilt für Ideale $I = Rr, J = Rs$ der Chinesische Restsatz s.d.:
 
@@ -571,3 +571,46 @@ Seien $R$ Hauptidealring, $r, s \in R$ teilerfremd (d.h. $1=rx+sy$ für geeignet
 $$R/(Rrs) \cong R/(Rr) \times R/(Rs)$$
 
 $\forall a, b \in R \exists x \in R : x \equiv a \ (mod \ Rr) \land x \equiv b \ (mod \ Rs)$
+
+\subsection*{Arithmetik in Hauptidealringen}
+
+Sei $R$ kommutativer Ring.
+
+$m \in R$ ist \emph{irreduzibel}, wenn $m \notin R^\times$ und $\forall a, b \in R: m = ab \implies a \in R^\times \lor b \in R^\times$.
+
+$p \in R$ ist \emph{Primelement}, wenn $p \notin R^\times$ und $\forall a, b \in R: p | ab \implies p | a \lor p | b$.
+
+\spacing
+
+Die Irreduzibilität eines $m \in R$ heißt, dass die Assoziiertenklasse $mR^\times$ in $R$ unter Klassen $\neq R^\times$ bzgl. der Teilbarkeitsordnungsrelation minimal ist. Jeder Teiler von $m$ ist entweder Enheit oder zu $m$ assoziiert.
+
+\spacing
+
+Sei $R$ nullteilerfreier kommutativer Ring:
+
+\begin{enumerate}[label=(\alph*)]
+	\item Primelement $neq 0$ in $R$ ist irreduzibel.
+	\item $R$ ist Hauptidealring \\ $\implies $ irreduzibles $R$-Element ist auch prim.
+\end{enumerate}
+
+\subsubsection*{Primzerlegung in Hauptidealringen}
+
+Sei $R$ Hauptidealring, $\Primes_R$ Vertretersystem der Assoziiertenklassen von Primelementen $\neq 0$. Dann:
+
+\vspace*{1mm}
+
+$\forall r \in R \setminus \{0\} : r$ ist assoziiert zu Produkt endlich vieler Elemente in $\Primes_R$.
+
+Sind $s, t \in \N_0, p_1,\dots,p_s,q_1,\dots,q_t \in \Primes_R$ s.d. Einheiten $\delta, \epsilon \in R^\times$ ex. mit $r = \delta \cdot p_1 \cdot \dots \cdot p_s = \epsilon \cdot q_1 \cdot \dots \cdot q_t$, so gilt $\epsilon = \delta$, $s = t$ und es gilt bis auf Vertauschung der Faktorreihenfolge $\forall 1 \leq i \leq s : p_i = q_i$.
+
+\subsubsection*{Summen zweier Quadrate}
+
+Ein $n \in \N$ ist als Summe zweier Quadrate von Zahlen $\in \Z$ schreibbar $\iff$ Der quadratfreie Anteil von $n$ hat keinen Primteiler, der bei Division durch $4$ Rest $3$ lässt.
+
+\spacing
+
+$n \in \N$ ist Summe zweier Quadrate gdw. sie die komplexe Norm von einem $a + bi \in \Z[i] \setminus \{0\}$ ist.
+
+\subsection*{Restklassenkörper}
+
+Sei $R$ Hauptidealring aber kein Körper. Der Restklassenring $R/Rg$ ist ein Köper gdw. $g$ irreduzibel ist, denn genau dann gilt $\forall a \notin Rg : a$ modulo $g$ ist invertierbar.
