@@ -204,7 +204,7 @@ $$\nu(i) = \frac{\gamma_k(i)}{\sum_{j \in S} \gamma_k(j)} = \frac{\mathbb{E}_k[\
 
 $\nu(i)$ ist also durchschnittlicher Bruchteil der Zeit, den die MK in $i \in S$ verbringt.
 
-\subsection*{Trichotomie irreduzibler Markov-Ketten}
+\subsubsection*{Trichotomie irreduzibler Markov-Ketten}
 
 Eine irreduzible MK entspricht einem der Fälle:
 
@@ -213,3 +213,36 @@ Eine irreduzible MK entspricht einem der Fälle:
 	\item MK ist nullrekurrent und es existiert ein bis auf Vielfache eindeutiges invariantes Maß aber keine stationäre Verteilung.
 	\item MK ist positiv rekurrent, es gilt $\forall i, j \in S : \mathbb{E}_i[T_j] < \infty$ und es ex. stationäre Verteilung.
 \end{enumerate}
+
+\subsection*{Konvergenz gegen stationäre Verteilung}
+
+Unter Voraussetzungen ist es möglich, dass die Verteilung des Zustands einer MK langfristig gegen eine stationäre Verteilung konvergiert.
+
+\subsubsection*{Totalvariationsabstand}
+
+Seien $\mu, \nu$ W-Maße auf $S$.
+
+$d(\mu, \nu) := \sup_{A \subset S} |\mu(A)-\nu(A)|$
+
+ist der \emph{Totalvariationsabstand} zwischen $\mu$ und $\nu$.
+
+\vspace*{1mm}
+
+Es gilt $d(\mu,\nu) = \frac{1}{2} \sum_{i \in S} |\mu(i) - \nu(i)|$.
+
+\subsubsection*{Periode eines Zustands}
+
+Die Periode eines Zustands $i \in S$ ist geg. als:
+
+\vspace*{-2mm}
+$$d_i = ggT\{ n \in \N : p_{ii}^{(n)} > 0 \}$$
+
+Zustände mit $d_i = 1$ heißen \emph{aperiodisch}.
+
+$P$ ist irreduzibel und aperiodisch gdw.:
+
+$\forall i, j \in S \exists n_0 \in \N \forall n \geq n_0 : p_{ij}^{(n)} > 0$.
+
+\subsubsection*{Konvergenzsatz}
+
+Sei MK $(X_n)$ irreduzibel, aperiodisch und positiv rekurrent mit Startverteilung $\nu$ und stationärer Verteilung $\pi$. Dann: $\lim_{n \to \infty} d(\nu P^n, \pi) = 0$
