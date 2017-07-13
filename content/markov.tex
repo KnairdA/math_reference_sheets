@@ -160,7 +160,7 @@ $\P_\nu(X_n = j) = \sum_{i \in S} \nu(i) \cdot p_{ij}^{(n)} = \nu(j)$
 
 Sei $(X_n)$ irreduzibel und rekurrent und $k \in S$. Dann ist ein Maß $\gamma_k$ definiert mit Eigenschaften:
 
-$\gamma_k(i) := \mathbb{E}_k\left[\displaystyle\sum_{n=1}^{T^k} \mathbbm{1}_{[X_n=i]}\right]$ für bel. $k \in S$
+$\gamma_k(i) := \mathbb{E}_k\left[\displaystyle\sum_{n=1}^{T_k} \mathbbm{1}_{[X_n=i]}\right]$ für bel. $k \in S$
 
 \begin{enumerate}[label=(\alph*)]
 	\item $\gamma_k$ ist ein invariantes Maß
@@ -185,3 +185,31 @@ m_i :&= \mathbb{E}_i[T_i] = \sum_{n=1}^\infty n \cdot \P_i(T_i = n) + \infty \cd
 $i \in S$ ist \emph{positiv rekurrent}, wenn $m_i < \infty$.
 
 $i \in S$ ist \emph{nullrekurrent}, wenn $m_i = \infty$.
+
+\subsubsection*{Positive Rekurrenz und Verteilung}
+
+Für irreduzible $(X_n)$ sind äquivalent:
+
+\begin{enumerate}[label=(\alph*)]
+	\item Es existiert eine stationäre Verteilung
+	\item $\exists i \in S : i$ ist positiv rekurrent
+	\item $\forall i \in S : i$ ist positiv rekurrent
+\end{enumerate}
+
+Stationäre Verteilung ist eind. geg.: $\pi(i) = \frac{1}{m_i}$
+
+Sei $\nu$ stationäre Verteilung, dann gilt:
+
+$$\nu(i) = \frac{\gamma_k(i)}{\sum_{j \in S} \gamma_k(j)} = \frac{\mathbb{E}_k[\sum_{n=1}^{T_k} \mathbbm{1}_{X_n = i}]}{\mathbb{E}_k[T_k]}$$
+
+$\nu(i)$ ist also durchschnittlicher Bruchteil der Zeit, den die MK in $i \in S$ verbringt.
+
+\subsection*{Trichotomie irreduzibler Markov-Ketten}
+
+Eine irreduzible MK entspricht einem der Fälle:
+
+\begin{enumerate}[label=(\alph*)]
+	\item MK ist transient und es existiert keine stationäre Verteilung.
+	\item MK ist nullrekurrent und es existiert ein bis auf Vielfache eindeutiges invariantes Maß aber keine stationäre Verteilung.
+	\item MK ist positiv rekurrent, es gilt $\forall i, j \in S : \mathbb{E}_i[T_j] < \infty$ und es ex. stationäre Verteilung.
+\end{enumerate}
