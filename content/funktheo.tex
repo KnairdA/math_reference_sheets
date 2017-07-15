@@ -9,7 +9,7 @@ $\C$ wird via $z = x + iy \mapsto (x,y)$ mit $\R^2$ identifiziert.
 \vspace*{-4mm}
 $$z \cdot w = \begin{pmatrix} x & -y \\ y & x\end{pmatrix} \begin{pmatrix} u \\ v\end{pmatrix} = \begin{pmatrix} r & 0 \\ 0 & r\end{pmatrix} \begin{pmatrix} \frac{x}{r} & -\frac{y}{r} \\ \frac{y}{r} & \frac{x}{r}\end{pmatrix} \begin{pmatrix} u \\ v\end{pmatrix}$$
 
-wobei $r := \sqrt{x^2 + y^2}$. Es gilt für die orthogonale Matrix $D = \begin{pmatrix} \frac{x}{r} & -\frac{y}{r} \\ \frac{y}{r} & \frac{x}{r}\end{pmatrix}$: $det(D) = 1$ d.h. die komplexe Multiplikation ist eine Drehstreckung.
+wobei $r := \sqrt{x^2 + y^2}$. Es gilt für die orthogonale Matrix $D = \begin{pmatrix} \frac{x}{r} & -\frac{y}{r} \\ \frac{y}{r} & \frac{x}{r}\end{pmatrix}$: $\det D = 1$ d.h. die komplexe Multiplikation ist eine Drehstreckung.
 
 Die Normen von $(\C,|\cdot|)$ und $(\R^2,|\cdot|_2)$ stimmen überein, ebenso Konvergenz-, Stetigkeits- und Offenheitseigenschaften:
 
@@ -124,3 +124,23 @@ Dann ist $f'(z) \neq 0$ und für $w = f(z)$ gilt:
 $$(f^{-1})'(w) = \frac{1}{f'(f^{-1}(w))} = \frac{1}{f'(z)}$$
 
 Weiterhin existieren offene nichtleere $U \subseteq D$ mit $u_0 \in U, V \subseteq \C$ s.d. $\restrictedto{f}{U}$ biholomorph ist, wenn $f \in H(d) \cap C^1(D,\R^2)$, $z_0 \in D$ mit $f'(z_0) \neq 0$ gilt.
+
+\section*{Möbiustransformationen}
+
+Sei $A = \begin{pmatrix} a & b \\ c & d\end{pmatrix} \in \C^{2 \times 2}$ mit $\det A = ad - bc \neq 0$.
+
+Setze $m_A : D_A \to \C, z \mapsto \frac{az+b}{cz+d}$
+
+Mit $D_A = \begin{cases} \C \setminus \{-\frac{d}{c}\} & c \neq 0 \\ \C & c = 0\end{cases}$
+
+\subsection*{Eigenschaften}
+
+\begin{enumerate}[label=(\alph*)]
+	\item $m_A$ ist holomorph
+	\item $\forall \alpha \in \C \setminus \{0\} : m_{\alpha A} = m_A$
+	\item $B \in \C^{2 \times 2}$ mit $\det B \neq 0 \implies m_A \circ m_{B} = m_{AB}$
+	\item $m_A(D_A) = D_{A^{-1}}, m_A^{-1} = m_{A^{-1}}$
+	\item $m_A : D_A \to D_{A^{-1}}$ ist biholomorph
+\end{enumerate}
+
+Alle Möbiustransformationen sind Produkt $m_A = S_1 J S_2$ von affinen Abbildungen $S_j$ und der Inversion $Jz = \frac{1}{z}$. Affine Abbildungen sind Komposition von Translation $Tz=z+\frac{b}{d}$ und Drehstreckung $Dz = \frac{a}{c} z$. $S_j, J, T$ und $D$ sind selbst Möbiustransformationen.
