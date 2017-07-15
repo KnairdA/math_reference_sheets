@@ -213,4 +213,85 @@ z.B. $e^w = \exp(w)$ und $i^i = e^{-\pi/2}$.
 
 Es gilt $z^{v+w} = z^v z^w$. Ableitungen $\frac{\partial}{\partial z} z^w = wz^{w-1}$ und $\frac{\partial}{\partial w} z^w = \log(w)z^w$ existieren.
 
+\section*{Komplexe Kurvenintegrale}
 
+Fkt $f : [a,b] \to \C$ ist \emph{stückweise stetig}, wenn $\forall t \in [a,b]$ beideitige Grenzwerte in $\C$ ex. und max. endlich viele Unstetigkeitspunkte $t_k \in [a,b]$ ex.
+
+Geschrieben $f \in PC([a,b],\C)$.
+
+Solche Funktionen sind integrierbar:
+
+\vspace*{-4mm}
+$$\int_a^b f(t) dt := \int_a^b \text{Re } f(t) dt + i \int_a^b \text{Im } f(t) dt \in \C$$
+
+\subsection*{Hauptsatz}
+
+$f \in PC([a,b],\C)$ ist in $t_0 \in [a,b]$ differenzierbar, wenn $f'(t_0) := \lim_{t \to t_0} \frac{f(t)-f(t_0)}{t-t_0} \in \C$ existiert.
+
+$\iff \text{Re } f, \text{Im } f$ besitzen Ableitungen in $\R$.
+
+Ist $f$ auf $[a,b]$ diffbar und $g, f' \in C([a,b],\C)$. Dann gilt der Hauptsatz:
+
+\vspace*{-3mm}
+$$\int_a^b f'(t) dt = f(b) - f(a)$$
+
+$$\exists \frac{d}{dt} \int_a^t g(s) ds = g(t) \text{ für } t \in [a,b]$$
+
+\subsection*{Kurven und Parametrisierungen}
+
+$\gamma \in C([a,b],\C)$ ist \emph{Kurve} oder \emph{Weg} von $\gamma(a)$ nach $\gamma(b)$. $\gamma$ ist \emph{geschlossen}, wenn $\gamma(a)=\gamma(b)$ gilt und einfach, wenn $\gamma$ auf $[a,b)$ injektiv ist.
+
+$\Gamma = \gamma([a,b])$ ist \emph{Bild} oder \emph{Spur} von $\gamma$.
+
+Gilt $\Gamma \subseteq M \subseteq \C$, so ist $\gamma$ Weg in $M$.
+
+$\gamma$ ist auch \emph{Parametrisierung} ihres Bildes $\Gamma$.
+
+\subsection*{Kurvenintegral}
+
+Sei $\gamma \in PC^1([a,b],\C)$ mit Bild $\Gamma = \gamma([a,b])$ und $f \in C(\Gamma,\C)$. Dann ist das \emph{komplexe Kurvenintegral}:
+
+\vspace*{-2mm}
+$$\int_\gamma f dz = \int_\gamma f(z) dz := \int_a^b f(\gamma(t))\gamma'(t) dt$$
+
+Die Länge von $\gamma$ ist $l(\gamma) = \int_a^b |\gamma'(t)| dt$.
+
+\subsubsection*{Eigenschaften}
+
+Seien $\gamma, \gamma_1, \gamma_2 \in PC^1([a,b],\C)$ mit Bildern $\Gamma, \Gamma_1, \Gamma_2$ und $f, g \in C(\Gamma,\C), h \in C(\Gamma_1 \cup \Gamma_2, \C), \alpha, \beta \in \C$:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\int_\gamma (\alpha f + \beta g) dz = \alpha \int_\gamma f dz + \beta \int_\gamma g dz$
+	\item $|\int_\gamma f dz| \leq \|f\|_\infty l(\gamma)$
+	\item $\int_{\gamma_1 \cup \gamma_2} h dz = \int_{\gamma_1} h dz + \int_{\gamma_2} h dz$
+	\item $\int_{\gamma^-} f dz = - \int_{\gamma} f dz$
+\end{enumerate}
+
+Sei $\gamma \in PC^1([a,b],\C)$ mit Bild $\Gamma$, $f_n, f \in C(\Gamma,\C)$ für $n \in \N$ und $h \in C(D\times\Gamma,\C)$. Dann gelten:
+
+\spacing
+
+$(f_n)$ konv. glm. auf $\Gamma$ gegen $f$
+
+\vspace*{-2mm}
+$$\implies \displaystyle\lim_{n\to\infty} \int_\gamma f_n dz = \int_\gamma f dz$$
+
+$\sum_{n=1}^\infty f_n$ konv. glm. auf $\Gamma$
+
+\vspace*{-2mm}
+$$\implies \displaystyle\sum_{n=1}^\infty \int_\gamma f_n dz = \int_\gamma \displaystyle\sum_{n=1}^\infty f_n dz$$
+
+Abbildung $H : z \mapsto \int_\Gamma h(z,w) dw \in C(D,\C)$
+
+\spacing
+
+$z \mapsto h(z,w) \in H(D)$ mit $\frac{\partial}{\partial z} h \in C(D \times \Gamma, \C)$
+
+\vspace*{-2mm}
+$$\implies \frac{d}{dz} \int_\gamma h(z,w) dw = \int_\gamma \frac{\partial}{\partial z} h(z,w) dw$$
+
+d.h. $H$ ist holomorph mit dieser Ableitung.
+
+\subsection*{Konstant auf Gebieten}
+
+Sei $D \subset \C$ ein Gebiet, $f \in H(D)$ und $f'=0$ auf $D$. Dann ist $f$ konstant.
