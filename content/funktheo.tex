@@ -144,3 +144,73 @@ Mit $D_A = \begin{cases} \C \setminus \{-\frac{d}{c}\} & c \neq 0 \\ \C & c = 0\
 \end{enumerate}
 
 Alle Möbiustransformationen sind Produkt $m_A = S_1 J S_2$ von affinen Abbildungen $S_j$ und der Inversion $Jz = \frac{1}{z}$. Affine Abbildungen sind Komposition von Translation $Tz=z+\frac{b}{d}$ und Drehstreckung $Dz = \frac{a}{c} z$. $S_j, J, T$ und $D$ sind selbst Möbiustransformationen.
+
+\section*{Potenzen und Wurzeln}
+
+Für $\theta \in (0, \pi]$ ist $\Sigma_\theta := \{ z \in \C \setminus \{0\} | |\arg z| < \theta \}$ der \emph{offene Sektor}.
+
+d.h. $\Sigma_{\pi / 2} = \C_+$ ist die offene rechte Halbebene und $\Sigma_\pi = \C \setminus (-\infty,0]$ die geschlitzte Ebene.
+
+\vspace*{2mm}
+
+$g_a = \{ a + iy | y \in \R \}$ für $a \in \R$ ist \emph{horizontale Gerade}.
+
+$h_b = \{ x + ib | x \in \R \}$ für $b \in \R$ ist \emph{vertikale Gerade}.
+
+\vspace*{2mm}
+
+Die Potenz ist def.: $P_n : \C \to \C, z \mapsto z^n = |z|^n e^{in\phi}$
+
+Sie bildet den Halbstrahl $s_\theta := \{ re^{i\theta} | r > 0 \}$ bijektiv auf den Halbstrahl $s_{n\theta}$ ab.
+
+\subsection*{Hauptzweig der $n$-ten Wurzel}
+
+Sei $n \in \N$ mit $n \geq 2$. Der \emph{Hauptzweig der $n$-ten Wurzel} ist $r_n = p_n^{-1} : \Sigma_\pi \to \Sigma_{\pi/n}$.
+
+Somit ist $\forall w \in \Sigma_\pi$ die $n$-te Wurzel $r_n(w) = z$ das einzige $z \in \Sigma_{\pi/n}$ mit $z^n = w$. Es gelten $r_n(z^n) = z$ und $r_n(w)^n = w$.
+
+\section*{Exponentiale und Logarithmen}
+
+Sei $z = x + iy, x, y \in \R, k \in \Z$. Dann:
+
+\vspace*{-4mm}
+\begin{align*}
+	\exp(z) &= e^x e^{iy} = e^x(\cos y + i \sin y) \\
+	\exp(z) &= \exp(z+2\pi ik) \\
+	\exp(z) &= 1 \iff z=2\pi i k
+\end{align*}
+
+Für $a, b \in \R$ gilt: $\exp : h_b \to s_b$ ist bijektiv und $\exp : g_a \to \partial B(0,e^a)$ ist surjektiv, nicht injektiv.
+
+\subsection*{Hauptzweig des Logarithmus}
+
+\vspace*{-4mm}
+\begin{align*}
+	S_r(a_1,a_2) &:= \{ z \in \C | \text{Re } z \in (a_1,a_2) \} \\
+	S_i(b_1,b_2) &:= \{ z \in \C | \text{Im } z \in (b_1,b_2) \}
+\end{align*}
+\vspace*{-6mm}
+
+Sind die \emph{vertikalen und horizontalen Streifen} in $\C$.
+
+\spacing
+
+Der \emph{Hauptzweig des Logarithmus} ist die Abbildung $\log = (\restrictedto{\exp}{s_i})^{-1} : \Sigma_\pi \to S_i$.
+
+$\forall w \in \Sigma_\pi : z = \log(w)$ ist eind. $z \in S_i$ mit $\exp(z) = w$.
+
+Weiter gilt: $\exp : S_i \to \Sigma_\pi$ und $\log : \Sigma_\pi \to S_i$ sind biholomorph mit $\log\exp(z) = z$ für $z \in S_i$ und $\exp\log(w) = w$, $\log'(w) = \frac{1}{w}$ für $w \in \Sigma_\pi$.
+
+\subsection*{Allgemeine Potenz}
+
+Sei $z = re^{i\phi} \in \Sigma_\pi$ mit $r > 0$ und $\phi \in (-\pi,\pi), w = x + iy \in \C$ für $x, y \in \R$. \emph{Allgemeine Potenz} ist def.:
+
+$z^w = \exp(w \log z) = r^x e^{-y\phi} e^{i(x\phi + y \ln r)}$
+
+z.B. $e^w = \exp(w)$ und $i^i = e^{-\pi/2}$.
+
+\spacing
+
+Es gilt $z^{v+w} = z^v z^w$. Ableitungen $\frac{\partial}{\partial z} z^w = wz^{w-1}$ und $\frac{\partial}{\partial w} z^w = \log(w)z^w$ existieren.
+
+
