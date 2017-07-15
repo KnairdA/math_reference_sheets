@@ -1,0 +1,126 @@
+\newcommand{\C}{\mathbb{C}}
+
+\section*{Komplexe Zahlen}
+
+$\C = \{ z = x+iy | x,y \in \R \}$
+
+$\C$ wird via $z = x + iy \mapsto (x,y)$ mit $\R^2$ identifiziert.
+
+\vspace*{-4mm}
+$$z \cdot w = \begin{pmatrix} x & -y \\ y & x\end{pmatrix} \begin{pmatrix} u \\ v\end{pmatrix} = \begin{pmatrix} r & 0 \\ 0 & r\end{pmatrix} \begin{pmatrix} \frac{x}{r} & -\frac{y}{r} \\ \frac{y}{r} & \frac{x}{r}\end{pmatrix} \begin{pmatrix} u \\ v\end{pmatrix}$$
+
+wobei $r := \sqrt{x^2 + y^2}$. Es gilt für die orthogonale Matrix $D = \begin{pmatrix} \frac{x}{r} & -\frac{y}{r} \\ \frac{y}{r} & \frac{x}{r}\end{pmatrix}$: $det(D) = 1$ d.h. die komplexe Multiplikation ist eine Drehstreckung.
+
+Die Normen von $(\C,|\cdot|)$ und $(\R^2,|\cdot|_2)$ stimmen überein, ebenso Konvergenz-, Stetigkeits- und Offenheitseigenschaften:
+
+$\lim_{n \to \infty} z_n = z$ in $\C \iff \lim_{n \to \infty} Re \ z_n = Re \ z \land \lim_{n \to \infty} Im \ z_n = Im \ z$.
+
+\subsection*{Polardarstellung}
+
+Für $z = x +iy \in \C \setminus \{0\}$ gilt $z = re^{i\phi}$ mit $r = |z|$ und:
+
+\vspace*{-2mm}
+$$\phi = \arg z := \begin{cases}
+	\arccos \frac{x}{r} & y > 0 \\
+	0 & x \in (0,+\infty) \\
+	-\arccos \frac{x}{r} & y < 0 \\
+	\pi & z \in (-\infty,0)
+\end{cases}$$
+
+mit $\phi \in (-\pi, \pi]$. Es gilt für $z = re^{i\phi}, w = se^{i\psi}$:
+
+$z \cdot w = rse^{i(\phi+\psi)} = |z||w|e^{i(\phi+\psi)}$.
+
+\section*{Holomorphie}
+
+Eine Funktion $f : D \to \C$ ist \emph{komplex differenzierbar} in $z_0 \in D$, wenn:
+
+$f'(z_0) := \displaystyle\lim_{z \to z_0, z \in D\setminus\{z_0\}} \frac{f(z)-f(z_0)}{z-z_0} \in \C$ existiert.
+
+Ist $f$ in $\forall z_0 \in D$ komplex differenzierbar, so heißt $f$ \emph{holomorph} auf $D$ mit Ableitung $f' : D \to \C$.
+
+Geschrieben $f \in H(D)$.
+
+\subsection*{Komplexe Ableitung}
+
+$\C \to \C, z \mapsto 1$ und $\C \to \C, z \mapsto z$ sind holomorph.
+
+Seien $f, g : D \to \C$ komplex differenzierbar in $z_0 \in \C$, $f(z_0) \in D' \subseteq \C$ offen, $h : D' \to \C$ in $f(z_0)$ komplex differenzierbar, $\alpha, \beta \in \C$:
+
+\vspace*{-4mm}
+\begin{align*}
+	(\alpha f + \beta g)'(z_0) &= \alpha f'(z_0) + \beta g'(z_0) \\
+	(fg)'(z_0) &= f'(z_0)g(z_0) + f(z_0)g'(z_0) \\
+	\left(\frac{1}{f}\right)'(z_0) &= -\frac{f'(z_0)}{f(z_0)^2} \\
+	(h \circ f)'(z_0) &= h'(f(z_0))f'(z_0)
+\end{align*}
+
+Polynome $p$ und nichtsinguläre rationale Funktionen aus Polynomen sind auf $\C$ holomorph.
+
+\subsubsection*{Konvergenzradius}
+
+Seien $a_k \in \C, k \in \N_0$:
+
+\vspace*{-2mm}
+$$\rho = \frac{1}{\overline\lim_{k\to\infty} \sqrt[k]{|a_k|}} \in [0,+\infty]$$
+
+ist der \emph{Konvergenzradius}.
+
+Sei $\rho > 0, c \in \C$. Dann ex. die Potenzreihe:
+
+$f : B(c,\rho) \to \C, z \mapsto \sum_{k=0}^\infty a_k(z-c)^k$.
+
+Diese ist auf $B(c,\rho)$ beliebig oft komplex differenzierbar. Für $n \in \N_0$ hat $f^{(n)}$ den Konvergenzradius $\rho > 0$ und es gilt für $z \in B(c,\rho)$:
+
+\vspace*{-4mm}
+$$f^{(n)}(z) = \sum_{k=n}^\infty k(k-1)\cdots(k-n+1)a_k(z-c)^{k-n}$$
+
+Auf diese Weise ergeben sich für $z \in \C$:
+
+\vspace*{-4mm}
+\begin{align*}
+	\exp(z) &= e^z = \sum_{n=0}^\infty \frac{z^n}{n!} \\
+	\sin(z) &= \sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!} z^{2n+1} \\
+	\cos(z) &= \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} z^{2n}
+\end{align*}
+
+Übliche Ableitungs- und Rechenregeln gelten.
+
+\subsection*{Charakterisierung}
+
+Sei $f : D \to \C, D \subseteq \R^2, u = Re \ f, v = Im \ f : D \to \R$.
+
+$f : D \to \R^2, (x,y) \mapsto u(x,y) + iv(x,y) = \begin{pmatrix} u(x,y) \\ v(x,y)\end{pmatrix}$
+
+Es sind dann äquivalent:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $f$ ist in $z$ komplex differenzierbar
+	\item $f$ ist in $z$ reell differenzierbar und es gelten die \emph{Cauchy-Riemannschen DGL}: \\
+		$$\frac{\partial u}{\partial x}(x,y) = \frac{\partial v}{\partial y}(x,y), \frac{\partial u}{\partial y}(x,y) = -\frac{\partial v}{\partial x}(x,y)$$
+\end{enumerate}
+
+$f$ hat in $(x,y) \in D \subseteq \R^2$ die \emph{Jacobimatrix}:
+
+$$f'(z) = \begin{pmatrix}
+	\frac{\partial u}{\partial x}(x,y) & \frac{\partial u}{\partial y}(x,y) \\
+	-\frac{\partial u}{\partial y}(x,y) & \frac{\partial u}{\partial x}(x,y)
+\end{pmatrix}$$
+
+Entsprechend ist $f(z)=\overline z$ nirgends komplex differenzierbar, $f(z)=|z|^2$ nur in $0$ komplex differenzierbar und $f(z) = \frac{1}{z}$ holomorph in $\C \setminus \{0\}$.
+
+\subsection*{Biholomorphie}
+
+Sind $U, V \subseteq \C$ offen und nichtleer, $f : U \to V$ bij., $f$ und $f^{-1}$ holomorph. Dann heißt $f$ \emph{biholomorph}, $U$ und $V$ \emph{konform äquivalent}.
+
+\vfill\null
+\columnbreak
+
+Sei $f : U \to V$ biholomorph, $z \in U$.
+
+Dann ist $f'(z) \neq 0$ und für $w = f(z)$ gilt:
+
+\vspace*{-2mm}
+$$(f^{-1})'(w) = \frac{1}{f'(f^{-1}(w))} = \frac{1}{f'(z)}$$
+
+Weiterhin existieren offene nichtleere $U \subseteq D$ mit $u_0 \in U, V \subseteq \C$ s.d. $\restrictedto{f}{U}$ biholomorph ist, wenn $f \in H(d) \cap C^1(D,\R^2)$, $z_0 \in D$ mit $f'(z_0) \neq 0$ gilt.
