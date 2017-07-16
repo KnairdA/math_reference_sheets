@@ -369,3 +369,68 @@ a_n &= \frac{f^{(n)}(z_0)}{n!} = \frac{1}{2\pi i} \int_{\partial B(z_0,r)} \frac
 Diese konvergiert gleichmäßig auf $\overline B(z_0,\overline r)$.
 
 Für ganze $f$ gilt $R(z_0)=\infty$.
+
+\subsection*{Laplacetransformationen}
+
+Sei $f : [0,\infty) \to \C$ messbar und $\exists M, \omega \geq 0 \forall t \geq 0 : |f(t)| \leq Me^{\omega t}$. Dann ex. die \emph{Laplacetransformation}:
+
+\vspace*{-2mm}
+$$\hat f(\lambda) = \int_0^\infty e^{-\lambda t} f(t) dt \text{ für Re } \lambda > \omega$$
+
+Diese ist auf $\{\lambda \in \C | \text{Re } \lambda > \omega\}$ holomorph mit:
+
+\vspace*{-4mm}
+$$\hat f^{(n)}(\lambda) = (-1)^n \int_0^\infty e^{-\lambda t} t^n f(t) dt, \text{ Re } \lambda > \omega, n \in \N$$
+
+\subsection*{Satz von Morera}
+
+Funktion $f \in C(D,\C)$ erfülle $\int_{\partial\Delta} f dz = 0$ für alle abg. $\Delta \subseteq D$. Dann ist $f$ holomorph.
+
+\subsection*{Satz von Liouville}
+
+Eine beschränkte ganze Funktion ist konstant.
+
+\subsection*{Fundamentalsatz der Algebra}
+
+Ein komplexes Polynom $n$-ten Grades hat $n$ Nullstellen in $\C$. (eventuell wiederholt)
+
+\subsection*{Weierstraßscher Konvergenzsatz}
+
+Seien $f, f_n : D \to \C$ für $n \in \N$. Konvergiert die \emph{Supremumsnorm} $\sup_{z \in K} |f_n(z)-f(z)|$ auf bel. komp. $K \subseteq D$ gegen $0$ für $n \to \infty$, so konvergiert $(f_n)$ kompakt auf $D$ gegen $f$. Weiterhin:
+
+\spacing
+
+$f_n \in C(D,\C) \xrightarrow[n \to \infty]{\text{kompakt}} f \implies f \in C(D,\C)$.
+
+\spacing
+
+Eine Folge $(f_n) \in H(D)$ konvergiere kompakt gegen $f$. Dann ist $f$ holomorph und alle $f_n^{(j)}$ konvergieren kompakt auf $D$ gegen $f^{(j)}$ für $n \to \infty$.
+
+\subsection*{Identitätssatz}
+
+Sei $D \subseteq \C$ Gebiet und $f \in H(D)$. Dann sind äquiv.:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $f = 0$ auf $D$
+	\item $\exists z_0 \in D \forall n \in \N_0 : f^{(n)}(z_0) = 0$
+\end{enumerate}
+
+\columnbreak
+
+\begin{enumerate}[label=(\alph*),resume]
+	\item $\exists z_n, z_0 \in D \forall n \in N : f(z_n) = 0 \land z_n \neq z_0$ \\ Weiterhin gilt $z_n \to z_0 \ (n \to \infty)$
+\end{enumerate}
+
+Somit sind $g, h \in H(D)$ schon auf $D$ gleich, wenn $g, h$ auf Menge $M \subseteq D$ mit Häufungspunkt $z_0 \in D$ übereinstimmen.
+
+\subsection*{Nullstellensatz}
+
+Sei $f \in H(D) \neq$ Nullfkt. und $\exists z_0 \in D : f(z_0) = 0$. Dann $\exists m \in \N, r > 0$ mit $B(z_0, r) \subseteq D$ und $g \in H(B(z_0,r))$ mit $g(z_0) \neq 0$ s.d. für $z \in B(z_0,r)$ gilt:
+
+\vspace{-4mm}
+\begin{align*}
+0 &= f(z_0) = f'(z_0) = \cdots = f^{(m-1)}(z_0), f^{(m)}(z_0) \neq 0 \\
+f(z) &= (z-z_0)^m g(z)
+\end{align*}
+
+Dabei ist $m$ die Ordnung der Nullstelle $z_0$.
