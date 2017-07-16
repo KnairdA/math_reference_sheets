@@ -434,3 +434,39 @@ f(z) &= (z-z_0)^m g(z)
 \end{align*}
 
 Dabei ist $m$ die Ordnung der Nullstelle $z_0$.
+
+\subsection*{Holomorphe Fortsetzung}
+
+Sei $f \in H(D), U \subseteq \C$ Gebiet mit $D \subseteq U$.
+
+Dann $\exists! g \in H(U) : \restrictedto{g}{D} = f$.
+
+\subsection*{Nullstelle in $B(z_0,r)$}
+
+Sei $f \in H(D), B := B(z_0,r), r > 0, \overline B \subseteq D$. Weiter:
+
+\vspace*{-3mm}
+$$0 \leq |f(z_0)| < \min_{x \in \partial B} |f(x)|$$
+
+Dann hat $f$ Nullstelle in $B$.
+
+\subsection*{Offenheitssatz}
+
+$f \in H(D)$ ist auf kleiner Kugel in $D$ konstant
+
+$\implies \forall \text{offene } U \subseteq D : f(U) \subseteq \C$ ist offen.
+
+\subsection*{Gebietstreue}
+
+$D \subseteq \C$ ist Gebiet und $f \in H(D)$ ist nicht konstant
+
+$\implies f(D)$ ist ein Gebiet.
+
+\subsection*{Maximumsprinzip}
+
+Sei $D$ Gebiet, $f \in H(D)$ nicht konstant. Dann:
+
+\begin{enumerate}[label=(\alph*)]
+	\item Die Abbildung $D \to \R, z \mapsto |f(z)|$ hat kein lokales Maximum
+	\item $D$ beschränkt, $f \in C(\overline D,\C)$. Dann: \vspace*{-2mm} $$\max_{z \in \overline D} |f(z)| = \max_{z \in \partial D} |f(z)|$$
+\end{enumerate}
