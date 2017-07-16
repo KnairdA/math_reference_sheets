@@ -504,3 +504,34 @@ Cauchys Integralsatz gilt auf einfach zusammenhängenden Gebieten in $D$.
 Sei $\overline B(z_0,r) \subseteq D, r > 0, z \in B(z_0,r), k(t) = z_0 + re^{it}$ für $t \in [0, 2\pi], n \in \N_0$ und $\gamma$ zu $k$ auf $D \setminus \{z\}$ homotoper stückweiser $C^1$-Weg. Dann:
 
 $$f^{(n)}(z) = \frac{n!}{2\pi i} \int_\gamma \frac{f(w)}{(w-z)^{n+1}} dw$$
+
+\section*{Isolierte Singularitäten}
+
+Sei $z_0 \in \C, f \in H(D \setminus \{z_0\}), D_0 := B(z_0,r) \setminus \{z_0\} \subseteq D$. Dann ist $z_0$ \emph{isolierte Singularität} von $f$. $f$ ist:
+
+\begin{enumerate}[label=(\alph*)]
+	\item \emph{hebbar}, wenn $\exists \tilde f \in H(B(z_0,r)) : \restrictedto{f}{D_0} = \restrictedto{\tilde f}{D_0}$
+	\item \emph{Pol}, wenn $f(z) \to \infty \ (z \to z_0)$
+	\item \emph{wesentlich}, wenn $z_0$ nicht hebbar / Pol ist
+\end{enumerate}
+
+\subsection*{Charakterisierung}
+
+Sei $z_0 \in \C$ isolierte Singularität von $f \in H(D)$. Dann sind äquivalent:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $z_0$ ist Pol von $f$
+	\item $\exists r, c_1, c_2 > 0, m \in \N : \tilde D := B(z_0,r) \setminus \{z_0\} \subseteq D \land \forall z \in \tilde D : c_1|z-z_0|^{-m} \leq |f(z)| \leq c_2|z-z_0|^{-m}$
+	\item $\exists r > 0, m \in \N, g \in H(B(z_0,r)) :$ \\ $\tilde D := B(z_0,r) \setminus \{z_0\} \subseteq D \land g(z_0) \neq 0 \land \forall z \in \tilde D : f(z) = (z-z_0)^{-m}g(z)$
+	\item $\exists r > 0 : \tilde D := B(z_0,r) \setminus \{z_0\} \subseteq D \land \forall z \in \tilde D : f(z) \neq 0 \land h_0 := \frac{1}{f} : \tilde D \to \C$ besitzt Fortsetzung $h \in H(B(z_0,r))$ wobei $h$ in $z_0$ Nullstelle $m$-ter Ordnung hat
+\end{enumerate}
+
+\subsubsection*{Riemannscher Hebbarkeitssatz}
+
+Die isolierte Singularität $z_0 \in \C$ von $f \in H(D)$ ist hebbar $\iff \exists r_1 > 0 : B(z_0,r_1) \setminus \{z_0\} \subseteq D$ und $f$ auf $B(z_0,r_1) \setminus \{z_0\}$ beschränkt ist.
+
+\subsubsection*{Satz von Casorati-Weierstraß}
+
+$z_0$ ist wesentlich $\iff \forall r > 0 :$
+
+Bild $f(B(z_0,r) \setminus \{z_0\})$ liegt dicht in $\C$
