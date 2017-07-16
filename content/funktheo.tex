@@ -468,5 +468,39 @@ Sei $D$ Gebiet, $f \in H(D)$ nicht konstant. Dann:
 
 \begin{enumerate}[label=(\alph*)]
 	\item Die Abbildung $D \to \R, z \mapsto |f(z)|$ hat kein lokales Maximum
-	\item $D$ beschränkt, $f \in C(\overline D,\C)$. Dann: \vspace*{-2mm} $$\max_{z \in \overline D} |f(z)| = \max_{z \in \partial D} |f(z)|$$
+	\item $D$ beschränkt, $f \in C(\overline D,\C)$. Dann: \\ $\max_{z \in \overline D} |f(z)| = \max_{z \in \partial D} |f(z)|$
 \end{enumerate}
+
+\section*{Homotopie}
+
+Sei $N \subseteq M$ und $M$ ein metrischer Raum,
+
+$\gamma_0, \gamma_1 \in C([a,b],M)$ geschlossene Wege in $N$.
+
+\vspace*{1mm}
+
+Die Wege $\gamma_0, \gamma_1$ heißen \emph{homotop} über $N$, wenn $\exists h \in C([0,1] \times [a,b],M) \forall (s,t) \in [0,1] \times [a,b] : h(s,t) \in N \land h(0,t)=\gamma_0(t) \land h(1,t) = \gamma_1(t) \land h(s,a) = h(s,b)$.
+
+\vspace*{1mm}
+
+Ist $\gamma_1$ konstant, so heißt $\gamma_0$ \emph{nullhomotop} über $N$. Man schreibt $\gamma_0 \sim_N \gamma_1$ bzw. $\gamma_0 \sim_N 0$.
+
+\vspace*{1mm}
+
+Sind alle geschlossenen stückweisen $C^1$-Wege in $N$ nullhomotop, so heißt $N$ \emph{einfach zusammenhängend}.
+
+\subsection*{Homotope Variante der Cauchyschen Sätze}
+
+Sei $D$ Gebiet, $f \in H(D), \gamma_0, \gamma_1$ auf $D$ homotope stückweise $C^1$-Wege. Dann:
+
+$$\int_{\gamma_0} f dz = \int_{\gamma_1} f dz$$
+
+Insb. gilt $\int_{\gamma_0} f dz = 0$, wenn $\gamma_0 \sim_D 0$.
+
+Cauchys Integralsatz gilt auf einfach zusammenhängenden Gebieten in $D$.
+
+\spacing
+
+Sei $\overline B(z_0,r) \subseteq D, r > 0, z \in B(z_0,r), k(t) = z_0 + re^{it}$ für $t \in [0, 2\pi], n \in \N_0$ und $\gamma$ zu $k$ auf $D \setminus \{z\}$ homotoper stückweiser $C^1$-Weg. Dann:
+
+$$f^{(n)}(z) = \frac{n!}{2\pi i} \int_\gamma \frac{f(w)}{(w-z)^{n+1}} dw$$
