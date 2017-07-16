@@ -295,3 +295,77 @@ d.h. $H$ ist holomorph mit dieser Ableitung.
 \subsection*{Konstant auf Gebieten}
 
 Sei $D \subset \C$ ein Gebiet, $f \in H(D)$ und $f'=0$ auf $D$. Dann ist $f$ konstant.
+
+\subsection*{Stammfunktionen}
+
+Sei $f \in C(D,\C)$. Stammfunktion von $f$ auf $D$ ist $F \in H(D)$ mit $F'=f$.
+
+$\exp, \sin, \cos$ und Polynome besitzen Stammftk. auf $\C$. $\log$ ist Stammfkt. von $z \mapsto \frac{1}{z}$ auf $\Sigma_\pi$.
+
+\section*{Der Cauchysche Integralsatz}
+
+Sei $D$ Gebiet, $f \in C(D,\C)$. Dann sind äquivalent:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $f$ hat Stammfunktion $F$ auf $D$
+	\item $\forall \gamma_1, \gamma_2 \in PC^1([a,b],D)$ mit $\gamma_1(a)=\gamma_2(a)$ und $\gamma_1(b)=\gamma_2(b)$ gilt: $\int_{\gamma_1} f dz = \int_{\gamma_2} f dz$.
+	\item $\forall \gamma \in C^1([a,b],D)$ mit $\gamma(a)=\gamma(b)$: $\int_\gamma f dz = 0$
+\end{enumerate}
+
+Es ergibt sich für jeden stückweisen $C^1$-Weg in $D$: $\int_\gamma f dz = F(\gamma(b)) - F(\gamma(a))$.
+
+\subsection*{Satz von Goursat}
+
+Seien $w_0 \in D, f \in C(D,\C) \cap H(D \setminus \{w_0\})$ und $\Delta \subseteq D$ ein abgeschlossenes Dreieck. Dann:
+
+\vspace*{-2mm}
+$$\int_{\partial\Delta} f dz = 0$$
+
+\subsection*{Cauchys Integralsatz}
+
+Seien $D$ sternförmiges Gebiet, $f \in H(D)$ und $\gamma \in PC^1([a,b],D)$ geschlossen, dann gilt:
+
+\vspace*{-2mm}
+$$\int_\gamma f dz = 0$$
+
+\subsubsection*{Cauchys Integralformeln}
+
+Seien $f \in H(D), \overline B(z_0,r) \subseteq D, n \in \N_0, z \in B(z_0,r)$ und $s := |z-z_0| < r$. Sei $\partial B(z_0,r)$ durch $\gamma(t) = z_0 + re^{it}$ mit $t \in [0,2\pi]$ parametrisiert.
+
+Dann ist $f$ bel. oft auf $D$ diffbar und es gelten:
+
+\vspace*{-4mm}
+\begin{align*}
+	f^{(n)}(z) &= \frac{n!}{2\pi i} \int_{\partial B(z_0,r)} \frac{f(w)}{(w-z)^{n+1}} dw \\
+	|f^{(n)}(z)| &\leq \frac{n!r}{(r-s)^{n+1}} \max_{|w-z_0|=r} |f(w)|
+\end{align*}
+
+\subsection*{Analytische Funktionen}
+
+Eine Funktion $f : D \to \C$ heißt \emph{analytisch}, wenn $\forall z \in D \exists r(z) > 0$ mit $B(z,r(z)) \subseteq D$ s.d. $f$ auf $B(z,r(z))$ gleich einer Potenzreihe um $z$ ist.
+
+\vspace*{1mm}
+
+Eine Funktion $f \in H(\C)$ heißt \emph{ganz}.
+
+\vspace*{1mm}
+
+Analytische Funktionen sind insb. holomorph.
+
+\subsubsection*{Entwicklungssatz}
+
+Sei $f \in H(D)$. Dann ist $f$ analytisch.
+
+\spacing
+
+Für $\forall z_0 \in D$ sei $R(z_0) := \sup\{r > 0 | B(z_0,r) \subseteq D \}$ der maximale Redius. Zusätzlich sei $\overline r, r \in (0,R(z_0))$. Für $z \in B(z_0, R(z_0)$ ist die Taylorreihe von $f$:
+
+\vspace*{-4mm}
+\begin{align*}
+f(z) &= \sum_{n=0}^\infty a_n(z-z_0)^n \\
+a_n &= \frac{f^{(n)}(z_0)}{n!} = \frac{1}{2\pi i} \int_{\partial B(z_0,r)} \frac{f(w)}{(w-z_0)^{n+1}} dw
+\end{align*}
+
+Diese konvergiert gleichmäßig auf $\overline B(z_0,\overline r)$.
+
+Für ganze $f$ gilt $R(z_0)=\infty$.
