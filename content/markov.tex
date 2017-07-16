@@ -186,7 +186,7 @@ $i \in S$ ist \emph{positiv rekurrent}, wenn $m_i < \infty$.
 
 $i \in S$ ist \emph{nullrekurrent}, wenn $m_i = \infty$.
 
-\subsubsection*{Positive Rekurrenz und Verteilung}
+\subsection*{Positive Rekurrenz und Verteilung}
 
 Für irreduzible $(X_n)$ sind äquivalent:
 
@@ -204,7 +204,7 @@ $$\nu(i) = \frac{\gamma_k(i)}{\sum_{j \in S} \gamma_k(j)} = \frac{\mathbb{E}_k[\
 
 $\nu(i)$ ist also durchschnittlicher Bruchteil der Zeit, den die MK in $i \in S$ verbringt.
 
-\subsubsection*{Trichotomie irreduzibler Markov-Ketten}
+\subsection*{Trichotomie irreduzibler Markov-Ketten}
 
 Eine irreduzible MK entspricht einem der Fälle:
 
@@ -246,3 +246,52 @@ $\forall i, j \in S \exists n_0 \in \N \forall n \geq n_0 : p_{ij}^{(n)} > 0$.
 \subsubsection*{Konvergenzsatz}
 
 Sei MK $(X_n)$ irreduzibel, aperiodisch und positiv rekurrent mit Startverteilung $\nu$ und stationärer Verteilung $\pi$. Dann: $\lim_{n \to \infty} d(\nu P^n, \pi) = 0$
+
+Insb.: $\lim_{n\to\infty} p_{ij}^{(n)} = \pi(j) = \frac{1}{m_j}$.
+
+\subsubsection*{Mischungszeit}
+
+Sei $(X_N)$ irreduzible, aperiodische, positiv rekurrente MK mit stationärer Verteilung $\pi$ und:
+
+$d(n) := \sup_{i \in S} d(\delta_i P^n,\pi)$
+
+Für $\epsilon > 0$ ist $t_{mix}(\epsilon) = \min\{ n \in \N : d(n) \leq \epsilon \}$ die \emph{Mischungszeit}. d.h. die Zeitdauer, nach der die Verteilung von $X_{t_{mix}}$ in etwa der stationären Verteilung $\pi$ entspricht.
+
+\section*{Reversibilität}
+
+Sei $(X_n)$ MK mit Übergangsmatrix $P$, Zustandsraum $S$ und stationärer Verteilung $\pi$ mit $\forall i \in S : \pi(i) > 0$. Definiere $Q = (q_{ij})_{i,j \in S}$:
+
+\vspace*{-2mm}
+$$q_{ij} := \frac{\pi(j)}{\pi(i)} p_{ij}, \ i,j \in S$$
+
+Dann ist $Q$ stochastisch und für $X_0 \sim \pi$ gilt:
+
+\vspace*{-4mm}
+\begin{align*}
+\P(X_n = j | X_{n+1} = i) &= \frac{\P(X_{n+1} = i | X_n = j) \P(X_n = j)}{\P(X_{n+1} = i)} \\
+&= q_{ij}
+\end{align*}
+
+Somit ist $Q$ Übergangsmatrix der Markov-Kette, wenn die Zeit rückwärts läuft.
+
+\vspace*{1mm}
+
+Eine MK mit positiver stationärer Verteilung $\pi$ ist \emph{reversibel}, wenn: $\forall i, j \in S : \pi(i)p_{ij} = \pi(j)p_{ji}$
+
+\vspace*{1mm}
+
+In diesem Fall gilt $P=Q$ und die Zeitumkehr verhält sich statistisch wie $(X_n)$ selbst.
+
+\section*{Markov Chain Monte Carlo}
+
+Sei $S$ endlich, $\pi$ Verteilung auf $S$. Ziel ist es, eine MK $(X_n)$ auf $S$ zu finden, s.d. $\pi$ ihre stationäre Verteilung ist.
+
+Dies ist hilfreich, wenn nach $\pi$ verteilte Zufallszahlen schwierig zu erzeugen sind. Es ist einfacher $(X_n)$ bis zu Zeitpunkt $n_0$ ablaufen zu lassen und $X_{n_0}$ als Approximation von $\pi$ zu nutzen.
+
+\subsection*{Metropolis-Kette}
+
+Sei $K$ irreduzible, symmetrische Übergangsmatrix auf $S$. Wählen $P = (p_{ij})$ mit:
+
+$$p_{ij} = \begin{cases} K_{ij}\left(\frac{\pi(j)}{\pi(i)} \land 1\right) & i \neq j \\ 1 - \sum_{k \neq i} K_{ik}\left(\frac{\pi(j)}{\pi(i)} \land 1\right) & i=j \end{cases}$$
+
+Dann besitzt die MK mit Übergangsmatrix $P$ die stationäre Verteilung $\pi$.
