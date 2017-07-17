@@ -586,3 +586,37 @@ Für Laurentreihen nach der obigen Def. gelten:
 	\item $z_0$ ist Pol $m$-ter Ordnung \\ $\iff a_{-m} \neq 0 \land \forall n < -m : a_n = 0$
 	\item $z_0$ ist wesentlich $\iff \exists n_j \to -\infty : a_{n_j} \neq 0$
 \end{enumerate}
+
+\subsection*{Residuen}
+
+Sei $z_0 \in \C$ isolierte Singularität von $f \in H(D)$ und $a_n$ Koeffizienten der Laurentreihe von $f$ um $z_0$.
+
+Das \emph{Residuum} von $f$ bei $z_0$ ist definiert als:
+
+$$\text{Res}(f,z_0) := a_{-1} = \frac{1}{2\pi i} \int_{\partial B(z_0,r)} f(w) dw$$
+
+Hierbei gelte $\overline B(z_0,r) \setminus \{z_0\} \subseteq D$.
+
+\subsubsection*{Residuensatz}
+
+Seien $f \in H(D)$ und $z_1, \dots, z_n \in \C$ alle isolierten Singularitäten von $f$. Sei $p$ ein geschlossener, einfacher, positiv orientierter Polygonzug in $D$ mit Bild $P$ s.d. alle $z_j$ im von $P$ umschlossenen Gebiet $G$ liegen und $\overline G \setminus \{z_1,\dots,z_n\} \subseteq D$ ist. Weiterhin sei $\gamma \in PC^1([a,b],D)$ zu $p$ auf $D$ homotop. Dann:
+
+\columnbreak
+
+\vspace*{-4mm}
+$$\int_\gamma f dz = 2\pi i \sum_{j=1}^n \text{Res}(f,z_j)$$
+
+\subsubsection*{Residuen von Polen $m$-ter Ordnung}
+
+Sei $z_0$ Pol $m$-ter Ordnung von $f \in H(D)$ und $g$ die holomorphe Fortsetzung von $(z-z_0)^m f(z)$ auf $B(z_0,r) \subseteq D$. Dann gelte:
+
+\vspace*{-4mm}
+\begin{align*}
+\text{Res}(f,z_0) &= \frac{1}{(m-1)!} g^{(m-1)}(z_0) \\
+&= \lim_{z \to z_0} \frac{1}{(m-1)!}\left(\frac{d}{dz}\right)^{m-1} ((z-z_0)^m f(z))
+\end{align*}
+
+Insb. gilt also für $m=1$:
+
+\vspace*{-2mm}
+$$\text{Res}(f,z_0) = \lim_{z \to z_0}(z-z_0)f(z)$$
