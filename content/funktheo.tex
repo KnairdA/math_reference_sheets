@@ -535,3 +535,54 @@ Die isolierte Singularität $z_0 \in \C$ von $f \in H(D)$ ist hebbar $\iff \exis
 $z_0$ ist wesentlich $\iff \forall r > 0 :$
 
 Bild $f(B(z_0,r) \setminus \{z_0\})$ liegt dicht in $\C$
+
+\subsection*{Biholomorphie aus Injektivität}
+
+Sei $f \in H(D)$ injektiv.
+
+Dann ist $f(D) \subseteq \C$ offen und $f$ ist biholomorph.
+
+\columnbreak
+
+\subsection*{Laurentreihe}
+
+Sei $a_n \in \C$ für $n \in \Z$ und $c \in \C$.
+
+$\sum_{n \in \Z} a_n (z-c)^n$ mit $z \in \C$ ist die \emph{Laurentreihe}.
+
+Diese konvergiert, falls Grenzwerte in $\C$ ex.:
+
+\vspace*{-4mm}
+\begin{align*}
+&\sum_{n=0}^{+\infty} a_n(z-c)^n & \text{(regulärer Anteil)} \\
+&\sum_{n=1}^{+\infty} a_{-n}(z-c)^{-n} & \text{(singulärer Anteil)}
+\end{align*}
+
+Ist dies der Fall, wird definiert:
+
+\vspace*{-4mm}
+$$\sum_{n=-\infty}^{+\infty} a_n(z-c)^n := \sum_{n=0}^{+\infty} a_n(z-c)^n + \sum_{n=1}^{+\infty} a_{-n}(z-c)^{-n}$$
+
+\subsubsection*{Satz von Laurent}
+
+Seien $f \in H(D), n \in \Z, z_0 \in \C$ und $R > 0$ s.d. $D_0 := B(z_0,R) \setminus \{z_0\} \subseteq D$.
+
+Für $r \in (0,R)$ sei $\gamma_r : [0,2\pi] \to \C, t \mapsto z_0 + re^{it}$ und:
+
+$$a_n := \frac{1}{2\pi i} \int_\gamma \frac{f(w)}{(w-z_0)^{n+1}} dw$$
+
+Diese Koeff. sind eindeutig und unabhg. $r \in (0,R)$.
+
+\spacing
+
+$\sum_{n=-\infty}^{+\infty} a_n(z-z_0)^n$ konvergiert dann absolut und gleichmäßig auf Kompakta in $D_0$ gegen $f$.
+
+\subsubsection*{Singularitäten der Laurentreihe}
+
+Für Laurentreihen nach der obigen Def. gelten:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $z_0$ ist hebbar $\iff \forall n < 0 : a_n = 0$
+	\item $z_0$ ist Pol $m$-ter Ordnung \\ $\iff a_{-m} \neq 0 \land \forall n < -m : a_n = 0$
+	\item $z_0$ ist wesentlich $\iff \exists n_j \to -\infty : a_{n_j} \neq 0$
+\end{enumerate}
