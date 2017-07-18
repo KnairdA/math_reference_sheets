@@ -620,3 +620,20 @@ Insb. gilt also für $m=1$:
 
 \vspace*{-2mm}
 $$\text{Res}(f,z_0) = \lim_{z \to z_0}(z-z_0)f(z)$$
+
+\subsection*{Argumentprinzip}
+
+Seien $f \in H(D), z_1, \dots, z_n \in D$ die Nullstellen von $f$ mit Ordnungen $m_1, \dots, m_n \in \N$ und $p$ geschlossener, einfacher, positiv orientierter Polygonzug in $\hat D := D \setminus \{z_1,\dots,z_n\}$ mit Bild $P$ s.d. die Nullstellen im von $P$ umschlossenen Gebiet $G$ liegen mit $\overline G \subseteq D$. Sei $\gamma$ in $\hat D$ zu $p$ homotope, geschlossene stückweise $C^1$-Kurve. Dann:
+
+$$\frac{1}{2\pi i} \int_\gamma \frac{f'(z)}{f(z)} dz = \sum_{j=1}^n m_j$$
+
+\subsubsection*{Satz von Rouché}
+
+Sei $f \in H(D), z_j \in \C, m_j \in \N$ und Weg $\gamma$ mit Bild $\Gamma$ entsprechend dem Argumentprinzip. $g \in H(D)$ erfülle: $\forall z \in \Gamma : |f(z)-g(z)| < |f(z)| + |g(z)|$
+
+Seien $\omega_1, \dots, \omega_\nu$ Nullstellen von $g$ im von $\gamma$ umschlossenen Gebiet mit Vielfachheiten $\mu_k \in \N$:
+
+\vspace*{-2mm}
+$$\sum_{j=1}^n m_j = \sum_{k=1}^\nu \mu_k$$
+
+d.h. die Summe der Nullstellenordnungen von $f$ ist gleich der Summe der Vielfachheiten von $g$.
