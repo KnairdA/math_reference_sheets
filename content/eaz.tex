@@ -694,3 +694,31 @@ $\alpha \in L$ ist algebraisch $\iff [K(\alpha) : K] < \infty$.
 \vspace*{1mm}
 
 Sind $K \subseteq L \subseteq M$ endliche Körpererweiterungen so gilt: $[M : K] = [M : L] \cdot [L : K]$.
+
+\section*{Irreduzible Polynome}
+
+\subsection*{Eisensteinkriterium}
+
+Sei $R$ kommutativer nullteilerfreier Ring, $P \subseteq R$ Primideal, $f = \sum_{i=0}^d r_i X^i \in R[X]$ nichtkonstantes Polynom mit $\forall i \in \{0,\cdots,d-1\} : r_i \in P$ und $r_d \notin P$ sowie $r_0$ sei kein Produkt zweier Elemente aus $P$.
+
+\vspace*{1mm}
+
+Dann ist $f$ kein Produkt zweier Faktoren in $R[X]$, die kleineren Grad als $f$ haben.
+
+\vspace*{1mm}
+
+Insb. für $R = \Z$: $X^n - p$ mit $p \in \Primes$ sind irreduzibel.
+
+\subsection*{Inhalt}
+
+Sei $R$ Hauptidealring. Der \emph{Inhalt} $\text{Inh}(f)$ von $f \in R[X]$ mit $f \not\equiv 0$ ist def. als der Inhalt der Koeffizienten von $f$, d.h. des von diesen erzeugten Ideals.
+
+\subsubsection*{Lemma von Gauß}
+
+Sei $R$ Hauptidealring mit Quotientenkörper $K$ und $f, g \in K[X]$. Dann: $\text{Inh}(fg) = \text{Inh}(f)\cdot\text{Inh}(g)$
+
+\subsection*{Irreduzibilitätskriterium}
+
+Sei $R$ Hauptidealring mit Quotientenkörper $K$ und $f \in R[X]$ nichtkonstant sowie in $R[X]$ kein Produkt von Faktoren kleineren Grades.
+
+Dann ist $f$ in $K[X]$ irreduzibel.
