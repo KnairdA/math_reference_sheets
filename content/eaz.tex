@@ -552,7 +552,7 @@ $I \subseteq R$ ist \emph{Hauptideal}, wenn $\exists g \in I : I = Rg$. Die Meng
 
 \spacing
 
-Ein nullteilerfreier kummutativer Ring $R$, in dem jedes Ideal ein Hauptideal ist, heißt \emph{Hauptidealring}.
+Ein nullteilerfreier kommutativer Ring $R$, in dem jedes Ideal ein Hauptideal ist, heißt \emph{Hauptidealring}.
 
 \subsubsection*{Assoziiertenklassen und Ideale}
 
@@ -589,7 +589,7 @@ Die Irreduzibilität eines $m \in R$ heißt, dass die Assoziiertenklasse $mR^\ti
 Sei $R$ nullteilerfreier kommutativer Ring:
 
 \begin{enumerate}[label=(\alph*)]
-	\item Primelement $neq 0$ in $R$ ist irreduzibel.
+	\item Primelement $\neq 0$ in $R$ ist irreduzibel.
 	\item $R$ ist Hauptidealring \\ $\implies $ irreduzibles $R$-Element ist auch prim.
 \end{enumerate}
 
@@ -613,4 +613,84 @@ $n \in \N$ ist Summe zweier Quadrate gdw. sie die komplexe Norm von einem $a + b
 
 \subsection*{Restklassenkörper}
 
-Sei $R$ Hauptidealring aber kein Körper. Der Restklassenring $R/Rg$ ist ein Köper gdw. $g$ irreduzibel ist, denn genau dann gilt $\forall a \notin Rg : a$ modulo $g$ ist invertierbar.
+Sei $R$ Hauptidealring aber kein Körper. Der Restklassenring $R/Rg$ ist ein Köper gdw. $g$ irreduzibel ist, da $\forall a \notin Rg : a$ modulo $g$ ist invertierbar.
+
+\vspace*{1mm}
+
+Für $p \in \Primes$ ist $\mathbb{F}_p = \Z/p\Z$ Körper mit $p$ Elementen.
+
+\vspace*{1mm}
+
+Ist $p$ ungerade und $a \in \mathbb{F}_p^\times$ kein Quadrat, dann ist $X^2 - a \in \mathbb{F}_p[X]$ irreduzibel.
+
+$\mathbb{F}_p[X]/(X^2-a)$ ist Körper mit $p^2$ Elementen.
+
+\subsection*{Maximale Ideale}
+
+Ein Ideal $I \subset R$ ist \emph{maximales Ideal}, wenn $I \neq R$ und zwischen $I$ und $R$ kein weiteres Ideal liegt.
+
+$I \subset R$ ist maximal gdw. $R/I$ ein Körper ist.
+
+Weiter $\forall a \in R \setminus I : (a + I) = R/I$ und ein zu $a + I$ inverses Element existiert.
+
+\subsection*{Primideale}
+
+Ein Ideal $I \subset R$ ist \emph{Primideal}, wenn:
+
+$\forall x, y \in R : xy \in I \implies x \in I \lor y \in I$.
+
+\vspace*{1mm}
+
+Ein Ideal $I$ ist Primideal gdw. $R/I$ integer ist, da dann jedes maximale Ideal auch ein Primideal ist.
+
+\vspace*{1mm}
+
+In Hauptidealringen ist jedes Primideal ungleich $(0)$ bereits maximal.
+
+\section*{Körpererweiterungen}
+
+Sei $K$ Körper und $L$ Körper, der $K$ umfasst. $K \subseteq L$ ist dann eine \emph{Körpererweiterung}.
+
+\subsection*{Algebraizität und Transzendenz}
+
+Element $\alpha \in L$ heißt \emph{algebraisch} über $K$, wenn ein Polynom $f \in K[X]$ existiert s.d.: $f \not\equiv 0 \land f(\alpha) = 0$.
+
+\vspace*{1mm}
+
+Element $\alpha in L$ heißt \emph{transzendent} über $K$, wenn es nicht algebraisch über $K$ ist.
+
+\vspace*{1mm}
+
+Körper $L$ ist algebraisch über $K$, wenn alle Elemente von $L$ über $K$ algebraisch sind.
+
+\vspace*{1mm}
+
+Sei $\alpha \in L$ algebraisch über $K$. Das Ideal $I(\alpha) := \{f \in K[X] | f(\alpha) = 0\}$ heißt \emph{Verschwindungsideal} und ist nicht das Nullideal im Polynomring. Normierter Erzeuger von $I(\alpha)$ ist das \emph{Minimalpolynom} von $\alpha$.
+
+\subsection*{Adjunktion}
+
+Der kleinste Teilkörper von $L$ welcher $K$ und geg. $\alpha \in L$ enthält, heißt $K(\alpha)$ d.h. \emph{$K$ adjungiert alpha}.
+
+Für jede Teilmenge $A \subseteq L$ existiert ein kleinster Teilkörper welcher $K$ und $A$ enthält.
+
+\subsection*{Algebraische Erweiterung}
+
+Sei $K \subseteq L$ Körpererweiterung. Dann gelten:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\alpha \in L$ ist algebraisch $\iff$ Dimension von $K(\alpha)$ als $K$-Vektorraum ist endlich.
+	\item Menge aller über $K$ algebraischen $\alpha \in L$ ist Teilkörper von $L$.
+	\item $K \subseteq L$ und $L \subseteq M$ sind algebraische Körpererweiterungen $\implies K \subseteq M$ ist algebraische Körpererweiterung.
+\end{enumerate}
+
+\subsection*{Grad der Körpererweiterung}
+
+Sei $K \subseteq L$ Körpererweiterung. Die Dimension von $L$ als $K$-Vektorraum heißt \emph{Grad von $L$ über $K$}.
+
+Geschrieben $[L : K]$.
+
+$\alpha \in L$ ist algebraisch $\iff [K(\alpha) : K] < \infty$.
+
+\vspace*{1mm}
+
+Sind $K \subseteq L \subseteq M$ endliche Körpererweiterungen so gilt: $[M : K] = [M : L] \cdot [L : K]$.
