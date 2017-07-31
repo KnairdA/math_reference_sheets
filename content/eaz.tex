@@ -4,11 +4,19 @@
 
 Sei $n \in \N$. $d \in \N$ ist Teiler von $n$, falls $\exists t \in \N : d \cdot t = n$. Man schreibt $d \mid n$. $n$ ist Vielfaches von $d$.
 
+\vspace*{1mm}
+
 Die Menge aller Teiler ist endlich da $\forall d \mid n : d \leq n$.
+
+\vspace*{1mm}
 
 Der \emph{größte gemeinsame Teiler} von $m$ und $n$ wird notiert als $ggT(m,n)$ oder $(m,n)$.
 
+\vspace*{1mm}
+
 Das \emph{kleinste gemeinsame Vielfache} ist $kgV(m,n)$.
+
+\vspace*{1mm}
 
 Zahlen $m, n \in \N$ heißen \emph{teilerfremd}, wenn $1 \in \N$ der einzige gemeinsame Teiler ist.
 
@@ -189,6 +197,14 @@ Untergruppen abelscher Gruppen sind normal.
 \subsection*{Einfachheit}
 
 Die nichttriviale Gruppe $G$ heißt \emph{einfach}, wenn sie keine Normalteiler außer $G$ und $\{e_G\}$ besitzt.
+
+\subsection*{Übersicht Gruppeneigenschaften}
+
+Primzahlordnung $\implies$ zyklisch und einfach
+
+zyklisch $\implies$ abelsch
+
+einfach und abelsch $\implies$ Primzahlordnung
 
 \subsection*{Nebenklassen}
 
@@ -480,6 +496,8 @@ $$\legendre{a}{p} = \begin{cases}
 
 $\legendre{a}{p}$ ist das \emph{Legendre-Symbol} von $a$ modulo $p$.
 
+\pagebreak
+
 \subsubsection*{Berechnen von Legendre-Symbolen}
 
 Sei $a \in \Z, m, n \in \Z : a=mn, p \in \Primes$:
@@ -488,12 +506,6 @@ Sei $a \in \Z, m, n \in \Z : a=mn, p \in \Primes$:
 \begin{align*}
 	\legendre{a}{p} &= \legendre{a-p}{p} \\
 	\legendre{m \cdot n}{p} &= \legendre{m}{p}\legendre{n}{p}
-\end{align*}
-
-\pagebreak
-
-\vspace*{-8mm}
-\begin{align*}
 	\legendre{2}{p} &= (-1)^{\frac{p^2-1}{8}} \\
 	\legendre{-1}{p} &= (-1)^{\frac{p-1}{2}}
 \end{align*}
@@ -528,9 +540,7 @@ Die Äquivalenzklasse von $a \in R$ ist $a \cdot R^\times$.
 
 Sei $R$ kommutativ und nullteilerfrei. Dann ist
 
-$aR^\times \preccurlyeq bR^\times \iff a | b$
-
-Ordnungsrelation auf der Menge der Assoziiertenklassen.
+$aR^\times \preccurlyeq bR^\times \iff a | b$ eine Ordnungsrelation auf der Menge der Assoziiertenklassen.
 
 \subsubsection*{$ggT$ in Ringen}
 
@@ -548,11 +558,13 @@ Ist $d$ ein gemeinsamer Teiler von $a, b$, dann gilt auch $d |(ax+by)$ für $x,y
 
 $\{ax+by | x,y \in R\}$ ist Ideal in $R$.
 
-$I \subseteq R$ ist \emph{Hauptideal}, wenn $\exists g \in I : I = Rg$. Die Menge aller Vielfachen von $g$ in $R$ wird geschrieben als $(g) := Rg$.
+$I \subseteq R$ ist \emph{Hauptideal}, wenn $\exists g \in I : I = Rg$.
+
+Menge aller Vielfachen von $g$ in $R$ ist $(g) := Rg$.
 
 \spacing
 
-Ein nullteilerfreier kommutativer Ring $R$, in dem jedes Ideal ein Hauptideal ist, heißt \emph{Hauptidealring}.
+Ein nullteilerfreier kommutativer Ring $R$, in dem jedes Ideal Hauptideal ist, heißt \emph{Hauptidealring}.
 
 \subsubsection*{Assoziiertenklassen und Ideale}
 
@@ -695,7 +707,9 @@ $\alpha \in L$ ist algebraisch $\iff [K(\alpha) : K] < \infty$.
 
 Sind $K \subseteq L \subseteq M$ endliche Körpererweiterungen so gilt: $[M : K] = [M : L] \cdot [L : K]$.
 
-\section*{Irreduzible Polynome}
+\subsection*{Algebraischer Abschluss}
+
+Ein Körper $K$ ist \emph{algebraisch abgeschlossen}, wenn er keinen echten algebraischen Erweiterungskörper besitzt. Äquivalent zerfallen alle normierten Polynome in $K[X]$ bereits in Linearfaktoren.
 
 \subsection*{Eisensteinkriterium}
 
@@ -711,7 +725,11 @@ Insb. für $R = \Z$: $X^n - p$ mit $p \in \Primes$ sind irreduzibel.
 
 \subsection*{Inhalt}
 
-Sei $R$ Hauptidealring. Der \emph{Inhalt} $\text{Inh}(f)$ von $f \in R[X]$ mit $f \not\equiv 0$ ist def. als der Inhalt der Koeffizienten von $f$, d.h. des von diesen erzeugten Ideals.
+Sei $R$ Hauptidealring. Der \emph{Inhalt} $\text{Inh}(f)$ von $f \in R[X]$ mit $f \not\equiv 0$ ist definiert als der Inhalt der Koeffizienten von $f$, d.h. der Erzeuger des von diesen erzeugten Ideals.
+
+\vspace*{1mm}
+
+Ein normiertes Polynom in $R[X]$ hat Inhalt $1$.
 
 \subsubsection*{Lemma von Gauß}
 
