@@ -351,3 +351,107 @@ $$\lim_{t\downarrow0} \frac{1}{t} (p_{ij}(t) - \delta_{ij}) = \begin{cases} \lam
 Die Intensitätsmatrix des Poisson-Prozesses:
 
 $$Q = \begin{pmatrix} -\lambda & \lambda & 0 & 0 & \cdots \\ 0 & -\lambda & \lambda & 0 & \cdots \\ 0 & 0 & -\lambda & \lambda & \\ \vdots & \vdots & & & \ddots \end{pmatrix}$$
+
+\subsubsection*{Konservative Übergangsmatrix}
+
+Sei $\{P(t),t \geq 0\}$ eine \emph{Standardübergangsmatrizen-funktion}. Dann gilt für $q_{ij}:=p_{ij}'(0)$:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $0 \leq q_{ij} < \infty$ für $i \neq j$, sonst $-\infty \leq q_{ii} \leq 0$
+	\item $\sum_{j\neq i} q_{ij} \leq -q_{ii} =: q_i$
+\end{enumerate}
+
+Falls $S$ endlich ist, gilt $q_i = \sum_{j\neq i} q_{ij}$ für $i \in S$. Dann heißt die Standardübergangsmatrizenfunktion \emph{konservativ}.
+
+\subsubsection*{Kolmogorovsche Differentialgleichung}
+
+Sei $\{P(t),t \geq 0\}$ eine Konservative Standardübergangsmatrizenfunktion und $q_i < \infty$ für $i \in S$. Dann gilt das Kolmogorovsche Rückwärtsdifferentialgleichungssystem:
+
+\vspace*{-2mm}
+$$P'(t) = QP(t), \ t \geq 0$$
+
+d.h. $\forall i,j \in S : p_{ij}'(t) = -q_i p_{ij}(t) + \sum_{k \neq i} q_{ik} p_{kj}(t)$
+
+\spacing
+
+Gilt weiterhin $\forall i \in S, t \geq 0 : \sum_{k \in S} p_{ik}(t)q_k < \infty$ dann ist $\{P(t),t\geq 0\}$ Lösung des \emph{Kolmogorovschen Vorwärtsdifferentialgleichungssystems}:
+
+\vspace*{-2mm}
+$$P'(t)=P(t)Q, \ t \geq 0$$
+
+\spacing
+
+Ist $S$ endlich so ist die Lösung von $P'(t) = QP(t)$ mit $P(0)=E$ gegeben durch:
+
+\vspace*{-2mm}
+$$P(t) = e^{tQ} = \sum_{n=0}^\infty \frac{(tQ)^n}{n!}$$
+
+\section*{Warteschlangentheorie}
+
+Jobs kommen einzeln an und werden nach \emph{first come, first serve (FCFS)} einzeln abgefertigt.
+
+Zwischenankunftszeiten sind unabhängig und identisch verteilt nach $Exp(\lambda)$.
+
+Bedienzeiten der FCFS Bedienstrategie sind unabhängig und identisch verteilt mit $Exp(\mu)$.
+
+$X_t$ bezeichnet Anzahl wartender Jobs zur Zeit $t$.
+
+\subsection*{Kendall-Notation}
+
+In der \emph{Kendall-Notation} $A/B/c$ ist $A$ der Ankunftsprozess, $B$ der Abfertigungsprozess und $c$ die Anzahl der Bediener.
+
+\vspace*{1mm}
+
+$M$ steht für \emph{Markovsch} d.h. Zwischen- und Bedienzeiten sind unabh., ident. exponentialverteilt.
+
+\subsection*{$M/M/1$-Modell}
+
+Im $M/M/1$-Modell existiert ein Bediener.
+
+d.h. $(X_t)$ ist ein Geburts- und Todesprozess mit Parametern $\lambda_0 = \lambda_i = \lambda$ und $\mu_i = \mu$ für $i \in \N$.
+
+\vspace*{1mm}
+
+Die \emph{Verkehrsintensität} sei definiert als $\rho := \frac{\lambda}{\mu}$
+
+\spacing
+
+Das $M/M/1$-Modell ist positiv rekurrent gdw. $\rho < 1$. Die stationäre Verteilung ist dann geometrisch mit Parameter $\rho$. d.h. $\pi_i = (1-\rho)\rho^i$ für $i \in \N_0$.
+
+\vspace*{1mm}
+
+Im Gleichgewicht $X \sim \pi$ gilt:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\P(X=0) = \pi_0 = 1 - \rho$ ist Anteil der Zeit in welcher der Bediener unbeschäftigt ist
+	\item $\mathbb{E}X = \frac{\rho}{1-\rho}$ ist die durchschnittliche Anzahl Jobs im System
+\end{enumerate}
+
+\subsection*{$M/M/\infty$-Modell}
+
+Im $M/M/\infty$-Modell ex. unendlich viele Bediener.
+
+Entsprechend ist $(X_t)$ ein Geburts- und Todesprozess mit Parametern $\lambda_i = \lambda, \mu_i = i\mu$ für $i \in \N_0$.
+
+\vspace*{1mm}
+
+Das $M/M/\infty$-Modell ist immer positiv rekurrent. Die stationäre Verteilung ist eine Poisson-Verteilung mit Parameter $\eta := \frac{\lambda}{\mu}$.
+
+d.h. $\pi_i = e^{-\eta}\frac{\eta^i}{i!}$ mit $i \in \N_0$.
+
+\subsection*{Erlangsches Verlustsystem}
+
+Betrachtet wird Telefonzentrale mit $K$ Leitungen. Anrufe kommen nach Poisson-Prozesses mit $\lambda > 0$ an, Rufdauer ist unabhängig und identisch verteilt nach $Exp(\mu)$. Sind alle Leitungen besetzt, gehen ankommende Anrufe verloren.
+
+Der Prozess ist ein Geburts- und Todesprozess mit $\lambda_i = \lambda$ für $i \in \{0,\dots,K-1\}$ und $\lambda_i = 0$ für $i \in \{K,\dots\}$ sowie $\mu_i = \mu \cdot i$ für $i \in \{0,\dots,K\}$ und $\mu_i = 0$ für $i \in \{K+1,\dots\}$.
+
+Der Prozess ist positiv rekurrent mit stationärer Verteilung $\pi_i = \frac{\eta^i}{i!}\left(\sum_{n=0}^K \frac{\eta^n}{n!}\right)^{-1}$ mit $\eta = \frac{\lambda}{\mu}$.
+
+Der Bruchteil verlorengegangener Anrufe ist:
+
+\vspace*{-2mm}
+$$E_K(\eta) := \frac{\eta^K}{K!} \left( \sum_{n=0}^K \frac{\eta^n}{n!} \right)^{-1}$$
+
+Dies ist die \emph{Erlangsche Verlustformel}.
+
+\subsection*{Jackson-Netzwerke}
