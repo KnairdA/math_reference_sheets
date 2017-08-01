@@ -295,3 +295,59 @@ Sei $K$ irreduzible, symmetrische Übergangsmatrix auf $S$. Wählen $P = (p_{ij}
 $$p_{ij} = \begin{cases} K_{ij}\left(\frac{\pi(j)}{\pi(i)} \land 1\right) & i \neq j \\ 1 - \sum_{k \neq i} K_{ik}\left(\frac{\pi(j)}{\pi(i)} \land 1\right) & i=j \end{cases}$$
 
 Dann besitzt die MK mit Übergangsmatrix $P$ die stationäre Verteilung $\pi$.
+
+\section*{Markov-Ketten in stetiger Zeit}
+
+Sei $(N_t)_{t\geq 0}$ Familie messbarer Zufallsvariablen $N_t : \Omega \to \N_0$. Diese bildet \emph{stochastischen Prozess in stetiger Zeit}.
+
+\subsection*{Poisson-Prozess}
+
+Die Familie $(N_t)_{t\geq 0}$ erfülle:
+
+\begin{enumerate}[label=(\alph*)]
+	\item Alle Pfade $t \mapsto N(t,\omega)$ liegen in $D_0 := \{ f : [0,\infty) \to \N_0 | f(0) = 0, f \uparrow, f \text{ rechtsstetig}\}$.
+	\item $(N_t)_{t\geq0}$ hat unabhängige Zuwächse: $\forall n \in \N \\ \forall 0 \leq t_0 \leq \cdots \leq t_n$ sind $N_{t_0}, N_{t_1}-N_{t_0}, \dots, \\ N_{t_n}-N_{t_{n-1}}$ stochastisch unabhängig
+	\item $(N_t)_{t\geq0}$ hat stationäre Zuwächse d.h. $\forall t > 0$ ist Verteilung $N_{s+t}-N_s$ von $s$ unabhängig
+	\item Ereigniss treten einzeln auf d.h.: \\ $\P(N_h \geq 2) = o(h)$ mit $h \downarrow 0$
+\end{enumerate}
+
+$(N_t)$ hat mit Wahrscheinlichkeit $1$ nur Sprünge der Höhe $1$ und: $\exists \lambda > 0 \forall s, t \geq 0 : N_{s+t}-N_s$ ist Poisson-verteilt mit Parameter $\lambda t$. Die Zeiten zwischen konsekutiven Sprüngen sind unabhängig und exponentialverteilt mit Parameter $\lambda$.
+
+Der Prozess $(N_t)$ heißt \emph{Poisson-Prozess} mit $\lambda > 0$.
+
+\subsection*{Markov-Eigenschaft}
+
+Ein stochastischer Prozess $(X_t)_{t\geq0}$ mit abzählbarem Zustandsraum $S$ heißt \emph{(homogene) Markov-Kette}, wenn:
+
+$\forall n \in \N$, $t, h > 0, i_k \in S$ sowie $\forall 0 \leq t_0 < t_1 < \cdots < t_n$ mit $\P(X_{t_k} = i_k, 0 \leq k \leq n) > 0 : $
+
+\vspace*{-4mm}
+\begin{align*}
+&\P(X_{t_n+h} = i_{n+1} | X_{t_k} = i_k, 0 \leq k \leq n) \\
+&= \P(X_{t_n+h} = i_{n+1} | X_{t_n} = i_n) \\
+&= \P(X_{t+h} = i_{n+1} | X_t = i_n)
+\end{align*}
+
+\subsection*{Intensitätsmatrix}
+
+Sei $\{P(t), t \geq 0\}$ eine \emph{Standardübergangsmatrizen-funktion}. Dann sind alle $p_{ij}(t)$ in $0$ rechtseitig differenzierbar d.h.: $\forall i, j \in S :$
+
+\vspace*{-2mm}
+$$q_{ij} := \lim_{t\downarrow0} \frac{1}{t} (p_{ij}(t) - \delta_{ij})$$
+
+Die Matrix $Q := (q_{ij})$ ist die \emph{Intensitätsmatrix} bzw. der \emph{infinitesimale Erzeuger} von $\{P(t),t \geq 0\}$.
+
+\subsubsection*{Intensitätsmatrix des Poisson-Prozesses}
+
+Für einen Poisson-Prozess $(N_t)$ ergibt sich die Übergangsmatrizenfunktion:
+
+$$p_{ij}(t) = \begin{cases} e^{-\lambda t} \frac{(\lambda t)^{j-i}}{(j-i)!} & j \geq i \\ 0 & \text{sonst}\end{cases}$$
+
+Demenstsprechend gilt:
+
+\vspace*{-4mm}
+$$\lim_{t\downarrow0} \frac{1}{t} (p_{ij}(t) - \delta_{ij}) = \begin{cases} \lambda & j = i+1 \\ -\lambda & j=i \\ 0 & \text{sonst}\end{cases}$$
+
+Die Intensitätsmatrix des Poisson-Prozesses:
+
+$$Q = \begin{pmatrix} -\lambda & \lambda & 0 & 0 & \cdots \\ 0 & -\lambda & \lambda & 0 & \cdots \\ 0 & 0 & -\lambda & \lambda & \\ \vdots & \vdots & & & \ddots \end{pmatrix}$$

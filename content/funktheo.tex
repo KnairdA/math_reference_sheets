@@ -11,9 +11,12 @@ $$z \cdot w = \begin{pmatrix} x & -y \\ y & x\end{pmatrix} \begin{pmatrix} u \\ 
 
 wobei $r := \sqrt{x^2 + y^2}$. Es gilt für die orthogonale Matrix $D = \begin{pmatrix} \frac{x}{r} & -\frac{y}{r} \\ \frac{y}{r} & \frac{x}{r}\end{pmatrix}$: $\det D = 1$ d.h. die komplexe Multiplikation ist eine Drehstreckung.
 
-Die Normen von $(\C,|\cdot|)$ und $(\R^2,|\cdot|_2)$ stimmen überein, ebenso Konvergenz-, Stetigkeits- und Offenheitseigenschaften:
+\vspace*{1mm}
 
-$\lim_{n \to \infty} z_n = z$ in $\C \iff \lim_{n \to \infty} Re \ z_n = Re \ z \land \lim_{n \to \infty} Im \ z_n = Im \ z$.
+Die Normen von $(\C,|\cdot|)$ und $(\R^2,|\cdot|_2)$ stimmen überein, ebenso Konvergenz-, Stetigkeits- und \ Offenheitseigenschaften:
+
+\spacing
+$\displaystyle\lim_{n \to \infty} z_n = z$ in $\C \iff \displaystyle\lim_{n \to \infty} Re \ z_n = Re \ z \\ \hspace*{26.8mm} \land \lim_{n \to \infty} Im \ z_n = Im \ z$
 
 \subsection*{Polardarstellung}
 
@@ -35,7 +38,8 @@ $z \cdot w = rse^{i(\phi+\psi)} = |z||w|e^{i(\phi+\psi)}$.
 
 Eine Funktion $f : D \to \C$ ist \emph{komplex differenzierbar} in $z_0 \in D$, wenn:
 
-$f'(z_0) := \displaystyle\lim_{z \to z_0, z \in D\setminus\{z_0\}} \frac{f(z)-f(z_0)}{z-z_0} \in \C$ existiert.
+\vspace*{-4mm}
+$$f'(z_0) := \displaystyle\lim_{z \to z_0, z \in D\setminus\{z_0\}} \frac{f(z)-f(z_0)}{z-z_0} \in \C \text{ existiert.}$$
 
 Ist $f$ in $\forall z_0 \in D$ komplex differenzierbar, so heißt $f$ \emph{holomorph} auf $D$ mit Ableitung $f' : D \to \C$.
 
@@ -113,9 +117,6 @@ Entsprechend ist $f(z)=\overline z$ nirgends komplex differenzierbar, $f(z)=|z|^
 
 Sind $U, V \subseteq \C$ offen und nichtleer, $f : U \to V$ bij., $f$ und $f^{-1}$ holomorph. Dann heißt $f$ \emph{biholomorph}, $U$ und $V$ \emph{konform äquivalent}.
 
-\vfill\null
-\columnbreak
-
 Sei $f : U \to V$ biholomorph, $z \in U$.
 
 Dann ist $f'(z) \neq 0$ und für $w = f(z)$ gilt:
@@ -192,6 +193,12 @@ Für $a, b \in \R$ gilt: $\exp : h_b \to s_b$ ist bijektiv und $\exp : g_a \to \
 \vspace*{-6mm}
 
 Sind die \emph{vertikalen und horizontalen Streifen} in $\C$.
+
+\spacing
+
+$exp : S_r(a_1,a_2) \to B(0,e^{a_2}) \setminus \overline B(0,e^{a_1})$ ist surjektiv.
+
+$exp : S_i(b_1,b_2) \to \{ \omega = te^{i\phi} | t > 0, \phi \in (b_1,b_2) \}$ ist bijektiv.
 
 \spacing
 
@@ -281,9 +288,9 @@ $\sum_{n=1}^\infty f_n$ konv. glm. auf $\Gamma$
 \vspace*{-2mm}
 $$\implies \displaystyle\sum_{n=1}^\infty \int_\gamma f_n dz = \int_\gamma \displaystyle\sum_{n=1}^\infty f_n dz$$
 
-Abbildung $H : z \mapsto \int_\Gamma h(z,w) dw \in C(D,\C)$
+\columnbreak
 
-\spacing
+Abbildung $H : z \mapsto \int_\Gamma h(z,w) dw \in C(D,\C)$
 
 $z \mapsto h(z,w) \in H(D)$ mit $\frac{\partial}{\partial z} h \in C(D \times \Gamma, \C)$
 
@@ -328,6 +335,8 @@ Seien $D$ sternförmiges Gebiet, $f \in H(D)$ und $\gamma \in PC^1([a,b],D)$ ges
 \vspace*{-2mm}
 $$\int_\gamma f dz = 0$$
 
+Dies gilt auch für $f \in C(D,\C) \cap H(D\setminus \{\omega_0\})$.
+
 \subsubsection*{Cauchys Integralformeln}
 
 Seien $f \in H(D), \overline B(z_0,r) \subseteq D, n \in \N_0, z \in B(z_0,r)$ und $s := |z-z_0| < r$. Sei $\partial B(z_0,r)$ durch $\gamma(t) = z_0 + re^{it}$ mit $t \in [0,2\pi]$ parametrisiert.
@@ -360,7 +369,7 @@ Sei $f \in H(D)$. Dann ist $f$ analytisch.
 
 Für $\forall z_0 \in D$ sei $R(z_0) := \sup\{r > 0 | B(z_0,r) \subseteq D \}$ der maximale Redius. Zusätzlich sei $\overline r, r \in (0,R(z_0))$. Für $z \in B(z_0, R(z_0)$ ist die Taylorreihe von $f$:
 
-\vspace*{-4mm}
+\vspace*{-6mm}
 \begin{align*}
 f(z) &= \sum_{n=0}^\infty a_n(z-z_0)^n \\
 a_n &= \frac{f^{(n)}(z_0)}{n!} = \frac{1}{2\pi i} \int_{\partial B(z_0,r)} \frac{f(w)}{(w-z_0)^{n+1}} dw
@@ -413,11 +422,6 @@ Sei $D \subseteq \C$ Gebiet und $f \in H(D)$. Dann sind äquiv.:
 \begin{enumerate}[label=(\alph*)]
 	\item $f = 0$ auf $D$
 	\item $\exists z_0 \in D \forall n \in \N_0 : f^{(n)}(z_0) = 0$
-\end{enumerate}
-
-\columnbreak
-
-\begin{enumerate}[label=(\alph*),resume]
 	\item $\exists z_n, z_0 \in D \forall n \in N : f(z_n) = 0 \land z_n \neq z_0$ \\ Weiterhin gilt $z_n \to z_0 \ (n \to \infty)$
 \end{enumerate}
 
@@ -440,6 +444,10 @@ Dabei ist $m$ die Ordnung der Nullstelle $z_0$.
 Sei $f \in H(D), U \subseteq \C$ Gebiet mit $D \subseteq U$.
 
 Dann $\exists! g \in H(U) : \restrictedto{g}{D} = f$.
+
+\spacing
+
+Die \emph{Gammafunktion} $\Gamma(z) = \int_0^\infty t^{z-1}e^{-t} dt, Re \ z > 0$ hat genau eine holomorphe Fortsetzung auf der Menge $\C \setminus \{ -n | n \in \N_0 \}$.
 
 \subsection*{Nullstelle in $B(z_0,r)$}
 
@@ -542,8 +550,6 @@ Sei $f \in H(D)$ injektiv.
 
 Dann ist $f(D) \subseteq \C$ offen und $f$ ist biholomorph.
 
-\columnbreak
-
 \subsection*{Laurentreihe}
 
 Sei $a_n \in \C$ für $n \in \Z$ und $c \in \C$.
@@ -600,8 +606,6 @@ Hierbei gelte $\overline B(z_0,r) \setminus \{z_0\} \subseteq D$.
 \subsubsection*{Residuensatz}
 
 Seien $f \in H(D)$ und $z_1, \dots, z_n \in \C$ alle isolierten Singularitäten von $f$. Sei $p$ ein geschlossener, einfacher, positiv orientierter Polygonzug in $D$ mit Bild $P$ s.d. alle $z_j$ im von $P$ umschlossenen Gebiet $G$ liegen und $\overline G \setminus \{z_1,\dots,z_n\} \subseteq D$ ist. Weiterhin sei $\gamma \in PC^1([a,b],D)$ zu $p$ auf $D$ homotop. Dann:
-
-\columnbreak
 
 \vspace*{-4mm}
 $$\int_\gamma f dz = 2\pi i \sum_{j=1}^n \text{Res}(f,z_j)$$
