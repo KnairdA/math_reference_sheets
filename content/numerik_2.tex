@@ -1,0 +1,123 @@
+\section*{Eigenwerte}
+
+Sei $A \in \C^{n \times n}$. Ein $\lambda \in \C$ ist \emph{Eigenwert} von $A$, wenn $\exists v \in \C^n\setminus\{0\} : Av = \lambda v$.
+
+\subsection*{Satz von Gerschgorin}
+
+$$\mathcal{K}_i := \left\{ z \in \C \middle| |z-a_{i,i}| \leq \sum_{k=1, k\neq i}^n |a_{i,k}| =: r_i \right\}, \ 1 \leq i \leq n$$
+
+Die Vereinigung der Kreisscheiben $\mathcal{K}_i$ enthält alle Eigenwerte von $A \in \C^{n \times n}$: $\sigma(A) \subset \bigcup_{i=1}^n \mathcal{K}_i$
+
+\spacing
+
+Ist $M_1 = \bigcup_{j=1}^k \mathcal{K}_{i_j}$ disjunkt von der Vereinigung $M_2$ der übrigen Kreise, so enthält $M_1$ genau $k$ und $M_2$ genau $n-k$ Eigenwerte gezählt entsprechend der algebraischen Vielfachheit.
+
+\subsection*{Störung des Eigenwertproblems}
+
+Sei $A$ diagonalisierbar mit $A= TDT^{-1}$, $\Delta A \in \C^{n \times n}$ beliebig: $\forall \lambda(A+\Delta A) \in \sigma(A+\Delta A) \ \exists \lambda(A) \in \sigma(A) : |\lambda(A+\Delta A) - \lambda(A)| \leq \kappa_p(T) \|\Delta A\|_p$ mit $1 \leq p \leq \infty$.
+
+\spacing
+
+Entsprechend lautet die Kondition der Bestimmung von Eigenwerten $\lambda \neq 0$ bzgl. der $p$-Norm:
+
+$$\kappa_p(\lambda) \leq \frac{\|A\|_p}{|\lambda|} \kappa_p(T)$$
+
+\subsection*{Mögliche Eigenwertlöser}
+
+Das Eigenwertproblem ist äquivalent zur Bestimmung der Nullstellen des char. Polynoms.
+
+Nach dem \emph{Satz von Abel} existiert für Polynome von Grad $\geq 5$ bzw. Matrizen von Dimension $\geq 5\times5$ kein exakt arbeitender Eigenwertlöser welcher in endlicher Zeit die Eigenwerte bestimmt.
+
+d.h. alle Eigenwertlöser sind iterativ.
+
+\subsection*{Potenzmethode}
+
+In $A^k$ dominiert der betragsgrößte Eigenwert und diese Dominanz nimmt mit $k$ zu. Somit ist an $A^k v$ der betragsgrößte Eigenwert ablesbar.
+
+Für $k = 1, 2, \dots$ und Startvektor $x^0 \in \C^n$:
+
+\vspace*{-2mm}
+$$z^k := Ax^{k-1}, \ x^k := \frac{z^k}{\|z^k\|}$$
+
+Der approx. betragsgrößte Eigenwert ergibt sich:
+
+\vspace*{-2mm}
+$$\tilde\lambda = \langle Ax^k,x^k \rangle_2$$
+
+Potenzmethode konvergiert nicht zwingend gegen einen EV des betragsgrößten EW sondern hat Häufungspunkte welche EV zu diesem EW sind.
+
+\subsubsection*{Inverse Potenzmethode}
+
+Die Konvergenzgeschwindigkeit der Potenzmethode hängt von $|\frac{\lambda_{r+1}}{\lambda_1}|$, also dem Quotienten des ersten nicht betragsmaximalen Eigenwerts und des betragsmaximalen Eigenwertes ab.
+
+Langsame Konvergenz liegt bei $|\frac{\lambda_{r+1}}{\lambda_1}| \approx 1$ vor.
+
+\spacing
+
+Sei $\tilde\lambda$ Schätzwert für $\lambda_i \in \sigma(A)$ d.h. $|\tilde\lambda - \lambda_i| < |\tilde\lambda - \lambda_j|, \ j \neq i$. Die inverse Potenzmethode:
+
+\vspace*{-2mm}
+$$(A-\tilde\lambda Id_n)z^k = x^{k-1}, \ x^k = \frac{z^k}{\|z^k\|_2}$$
+
+Zur Lösung des linearen Systems wird die LR-Zerlegung von $A- \tilde\lambda Id_n$ bestimmt. Konvergenz:
+
+\vspace*{-2mm}
+$$\lim_{k\to\infty} \langle Ax^k,x^k \rangle_2 = \lambda_i$$
+
+Wird die Approximation $\tilde\lambda$ in jedem Iterationsschritt durch die gefundene Approx. verbessert, so approx. das Verfahren einen EV zum EW $\lambda_i$.
+
+\subsection*{Hessenberg- / Tridiagonalgestalt}
+
+Eigenwertlöser beginnen i.A. mit der Äquivalenz-umformung von $A \in \C^{n \times n}$ in obere Hessenberg- bzw. Tridiagonalgestalt $\mathcal{H}$. Danach wird $\mathcal{H}$ in eine obere Dreiecks- bzw. Diagonalmatrix äquivalent umgeformt. Die Hauptdiagonale einer solchen Matrix besteht dann aus den Eigenwerten von $A$.
+
+\subsection*{QR-Algorithmus}
+
+Sei $A = QR$ eine QR-Zerlegung von $A \in \R^{n \times n}$.
+
+Eine \emph{QR-Transformation} ist $A \mapsto A':=RQ$.
+
+\spacing
+
+$A'$ ist orthogonalähnlich zu $A$ und $\sigma(A) = \sigma(A')$.
+
+Ist $A$ eine obere Hessenberg- oder symmetrische Tridiagonalmatrix, so hat $A'$ dieselbe Struktur.
+
+\spacing
+
+Transformiere $A$ in obere Hessenberg- bzw. symmetrische Tridiagonalgestalt. Setze dann $A_0 := A$ und iteriere:
+
+$A_k =: Q_kR_k, \ A_{k+1} := R_kQ_k$ für $k = 0,1,2,\dots$.
+
+\subsubsection*{QR-Identitäten}
+
+Sei $A \in \R^{n \times n}$. Dann gelten für $\{A_k\}_k$:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $A_{k+1} = Q_k^T A_k Q_k$
+	\item $A_{k+1} = Q_{k+1}^T A Q_{k+1}$ mit $Q_{k+1} := Q_0 \cdots Q_k$
+	\item $A^{k+1} = Q_{k+1} R_{k+1}$ mit $R_{k+1} := R_k \cdots R_0$
+\end{enumerate}
+
+Diese begründen den Zusammenhang von QR-Algorithmus und Potenzmethode.
+
+\subsubsection*{QR mit Spektralverschiebung}
+
+Der ursprüngliche QR-Algorithmus konvergiert langsam. Dies lässt sich mit Anwendung auf $\tilde A = A - \mu I_n$ (Shift / Spektralverschiebung) verbessern.
+
+\spacing
+
+Transformiere $A$ in obere Hessenberg- bzw. symmetrische Tridiagonalgestalt. Setze dann $A_0 := A$ und iteriere: $A_k - \mu_k I_n =: Q_kR_k, \ A_{k+1} := R_kQ_k + \mu_k I_n$ für $k = 0,1,2,\dots$.
+
+\spacing
+
+Bewährte Shift-Strategie: $\mu_k := (A_k)_{nn}$
+
+$|(A_{k+1})_{n,n-1}| \leq c |(A_k)_{n,n-1}|^2$ (quadratische Konv.)
+
+\subsubsection*{Bestimmung der Eigenvektoren}
+
+Auf die obere Hessenberg-Form $A_0 = P^T A P$ lässt sich die inverse Potenzmethode mit den berechneten Eigenwertnäherungen als Schätzwert anwenden. Das auftretende LGS $A_0 - \tilde\lambda I_n$ lässt sich effizient mit $n-1$ Givens-Rotationen lösen.
+
+\section*{Nichtlineare Gleichungssysteme}
+
+\section*{Numerische Integration}
