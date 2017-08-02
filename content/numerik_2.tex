@@ -223,4 +223,63 @@ Dann ex. abgeschlossene Umgebung $U \subset D$ von $x^\star$ s.d. $\Phi$ in ihr 
 
 \subsection*{Newton-Verfahren in $\R^n$}
 
+Sei $F : D \subset \R^n \to \R^n$ eine nichtlineare Funktion.
+
+Zu finden ist ein $x^\star \in D$ mit $F(x^\star) = 0$.
+
+\spacing
+
+Sei $\Phi(x) := x + G(x,F(x))$ mit $G(x,F(x)) = T(x)F(x)$ wobei $T : D \subset \R^n \to \text{GL}_n(\R)$.
+
+Das Nullstellenproblem ein Fixpunktproblem:
+
+\vspace*{-2mm}
+$$\Phi(x^\star) = x^\star \iff F(x^\star) = 0$$
+
+Es ergibt sich das \emph{Newton-Verfahren} für $x^0 \in D$:
+
+$x^{k+1} := x^k + s^k, \ F'(x^k)s^k = -F(x^k), \ k = 0,1,2,\dots$
+
+\vspace*{1mm}
+
+$s^k$ ist der \emph{$k$-te Newton-Schritt oder Korrektur}.
+
+\spacing
+
+Für Konvergenzuntersuchungen formuliert:
+
+$x^{k+1} = \Phi(x^k)$ mit $\Phi(x) = x - F'(x)^{-1}F(x)$
+
+\subsubsection*{Wohldefiniertheit des Newton-Verfahrens}
+
+Sei $x^\star \in D$ Lösung des Nullstellenproblems, $F : D \subset \R^n \to \R^n$ stetig diffbar. mit regulärer $F'(x^\star)$:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $\exists$ Umgebung $U$ mit $x^\star \in U \ \forall x^0 \in U : $ Newton-Verfahren ist wohldefiniert und mindestens linear konvergent gegen $x^\star$
+	\item Ist $F' : D \to \R^{n \times n}$ Hölder-stetig in $U$ mit Ordnung $\alpha \in (0,1]$ dann: \\ $\|x^{k+1}-x^\star\| \leq C_N \|x^k-x^\star\|^{1+\alpha}$ mit $C_N > 0$ \\ Verfahren konv. superlinear mit Ordnung $1+\alpha$ für $\alpha \in (0,1)$ und quadratisch für $\alpha = 1$
+\end{enumerate}
+
+\subsubsection*{Konvergenzüberprüfung}
+
+Eine wichtige Invarianzeigenschaft des Newton-Verfahrens ist, dass $F(\cdot)$ und $G(\cdot) = AF(\cdot)$ für $A \in \text{GL}_n(\R)$ dieselben Nullstellen haben, dass Verfahren sich also auf $F$ oder $G$ anwenden lässt.
+
+Der \emph{Monotonietest} $\|F(x^{k+1})\| \leq \vartheta\|F(x^k)\|, \ \vartheta \in (0,1)$ spiegelt dies nicht wieder.
+
+Er ist nicht affin-invariant, im Gegensatz zum Newton-Verfahren und dem Nullstellenproblem.
+
+\vspace*{1mm}
+
+Der \emph{affin-invariante natürliche Monotonietest}:
+
+\vspace{-2mm}
+$$\|F'(x^k)^{-1}F(x^{k+1})\| \leq \vartheta\|F'(x^k)^{-1}F(x^k)\|$$
+
+Praktisch wird das Newton-Verfahren bei Verletzung des Tests mit $\vartheta = \frac{1}{2}$ als divergent gestoppt.
+
+\subsubsection*{Stoppstrategie}
+
+Ein $x^{k+1}$ wird als Approximation an $x^\star$ aktzeptiert, wenn $\|s^k\| \leq \tau$ mit $s^k := F'(x^k)^{-1}F(x^k)$ ist.
+
+$\tau > 0$ ist die gewählte Toleranz.
+
 \section*{Numerische Integration}
