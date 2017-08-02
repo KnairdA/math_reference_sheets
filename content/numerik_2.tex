@@ -120,4 +120,76 @@ Auf die obere Hessenberg-Form $A_0 = P^T A P$ lässt sich die inverse Potenzmeth
 
 \section*{Nichtlineare Gleichungssysteme}
 
+Die Berechnung von Nullstellen von nichtlinearer $F : D \subset \R^n \to \R^n$ kann i.A. nur iterativ erfolgen.
+
+\subsection*{Konvergenzordnung}
+
+Sei $\{x^k\}_{k\in\N_0} \subset \R^n$ gegen $\xi \in \R^n$ konv. Folge.
+
+Die Folge ist von Ordnung $p \geq 1$, wenn:
+
+$\exists C > 0 : \| x^{k+1}-\xi \| \leq C\|x^k-\xi\|^p$ für $k = 0,1,\dots$
+
+Falls $p=1$ sei zusätzlich $C < 1$.
+
+\vspace*{-4mm}
+\begin{align*}
+	p=1 \ (C<1) & \text{\ \ \emph{lineare Konvergenz}} \\
+	p\in(1,2)       & \text{\ \ \emph{superlineare Konvergenz}} \\
+	p=2         & \text{\ \ \emph{quadratische Konvergenz}} \\
+	p=3         & \text{\ \ \emph{kubische Konvergenz}}
+\end{align*}
+
+\subsection*{Lokale Konvergenz}
+
+Ein Iterationsverfahren $x^{k+1} = \Phi_k(x^k)$ mit $\Phi_k : D \subset \R^n \to \R^n$ ist \emph{lokal konvergent} gegen $\xi \in \R^n$, wenn: $\exists \text{ Umgebung } U \subset D \text{ von } \xi \ \forall x^0 \in U : \{x^k\}_{k\in\N_0}$ konvergiert gegen $\xi$.
+
+Ist $U = D$ so konvergiert das Verfahren global.
+
+\subsection*{Nullstellen einer Veränderlichen}
+
+Sei $f : [a,b] \to \R$ stetig mit $a < b \in \R$.
+
+\subsubsection*{Bisektionsverfahren}
+
+Sei $f(a)f(b) < 0$. Dann garantiert der Zwischenwertsatz die Existenz einer Nullstelle $\xi \in (a,b)$. Intervallhalbierung approximiert eine Nullstelle.
+
+\vspace*{-4mm}
+\begin{align*}
+x_k &:= \frac{b_k+a_0}{2} \\
+f(x_k)f(a_k) \leq 0 &\rightsquigarrow a_{k+1} := a_k, \ b_{k+1} := x_k \\
+f(x_k)f(a_k) > 0 &\rightsquigarrow a_{k+1} := x_k, \ b_{k+1} := b_k
+\end{align*}
+
+Das Bisektionsverfahren konvergiert mit Abbruchbedingung $|f(x_k)| < \tau$ für bel. $\tau > 0$ in endlich vielen Schritten.
+Falls $f$ Hölder-stetig mit Ordnung $\alpha \in (0,1]$ ist, konvergiert das Verfahren nach maximal $\left\lceil\log_2((b-a)(\frac{L}{\tau})^{1/\alpha})\right\rceil$ Schritten.
+
+\subsubsection*{Sekantenverfahren}
+
+Zwei Approximationen $x_{k-1}$ und $x_k$ ergeben neue Approximation $x_{k+1}$ als Nullstelle der Sekante $S_f(x;x_k;x_{k-1}) = f(x_k)+\frac{f(x_{k-1})-f(x_k)}{x_{k-1}-x_k} (x-x_k)$.
+
+Rekursion:
+
+\vspace*{-4mm}
+$$x_{k+1} := x_k - \frac{x_k-x_{k-1}}{f(x_k)-f(x_{k-1})}f(x_k)$$
+
+\spacing
+
+Sei $f \in C^2(a,b)$, $\exists \xi \in (a,b) : f'(\xi), f''(\xi) \neq 0$.
+
+Dann konvergiert das Sekantenverfahren lokal superlinear mit Ordnung $(\sqrt{5}+1)/2 \approx 1.618$.
+
+\subsubsection*{Newton-Verfahren}
+
+Ersetzen von $\frac{x_k-x_{k-1}}{f(x_k)-f(x_{k-1})}$ im Sekantenverfahren mit dem Kehrwert der Tangentensteigung $\frac{1}{f'(x_k)}$ ergibt das \emph{Newton-Verfahren}:
+
+\vspace*{-2mm}
+$$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
+
+$x_{k+1}$ ist Nullstelle der Tangente an $f$ in $x_k$.
+
+\spacing
+
+Sei $f \in C^2(a,b), \exists \xi \in (a,b) : f'(\xi) \neq 0$. Dann konv. das Newton-Verfahren lokal mit Ordnung $2$.
+
 \section*{Numerische Integration}
