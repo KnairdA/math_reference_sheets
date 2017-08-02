@@ -192,4 +192,35 @@ $x_{k+1}$ ist Nullstelle der Tangente an $f$ in $x_k$.
 
 Sei $f \in C^2(a,b), \exists \xi \in (a,b) : f'(\xi) \neq 0$. Dann konv. das Newton-Verfahren lokal mit Ordnung $2$.
 
+\subsection*{Banachscher Fixpunktsatz}
+
+Sei $D \subset \R^n$ abgeschlossen, $\Phi : D \to D$ Kontraktion bzgl. $\|\cdot\|$ mit Kontraktionszahl $q \in [0,1)$.
+
+Dann hat $\Phi$ genau einen Fixpunkt $x^\star \in D$. Die Fixpunktiteration $x^{k+1} := \Phi(x^k)$ mit $x^0 \in D$ konv.
+
+Es gilt die Fehlerabschätzung:
+
+\vspace*{-6mm}
+$$\forall 0 \leq l \leq k - 1 : \|x^\star - x^k\| \leq \frac{q^{k-l}}{1-q} \|x^{l+1} - x^l\|$$
+
+Für $l=0$ ergibt sich die a priori-Abschätzung:
+
+\vspace*{-2mm}
+$$\|x^\star - x^k\| \leq \frac{q^k}{1-q} \|x^1 - x^0\|$$
+
+Für $l=k-1$ die a posteriori-Abschätzung:
+
+\vspace*{-2mm}
+$$\|x^\star - x^k\| \leq \frac{q}{1-q} \|x^k - x^{k-1}\|$$
+
+\subsubsection*{Lokaler Konvergenzsatz}
+
+Sei $\Phi : D \subset \R^n \to \R^n$ stetig differenzierbare Fkt., $D$ offen, $\exists x^\star \in D : f(x^\star)=x^\star$ und $\|\Phi'(x^\star)\| < 1$.
+
+\vspace*{1mm}
+
+Dann ex. abgeschlossene Umgebung $U \subset D$ von $x^\star$ s.d. $\Phi$ in ihr Kontraktion und Selbstabbildung $\Phi(U) \subset U$ ist sowie die Fixpunktiteration konv.
+
+\subsection*{Newton-Verfahren in $\R^n$}
+
 \section*{Numerische Integration}
