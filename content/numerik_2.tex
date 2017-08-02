@@ -282,4 +282,21 @@ Ein $x^{k+1}$ wird als Approximation an $x^\star$ aktzeptiert, wenn $\|s^k\| \le
 
 $\tau > 0$ ist die gewählte Toleranz.
 
+\subsection*{Satz von Kantorowitsch}
+
+Sei $F : D \subset \R^n \to \R^n$ Funktion mit Eigenschaften: $\exists \beta, \gamma, \eta > 0 : \beta\gamma\eta \leq \frac{1}{2}$ und $\ x^0 \in D$ s.d.:
+
+\begin{enumerate}[label=(\roman*)]
+	\item $F$ ist in $x^0$ diffbar. mit $\|F'(x^0)^{-1}\| \leq \beta$ und $\|F'(x^0)^{-1}F(x^0)\| \leq \eta$
+	\item $F'$ ist Lipschitz-stetig mit $\gamma$ in abg. Kugel $\overline{B_{\overline r}(x^0)} \subset D$ mit Radius $\overline r \geq r_- := \frac{1-\sqrt{1-2\beta\gamma\eta}}{\beta\gamma}$
+\end{enumerate}
+
+Dann ex. eine eind. Nst. $x^\star$ von $F$ in $\overline{B_{r_-}(x^0)}$ und das Newton-Verfahren mit $x^0 \in D$ ist wohldef.
+
+Weiter gilt: $\|x^k-x^\star\| \leq t_k := \frac{(2\beta\gamma\eta)^{2^k}}{2^k\beta\gamma}$
+
+Zusätzlich ist $x^\star$ die eind. Nst. in offener Kugel $B_R(x^0)$ mit $R=\min\{\overline r,r_+\}$ und $r_+ := \frac{1+\sqrt{1-2\beta\gamma\eta}}{\beta\gamma}$.
+
+\subsection*{Inexaktes Newton-Verfahren}
+
 \section*{Numerische Integration}
