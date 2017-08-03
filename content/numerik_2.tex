@@ -360,8 +360,73 @@ Wobei $F'(x)^+ = (F'(x)^T F'(x))^{-1} F'(x)^T$.
 Sei $F : D \subset \R^n \to \R^m$ stetig differenzierbar, $m \geq n$ und habe Lösung $x^\star$ s.d. $F'$ Maximalrang hat: $F'(x^\star)$ ist injektiv. Weiter gelte für $\kappa \in [0,1)$ $\|F'(x)^+ F(x^\star)\| \leq \kappa \|x-x^\star\|$ lokal um $x^\star$. Dann:
 
 \begin{enumerate}[label=(\alph*)]
-	\item Das Gauß-Newton-Verfahren konvergiert lokal mindestens linear gegen $x^\star$ 
+	\item Das Gauß-Newton-Verfahren konvergiert lokal mindestens linear gegen $x^\star$
 	\item Ist $F'$ Hölder-stetig mit Ordnung $\alpha \in (0,1]$ in der Nähe von $x^\star$ so gilt: \\ $\|x^{k+1}-x^\star\| \leq C_{GN}\|x^k-x^\star\|^{1+\alpha} + \kappa\|x^k-x^\star\|$ Falls $F(x^\star) = 0$ gilt, ist die Konvergenz superlinear von Ordnung $1+\alpha$. Sonst linear.
 \end{enumerate}
 
 \section*{Numerische Integration}
+
+Numerische Auswertung des Riemann-Integrals:
+
+\vspace*{-2mm}
+$$I(f) = I_a^b(f) = \int_a^b f(t) \ \text{d}t$$
+
+Die Integralabbildung $I : \mathcal{C}([a,b]) \to \R, f \mapsto I(f)$ ist additive, positive Linearform.
+
+\subsection*{Kondition der Quadraturaufgabe}
+
+Die Kondition der Aufgabe $(I,f)$ bezüglich der $\text{L}^1$-Norm $\|f\|_1 := \int_a^b |f(t)| \text{d}t$ ist: $\kappa(f) = \frac{I(|f|)}{|I(f)|}$
+
+Gute Konditionierung ist bei vorzeichenwechsellosen $f$ gegeben, oszillierde $f$ haben $\kappa(f) \gg 1$.
+
+\subsection*{Quadraturformeln}
+
+Eine \emph{Quadraturformel} $\widehat I(f)$ ist def. als:
+
+\vspace*{-2mm}
+$$\widehat I(f) := (b-a)\sum_{i=0}^n \lambda_i f(t_i)$$
+
+Mit $n+1$ ansteigenden Knoten $t_i$ sowie Gewichten $\lambda_i$ s.d. $\sum_{i=0}^n \lambda_i = 1$.
+
+\subsubsection*{Trapezsumme}
+
+$$\widehat I_n := \sum_{i=1}^n T_i = \sum_{i=1}^n \frac{t_i - t_{i-1}}{2}(f(t_{i-1})+f(t_i))$$
+
+\subsubsection*{Konstruktion von Quadraturformeln}
+
+$f$ werde durch Linearkombination einfach integrierbarer Funktionen $p_i$ approximiert:
+
+\vspace*{-2mm}
+$$\widehat I(f) := I(\tilde f) = \sum_{i=0}^n f(t_i) I(p_i)$$
+
+Wobei $\tilde f(t) := \sum_{i=0}^n f(t_i) p_i(t)$
+
+\subsubsection*{Newton-Cotes-Formeln}
+
+$f$ wird mit Polynomen, z.B. \emph{Lagrange-Polynomen} $L_{n,i}$ aus Numerik 1 approximiert.
+
+\vspace*{-4mm}
+\begin{align*}
+\widehat I_n(f) :&= \int_a^b P(f|t_0,\dots,t_n)(t)\text{d}t \\
+&= (b-a) \sum_{i=0}^n \frac{1}{b-a} \int_a^b L_{n,i}(t)\text{d}t f(t_i)
+\end{align*}
+
+Die Gewichte $\lambda_{n,i}$ hängen von der Knotenwahl ab. $\widehat I_n$ ist exakt für Polynome bis Grad $n$. Zu $n+1$ verschiedenen Knoten gibt es genau eine Quadraturformel die für alle $Q \in \Pi_n$ exakt ist.
+
+\spacing
+
+Sind die Knoten äquidistant mit $t_i = a + ih, \ h=\frac{b-a}{n}$, heißen die Quadraturformeln \emph{Newton-Cotes-Formeln} mit Gewichten:
+
+\vspace*{-2mm}
+$$\lambda_{n,i} = \frac{1}{b-a} \int_a^b \prod_{j=0,j\neq i}^n \frac{t-t_j}{t_i-t_j} \text{d}t$$
+
+{\def\arraystretch{1.6}
+\begin{tabular}{ l | l | l | l }
+$n$ & Gewichte & Fehler & Regel \\
+\hline
+1 & $\frac{1}{2}$, $\frac{1}{2}$ & $\frac{h^3}{12}f''(\tau)$ & Trapez \\
+2 & $\frac{1}{6}$, $\frac{4}{6}$, $\frac{1}{6}$ & $\frac{h^5}{90}f^{(4)}(\tau)$ & Simpson \\
+3 & $\frac{1}{8}$, $\frac{3}{8}$, $\frac{3}{8}$, $\frac{1}{8}$ & $\frac{3h^5}{80}f^{(4)}(\tau)$ & $3/8$ \\
+4 & $\frac{7}{90}$, $\frac{32}{90}$, $\frac{12}{90}$, $\frac{32}{90}$, $\frac{7}{90}$ & $\frac{8h^7}{945}f^{(6)}(\tau)$ & Milne
+\end{tabular}
+}
