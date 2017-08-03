@@ -297,6 +297,71 @@ Weiter gilt: $\|x^k-x^\star\| \leq t_k := \frac{(2\beta\gamma\eta)^{2^k}}{2^k\be
 
 Zusätzlich ist $x^\star$ die eind. Nst. in offener Kugel $B_R(x^0)$ mit $R=\min\{\overline r,r_+\}$ und $r_+ := \frac{1+\sqrt{1-2\beta\gamma\eta}}{\beta\gamma}$.
 
-\subsection*{Inexaktes Newton-Verfahren}
+\subsection*{Inexakte Newton-Verfahren}
+
+Hier wird der Newton-Schritt $s^k$ zu Beginn nur grob approximiert und nur in der Nähe der Nullstelle präzise berechnet. Dies dient der Reduktion der Rechenzeit bei Beibehaltung der quadratischen Konvergenz. Für $x^0 \in D, k = 0,1,2,\dots$:
+
+\vspace*{-4mm}
+$$x^{k+1} := x^k + s^k, \ \|F'(x^k)s^k + F(x^k)\| \leq \eta_k \|F(x^k)\|$$
+
+Hierbei ist $\{\eta_k\}_k \subset [0,1)$ die Toleranz.
+
+Der inexakte Schritt wird aus $F'(x^k)s^k = -F(x^k)$ bestimmt, s.d. das relative Residuum kleiner gleich $\eta_k$ ist. Dies ist über frühes Stoppen von iterativen Lösern wie GMRES zu erreichen.
+
+\section*{Nichtlineare Ausgleichsprobleme}
+
+Sei $F : D \subset \R^n \to \R^m$ mit $n \neq m$.
+
+\vspace*{1mm}
+
+Finde die Lösung einer Minimierungsaufgabe: $x^\star \in D : g(x^\star) = \min_{x \in D}g(x)$ mit $g(x) := \|F(x)\|^2$.
+
+\vspace*{1mm}
+
+$\|\cdot\|$ sei die Euklidische Norm $\|\cdot\|_2$.
+
+\subsection*{Gauß-Newton-Verfahren}
+
+Ziel ist die Bestimmung von $n$ Parametern $x$ einer Modellfunktion $\varphi$ mit Hilfe von $m$ Messungen.
+
+Sei $\{(t_i,b_i) : 1 \leq i \leq \ell\} \subset \R^d \times \R^p$ Meßdatensatz mit Meßpunkten $t_i \in \R^d$ und Meßwerten $b_i \in \R^p$.
+
+\columnbreak
+
+Modell $\varphi(t_i;x) = b_i$ wird identifiziert mit:
+
+\vspace*{-2mm}
+$$F(x) := \begin{pmatrix} \varphi(t_1;x) - b_1 \\ \vdots \\ \varphi(t_\ell;x) - b_\ell \end{pmatrix} \in \R^m, \ m=\ell p$$
+
+Konkret gelößt wird das lokale Minima $x^\star$ von $g$ mit $\nabla g(x^\star) = 0$ und $\mathcal{H}g(x^\star)$ positiv definit.
+
+\vspace*{-4mm}
+\begin{align*}
+	\nabla g(x) &= 2F(x)^T F'(x) \\
+	G(x^\star) :&= \frac{1}{2} \nabla g(x^\star)^T = F'(x^\star)^T F(x^\star) = 0
+\end{align*}
+
+Nullstelle wird mit Newton-Verfahren bestimmt.
+
+\vspace*{-2mm}
+$$G'(x) \approx F'(x)^T F'(x)$$
+
+Für $x$ in der Nähe eines Minimums von $g$.
+
+Das konkrete \emph{Gauß-Newton-Verfahren}:
+
+\vspace{-4mm}
+$$x^{k+1} := x^k + s^k, \ s^k := -F'(x^k)^+ F(x^k), \ k = 0,1,2,\dots$$
+
+Wobei $F'(x)^+ = (F'(x)^T F'(x))^{-1} F'(x)^T$.
+
+\subsubsection*{Konvergenz des Gauß-Newton-Verfahrens}
+
+Sei $F : D \subset \R^n \to \R^m$ stetig differenzierbar, $m \geq n$ und habe Lösung $x^\star$ s.d. $F'$ Maximalrang hat: $F'(x^\star)$ ist injektiv. Weiter gelte für $\kappa \in [0,1)$ $\|F'(x)^+ F(x^\star)\| \leq \kappa \|x-x^\star\|$ lokal um $x^\star$. Dann:
+
+\begin{enumerate}[label=(\alph*)]
+	\item Das Gauß-Newton-Verfahren konvergiert lokal mindestens linear gegen $x^\star$ 
+	\item Ist $F'$ Hölder-stetig mit Ordnung $\alpha \in (0,1]$ in der Nähe von $x^\star$ so gilt: \\ $\|x^{k+1}-x^\star\| \leq C_{GN}\|x^k-x^\star\|^{1+\alpha} + \kappa\|x^k-x^\star\|$ Falls $F(x^\star) = 0$ gilt, ist die Konvergenz superlinear von Ordnung $1+\alpha$. Sonst linear.
+\end{enumerate}
 
 \section*{Numerische Integration}
