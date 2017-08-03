@@ -420,13 +420,48 @@ Sind die Knoten äquidistant mit $t_i = a + ih, \ h=\frac{b-a}{n}$, heißen die 
 \vspace*{-2mm}
 $$\lambda_{n,i} = \frac{1}{b-a} \int_a^b \prod_{j=0,j\neq i}^n \frac{t-t_j}{t_i-t_j} \text{d}t$$
 
-{\def\arraystretch{1.6}
-\begin{tabular}{ l | l | l | l }
-$n$ & Gewichte & Fehler & Regel \\
-\hline
-1 & $\frac{1}{2}$, $\frac{1}{2}$ & $\frac{h^3}{12}f''(\tau)$ & Trapez \\
-2 & $\frac{1}{6}$, $\frac{4}{6}$, $\frac{1}{6}$ & $\frac{h^5}{90}f^{(4)}(\tau)$ & Simpson \\
-3 & $\frac{1}{8}$, $\frac{3}{8}$, $\frac{3}{8}$, $\frac{1}{8}$ & $\frac{3h^5}{80}f^{(4)}(\tau)$ & $3/8$ \\
-4 & $\frac{7}{90}$, $\frac{32}{90}$, $\frac{12}{90}$, $\frac{32}{90}$, $\frac{7}{90}$ & $\frac{8h^7}{945}f^{(6)}(\tau)$ & Milne
-\end{tabular}
+{
+	\def\arraystretch{1.6}
+	\begin{tabular}{ l | l | l | l }
+	$n$ & Gewichte & Fehler & Regel \\
+	\hline
+	1 & $\frac{1}{2}$, $\frac{1}{2}$ & $\frac{h^3}{12}f''(\tau)$ & Trapez \\
+	2 & $\frac{1}{6}$, $\frac{4}{6}$, $\frac{1}{6}$ & $\frac{h^5}{90}f^{(4)}(\tau)$ & Simpson \\
+	3 & $\frac{1}{8}$, $\frac{3}{8}$, $\frac{3}{8}$, $\frac{1}{8}$ & $\frac{3h^5}{80}f^{(4)}(\tau)$ & $3/8$ \\
+	4 & $\frac{7}{90}$, $\frac{32}{90}$, $\frac{12}{90}$, $\frac{32}{90}$, $\frac{7}{90}$ & $\frac{8h^7}{945}f^{(6)}(\tau)$ & Milne
+	\end{tabular}
 }
+
+\subsection*{Romberg-Quadratur}
+
+Die \emph{Romberg-Quadratur} wertet die Trapezsumme bzgl. einer Folge von Gittern aus und extrapoliert aus den Integralen eine bessere Approximation.
+
+\spacing
+
+Konkret wird ein interpolierendes Polynom durch Stützwerte $(h_0^2,T(h_0)),\ (h_1^2,T(h_1)),\dots,(h_m^2,T(h_m))$ gelegt und an der Null ausgewertet:
+
+\vspace*{-2mm}
+$$P(T|h_0^2,\dots,h_m^2)(0) \approx I(f)$$
+
+Da das interpolierende Polynom nur in $0$ ausgewertet wird, bietet sich das \emph{Schema von Neville} an.
+
+\vspace*{-4mm}
+\begin{align*}
+T_{i,0} &= P(T|h_i^2) = T(h_1) \\
+T_{i,k} :&= P(T|h_{i-k}^2,h_{i-k+1}^2,\dots,h_i^2)(0) &0 \leq k \leq i \leq m \\
+&= T_{i,k-1} + \frac{T_{i,k-1}-T_{i-1,k-1}}{\frac{h_{i-k}^2}{h_i^2}-1} &1\leq k\leq i\leq m
+\end{align*}
+
+\subsubsection*{Verkleinerung des Gitters}
+
+Folgen zur Verkleinerung der Grundschrittweite:
+
+$h_j = \frac{h_{j-1}}{2} = \frac{h}{2^j}$ mit $n_j = 2^j$ ist die \emph{Romberg-Folge}.
+
+\vspace*{1mm}
+
+$h_1 = \frac{h}{2},h_2=\frac{h}{3},h_3=\frac{h}{4},h_j=\frac{h}{n_j},\ j=4,5,\dots$ mit $n_j = 2n_{j-2}$ für $j \geq 4$ ist die \emph{Bulirsch-Folge}.
+
+\vspace*{1mm}
+
+Vorteil der Bulirsch-Folge ist, dass sie mit weitaus weniger Auswertungen der Funktion auskommt.
