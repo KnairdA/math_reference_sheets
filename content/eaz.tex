@@ -188,7 +188,7 @@ In jeder endlichen Gruppe ist Ordnung jedes Elements ein Teiler der Gruppenordnu
 
 Eine $N \leq G$ ist Normalteiler, falls $\forall n \in N, g \in G : gng^{-1} \in N$ gilt. d.h. $N$ ist invariant unter allen inneren Automorphismen.
 
-Es gilt für Normalteiler $N$: $\forall g \in G : gNg^{-1} = N$
+Es gilt für Normalteiler $N$: $\forall g \in G : gN = Ng$
 
 Ist $U \leq G$ ein Normalteiler, so schreibt man $U \triangleleft G$.
 
@@ -502,15 +502,13 @@ $\legendre{a}{p}$ ist das \emph{Legendre-Symbol} von $a$ modulo $p$.
 
 Sei $a \in \Z, m, n \in \Z : a=mn, p \in \Primes$:
 
-\vspace*{-4mm}
-\begin{align*}
-	\legendre{a}{p} &= \legendre{a-p}{p} \\
-	\legendre{m \cdot n}{p} &= \legendre{m}{p}\legendre{n}{p}
-	\legendre{2}{p} &= (-1)^{\frac{p^2-1}{8}} \\
-	\legendre{-1}{p} &= (-1)^{\frac{p-1}{2}}
-\end{align*}
+\vspace*{-2mm}
+$$\begin{array}{ll}
+\legendre{a}{p} = \legendre{a-p}{p} & \legendre{m \cdot n}{p} = \legendre{m}{p}\legendre{n}{p} \\
+\legendre{2}{p} = (-1)^{\frac{p^2-1}{8}} & \legendre{-1}{p} = (-1)^{\frac{p-1}{2}}
+\end{array}$$
 
-Sei $m, n \in \Primes$ mit $l, p \neq 2$:
+Sei $l, p \in \Primes$ mit $l, p \neq 2$:
 
 \vspace*{-4mm}
 \begin{align*}
@@ -611,7 +609,7 @@ Sei $R$ Hauptidealring, $\Primes_R$ Vertretersystem der Assoziiertenklassen von 
 
 \vspace*{1mm}
 
-$\forall r \in R \setminus \{0\} : r$ ist assoziiert zu Produkt endlich vieler Elemente in $\Primes_R$.
+$\forall r \in R \setminus \{0\} : r$ ist assoziiert zu Produkt endlich vieler Elemente in $\Primes_R$. (vgl. Fundamentalsatz)
 
 Sind $s, t \in \N_0, p_1,\dots,p_s,q_1,\dots,q_t \in \Primes_R$ s.d. Einheiten $\delta, \epsilon \in R^\times$ ex. mit $r = \delta \cdot p_1 \cdot \dots \cdot p_s = \epsilon \cdot q_1 \cdot \dots \cdot q_t$, so gilt $\epsilon = \delta$, $s = t$ und es gilt bis auf Vertauschung der Faktorreihenfolge $\forall 1 \leq i \leq s : p_i = q_i$.
 
@@ -669,7 +667,7 @@ Element $\alpha \in L$ heißt \emph{algebraisch} über $K$, wenn ein Polynom $f 
 
 \vspace*{1mm}
 
-Element $\alpha in L$ heißt \emph{transzendent} über $K$, wenn es nicht algebraisch über $K$ ist.
+Element $\alpha \in L$ heißt \emph{transzendent} über $K$, wenn es nicht algebraisch über $K$ ist.
 
 \vspace*{1mm}
 
