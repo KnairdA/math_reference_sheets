@@ -1,0 +1,182 @@
+\section*{Basics}
+
+A graph $G$ is the tuple $(V,E)$ where $V$ is a finite set of vertices and $E \subset {V \choose 2}$ is the set of edges.
+
+\subsection*{Notation}
+
+$K_n$ is the complete graph on $n$ vertices.
+
+$C_n$ is the cycle on $n$ vertices.
+
+$P_n$ is a path of length $n$ where $n$ counts edges.
+
+$E_n$ is the empty i.e. edge-less graph on $n$ vertices.
+
+$K_{m,n}$ is the complete bipartite graph with partite sets of cardinality $m$ respectively $n$.
+
+\spacing
+
+$|G| := |V(G)|$ and $\|G\| := |E(G)|$
+
+$N(v)$ for $v \in V(G)$ is the \emph{neighbourhood} of $v$.
+
+$d(v)$ for $v \in V(G)$ is the \emph{degree} of $v$.
+
+$\delta(G)$ is the minimum degree in $G$.
+
+$\Delta(G)$ is the maximum degree in $G$.
+
+$G$ is $k$-regular $\iff \forall v \in V(G) : d(v) = k$
+
+\subsection*{Handshake Lemma}
+
+$$2|E| = \sum_{v \in V} d(v)$$
+
+Furthermore the sum of all degrees is even and thus \#vertices with odd degree is also even.
+
+\subsection*{Bipartite Charaterization}
+
+$G$ is \emph{bipartite} iff it has no cycles of odd length.
+
+\subsection*{Eulerian Tour Condition}
+
+A connected graph has an \emph{Eulerian Tour} iff every vertex has even degree.
+
+\subsection*{Hall's Marriage Theorem}
+
+Bipartite $G$ with partite sets $A, B$ has a matching containing $A$ iff $\forall S \subset A : |N(S)|\geq|S|$.
+
+\subsection*{Tutte's Theorem}
+
+Let $q(G)$ be the number of odd components in $G$.
+
+$G$ has perfect matching iff $\forall S \subseteq V : q(G-S) \leq |S|$.
+
+\subsection*{König's Theorem}
+
+For bipartite $G$ the size of the smallest matching equals the size of a smallest vertex cover.
+
+\subsection*{Hajnal and Szemer\'{e}di}
+
+$\delta(G) \geq (1-\frac{1}{k})n$ for $k | n \implies G$ has a $K_k$-factor.
+
+\section*{Connectivity}
+
+Let $\kappa(G)$ be the connectivity of $G$ i.e. the maximum $k$ for which $G$ is $k$-connected.
+
+$G$ is $k$-connected if $k-1$ vertices can be removed without disconnecting.
+
+Let $\kappa'(G)$ be the edge-connectivity of $G$.
+
+For any non-trivial connected $G$:
+
+$$\kappa(G) \leq \kappa'(G) \leq \delta(G)$$
+
+\subsection*{Meger's Theorem}
+
+For graph $G$ and vertex sets $A,B \subseteq V(G)$ the minimum number of vertices separting $A$ and $B$ equals the maximum number of disjoint $A$-$B$-paths.
+
+\spacing
+
+For $a, b \in V(G)$ s.t. $\{a,b\} \notin E(G)$ the minimum number of $v \in V(G)\setminus\{a,b\}$ separating $a, b$ equals the maximum number of independent $a$-$b$-paths.
+
+\subsubsection*{Global Menger's Theorem}
+
+Graph $G$ is $k$-connected iff $\forall a,b \in V(G)$ there exist $k$ independent $a$-$b$-paths.
+
+\subsection*{Ear-decomposition}
+
+Ear-decomposition of $G$ is a sequence of graphs $G_0 \subseteq G_1 \subseteq \cdots \subseteq G_k$ s.t. $G_0$ is a cycle, $G_i$ results from $G_{i-1}$ by adding an ear and $G_k = G$.
+
+\spacing
+
+$G$ is $2$-connected iff it has an ear-decomposition.
+
+\subsection*{Block-cut-vertex-graph}
+
+Blocks of $G$ are the maximal $2$-connected subgraphs and bridges.
+
+The \emph{block-cut-vertex-graph} of $G$ is the bipartite graph s.t. its partite sets are the blocks on the one side and the cut-vertices on the other side.
+
+\spacing
+
+Block-cut-vertex-graph of connected $G$ is a tree.
+
+\section*{Planar Graphs}
+
+Let a \emph{plane graph} be a set of points on the plane connected by arcs s.t. the arcs do not contain any of the points or intersect any other arc.
+
+A \emph{planar embedding} is a bijection between a plane graph and a abstract graph.
+A \emph{planar graph} is a graph $G$ with a planar embedding. The corresponding plane graph is a drawing of $G$.
+
+\subsection*{F\'{a}ry's Theorem}
+
+Every planar graph can be embedded in a plane s.t. the edges are straight lines.
+
+\subsection*{Euler's Formula}
+
+For connected planar $G$ with $v$ vertices, $e$ edges and $f$ faces: $v-e+f=2$
+
+\spacing
+
+$|E(G)| \leq 3|V(G)|-6$ (equal if $G$ is triangulation)
+
+$|E(G)| \leq 2|V(G)|-4$ if no face is bound by triangle.
+
+\subsection*{Graph minors}
+
+$H$ is \emph{minor} of $G$ if it can be generated from $G$ by deleting vertices, deleting or contracting edges.
+
+\spacing
+
+$H$ is a \emph{subdivision} of $G$ if it can be generated from $G$ by subdividing edges.
+
+\spacing
+
+$H$ is a \emph{topological minor} of $G$ if a subgraph of $G$ is a subdivision of $H$.
+
+\subsubsection*{Kuratowski's Theorem}
+
+For graph $G$ the following is equivalent:
+
+\begin{enumerate}[label=(\alph*)]
+	\item $G$ is planar
+	\item $K_5, K_{3,3}$ aren't minors of $G$
+	\item $K_5$, $K_{3,3}$ aren't topological minors of $G$
+\end{enumerate}
+
+\section*{Colorings}
+
+\subsection*{$5$-Color Theorem}
+
+Every planar graph is $5$-colorable.
+
+\subsection*{List coloring}
+
+\subsubsection*{Thomassen's $5$-List-Color Theorem}
+
+Every planar graph is $5$-choosable.
+
+\subsection*{Greedy chromatic number estimate}
+
+$$\chi(G) \leq \Delta(G)+1$$
+
+\subsection*{Brook's Theorem}
+
+If $G$ is connected and neither complete nor an odd cycle then $\chi(G) \leq \Delta(G)$
+
+\subsection*{König's Theorem}
+
+$G$ bipartite $\implies \chi'(G) = \Delta(G)$
+
+\subsection*{Vizing's Theorem}
+
+$$\chi'(G) \in \{\Delta(G), \Delta(G)+1\}$$
+
+\section*{Extremal Graph Theory}
+
+\section*{Ramsey Theory}
+
+\section*{Flows}
+
+\section*{Random Graphs}
