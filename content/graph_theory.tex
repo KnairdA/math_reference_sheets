@@ -215,6 +215,64 @@ $$\chi'(G) \in \{\Delta(G), \Delta(G)+1\}$$
 
 \section*{Extremal Graph Theory}
 
+For $n \in \N$ and graph $H$ the \emph{extremal number} $ex(n,H)$ is the max number of edges in a graph of order $n$ s.t. it doesn't contain subgraph $H$.
+
+$$ex(n,H):=\max\{\|G\| : |G|=n, H \not\subseteq G\}$$
+
+Correspondingly $EX(n,H$ is the set of graphs on $n$ vertices and $ex(n,H)$ edges that are $H$-free.
+
+\spacing
+
+e.g. $ex(n,K_2) = 0, \ EX(n,K_2) = \{E_n\}, \ ex(n,P_3)=\lfloor\frac{n}{2}\rfloor$
+
+\subsection*{Tur\'{a}n Graph}
+
+For $1 \leq r \leq n$ the \emph{Tur\'{a}n graph} $T(n,r)$ is the unique complete $r$-partite graph of order $n$ s.t. the partite set sizes differ by at most one.
+
+$T(n,r)$ doesn't contain $K_{r+1}$ and $t(n,r) := \|T(n,r)\|$.
+
+For $r | n \ T(n,r)$ is denoted by $K_r^s$ where $n=r \cdot s$.
+
+$$t(n,r) = t(n-r,r)+(n-r)(r-1)+{r \choose 2}$$
+
+\subsubsection*{Tur\'{a}n's Theorem}
+
+$$EX(n,K_r) = \{T(n,r-1)\}$$
+
+\subsection*{$\epsilon$-regularity}
+
+Let $X, Y \subseteq V(G)$ be disjoint and $\|X,Y\|$ is the number of edges between $X$ and $Y$.
+
+$$d(X,Y) := \frac{\|X,Y\|}{|X||Y|} \text{ is the density of $(X, Y)$}$$
+
+$\forall \epsilon > 0 : (X,Y)$ is an \emph{$\epsilon$-regular pair} if:
+
+$\forall A \subseteq X, B \subseteq Y : \\ |A| \geq \epsilon|X| \land |B| \geq \epsilon|Y| \implies |d(X,Y) - d(A,B)| \leq \epsilon$.
+
+\spacing
+
+$V=V_0 \dot\cup\cdots\dot\cup V_k$ is a \emph{$\epsilon$-regular partition} if:
+
+\begin{enumerate}
+	\item $|V_0| \leq \epsilon|V|$
+	\item $|V_1| = \cdots = |V_k|$
+	\item At most $\epsilon k^2$ pairs $(V_i,V_j)$ for $1 \leq i < j \leq k$ are not $\epsilon$-regular
+\end{enumerate}
+
+\subsubsection*{Szemer\'{e}di's Regularity Lemma}
+
+$\forall \epsilon > 0, m \geq 1 \exists M \in \N$ s.t. every graph $G$ with $|G| \geq m$ has $\epsilon$-regular partition $V_0 \dot\cup\cdots\dot\cup V_k$ with $m \leq k \leq M$.
+
+\subsection*{Erd\H{o}s-Stone}
+
+$\forall r > s \geq 1, \epsilon > 0 \exists n_0 \in \N$ s.t. all graphs with $n \geq n_0$ vertices and $|E(G)| \geq t_{r-1}(n)+\epsilon n^2$ contain $K_r^s$ as a subgraph.
+
+\subsection*{Zarankiewicz function}
+
+$z(m,n;s,t)$ denotes the maximum number of edges that a bipartite graph on sets of size $m$ and $n$ can have without containing $K_{s,t}$.
+
+$$z(n,n;t,t) \in \mathcal{O}(n^{2-\frac{1}{t}})$$
+
 \section*{Ramsey Theory}
 
 \section*{Flows}
