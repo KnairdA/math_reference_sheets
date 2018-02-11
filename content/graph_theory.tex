@@ -2,7 +2,7 @@
 
 A graph $G$ is the tuple $(V,E)$ where $V$ is a finite set of vertices and $E \subset {V \choose 2}$ is the set of edges.
 
-\subsection*{Notation}
+\subsection*{Notation of special graphs}
 
 $K_n$ is the complete graph on $n$ vertices.
 
@@ -14,19 +14,37 @@ $E_n$ is the empty i.e. edge-less graph on $n$ vertices.
 
 $K_{m,n}$ is the complete bipartite graph with partite sets of cardinality $m$ respectively $n$.
 
-\spacing
-
-$|G| := |V(G)|$ and $\|G\| := |E(G)|$
+\subsection*{Local properties}
 
 $N(v)$ for $v \in V(G)$ is the \emph{neighbourhood} of $v$.
 
 $d(v)$ for $v \in V(G)$ is the \emph{degree} of $v$.
 
+$d(u,v)$ is the length of a shortest $u$-$v$-path.
+
+\subsection*{Global properties}
+
+$|G| := |V(G)|$ and $\|G\| := |E(G)|$
+
 $\delta(G)$ is the minimum degree in $G$.
 
 $\Delta(G)$ is the maximum degree in $G$.
 
+\spacing
+
 $G$ is $k$-regular $\iff \forall v \in V(G) : d(v) = k$
+
+The \emph{girth} $g(G)$ is the length of a shortest cycle.
+
+The length of a longest cycle is $G$'s \emph{circumference}.
+
+\spacing
+
+$\text{diam}(G) := \displaystyle\max_{u,v \in V(G)} d(u,v)$ is the \emph{diameter} of $G$.
+
+\spacing
+
+$\text{rad}(G) := \displaystyle\min_{u \in V(G)} \max_{v \in V(G)} d(u,v)$ is the \emph{radius} of $G$.
 
 \subsection*{Induced Subgraphs}
 
@@ -48,7 +66,11 @@ $G$ is \emph{bipartite} iff it has no cycles of odd length.
 
 \subsection*{Eulerian Tour Condition}
 
-A connected graph has an \emph{Eulerian Tour} iff every vertex has even degree.
+An \emph{Eulerian tour} is closed walk containing all edges of $G$ exactly once.
+
+\spacing
+
+A connected graph has an Eulerian tour iff every vertex has even degree.
 
 \subsection*{Hall's Marriage Theorem}
 
@@ -351,4 +373,20 @@ When $X$ counts e.g. the number of a certain class of subgraphs $\mathbb{E}(X)$ 
 \vspace*{-4mm}
 $$\mathbb{E}X = \mathbb{E}\left(\sum_{i=1}^N X_i\right) = \sum_{i=1}^N \mathbb{E}X_i = \sum_{i=1}^N \mathbb{P}(X_i=1)$$
 
+\subsection*{Erd\H{o}s-Hajnal}
+
+$\forall k \geq 3 \exists$ a graph $G$ s.t. $g(G), \chi(G) > k$.
+
 \section*{Hamiltonian Cycles}
+
+A \emph{Hamiltonian cycle} is a cycle that visits each vertex of $G$ exactly once.
+
+Correspondingly a \emph{Hamiltonian path} is a path that visits each vertex of $G$ exactly once.
+
+\subsection*{Dirac Theorem}
+
+Every graph $G$ with $|V(G)| \geq 3$ and $\delta(G) \geq \frac{n}{2}$ has a Hamiltonian cycle.
+
+\subsection*{Tutte Theorem}
+
+Every $4$-connected planar graph is Hamiltonian.
