@@ -316,3 +316,39 @@ $\implies \exists x, y, z \in \N$ of the same color s.t. $x+y=z$.
 \section*{Flows}
 
 \section*{Random Graphs}
+
+$\mathcal{G}(n,p)$ is the probability space on graphs of order $n$ for which the edge-existence is independently decided by fixed probability $p \in [0,1]$.
+
+This is called \emph{Erd\H{o}s-R\'{e}nyi model}.
+
+\spacing
+
+A \emph{property} $\mathcal{P}$ is a set of graphs.
+
+$G \in \mathcal{G}(n,p_n)$ \emph{almost always} has property $\mathcal{P}$ if:
+
+$$\mathbb{P}(G \in \mathcal{G}(n,p_n) \cap \mathcal{P}) \to 1 (n \to \infty)$$
+
+If $p_n$ is constant it is said that \emph{almost all} $G \in \mathcal{G}(n,p)$ have property $\mathcal{P}$.
+
+\subsection*{Threshold functions}
+
+$f : \N \to [0,1]$ is called \emph{threshold function} for $\mathcal{P}$ if:
+
+\begin{enumerate}
+	\item For $\frac{p_n}{f(n)} \to 0 (n \to \infty)$ graphs $G \in \mathcal{G}(n,p_n)$ almost always don't have property $\mathcal{P}$
+	\item For $\frac{p_n}{f(n)} \to 1 (n \to \infty)$ graphs $G \in \mathcal{G}(n,p_n)$ almost always have property $\mathcal{P}$
+\end{enumerate}
+
+Such functions do not exist for all properties $\mathcal{P}$.
+
+\subsection*{Expected values and indicators}
+
+Let $X : \mathcal{G}(n,p) \to \N$ be a random variable.
+
+When $X$ counts e.g. the number of a certain class of subgraphs $\mathbb{E}(X)$ may be calculated by summing indicators over the maximum number $N$ of such subgraphs in $\mathcal{G}(n,p)$ and applying linearity:
+
+\vspace*{-4mm}
+$$\mathbb{E}X = \mathbb{E}\left(\sum_{i=1}^N X_i\right) = \sum_{i=1}^N \mathbb{E}X_i = \sum_{i=1}^N \mathbb{P}(X_i=1)$$
+
+\section*{Hamiltonian Cycles}
