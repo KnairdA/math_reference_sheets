@@ -275,6 +275,44 @@ $$z(n,n;t,t) \in \mathcal{O}(n^{2-\frac{1}{t}})$$
 
 \section*{Ramsey Theory}
 
+For $k \in \N$ the \emph{Ramsey number} $R(k) \in \N$ is the min $n$ s.t. every 2-edge-coloring of $K_n$ contains monochromatic $K_k$.
+
+\spacing
+
+For $k, l \in \N$ the \emph{asymmetric Ramsey number} $R(k,l)$ is the min $n$ s.t. every 2-edge-coloring of $K_n$ contains red $K_k$ or blue $K_l$.
+
+\spacing
+
+For graphs $G, H$ the \emph{graph Ramsey number} $R(G,H)$ is the min $n$ s.t. every 2-edge-coloring of $K_n$ contains red $G$ or blue $H$.
+
+\spacing
+
+For graphs $G, H$ the \emph{induced Ramsey number} $R_\text{ind}(G,H)$ is the min $n$ s.t. there is graph $F$ on $n$ vertices every 2-coloring of which contains red $G$ or blue $H$.
+
+\spacing
+
+e.g. $R(2,k) = R(k,2) = k$ and $R(3) = 6$
+
+\subsection*{Ramsey Theorem}
+
+$$\forall k \in \N : \sqrt{2}^k \leq R(k) \leq 4^k$$
+
+Particularly Ramsey, asymmetric Ramsey and graph Ramsey numbers are finite.
+
+\subsection*{Induced Ramsey Theorem}
+
+$R_\text{ind}(G,H)$ is finite for all graphs $G, H$.
+
+\subsection*{Er\H{o}s-Szekeres' Theorem}
+
+Any sequence of $(r-1)(s-1)+1$ distinct numbers in $\R$ contains an ascending subsequence of length $r$ or a descending subsequence of length $s$.
+
+\subsection*{Schur's Theorem}
+
+Let $\N$ be colored with $r \in \N$ colors.
+
+$\implies \exists x, y, z \in \N$ of the same color s.t. $x+y=z$.
+
 \section*{Flows}
 
 \section*{Random Graphs}
