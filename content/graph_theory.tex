@@ -1,6 +1,17 @@
 \section*{Basics}
 
-A graph $G$ is the tuple $(V,E)$ where $V$ is a finite set of vertices and $E \subset {V \choose 2}$ is the set of edges.
+A \emph{graph} $G$ is a tuple $(V,E)$ where $V$ is a finite set of vertices and $E \subset {V \choose 2}$ is the set of edges.
+
+\spacing
+
+A \emph{multigraph} $G$ is a tuple $(V,E)$ where $V$ is a set of vertices and $E$ is a multiset of elements from ${V \choose 1} \cup {V \choose 2}$ i.e. multiedges and loops.
+
+\spacing
+
+A \emph{hypergraph} $H$ is a tuple $(X,E)$ where $X$ is a finite set and $E \subseteq 2^X \setminus \{\emptyset\}$.
+
+i.e. edges may join any number of vertices.
+
 
 \subsection*{Notation of special graphs}
 
@@ -310,6 +321,10 @@ For graphs $G, H$ the \emph{graph Ramsey number} $R(G,H)$ is the min $n$ s.t. ev
 \spacing
 
 For graphs $G, H$ the \emph{induced Ramsey number} $R_\text{ind}(G,H)$ is the min $n$ s.t. there is graph $F$ on $n$ vertices every 2-coloring of which contains red $G$ or blue $H$.
+
+\spacing
+
+For $r, l_1, \dots, l_k \in \N$ the \emph{hypergraph Ramsey number} $R_r(l_1,\dots,l_k)$ is the min $n$ s.t. for every $k$-coloring of ${[n] \choose r}$ there $\exists i \in [k], V \subseteq [n]$ with $|V|=l_i$ s.t. all sets in $V \choose r$ have color $i$.
 
 \spacing
 
