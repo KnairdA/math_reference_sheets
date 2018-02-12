@@ -337,6 +337,63 @@ $\implies \exists x, y, z \in \N$ of the same color s.t. $x+y=z$.
 
 \section*{Flows}
 
+Let $G$ be a multigraph, $T := \{(x,e,y) | xy = e \in E(G)\}$.
+
+$f : T \to \mathbb{K}$ defines a \emph{circulation} on $G$ if:
+
+\begin{enumerate}
+	\item $\forall (x,e,y) \in T, x \neq y : f(x,e,y) = -f(y,e,x)$
+	\item $\forall v \in V(G) : f(v,V) = 0$
+\end{enumerate}
+
+$f(X,Y) := \displaystyle\sum_{(x,e,y) \in T, x \neq y, x \in X, y \in Y} f(x,y)$
+
+For any circulation $f$ and $X \subseteq V(G)$:
+
+$f(X,X)=0, \ f(X,V(G))=0, \ f(X,V(G) \setminus X)=0$.
+
+\subsection*{$k$-flows}
+
+For $k \in \N$ $f$ is a \emph{$k$-flow} if it is a $\Z$-flow s.t. $\forall (x,e,y) \in T : 0 < |f(x,e,y)| < k$.
+
+\spacing
+
+The smallest $k$ s.t. that $G$ has a $k$-flow $\varphi(G)$ is the \emph{flow number} of $G$.
+
+\subsection*{Networks}
+
+Let $s \neq t \in V(G)$ and $c : T \to \Z_{\geq0}$.
+
+Then $(G,s,t,c)$ is a \emph{network} with \emph{source} $s$, \emph{sink} $t$ and \emph{capacity function} $c$.
+
+\spacing
+
+$f : T \to \R$ is a \emph{network flow} if:
+
+\begin{enumerate}
+	\item $f(x,e,y) = -f(y,e,x)$ for all $e \in E(G)$ with endpoints $x \neq y$
+	\item $f(x,V(G))=0, x \in V(G) \setminus \{s,t\}$
+	\item $f(x,e,y) \leq c(x,e,y)$ for all $e \in E(G)$ with endpoints $x \neq y$
+\end{enumerate}
+
+\subsubsection*{Network cuts}
+
+$(S,\overline S)$ for $S \subseteq V(G)$ s.t. $s \in S, t \notin S, \overline S = V(G)-S$ is called a \emph{cut} in the network $(G,s,t,c)$.
+
+\spacing
+
+Its \emph{capacity} is $c(S,\overline S) := \displaystyle\sum_{x \in S, y \in \overline S, (x,e,y) \in T} c(x,y)$.
+
+\spacing
+
+For any flow $f$ and cut $(S,\overline S) : f(S,\overline S) = f(s,V(G))$.
+
+\subsubsection*{Ford-Fulkerson Theorem}
+
+In any network the max value of a flow equals the min capacity of a cut.
+
+There is an integral flow with this max flow value.
+
 \section*{Random Graphs}
 
 $\mathcal{G}(n,p)$ is the probability space on graphs of order $n$ for which the edge-existence is independently decided by fixed probability $p \in [0,1]$.
