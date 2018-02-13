@@ -93,11 +93,19 @@ Let $q(G)$ be the number of odd components in $G$.
 
 $G$ has perfect matching iff $\forall S \subseteq V : q(G-S) \leq |S|$.
 
+\spacing
+
+Any $k$-regular bipartite graph has a perfect matching and a proper $k$-edge coloring.
+
 \subsection*{König's Theorem}
 
 For bipartite $G$ the size of the smallest matching equals the size of a smallest vertex cover.
 
 \subsection*{Hajnal and Szemer\'{e}di}
+
+Let $H, G$ be graphs. An \emph{$H$-factor} of $G$ is a spanning subgraph that is a set of disjoint copies of $H$ in $G$ whose vertex sets form a partition of $V(G)$.
+
+\spacing
 
 $\delta(G) \geq (1-\frac{1}{k})n$ for $k | n \implies G$ has a $K_k$-factor.
 
@@ -113,7 +121,7 @@ For any non-trivial connected $G$:
 
 $$\kappa(G) \leq \kappa'(G) \leq \delta(G)$$
 
-\subsection*{Meger's Theorem}
+\subsection*{Menger's Theorem}
 
 For graph $G$ and vertex sets $A,B \subseteq V(G)$ the minimum number of vertices separting $A$ and $B$ equals the maximum number of disjoint $A$-$B$-paths.
 
@@ -166,7 +174,7 @@ $|E(G)| \leq 2|V(G)|-4$ if no face is bound by triangle.
 
 \subsection*{Graph minors}
 
-$H$ is \emph{minor} of $G$ if it can be generated from $G$ by deleting vertices, deleting or contracting edges.
+$H$ is \emph{minor} of $G$ (i.e. $MH \subseteq G$) if it can be generated from $G$ by deleting vertices, deleting or contracting edges.
 
 \spacing
 
@@ -174,7 +182,7 @@ $H$ is a \emph{subdivision} of $G$ if it can be generated from $G$ by subdividin
 
 \spacing
 
-$H$ is a \emph{topological minor} of $G$ if a subgraph of $G$ is a subdivision of $H$.
+$H$ is a \emph{topological minor} of $G$ (i.e. $TH \subseteq G$) if a subgraph of $G$ is a subdivision of $H$.
 
 \subsubsection*{Kuratowski's Theorem}
 
@@ -250,6 +258,7 @@ $$\chi'(G) \in \{\Delta(G), \Delta(G)+1\}$$
 
 For $n \in \N$ and graph $H$ the \emph{extremal number} $ex(n,H)$ is the max number of edges in a graph of order $n$ s.t. it doesn't contain subgraph $H$.
 
+\vspace*{-3mm}
 $$ex(n,H):=\max\{\|G\| : |G|=n, H \not\subseteq G\}$$
 
 Correspondingly $EX(n,H$ is the set of graphs on $n$ vertices and $ex(n,H)$ edges that are $H$-free.
@@ -262,11 +271,25 @@ e.g. $ex(n,K_2) = 0, \ EX(n,K_2) = \{E_n\}, \ ex(n,P_3)=\lfloor\frac{n}{2}\rfloo
 
 For $1 \leq r \leq n$ the \emph{Tur\'{a}n graph} $T(n,r)$ is the unique complete $r$-partite graph of order $n$ s.t. the partite set sizes differ by at most one.
 
+\spacing
+
+i.e. $T(n,r)$ has $n$ mod $r$ partite sets of size $\lceil\frac{n}{r}\rceil$ and $r - (n$ mod $r)$ partite sets of size $\lfloor\frac{n}{r}\rfloor$.
+
+$\forall v \in V(T(n,r)) : d(v) \in \{ n - \lceil\frac{n}{r}\rceil, n - \lfloor\frac{n}{r}\rfloor \}$
+
+\spacing
+
 $T(n,r)$ doesn't contain $K_{r+1}$ and $t(n,r) := \|T(n,r)\|$.
 
 For $r | n \ T(n,r)$ is denoted by $K_r^s$ where $n=r \cdot s$.
 
 $$t(n,r) = t(n-r,r)+(n-r)(r-1)+{r \choose 2}$$
+
+\spacing
+
+Comparing the number of edges in $K_n$ and $T(n,r)$:
+
+$$\lim_{n \to \infty} \frac{t(n,r)}{{n \choose 2}} = \left( 1-\frac{1}{r} \right)$$
 
 \subsubsection*{Tur\'{a}n's Theorem}
 
@@ -298,12 +321,30 @@ $\forall \epsilon > 0, m \geq 1 \exists M \in \N$ s.t. every graph $G$ with $|G|
 
 \subsection*{Erd\H{o}s-Stone}
 
-$\forall r > s \geq 1, \epsilon > 0 \exists n_0 \in \N$ s.t. all graphs with $n \geq n_0$ vertices and $|E(G)| \geq t_{r-1}(n)+\epsilon n^2$ contain $K_r^s$ as a subgraph.
+$\forall r > s \geq 1, \epsilon > 0 \exists n_0 \in \N$ s.t. all graphs with $|V(G)| =: n \geq n_0$ vertices and
+
+\vspace*{-2mm}
+$$|E(G)| \geq t_{r-1}(n)+\epsilon n^2$$
+
+contain $K_r^s$ as a subgraph.
+
+\subsection*{Asymptotic extremal number}
+
+$$\lim_{n \to \infty} \frac{ex(n,H)}{{n \choose 2}} = \frac{\chi(H)-2}{\chi(H)-1}$$
+
+e.g. $ex(n,K_5 \setminus \{e\}) \simeq \frac{2}{3} \cdot {n \choose 2}$ as $\chi(K_5 \setminus \{e\}) = 4$.
 
 \subsection*{Zarankiewicz function}
 
 $z(m,n;s,t)$ denotes the maximum number of edges that a bipartite graph on sets of size $m$ and $n$ can have without containing $K_{s,t}$.
 
+\subsubsection*{K\H{o}v\'{a}ri-S\'{o}s-Tur\'{a}n Theorem}
+
+$z(m,n;s,t) \leq (s-1)^{1/t}(n-t+1)m^{1-1/t}+(t-1)m$
+
+i.e. for $m=n$ and $t=s$:
+
+\vspace*{-2mm}
 $$z(n,n;t,t) \in \mathcal{O}(n^{2-\frac{1}{t}})$$
 
 \section*{Ramsey Theory}
@@ -363,6 +404,8 @@ $f : T \to \mathbb{K}$ defines a \emph{circulation} on $G$ if:
 
 $f(X,Y) := \displaystyle\sum_{(x,e,y) \in T, x \neq y, x \in X, y \in Y} f(x,y)$
 
+\spacing
+
 For any circulation $f$ and $X \subseteq V(G)$:
 
 $f(X,X)=0, \ f(X,V(G))=0, \ f(X,V(G) \setminus X)=0$.
@@ -415,7 +458,7 @@ $\mathcal{G}(n,p)$ is the probability space on graphs of order $n$ for which the
 
 This is called \emph{Erd\H{o}s-R\'{e}nyi model}.
 
-\spacing
+\subsection*{Properties}
 
 A \emph{property} $\mathcal{P}$ is a set of graphs.
 
