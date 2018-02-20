@@ -93,8 +93,8 @@ $$\Phi(x,y,h) := f(x + \frac{h}{2}, y + \frac{h}{2} f(x,y) )$$
 
 \vspace*{-2mm}
 \begin{align*}
-	\Phi(x,y,h) &:= \frac{1}{2} (f(x,y) + f(x+h, g(x,y,h)) \\
-	g(x,y,h) &:= y + \frac{h}{2} (f(x,y) + f(x+h,g(x,y,h))
+\Phi(x,y,h) &:= \frac{1}{2} (f(x,y) + f(x+h, g(x,y,h)) \\
+g(x,y,h) &:= y + \frac{h}{2} (f(x,y) + f(x+h,g(x,y,h))
 \end{align*}
 
 \subsection*{Konvergenz}
@@ -169,6 +169,65 @@ $$\sum_{i=1}^s b_i = 1 , \sum_{i=1}^s b_i c_i = \frac{1}{2}$$
 $$\sum_{i=1}^s b_i = 1 , \sum_{i=1}^s b_i c_i = \frac{1}{2} , \sum_{i=1}^s b_i c_i^2 = \frac{1}{3} , \sum_{i,j=1}^s b_i a_{i,j} c_j = \frac{1}{6}$$
 
 \section*{Explizite Extrapolationsverfahren}
+
+Numerische Lösung eines AWP in $k+1$ Gittern:
+
+$$\begin{array}{c|ccc}
+h & h_1 & \cdots & h_{k+1} \\
+\hline
+\eta(x,h) & \eta(x,h_1) & \cdots & \eta(x,h_{k+1})
+\end{array}$$
+
+Interpolation mit Polynom $\chi$:
+
+\vspace*{-2mm}
+$$\chi(h_i) = \eta(x,h_i) \text{ für } i=1,\dots,k+1$$
+
+Auswertung von $\chi$ in $0$:
+
+\vspace*{-2mm}
+$$\chi(0) = \lim_{h \to 0} \chi(h) \approx \lim_{h \to 0} \eta(x,h) = y(x)$$
+
+\section*{Schrittweitensteuerung}
+
+$h_i = x_{i+1} - x_i$ soll groß genug sein, den Aufwand für die Lösung klein zu halten und gleichzeitig klein genug um Genauigkeit zu garantieren.
+
+\spacing
+
+Der globale Diskretisierungsfehler $e(x_{i+1},h_i)$ wird durch $[e_{i+1}] = \widehat{\eta}_{i+1} - \eta_{i+1}$ geschätzt.
+
+$\widehat{\eta}$ soll dazu von höherer Ordnung als $\eta$ sein.
+
+$h_i$ wird aktzeptiert, wenn $|[e_{i+1}]| \leq \text{tol}$ für $\text{tol} > 0$.
+
+\vspace{-2mm}
+$$[e_{i+1}] = \widehat{\eta}_{i+1} - \eta_{i+1} = h_i(\widehat{\tau}_i - \tau_i)$$
+
+Differenz lokaler Fehler schätzt globalen Fehler.
+
+\subsection*{Adaptiver Algorithmus}
+
+Während $x_i < b$ setze $x := x_i + h_i$ und:
+
+\vspace{-4mm}
+\begin{align*}
+y &:= \eta_i + h_i \Phi(x_i,\eta_i,h_i) \\
+\widehat{y} &:= \eta_i + h_i \widehat{\Phi}(x_i,\eta_i,h_i) \\
+[e] &:= |y-\widehat{y}| \\
+h &:= \min\left\{rh, h_\text{max}, \varrho h_i \sqrt[p+1]{\frac{\text{tol}}{|[e]|}}\right\}, \ \varrho \in (0,1), \ r > 1
+\end{align*}
+
+Falls $[e] \leq \text{tol}$:
+
+\vspace*{-10.7mm}
+\begin{align*}
+\hspace*{4mm}
+x_{i+1} &:= x \\
+\eta_{i+1} &:= \widehat{y} \\
+h_{i+1} &:= \min\{h, b-x_{i+1}\}
+\end{align*}
+
+Ansonsten verwerfe Schritt mit $h_i := h$.
 
 \section*{Mehrschrittverfahren}
 
