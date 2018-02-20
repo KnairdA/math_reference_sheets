@@ -1,0 +1,109 @@
+\section*{Existenzsatz von Peano}
+
+Sei $f : G \subset \R \times \R^n \to \R^n$ stg., $G$ Gebiet.
+
+Dann $\forall (\tilde x,\tilde y) \in G \exists$ Lösung $y'=f(x,y)$ im Gebiet.
+
+\section*{Existenz- und Eindeutigkeit}
+
+Sei $f : S \to \R^n$ stg. auf Steifen $S := [a,b] \times \R^n$ und $f$ erfülle die Lipschitz-Bedingung:
+
+\vspace*{-2mm}
+$$\|f(x,y)-f(x,\tilde y)\| \leq L \|y-\tilde y\|, \ L > 0$$
+
+Dann existiert für das AWP genau eine Lösung in $\mathcal{C}([a,b],\R^n)$ für jedes Element in $S$.
+
+\section*{Einzelschrittverfahren}
+
+Sei $f : [a,b] \times \R^n \to \R^n, \ y(x_0)=y_0 \in \R^n$ AWP.
+
+Ein \emph{Einschrittverfahren} ist Vorschrift:
+
+\vspace*{-4mm}
+$$\eta_0 = y_0, \ \eta_{k+1} = \eta_k + h \cdot \Phi(x_k, \eta_k, h), \ x_{k+1} = x_k + h$$
+
+Für \emph{Verfahrensfunktion} $\Phi : [a,b] \times \R^n \times \R \to \R^n$.
+
+\spacing
+
+Die \emph{Näherungslösung} $\eta_k$ ist eine \emph{Gitterfunktion}.
+
+\vspace*{-4mm}
+$$\eta_k : \{x \in [x_0,b] | x = x_0 + i \cdot h, \ i \in \N_0 \} \to \R^n$$
+
+\subsection*{Explizites Eulerverfahren}
+
+$$\Phi(x,y,h) := f(x,y)$$
+
+\subsection*{Implizites Eulerverfahren}
+
+$$\Phi(x,y,h) := f(x+h, g(x,y,h)), \ g = y + h \cdot f(x+h, g)$$
+
+\subsection*{Konsistenz}
+
+Sei $z$ mit $z'(x) = f(x,z(x))$ die exakte AWP Lösung.
+
+Der \emph{lokale Diskretisierungsfehler} in $(x,y)$:
+
+$$\tau(x,y,h) := \frac{z(x+h)-y}{h} - \Phi(x,y,h)$$
+
+Ein ESV ist brauchbar, wenn $\lim_{h \to 0} \tau(x,y,h) = 0$ bzw. $\lim_{h \to 0} \Phi(x,y,h) = f(x,y)$.
+
+\subsubsection*{Konsistenzordnung}
+
+ESV mit $\Phi$ ist \emph{konsistent mit Ordnung $p$}, falls:
+
+\vspace*{-2mm}
+$$\tau(x,y,h) \in \mathcal{O}(h^p) \text{ für } h \to 0$$
+
+Hierzu ist eine Taylorentwicklung von $z$ hilfreich.
+
+Beide Eulerverfahren haben Ordnung $1$.
+
+\subsection*{Allgemeiner Ansatz für Ordnung $2$}
+
+$$\Phi(x,y,h) := a_1 \cdot f(x,y) + a_2 \cdot f(x+p_1 h, y+p_2 h \cdot f(x,y))$$
+
+für Konstanten $a_1, a_2, p_1, p_2 \in \R$.
+
+\spacing
+
+Bedingungen: $a_1 + a_2 = 1, \ a_2 p_1 = \frac{1}{2}, \ a_2 p_2 = \frac{1}{2}$
+
+\subsubsection*{Verfahren von Heun}
+
+$$\Phi(x,y,h) := \frac{1}{2}(f(x,y) + f(x+h, y+h \cdot f(x,y)))$$
+
+\subsubsection*{Verfahren von Runge}
+
+$$\Phi(x,y,h) := f(x + \frac{h}{2}, y + \frac{h}{2} f(x,y) )$$
+
+\subsubsection*{Implizite Trapezregel}
+
+\vspace*{-2mm}
+\begin{align*}
+	\Phi(x,y,h) &:= \frac{1}{2} (f(x,y) + f(x+h, g(x,y,h)) \\
+	g(x,y,h) &:= y + \frac{h}{2} (f(x,y) + f(x+h,g(x,y,h))
+\end{align*}
+
+\subsection*{Konvergenz}
+
+Der \emph{globale Diskretisierungsfehler} für $x \in [a,b]$:
+
+\vspace*{-4mm}
+$$e(x,h_n) := \eta(x,h_n) - y(x), \ h_n=h_n(x)=\frac{x-x_0}{n}, n \in \N_0$$
+
+Ein ESV ist \emph{konvergent}, falls:
+
+\vspace*{-4mm}
+$$\forall x \in [a,b], \text{hinr. glatte } f : \lim_{n \to \infty} e(x,h_n) = 0$$
+
+\section*{Explizite Runge-Kutta-Verfahren}
+
+\section*{Explizite Extrapolationsverfahren}
+
+\section*{Mehrschrittverfahren}
+
+\section*{Partielle Differentialgleichungen}
+
+\subsection*{Finite Differenzen}
