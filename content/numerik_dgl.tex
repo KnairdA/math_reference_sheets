@@ -269,7 +269,68 @@ Typischerweise bewegt sich das \emph{Steifheitsmaß} $\gamma$ für reale Beispie
 
 Zur numerischen Lösung steifer DGLs sind implizite Verfahren geeignet.
 
+\subsection*{Implizite Runge-Kutta-Verfahren}
+
+\subsection*{RKV vom Kollokationstyp}
+
 \section*{Mehrschrittverfahren}
+
+Für $k \in \N$ wird $\eta_{i+1}$ aus $\eta_{i+1-k},\dots,\eta_i$ berechnet.
+
+\emph{Lineares $k$-Schrittverfahren} berechnet $\eta(\cdot,h)$:
+
+$$\sum_{i=0}^k \alpha_i \eta_{j+i} = h \cdot \sum_{i=0}^k \beta_i f(x_{j+i},\eta_{j+i})$$
+
+Mit Koeffizienten $\alpha_i, \beta_i \in \R$ für $i \in [k]$.
+
+\spacing
+
+\emph{Explizites $k$-Schrittverfahren}: $\beta_k = 0, \ |\alpha_0|+|\beta_0| > 0$
+
+\emph{Implizites $k$-Schrittverfahren}: $\beta_k \neq 0, \ \alpha_k \neq 0$
+
+\subsection*{Darstellung mit Shiftoperator}
+
+$$(E\varphi)(x) := \varphi(x+h)$$
+
+\vspace*{-4mm}
+
+$$\left(\sum_{i=0}^k \alpha_i E^i\right) \cdot \eta(x,h) = h \cdot \left(\sum_{i=0}^k \beta_i  E^i\right) \cdot f(x,\eta(x,h))$$
+
+Noch kompakter mit Polynomen $\rho(\xi) = \sum_{i=0}^k \alpha_i \xi^i$ und $\sigma(\xi) = \sum_{i=0}^k \beta_i \xi^i$: $\rho(E)\eta = h \sigma(E) f$
+
+\subsection*{Konsistenz}
+
+\emph{Differenzenoperator} aus $\rho(E)\eta - h\sigma(E)f = 0$:
+
+$$L(x,y,h) := \frac{1}{h}\left(\rho(E)y(x) - h\sigma(E)y'(x)\right)$$
+
+Ein lineares $k$-Schrittverfahren hat Konsistenzordnung $p$, wenn $\forall$ hinreichend glatte $f : L(x,y,h) \in \mathcal{O}(h^p)$ glm. $\forall x, h$ s.d. $[x,x+kh] \subset [x_0,b]$.
+
+\spacing
+
+Einsetzen von Einschrittverfahren in $L$ ergibt den lokalen Diskretisierungsfehler.
+
+\subsection*{Konsistenzcharakterisierung}
+
+Ein lineares $k$-Schrittverfahren hat Konsistenzordnung $p$ gdw. eine der folgenden Bed. gilt:
+
+\begin{enumerate}[label=(\alph*)]
+	\item Für glatte $y: L(x,y,h) \in \mathcal{O}(h^p)$ glm. in $x, h$
+	\item $\forall Q \in \Pi_p : L(x,Q,h) = 0$
+	\item $L(0,\text{exp},h) = \frac{1}{h}(\rho(e^h)-h\sigma(e^h)) \in \mathcal{O}(h^p)$
+	\item For $m = 1, \dots, p$: \\ $\sum_{j=0}^k \alpha_j = 0, \ \sum_{j=0}^k \alpha_j j^m = m \sum_{j=0}^k \beta_j j^{m-1}$
+\end{enumerate}
+
+Insbesondere hat ein Mehrschrittverfahren die Ordnung $p=1$, falls: $\rho(1) = 0 \land \rho'(1) = \sigma(1)$
+
+\subsection*{Konvergenz}
+
+Ein Mehrschrittverfahren konvergiert gegen Lösung $y \in \mathcal{C}^1(x_0,b)$ von $y'=f(x,y)$, $y(x_0)=y_0$, wenn sobald $\forall j \in [k-1] : \lim_{h \to 0} \eta(x_0+jh,h)=y_0$:
+
+$$\forall x \in \mathcal{G}_k \cap [x_0,b] : \lim_{h \to 0} \eta(x,h) = y(x)$$
+
+Konvergentes lineares Mehrschrittverfahren ist stabil und konsistent. Insb. gilt $\rho'(1)=\sigma(1) \neq 0$.
 
 \section*{Partielle Differentialgleichungen}
 
