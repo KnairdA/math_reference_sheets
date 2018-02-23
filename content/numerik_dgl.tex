@@ -271,7 +271,34 @@ Zur numerischen Lösung steifer DGLs sind implizite Verfahren geeignet.
 
 \subsection*{Implizite Runge-Kutta-Verfahren}
 
-\subsection*{RKV vom Kollokationstyp}
+Ein $s$-stufiges RKV ist \emph{implizit}, wenn zugehörige $A \in \R^{s \times s}$ keine strikte untere Dreiecksmatrix ist.
+
+\spacing
+
+$(c,b,A)$ ist invariant gegen Autonomisierung gdw. es konsistent ist und $\forall i \in [s] : c_i = \sum_{j=1}^s a_{i,j}$ gilt.
+
+\spacing
+
+Die Anzahl der Bedingungsgleichungen impliziter RKV entspricht der Anzahl für explizite RKV. Implizite RKV bieten jedoch mehr Freiheitsgrade.
+
+\subsubsection*{RKV vom Kollokationstyp}
+
+Implizite RKV ohne Lösen der Bedingungsgl.:
+
+$u \in \Pi_s$ mit $u(x+h) = y+h\cdot\Phi(x,y,h)$ und $\forall i \in [s] : u'(x+c_i h) = f(x+c_i h,u(x+c_i h))$.
+
+d.h. $u$ erfüllt DGL in mindestens $s$ Stellen.
+
+Solche Verfahren sind durch $(c_1,\dots,c_s)$ gegeben.
+
+Interpretiert als $s$-stufiges implizites RKV:
+
+\vspace*{-4mm}
+\begin{align*}
+a_{i,j} &:= \int_0^{c_i} L_j(\vartheta) \ d\vartheta \\
+k_i &:= f(x+c_ih,y+h\sum_{j=1}^s a_{i,j} k_j) \\
+b_j &:= \int_0^1 L_j(\vartheta) d\vartheta
+\end{align*}
 
 \section*{Mehrschrittverfahren}
 
@@ -316,13 +343,21 @@ Einsetzen von Einschrittverfahren in $L$ ergibt den lokalen Diskretisierungsfehl
 Ein lineares $k$-Schrittverfahren hat Konsistenzordnung $p$ gdw. eine der folgenden Bed. gilt:
 
 \begin{enumerate}[label=(\alph*)]
-	\item Für glatte $y: L(x,y,h) \in \mathcal{O}(h^p)$ glm. in $x, h$
-	\item $\forall Q \in \Pi_p : L(x,Q,h) = 0$
-	\item $L(0,\text{exp},h) = \frac{1}{h}(\rho(e^h)-h\sigma(e^h)) \in \mathcal{O}(h^p)$
-	\item For $m = 1, \dots, p$: \\ $\sum_{j=0}^k \alpha_j = 0, \ \sum_{j=0}^k \alpha_j j^m = m \sum_{j=0}^k \beta_j j^{m-1}$
+\item Für glatte $y: L(x,y,h) \in \mathcal{O}(h^p)$ glm. in $x, h$
+\item $\forall Q \in \Pi_p : L(x,Q,h) = 0$
+\item $L(0,\text{exp},h) = \frac{1}{h}(\rho(e^h)-h\sigma(e^h)) \in \mathcal{O}(h^p)$
+\item For $m = 1, \dots, p$: \\ $\sum_{j=0}^k \alpha_j = 0, \ \sum_{j=0}^k \alpha_j j^m = m \sum_{j=0}^k \beta_j j^{m-1}$
 \end{enumerate}
 
 Insbesondere hat ein Mehrschrittverfahren die Ordnung $p=1$, falls: $\rho(1) = 0 \land \rho'(1) = \sigma(1)$
+
+\subsection*{Stabilität}
+
+Lineares Mehrschrittverfahren $(\rho,\sigma)$ ist \emph{stabil}, wenn Differenzengleichung $\rho(E)\eta=0$ stabil ist. Dies ist der Fall gdw. $\forall$ Nullstellen $\xi$ von $\rho$ gilt: $|\xi| \leq 1$, dabei $|\xi|=1$ nur für einfache Nullstellen.
+
+\subsubsection*{Strikte Stabilität}
+
+Ein Mehrschrittverfahren ist \emph{strikt stabil}, wenn für Nullstellen $\xi \neq 1$ von $\rho$ gilt: $|\xi| < 1$
 
 \subsection*{Konvergenz}
 
@@ -331,6 +366,33 @@ Ein Mehrschrittverfahren konvergiert gegen Lösung $y \in \mathcal{C}^1(x_0,b)$ 
 $$\forall x \in \mathcal{G}_k \cap [x_0,b] : \lim_{h \to 0} \eta(x,h) = y(x)$$
 
 Konvergentes lineares Mehrschrittverfahren ist stabil und konsistent. Insb. gilt $\rho'(1)=\sigma(1) \neq 0$.
+
+\spacing
+
+Umgekehrt gilt auch: Stabiles und konsistentes Mehrschrittverfahren ist konvergent.
+
+\subsection*{Satz von Dahlquist}
+
+Für die Konsistenzordnung $p$ eines stabilen linearen $k$-Schrittverfahrens gilt:
+
+\begin{enumerate}
+\item $p \leq k + 2$ wenn $k$ gerade
+\item $p \leq k + 1$ wenn $k$ ungerade
+\item $p \leq k$ wenn $\frac{\beta_k}{\alpha_k} \leq 0$,\\ d.h. insb für explizite Verfahren
+\end{enumerate}
+
+Für die Konsistenzordnung $p$ von strikt stabilen linearen $k$-Schrittverfahren gilt $p \leq k + 1$.
+
+\subsection*{Adams-Verfahren}
+
+Setze $\rho(\xi) := \xi^k - \xi^{k-1}$ s.d. einfache Nst. $\xi=1$ und $(k-1)$-fache Nst. $\xi = 0$ gegeben sind. Dies ergibt:
+
+\vspace*{-2mm}
+$$\eta_{k+1}-\eta_{j+k-1} = h \cdot \sigma(E) \cdot f(x_j,\eta(x_j,h))$$
+
+Für explizites Verfahren: $p = k$ mit $\beta_k = 0$.
+
+Für implizites Verfahren: $p = k+1$ mit $\beta_k \neq 0$.
 
 \section*{Partielle Differentialgleichungen}
 
