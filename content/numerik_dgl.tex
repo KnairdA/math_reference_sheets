@@ -385,6 +385,8 @@ Für die Konsistenzordnung $p$ von strikt stabilen linearen $k$-Schrittverfahren
 
 \subsection*{Adams-Verfahren}
 
+Verallgemeinerung der Euler-Verfahren.
+
 Setze $\rho(\xi) := \xi^k - \xi^{k-1}$ s.d. einfache Nst. $\xi=1$ und $(k-1)$-fache Nst. $\xi = 0$ gegeben sind. Dies ergibt:
 
 \vspace*{-2mm}
@@ -396,4 +398,83 @@ Für implizites Verfahren: $p = k+1$ mit $\beta_k \neq 0$.
 
 \section*{Partielle Differentialgleichungen}
 
+Lineare Differentialgleichungen in $d$ Variablen:
+
+\vspace*{-4mm}
+$$-\sum_{i,j=1}^d a_{i,j}(x)\partial_{x_i x_j}^2 u + \sum_{i=1}^d b_i(x) \partial_{x_i} u + c(x)u(x) = f(x)$$
+
+$A(x) := \{a_{i,k}(x)\}_{1\leq i,k \leq d}$ ist symmetrisch.
+
+\subsection*{Nicht erschöpfende Klassifikation}
+
+DGL ist \emph{elliptisch} in $x$, falls $A(X)$ pos. def. ist.
+
+\spacing
+
+DGL ist \emph{hyperbolisch} in $x$, falls $A(X)$ $1$ negativen und $d-1$ positive Eigenwerte hat.
+
+\spacing
+
+DGL ist \emph{parabolisch} in $x$, falls $A(X)$ pos. semidef. und Rang von $((A(x),b(x)) \in \R^{d \times (d+1)}$ maximal ist.
+
+
 \subsection*{Finite Differenzen}
+
+Für $d \in \N$, Auflösung $n \in \N$ und Knotenabstand $h = \frac{1}{n+1}$ sei  Gitter $\mathcal{G}_h$ auf \emph{Rechteckgebiet} $\Omega = (0,1)^d$ gegeben als:
+
+\vspace*{-4mm}
+\begin{align*}
+	\mathcal{G}_h &:= \left\{ x \in \overline\Omega | x = hi, i \in [n+1]^d\right\} &\text{Gitter} \\
+\mathcal{G}_h^o &:= \mathcal{G}_h \cap \Omega &\text{innere Knoten} \\
+\mathcal{G}_h^\partial &:= \mathcal{G}_h \setminus \mathcal{G}_h^o &\text{Randknoten}
+\end{align*}
+
+Dabei sind $v_h : \mathcal{G}_h \to \R$ \emph{Gitterfunktionen}:
+
+\vspace*{-4mm}
+\begin{align*}
+V_h &:= \left\{ v_h : \mathcal{G}_h \to \R \right\} \simeq \R^{|\mathcal{G}_h|} \\
+V_h^o &:= \left\{ v_h : \mathcal{G}_h^o \to \R \right\} \\
+V_h^\partial &:= \left\{ v_h : \mathcal{G}_h^\partial \to \R \right\}
+\end{align*}
+
+\subsubsection*{Diskrete Differentialoperatoren}
+
+Für $\ell = 1,\dots,d$ und Einheitsvektoren $e^{(\ell)} \in \R^d$ sei für $x \in \mathcal{G}_h^o$ \emph{diskreter Differentialoperator} definiert:
+
+\vspace*{-4mm}
+\begin{align*}
+\partial_\ell^{+h} v(x) &= \frac{1}{h} \left( v(x+he^{(\ell)}) - v(x) \right) &\text{ Vorwärts} \\
+\partial_\ell^{-h} v(x) &= \frac{1}{h} \left( v(x) - v(x-he^{(\ell)}) \right) &\text{ Rückwärts} \\
+\partial_\ell^{h} v(x) &= \frac{1}{h} \left( v(x+he^{(\ell)}) - v(x - he^{(\ell)}) \right) &\text{ Zentral}
+\end{align*}
+
+\emph{Diskreter Laplace-Operator} $\Delta_h : V_h \to V_h^o$ ist geg.:
+
+\vspace*{-2mm}
+$$\Delta_h v_h(x) := \sum_{\ell = 1}^d \partial_\ell^{+h} \partial_\ell^{-h} v_h(x)$$
+
+Der \emph{allgemeine lineare Differentialoperator}:
+
+\vspace*{-4mm}
+$$Lv(x) = -a(x)\Delta v(x) + \vec{b}(x) \cdot \nabla v(x) + c(x)v(x), \ x \in \Omega$$
+
+wird auf $V_h$ für $x \in \mathcal{G}_h^o$ mit z.B. $\nabla^h := \left(\partial_1^h,\dots,\partial_d^h\right)$ approximiert durch:
+
+\vspace*{-4mm}
+$$L_h v_h(x) = -a(x)\Delta_h v_h(x) + \vec{b}(x) \cdot \nabla^h v(x) + c(x)v_h(x)$$
+
+\subsubsection*{Konsistenz von Operatoren}
+
+Der \emph{Restriktionsoperator} $I_h : \mathcal{C}^0(\overline\Omega) \to V_h$ ist def. als $I_h v(x) = v(x)$ für $x \in \mathcal{G}_h$. 
+
+\spacing
+
+$L_h : V_h \to V_h^o$ und $L : \mathcal{C}^\infty(\Omega) \to \mathcal{C}^\infty(\Omega)$ sind \emph{konsistent} von Ordnung $\kappa > 0$ bzgl. $\|\cdot\|_h$ auf $V_h$, wenn:
+
+\vspace*{-4mm}
+$$\forall v \in \mathcal{C}^\infty(\Omega) : \|I_h^o Lv - L_h I_h v\|_h \leq C h^\kappa \text{ für } h \to \infty$$
+
+Norm $\|\cdot\|_{h,\infty}$ auf $V_h$ ist def.: $\|v_h\|_{h,\infty} := \displaystyle\max_{x \in \mathcal{G}_h} |v_h(x)|$
+
+\subsubsection*{Differenzensterne}
