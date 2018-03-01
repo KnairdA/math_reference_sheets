@@ -1,7 +1,7 @@
 % Borel Sigma-Algebra Kürzel
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\B}{\mathcal{B}}
-\newcommand{\C}{\mathcal{C}}
+\renewcommand{\C}{\mathcal{C}}
 \newcommand{\E}{\mathcal{E}}
 \newcommand{\F}{\mathcal{F}}
 \newcommand{\J}{\mathcal{J}}
@@ -16,7 +16,7 @@
 
 Sei $\B$ ein Mengensystem.
 
-$$\left(\bigcup_{B\in \B} B \right)^c = \bigcap_{B\in \B} B^c \hspace*{8mm} \left(\bigcap_{B\in \B} \right)^c = \bigcup_{B\in \B} B^c$$
+\[ \left(\bigcup_{B\in \B} B \right)^c = \bigcap_{B\in \B} B^c \hspace*{8mm} \left(\bigcap_{B\in \B} \right)^c = \bigcup_{B\in \B} B^c \]
 
 \subsection*{Mengen-Ring}
 
@@ -55,7 +55,7 @@ Seien $\A$ eine $\sigma$-Algebra auf $X$, $n \in \N$, $\forall j \in \N : A_j \i
 Die durch das nichtleere Mengensystem $\E \subseteq \powerset{X}$ auf $X$ erzeugte $\sigma$-Algebra ist wie folgt definiert:
 
 \vspace*{-4mm}
-$$\sigma(\E) := \bigcap\{ \A \subseteq \powerset{X} | \A \text{ ist } \sigma \text{-Algebra}, \E \subseteq \A \}$$
+\[ \sigma(\E) := \bigcap\{ \A \subseteq \powerset{X} | \A \text{ ist } \sigma \text{-Algebra}, \E \subseteq \A \} \]
 
 Der Erzeuger $\E$ ist hierbei allg. nicht eindeutig.
 
@@ -80,7 +80,7 @@ $\B_m$ enthält insb. alle offenen und abgeschlossenen Mengen in $\R^m$ sowie de
 
 \subsubsection*{Charakterisierung}
 
-$$\B_m = \sigma(\{(a, b) | a, b \in \mathbb{Q}^m, a \leq b\})$$
+\[ \B_m = \sigma(\{(a, b) | a, b \in \mathbb{Q}^m, a \leq b\}) \]
 
 Analoges gilt auch für andere Intervalle.
 
@@ -107,10 +107,10 @@ Ein Wahrscheinlichkeitsmaß erfüllt $\mu(X) = 1$.
 Für fest gewählte $\A = \powerset{X}$, $x \in X$ ist ein Wahrscheinlichkeitsmaß für $A \subseteq X$ definiert:
 
 \vspace{-2mm}
-$$\delta_x(A) := \begin{cases}
+\[ \delta_x(A) := \begin{cases}
 	1 & x \in A \\
 	0 & x \notin A
-\end{cases}$$
+\end{cases} \]
 
 \subsection*{Zählmaß}
 
@@ -154,7 +154,7 @@ $\lambda(I) = \lambda_m(I) := (b_1 - a_1) \cdot \hdots \cdot (b_m - a_m)$
 
 \subsection*{Ring der Figuren}
 
-$$\F_m = \left\{ A = \bigcup_{j=1}^n I_j | I_j \in \J_m, n \in \N \right\}$$
+\[ \F_m = \left\{ A = \bigcup_{j=1}^n I_j | I_j \in \J_m, n \in \N \right\} \]
 
 \subsubsection*{Eigenschaften des Ring der Figuren}
 
@@ -227,10 +227,10 @@ Weiterhin gilt: $\overline \B_1 = \sigma(\{ [-\infty,a] | a \in \Q \})$
 Seien $f_n : X \to \overline \R$ für alle $n \in \N$ $\A-\overline \B_1$-messbar
 
 \vspace{-4mm}
-$$\Rightarrow \sup_{n \in \N} f_n, \inf_{n \in \N} f_n, \varliminf_{n \to \infty} f_n, \varlimsup_{n \to \infty} f_n \ \ \A-\overline \B_1 \text{-messbar}$$
+\[ \Rightarrow \sup_{n \in \N} f_n, \inf_{n \in \N} f_n, \varliminf_{n \to \infty} f_n, \varlimsup_{n \to \infty} f_n \ \ \A-\overline \B_1 \text{-messbar} \]
 
 \vspace{-4mm}
-$$\forall x \in X : \lim_{n \to \infty} f_n(x) \in \overline \R \Rightarrow \lim_{n \to \infty} f_n \text{ ist } \A-\overline \B_1-\text{mb.}$$
+\[ \forall x \in X : \lim_{n \to \infty} f_n(x) \in \overline \R \Rightarrow \lim_{n \to \infty} f_n \text{ ist } \A-\overline \B_1-\text{mb.} \]
 
 $f : [a,b] \to \R$ diffbar. $\Rightarrow f'$ ist $\B([a,b])$-$\B_1$-mb.
 
@@ -257,7 +257,7 @@ Dann ist auch $|f| : x \mapsto |f(x)|$ $\A$-$\overline\B_+$-mb.
 Messbare $f : X \to \R$ heißt einfach, wenn sie nur endlich viele Werte annimmt. Die Normalform von $f$ ist für $f^{-1}(\{y\}) \in \A$ mit $y \in f(X)$ definiert:
 
 \vspace{-2mm}
-$$f = \sum_{y \in f(X)} y \cdot \1_{f^{-1}(\{y\})}$$
+\[ f = \sum_{y \in f(X)} y \cdot \1_{f^{-1}(\{y\})} \]
 
 Sei $f : X \to \overline R$ messbar, dann gelten:
 
@@ -273,19 +273,19 @@ $f : X \to \overline\R$ ist $\A$-$\overline\B_1$-mb. gdw. einfache Fkt. $f_n : X
 
 \subsection*{Integral für nichtnegative einfache Fkt.}
 
-$$\int f d\mu = \int_X f(x) d\mu(x) := \sum_{y \in f(X)} y \cdot \mu(f^{-1}(\{y\}))$$
+\[ \int f d\mu = \int_X f(x) d\mu(x) := \sum_{y \in f(X)} y \cdot \mu(f^{-1}(\{y\})) \]
 
 \subsection*{Integral für nichtnegative Funktionen}
 
 Sei $f : X \to [0, \infty]$ $\A$-$\overline\B_+$-mb. und steigende Folge einfacher $f_n \leq f$ mit $\displaystyle\lim_{n \to \infty} f_n(x) = f(x)$ gegeben:
 
 \vspace{-2mm}
-$$\int_X f \ d\mu := \lim_{n \to \infty} \int_X f_n \ d\mu = \sup_{n \in \N} \int_X f_n \ d\mu$$
+\[ \int_X f \ d\mu := \lim_{n \to \infty} \int_X f_n \ d\mu = \sup_{n \in \N} \int_X f_n \ d\mu \]
 
 Grundlegende Integraleigenschaften sind erfüllt.
 
 \vspace{-4mm}
-$$\int_X f \ d\mu = \sup\left\{ \int_X g \ d\mu | g \text{ einfach}, 0 \leq g \leq f \right\}$$
+\[ \int_X f \ d\mu = \sup\left\{ \int_X g \ d\mu | g \text{ einfach}, 0 \leq g \leq f \right\} \]
 
 \subsection*{Monotone Konvergenz}
 
@@ -303,18 +303,18 @@ Dies gilt nicht ohne Monotonie oder für eine fallende Folge $(f_n)_{n \in \N}$.
 
 Seien $f_j : X \to [0,\infty]$ $\A$-$\overline\B_+$-mb. für $\forall j \in \N$. Dann ist auch $\sum_{j=1}^\infty f_j$ $\A$-$\overline\B_+$-messbar und:
 
-$$\int_X \sum_{j=1}^\infty f_j(x) d\mu(x) = \sum_{j=1}^\infty \int_X f_j(x) d\mu(x)$$
+\[ \int_X \sum_{j=1}^\infty f_j(x) d\mu(x) = \sum_{j=1}^\infty \int_X f_j(x) d\mu(x) \]
 
 \subsection*{Integral für $\overline\R$-wertige Funktionen}
 
 Sei $f : X \to \overline\R$ eine $\A$-$\overline\B_1$-mb. Funktion. Dann sind auch $f_+$ und $f_-$ mb. $f$ ist Lebesgue-integrierbar, wenn:
 
 \vspace{-4mm}
-$$\int_X f_+(x) d\mu(x) < \infty \text{ und } \int_X f_-(x) d\mu(x) < \infty$$
+\[ \int_X f_+(x) d\mu(x) < \infty \text{ und } \int_X f_-(x) d\mu(x) < \infty \]
 
 Das Lebesgue-Integral ist dann definiert durch:
 
-$$\int f d\mu = \int_X f_+(x) d\mu(x) - \int_X f_-(x) d\mu(x)$$
+\[ \int f d\mu = \int_X f_+(x) d\mu(x) - \int_X f_-(x) d\mu(x) \]
 
 $\L^1(X,\A,\mu) = \L^1(\mu) = \L^1(X) := \{ f : X \to \R | f \text{ ib.}\}$
 
@@ -389,12 +389,12 @@ Sei $f : X \to \overline\R$ ib. Dann ist $\{|f|=\infty\}$ eine Nullmenge, $f$ is
 Sei $f_n : X \to [0,\infty]$ für alle $n \in \N$ mb. Dann:
 
 \vspace{-2mm}
-$$\int_X \liminf_{n \to \infty} f_n d\mu \leq \liminf_{n \to \infty} \int_X f_n d\mu$$
+\[ \int_X \liminf_{n \to \infty} f_n d\mu \leq \liminf_{n \to \infty} \int_X f_n d\mu \]
 
 Konvergiert $f_n$ f.ü. gegen mb. $f : X \to [0,\infty]$:
 
 \vspace{-2mm}
-$$\int_X f d\mu \leq \liminf_{n \to \infty} \int_X f_n d\mu$$
+\[ \int_X f d\mu \leq \liminf_{n \to \infty} \int_X f_n d\mu \]
 
 \subsection*{Majorisierte Konvergenz (Lebesgue)}
 
@@ -423,7 +423,7 @@ Sei $M$ metrischer Raum, $t_0 \in M$, $(X,\A,\mu)$ Maßraum und $f : M \times X 
 Dann ist $\forall t \in M$ die Fkt. $X \to \R; x \mapsto f(t,x)$ ib. und es gilt:
 
 \vspace{-2mm}
-$$\lim_{t \to t_0} \int_X f(t,x) d\mu(x) = \int_X f(t_0,x) d\mu(x)$$
+\[ \lim_{t \to t_0} \int_X f(t,x) d\mu(x) = \int_X f(t_0,x) d\mu(x) \]
 
 \subsection*{Differentiationssatz}
 
@@ -437,7 +437,7 @@ Sei $U \subseteq \R^k$ offen, $j \in \{1,\cdots,k\}$, $(X,\A,\mu)$ Maßraum und 
 
 Dann ist $\forall t \in U$ die Abbildung $x \mapsto \frac{\partial}{\partial t_j} f(t,x)$ integierbar und es existiert die partielle Ableitung:
 
-$$\frac{\partial}{\partial t_j} \int_X f(t,x) dx = \int_X \frac{\partial f}{\partial t_j} (t,x) dx$$
+\[ \frac{\partial}{\partial t_j} \int_X f(t,x) dx = \int_X \frac{\partial f}{\partial t_j} (t,x) dx \]
 
 \section*{Iterierte Integrale}
 
@@ -455,7 +455,7 @@ Für $C \subseteq \R^m$ sind die Schnitte definiert:
 
 Für beliebige $C \in \B_m$ gilt:
 
-$$\lambda_m(C) = \int_{\R^k} \lambda_l(C^x) dx = \int_{\R^l} \lambda_k(C_y) dy$$
+\[ \lambda_m(C) = \int_{\R^k} \lambda_l(C^x) dx = \int_{\R^l} \lambda_k(C_y) dy \]
 
 Daraus folgt:
 
@@ -488,7 +488,7 @@ Sei $U \subseteq \R^m$ offen, $\phi \in C^1(U,\R^m)$ injektiv und $A \in \B_m$ m
 Dann ist $\phi(A^\circ)$ offen, $\phi : A^\circ \to \phi(A^\circ)$ Diffeomorphismus und $\phi(A) \setminus \phi(A^\circ)$ Nullmenge. Weiter:
 
 \begin{enumerate}[label=(\alph*)]
-	\item Sei $f: \phi(A) \to [0,\infty]$ messbar. Dann: \vspace{-2mm} $$\int_{\phi(A)} f(y) dy = \int_A f(\phi(x))|\det \phi'(x)| dx$$
+	\item Sei $f: \phi(A) \to [0,\infty]$ messbar. Dann: \vspace{-2mm}  \[ \int_{\phi(A)} f(y) dy = \int_A f(\phi(x))|\det \phi'(x)| dx \]
 	\item Sei $f : \phi(A) \to \overline\R$ messbar. Dann ist $f$ auf $\phi(A)$ ib. gdw. $x \mapsto f(\phi(x))|\det(\phi'(x))|$ auf $A$ integrierbar ist. Es gilt dann auch (a).
 \end{enumerate}
 
@@ -515,7 +515,7 @@ Eine Borelmenge $M \subseteq \R^m$ ist \emph{dünnsinguläre} $C^k$-Hyperfläche
 Sei $F : U \to W$ eine Parametrisierung. Dann ist
 
 \vspace{-2mm}
-$$g_F(t) = \transpose{\det(F'(t)}F'(t))$$
+\[ g_F(t) = \transpose{\det(F'(t)}F'(t)) \]
 
 die \emph{Gramsche Determinante} von $F$. Die Matrix $\transpose{F'(t)}F'(t) \in L(\R^{m-1})$ ist sym. und positiv definit.
 
@@ -546,7 +546,7 @@ $\sqrt{g_F(r,\varphi,\theta)} = r^{m-1} \cos^1(\theta_1) \cdots \cos^{m-2}(\thet
 Sei $F : U \to W$ eine Parametrisierung, $M_0 = F(U) \subseteq \R^m$ ein offenes Flächenstück. Sei weiter $f : M_0 \to \overline\R$ messbar und nichtnegativ oder die Funktion $g := f \circ F \sqrt{g_F}$ integrierbar. Dann:
 
 \vspace{-4mm}
-$$\int_{M_0} f d\sigma = \int_{M_0} f(x) d\sigma(x) := \int_U f(F(t))\sqrt{g_F(t)} dt$$
+\[ \int_{M_0} f d\sigma = \int_{M_0} f(x) d\sigma(x) := \int_U f(F(t))\sqrt{g_F(t)} dt \]
 
 \subsubsection*{Oberflächenmaß}
 
@@ -564,19 +564,19 @@ Maß ist unabhg. der Wahl der Parametrisierung.
 
 Sei $D \subseteq \R^m$ offen und beschränkt mit dünnsingulärem $C^1$-Rand, liege $f \in C(\overline D,\R^m) \cap C_b^1(D,\R^m)$ und $(f|\nu) \in \L^1(\partial D,\sigma)$. Dann:
 
-$$\int_D div f(x) dx = \int_{\partial D} (f(x)|\nu(x)) d\sigma(x)$$
+\[ \int_D div f(x) dx = \int_{\partial D} (f(x)|\nu(x)) d\sigma(x) \]
 
 Mit $\text{div} f(x) := \text{spur} \ f'(x) = \partial_1 f_1(x) + \cdots + \partial_m f_m(x)$ und $\nu$ ist äußere Einheitsnormale an $\partial D$:
 
 \vspace{-4mm}
-$$\nu(x) = \tfrac{1}{\sqrt{1+|\nabla h(x')|_2^2}} \begin{pmatrix} -\nabla h(x') \\ 1 \end{pmatrix}, \ \ x = (x',x_m)$$
+\[ \nu(x) = \tfrac{1}{\sqrt{1+|\nabla h(x')|_2^2}} \begin{pmatrix} -\nabla h(x') \\ 1 \end{pmatrix}, \ \ x = (x',x_m) \]
 
 \subsection*{Satz von Stokes in $\R^3$}
 
 Für $f \in C^1(D,\R^3)$ ist die Rotation definiert:
 
 \vspace{-4mm}
-$$\text{rot} \ f(x) = \begin{pmatrix}
+\[ \text{rot} \ f(x) = \begin{pmatrix}
 	\partial_1 \\
 	\partial_2 \\
 	\partial_3
@@ -588,23 +588,23 @@ $$\text{rot} \ f(x) = \begin{pmatrix}
 	\partial_2 f_3(x) - \partial_3 f_2(x) \\
 	\partial_3 f_1(x) - \partial_1 f_3(x) \\
 	\partial_1 f_2(x) - \partial_2 f_1(x)
-\end{pmatrix}$$
+\end{pmatrix} \]
 
 Sei $F : U \to D$ $C^2$-Parametrisierung mit offenen, beschränken $U \subseteq \R^2$, $D \subseteq \R^3$. Die äußere Einheitsnormale $n$ an $M = F(U) \subseteq D$ sei:
 
 \vspace{-4mm}
-$$n(F(t)) = \frac{1}{|\partial_1 F(t) \times \partial_2 F(t)|_2} \partial_1 F(t) \times \partial_2 F(t)$$
+\[ n(F(t)) = \frac{1}{|\partial_1 F(t) \times \partial_2 F(t)|_2} \partial_1 F(t) \times \partial_2 F(t) \]
 
 Weiter sei $\partial U$ geschlossene und doppelpunktfreie $C^1$-Kurve mit Parametrisierung $\gamma : (a,b) \to \partial U$ im Gegenuhrzeigersinn s.d. $\partial M$ $C^1$-Kurve mit Parametrisierung $\varphi = F \circ \gamma$ ist.
 Dann gilt:
 
 \vspace{-2mm}
-$$\int_M (\text{rot} \ f(x) | n(x)) d\mu(x) = \int_{\partial M} f \cdot \ dx$$
+\[ \int_M (\text{rot} \ f(x) | n(x)) d\mu(x) = \int_{\partial M} f \cdot \ dx \]
 
 Dabei ist das \emph{Kurvenintegral zweiter Art} geg. als:
 
 \vspace{-2mm}
-$$\int_{\partial M} f \cdot dx = \int_a^b (f(\varphi(\tau))|\varphi'(\tau)) d\tau$$
+\[ \int_{\partial M} f \cdot dx = \int_a^b (f(\varphi(\tau))|\varphi'(\tau)) d\tau \]
 
 \section*{Lebesguesche Räume}
 
@@ -650,30 +650,30 @@ $(L^p(\mu),\|\cdot\|_p)$ ist $\forall p \in [1,\infty]$ normierter Vektorraum.
 Sei $\frac{1}{p} + \frac{1}{p'} = 1$ mit:
 
 \vspace{-4mm}
-$$p' = \begin{cases}
+\[ p' = \begin{cases}
 	\frac{p}{p-1} & p \in (1, \infty) \\
 	\infty        & p = 1 \\
 	1        & p = \infty
-\end{cases}$$
+\end{cases} \]
 
 Dann liegt für $f \in \L^p(\mu)$, $g \in \L^{p'}(\mu)$ das Produkt $fg \in \L^1(\mu)$ und die Höldersche Ungleichung gilt:
 
 \vspace{-4mm}
-$$\left| \int_X fg d\mu \right| \leq \int_X |fg| d\mu = \|fg\|_1 \leq \|f\|_p \|g\|_{p'}$$
+\[ \left| \int_X fg d\mu \right| \leq \int_X |fg| d\mu = \|fg\|_1 \leq \|f\|_p \|g\|_{p'} \]
 
 \subsection*{Minkowski Ungleichung}
 
 Seien $f, g \in \L^p(\mu)$. Dann gilt $f + g \in \L^p(\mu)$ und:
 
 \vspace{-2mm}
-$$\| f + g \|_p \leq \|f\|_p + \|g\|_p$$
+\[ \| f + g \|_p \leq \|f\|_p + \|g\|_p \]
 
 \subsection*{Konvergenz in $\L^p$}
 
 Sei $\mu(X) < \infty$ und $1 \leq p \leq q \leq \infty$. Dann gilt $\L^q(\mu) \subseteq \L^p(mu)$ und für $f \in L^q(\mu)$:
 
 \vspace{-2mm}
-$$\|f\|_p \leq \mu(X)^{\frac{1}{p} - \frac{1}{q}} \|f\|_q$$
+\[ \|f\|_p \leq \mu(X)^{\frac{1}{p} - \frac{1}{q}} \|f\|_q \]
 
 Die Konvergenz $\| f - f_n \|_p \to 0$ folgt also in diesem Fall aus $\| f - f_n \|_q \to 0$ für $n \to \infty$.
 
@@ -694,7 +694,7 @@ $L^p(\mu)$ ist ein Banach-, für $p=2$ ein Hilbertraum.
 Sei $(X,\A,\mu)$ Maßraum und $f \in L^p(\mu)$. Dann liegt $E = \{ f \in L^p(\mu) | f \text{ ist einfach} \}$ dicht in $L^p(\mu)$, d.h:
 
 \vspace{-4mm}
-$$\forall f \in L^p(\mu), \epsilon > 0 \exists \text{ einf. } g \in L^p(\mu) : \| f - g \|_p \leq \epsilon$$
+\[ \forall f \in L^p(\mu), \epsilon > 0 \exists \text{ einf. } g \in L^p(\mu) : \| f - g \|_p \leq \epsilon \]
 
 \section*{Komplexe Integrale}
 
@@ -706,4 +706,4 @@ Für die Integrierbarkeit von mb. $f : X \to \mathbb{C}$ gilt:
 
 $|f| : X \to [0,\infty)$ ib. $\Leftrightarrow \text{Re} f, \text{Im} f : X \to \R$ ib.
 
-$$\int_X f d\mu := \int_X \text{Re} f d\mu + i \int_X \text{Im} f d\mu$$
+\[ \int_X f d\mu := \int_X \text{Re} f d\mu + i \int_X \text{Im} f d\mu \]

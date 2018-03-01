@@ -58,7 +58,7 @@ $\text{rad}(G) := \displaystyle\min_{u \in V(G)} \max_{v \in V(G)} d(u,v)$ is th
 
 \subsection*{Handshake Lemma}
 
-$$2|E| = \sum_{v \in V} d(v)$$
+\[ 2|E| = \sum_{v \in V} d(v) \]
 
 Furthermore the sum of all degrees is even and thus \#vertices with odd degree is also even.
 
@@ -129,7 +129,7 @@ $G$ is $k$-connected if $k-1$ vertices can be removed without disconnecting.
 Let $\kappa'(G)$ be the edge-connectivity of $G$:
 
 \vspace*{-3mm}
-$$\kappa(G) \leq \kappa'(G) \leq \delta(G)$$
+\[ \kappa(G) \leq \kappa'(G) \leq \delta(G) \]
 
 \subsection*{Menger's Theorem}
 
@@ -247,7 +247,7 @@ Every planar graph is $5$-choosable.
 
 \subsection*{Greedy chromatic number estimate}
 
-$$\chi(G) \leq \Delta(G)+1$$
+\[ \chi(G) \leq \Delta(G)+1 \]
 
 \subsection*{Brook's Theorem}
 
@@ -255,18 +255,18 @@ If $G$ is connected and neither complete nor an odd cycle then $\chi(G) \leq \De
 
 \subsection*{König's Theorem}
 
-$$G \text{ bipartite} \implies \chi'(G) = \Delta(G)$$
+\[ G \text{ bipartite} \implies \chi'(G) = \Delta(G) \]
 
 \subsection*{Vizing's Theorem}
 
-$$\chi'(G) \in \{\Delta(G), \Delta(G)+1\}$$
+\[ \chi'(G) \in \{\Delta(G), \Delta(G)+1\} \]
 
 \section*{Extremal Graph Theory}
 
 For $n \in \N$ and graph $H$ the \emph{extremal number} $ex(n,H)$ is the max number of edges in a graph of order $n$ s.t. it doesn't contain subgraph $H$.
 
 \vspace*{-3mm}
-$$ex(n,H):=\max\{\|G\| : |G|=n, H \not\subseteq G\}$$
+\[ ex(n,H):=\max\{\|G\| : |G|=n, H \not\subseteq G\} \]
 
 Correspondingly $EX(n,H$ is the set of graphs on $n$ vertices and $ex(n,H)$ edges that are $H$-free.
 
@@ -290,23 +290,23 @@ $T(n,r)$ doesn't contain $K_{r+1}$ and $t(n,r) := \|T(n,r)\|$.
 
 For $r | n \ T(n,r)$ is denoted by $K_r^s$ where $n=r \cdot s$.
 
-$$t(n,r) = t(n-r,r)+(n-r)(r-1)+{r \choose 2}$$
+\[ t(n,r) = t(n-r,r)+(n-r)(r-1)+{r \choose 2} \]
 
 \spacing
 
 Comparing the number of edges in $K_n$ and $T(n,r)$:
 
-$$\lim_{n \to \infty} \frac{t(n,r)}{{n \choose 2}} = \left( 1-\frac{1}{r} \right)$$
+\[ \lim_{n \to \infty} \frac{t(n,r)}{{n \choose 2}} = \left( 1-\frac{1}{r} \right) \]
 
 \subsubsection*{Tur\'{a}n's Theorem}
 
-$$EX(n,K_r) = \{T(n,r-1)\}$$
+\[ EX(n,K_r) = \{T(n,r-1)\} \]
 
 \subsection*{$\epsilon$-regularity}
 
 Let $X, Y \subseteq V(G)$ be disjoint and $\|X,Y\|$ is the number of edges between $X$ and $Y$.
 
-$$d(X,Y) := \frac{\|X,Y\|}{|X||Y|} \text{ is the density of $(X, Y)$}$$
+\[ d(X,Y) := \frac{\|X,Y\|}{|X||Y|} \text{ is the density of $(X, Y)$} \]
 
 $\forall \epsilon > 0 : (X,Y)$ is an \emph{$\epsilon$-regular pair} if:
 
@@ -331,13 +331,13 @@ $\forall \epsilon > 0, m \geq 1 \exists M \in \N$ s.t. every graph $G$ with $|G|
 $\forall r > s \geq 1, \epsilon > 0 \exists n_0 \in \N$ s.t. all graphs with $|V(G)| =: n \geq n_0$ vertices and
 
 \vspace*{-2mm}
-$$|E(G)| \geq t_{r-1}(n)+\epsilon n^2$$
+\[ |E(G)| \geq t_{r-1}(n)+\epsilon n^2 \]
 
 contain $K_r^s$ as a subgraph.
 
 \subsection*{Asymptotic extremal number}
 
-$$\lim_{n \to \infty} \frac{ex(n,H)}{{n \choose 2}} = \frac{\chi(H)-2}{\chi(H)-1}$$
+\[ \lim_{n \to \infty} \frac{ex(n,H)}{{n \choose 2}} = \frac{\chi(H)-2}{\chi(H)-1} \]
 
 e.g. $ex(n,K_5 \setminus \{e\}) \simeq \frac{2}{3} \cdot {n \choose 2}$ as $\chi(K_5 \setminus \{e\}) = 4$.
 
@@ -352,7 +352,7 @@ $z(m,n;s,t) \leq (s-1)^{1/t}(n-t+1)m^{1-1/t}+(t-1)m$
 i.e. for $m=n$ and $t=s$:
 
 \vspace*{-2mm}
-$$z(n,n;t,t) \in \mathcal{O}(n^{2-\frac{1}{t}})$$
+\[ z(n,n;t,t) \in \mathcal{O}(n^{2-\frac{1}{t}}) \]
 
 \section*{Ramsey Theory}
 
@@ -381,7 +381,7 @@ e.g. $R(2,k) = R(k,2) = k$ and $R(3) = 6$
 \subsection*{Ramsey Theorem}
 
 \vspace*{-2mm}
-$$\forall k \in \N : \sqrt{2}^k \leq R(k) \leq 4^k$$
+\[ \forall k \in \N : \sqrt{2}^k \leq R(k) \leq 4^k \]
 
 Particularly Ramsey, asymmetric Ramsey and graph Ramsey numbers are finite.
 
@@ -473,7 +473,7 @@ A \emph{property} $\mathcal{P}$ is a set of graphs.
 $G \in \mathcal{G}(n,p_n)$ \emph{almost always} has property $\mathcal{P}$ if:
 
 \vspace*{-2mm}
-$$\mathbb{P}(G \in \mathcal{G}(n,p_n) \cap \mathcal{P}) \to 1 (n \to \infty)$$
+\[ \mathbb{P}(G \in \mathcal{G}(n,p_n) \cap \mathcal{P}) \to 1 (n \to \infty) \]
 
 If $p_n$ is constant it is said that \emph{almost all} $G \in \mathcal{G}(n,p)$ have property $\mathcal{P}$.
 
@@ -493,7 +493,7 @@ Such functions do not exist for all properties $\mathcal{P}$.
 Let $G$ be a graph on $n$ vertices and $m$ edges.
 
 \vspace*{-2mm}
-$$\mathbb{P}(G = \mathcal{G}(n,p)) = p^m (1-p)^{{n \choose 2}-m}$$
+\[ \mathbb{P}(G = \mathcal{G}(n,p)) = p^m (1-p)^{{n \choose 2}-m} \]
 
 \subsection*{Expected values and indicators}
 
@@ -502,17 +502,17 @@ Let $X : \mathcal{G}(n,p) \to \N$ be a random variable.
 When $X$ counts e.g. the number of a certain class of subgraphs $\mathbb{E}(X)$ may be calculated by summing indicators over the maximum number $N$ of such subgraphs in $\mathcal{G}(n,p)$ and applying linearity:
 
 \vspace*{-4mm}
-$$\mathbb{E}X = \mathbb{E}\left(\sum_{i=1}^N X_i\right) = \sum_{i=1}^N \mathbb{E}X_i = \sum_{i=1}^N \mathbb{P}(X_i=1)$$
+\[ \mathbb{E}X = \mathbb{E}\left(\sum_{i=1}^N X_i\right) = \sum_{i=1}^N \mathbb{E}X_i = \sum_{i=1}^N \mathbb{P}(X_i=1) \]
 
 \subsubsection*{Expected number of $k$-cycles}
 
-$$\mathbb{E}(\#k\text{-cycles in } G \in \mathcal{G}(n,p)) = \frac{n_k}{2k} \cdot p^k$$
+\[ \mathbb{E}(\#k\text{-cycles in } G \in \mathcal{G}(n,p)) = \frac{n_k}{2k} \cdot p^k \]
 
 for $n_k := n \cdot (n-1) \cdots (n-k+1)$.
 
 \subsection*{Erd\H{o}s' lower bound on $R(k,k)$}
 
-$$R(k.k) \geq 2^{k/2}$$
+\[ R(k.k) \geq 2^{k/2} \]
 
 \subsection*{Erd\H{o}s-Hajnal}
 

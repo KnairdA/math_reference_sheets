@@ -30,7 +30,7 @@ $\forall K \in \N \exists N_K \in \N \forall n \geq N_K : x_n \geq K \Leftrighta
 
 \subsection*{Beispiele und Hinweise}
 
-$$e^x = exp(x) = \lim_{n\to \infty} \Big(1 + \frac{x}{n}\Big)^n \text{ insb. } e = \lim_{n\to \infty} \Big(1 + \frac{1}{n}\Big)^n$$
+\[ e^x = exp(x) = \lim_{n\to \infty} \Big(1 + \frac{x}{n}\Big)^n \text{ insb. } e = \lim_{n\to \infty} \Big(1 + \frac{1}{n}\Big)^n \]
 
 Zur Bestimmung von Folgen Grenzwerten kann auch L'Hospital herangezogen werden.
 
@@ -393,10 +393,10 @@ $\forall \epsilon > 0 \exists N_\epsilon \in \N \forall n \geq N_\epsilon : ||x_
 \subsubsection*{$p$-Norm}
 
 \vspace{-4mm}
-$$|x|_p := \begin{cases}
+\[ |x|_p := \begin{cases}
 	(\sum_{k=1}^m |x_k|^p )^{\frac{1}{p}} & 1 \leq p < \infty \\
 	\max_{1\leq k \leq m} |x_k|           & p = \infty
-\end{cases}$$
+\end{cases} \]
 
 \subsubsection*{Hölder-Ungleichung}
 
@@ -817,20 +817,20 @@ Sei $\gamma \in C([a, b], \R^m)$ stückweise $C^1$, $\Gamma = \gamma([a, b])$.
 Sei reelles $f \in C(\Gamma, \R)$ gegeben:
 
 \vspace*{-5mm}
-$$\int_\Gamma f d\gamma = \int_\Gamma f(x) d\gamma := \int_a^b f(\gamma(t)) | \gamma'(t) |_2 dt$$
+\[ \int_\Gamma f d\gamma = \int_\Gamma f(x) d\gamma := \int_a^b f(\gamma(t)) | \gamma'(t) |_2 dt \]
 
 \subsubsection*{Kurvenintegral zweiter Art}
 
 Sei vektorwertiges $F \in C(\Gamma, \R^m)$ gegeben:
 
 \vspace*{-5mm}
-$$\int_\Gamma F \cdot dx = \int_\Gamma F(x) \cdot dx := \int_a^b (F(\gamma(t))|\gamma'(t)) dt$$
+\[ \int_\Gamma F \cdot dx = \int_\Gamma F(x) \cdot dx := \int_a^b (F(\gamma(t))|\gamma'(t)) dt \]
 
 \subsubsection*{Wegunabhängigkeit}
 
 Sei $D \subseteq \R^m$ offen, dann ist $F \in C(D, \R^m)$ wegunabhängig auf $D$, wenn für alle stückweisen $C^1$-Kurven $\gamma_1, \gamma_2 \in C([a, b], \R^m)$ in $D$ mit gleichem Anfangs- und Endpunkt gilt:
 
-$$\int_{\Gamma_1} F \cdot dx = \int_{\Gamma_2} F \cdot dx$$
+\[ \int_{\Gamma_1} F \cdot dx = \int_{\Gamma_2} F \cdot dx \]
 
 Ein $\phi \in C^1(D, \R)$ heißt Potential von $F$ auf $D$, wenn $\nabla\phi = F$ auf $D$. $F$ ist dann Gradientenfeld.
 
@@ -915,7 +915,7 @@ Jedes Anfangswertproblem $k$-ter Ordnung lässt sich in ein Problem 1. Ordnung u
 
 Beispielsweise: Das Problem 2. Ordnung $u''(t)=h(t)-u(t)+u'(t)^2$ mit $u(0)=u_0$ und $u'(0)=u_1$ sowie $h \in C(\R, \R)$ wird formuliert als Problem 1. Ordnung:
 
-$$\begin{pmatrix}u(t)\\u'(t)\end{pmatrix}' = \begin{pmatrix}u'(t)\\u''(t)=h(t)-u(t)+u'(t)^2\end{pmatrix}$$
+\[ \begin{pmatrix}u(t)\\u'(t)\end{pmatrix}' = \begin{pmatrix}u'(t)\\u''(t)=h(t)-u(t)+u'(t)^2\end{pmatrix} \]
 
 Sei $v_0(t):=u(t)$, $v_1(t):=u'(t)$ und $v(t):=\begin{pmatrix}v_0(t)\\v_1(t)\end{pmatrix}$
 
@@ -938,7 +938,7 @@ Insgesamt also:
 Sei $u'(t)=g(t)h(u(t))$ mit $u(t_0)=u_0$ Anfangswertproblem mit $g \in C(\R, \R)$, $h \in C((a, b), \R)$, $u_0 \in (a, b)$ und $h(u_0) \neq 0$. $u$ ist Lösung, wenn $J$ Intervall mit $\forall t \in J : u(t) \in (a, b)$, $u \in C^1(J, \R)$ und $t_0 \in J$.
 
 \vspace*{-5mm}
-$$u \text{ ist Lösung } \Rightarrow \int_{t_0}^t g(s) ds = \int_{u_0}^{u(t)} \frac{1}{h(x)} dx$$
+\[ u \text{ ist Lösung } \Rightarrow \int_{t_0}^t g(s) ds = \int_{u_0}^{u(t)} \frac{1}{h(x)} dx \]
 \vspace*{-3mm}
 
 Dies kann manchmal nach $u$ aufgelöst werden.

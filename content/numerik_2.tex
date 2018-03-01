@@ -4,7 +4,7 @@ Sei $A \in \C^{n \times n}$. Ein $\lambda \in \C$ ist \emph{Eigenwert} von $A$, 
 
 \subsection*{Satz von Gerschgorin}
 
-$$\mathcal{K}_i := \left\{ z \in \C \middle| |z-a_{i,i}| \leq \sum_{k=1, k\neq i}^n |a_{i,k}| =: r_i \right\}, \ 1 \leq i \leq n$$
+\[ \mathcal{K}_i := \left\{ z \in \C \middle| |z-a_{i,i}| \leq \sum_{k=1, k\neq i}^n |a_{i,k}| =: r_i \right\}, \ 1 \leq i \leq n \]
 
 Die Vereinigung der Kreisscheiben $\mathcal{K}_i$ enthält alle Eigenwerte von $A \in \C^{n \times n}$: $\sigma(A) \subset \bigcup_{i=1}^n \mathcal{K}_i$
 
@@ -20,7 +20,7 @@ Sei $A$ diagonalisierbar mit $A= TDT^{-1}$, $\Delta A \in \C^{n \times n}$ belie
 
 Entsprechend lautet die Kondition der Bestimmung von Eigenwerten $\lambda \neq 0$ bzgl. der $p$-Norm:
 
-$$\kappa_p(\lambda) \leq \frac{\|A\|_p}{|\lambda|} \kappa_p(T)$$
+\[ \kappa_p(\lambda) \leq \frac{\|A\|_p}{|\lambda|} \kappa_p(T) \]
 
 \subsection*{Mögliche Eigenwertlöser}
 
@@ -37,12 +37,12 @@ In $A^k$ dominiert der betragsgrößte Eigenwert und diese Dominanz nimmt mit $k
 Für $k = 1, 2, \dots$ und Startvektor $x^0 \in \C^n$:
 
 \vspace*{-2mm}
-$$z^k := Ax^{k-1}, \ x^k := \frac{z^k}{\|z^k\|}$$
+\[ z^k := Ax^{k-1}, \ x^k := \frac{z^k}{\|z^k\|} \]
 
 Der approx. betragsgrößte Eigenwert ergibt sich:
 
 \vspace*{-2mm}
-$$\tilde\lambda = \langle Ax^k,x^k \rangle_2$$
+\[ \tilde\lambda = \langle Ax^k,x^k \rangle_2 \]
 
 Potenzmethode konvergiert nicht zwingend gegen einen EV des betragsgrößten EW sondern hat Häufungspunkte welche EV zu diesem EW sind.
 
@@ -57,12 +57,12 @@ Langsame Konvergenz liegt bei $|\frac{\lambda_{r+1}}{\lambda_1}| \approx 1$ vor.
 Sei $\tilde\lambda$ Schätzwert für $\lambda_i \in \sigma(A)$ d.h. $|\tilde\lambda - \lambda_i| < |\tilde\lambda - \lambda_j|, \ j \neq i$. Die inverse Potenzmethode:
 
 \vspace*{-2mm}
-$$(A-\tilde\lambda Id_n)z^k = x^{k-1}, \ x^k = \frac{z^k}{\|z^k\|_2}$$
+\[ (A-\tilde\lambda Id_n)z^k = x^{k-1}, \ x^k = \frac{z^k}{\|z^k\|_2} \]
 
 Zur Lösung des linearen Systems wird die LR-Zerlegung von $A- \tilde\lambda Id_n$ bestimmt. Konvergenz:
 
 \vspace*{-2mm}
-$$\lim_{k\to\infty} \langle Ax^k,x^k \rangle_2 = \lambda_i$$
+\[ \lim_{k\to\infty} \langle Ax^k,x^k \rangle_2 = \lambda_i \]
 
 Wird die Approximation $\tilde\lambda$ in jedem Iterationsschritt durch die gefundene Approx. verbessert, so approx. das Verfahren einen EV zum EW $\lambda_i$.
 
@@ -171,7 +171,7 @@ Zwei Approximationen $x_{k-1}$ und $x_k$ ergeben neue Approximation $x_{k+1}$ al
 Rekursion:
 
 \vspace*{-4mm}
-$$x_{k+1} := x_k - \frac{x_k-x_{k-1}}{f(x_k)-f(x_{k-1})}f(x_k)$$
+\[ x_{k+1} := x_k - \frac{x_k-x_{k-1}}{f(x_k)-f(x_{k-1})}f(x_k) \]
 
 \spacing
 
@@ -184,7 +184,7 @@ Dann konvergiert das Sekantenverfahren lokal superlinear mit Ordnung $(\sqrt{5}+
 Ersetzen von $\frac{x_k-x_{k-1}}{f(x_k)-f(x_{k-1})}$ im Sekantenverfahren mit dem Kehrwert der Tangentensteigung $\frac{1}{f'(x_k)}$ ergibt das \emph{Newton-Verfahren}:
 
 \vspace*{-2mm}
-$$x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}$$
+\[ x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)} \]
 
 $x_{k+1}$ ist Nullstelle der Tangente an $f$ in $x_k$.
 
@@ -201,17 +201,17 @@ Dann hat $\Phi$ genau einen Fixpunkt $x^\star \in D$. Die Fixpunktiteration $x^{
 Es gilt die Fehlerabschätzung:
 
 \vspace*{-6mm}
-$$\forall 0 \leq l \leq k - 1 : \|x^\star - x^k\| \leq \frac{q^{k-l}}{1-q} \|x^{l+1} - x^l\|$$
+\[ \forall 0 \leq l \leq k - 1 : \|x^\star - x^k\| \leq \frac{q^{k-l}}{1-q} \|x^{l+1} - x^l\| \]
 
 Für $l=0$ ergibt sich die a priori-Abschätzung:
 
 \vspace*{-2mm}
-$$\|x^\star - x^k\| \leq \frac{q^k}{1-q} \|x^1 - x^0\|$$
+\[ \|x^\star - x^k\| \leq \frac{q^k}{1-q} \|x^1 - x^0\| \]
 
 Für $l=k-1$ die a posteriori-Abschätzung:
 
 \vspace*{-2mm}
-$$\|x^\star - x^k\| \leq \frac{q}{1-q} \|x^k - x^{k-1}\|$$
+\[ \|x^\star - x^k\| \leq \frac{q}{1-q} \|x^k - x^{k-1}\| \]
 
 \subsubsection*{Lokaler Konvergenzsatz}
 
@@ -234,7 +234,7 @@ Sei $\Phi(x) := x + G(x,F(x))$ mit $G(x,F(x)) = T(x)F(x)$ wobei $T : D \subset \
 Das Nullstellenproblem ein Fixpunktproblem:
 
 \vspace*{-2mm}
-$$\Phi(x^\star) = x^\star \iff F(x^\star) = 0$$
+\[ \Phi(x^\star) = x^\star \iff F(x^\star) = 0 \]
 
 Es ergibt sich das \emph{Newton-Verfahren} für $x^0 \in D$:
 
@@ -272,7 +272,7 @@ Er ist nicht affin-invariant, im Gegensatz zum Newton-Verfahren und dem Nullstel
 Der \emph{affin-invariante natürliche Monotonietest}:
 
 \vspace{-2mm}
-$$\|F'(x^k)^{-1}F(x^{k+1})\| \leq \vartheta\|F'(x^k)^{-1}F(x^k)\|$$
+\[ \|F'(x^k)^{-1}F(x^{k+1})\| \leq \vartheta\|F'(x^k)^{-1}F(x^k)\| \]
 
 Praktisch wird das Newton-Verfahren bei Verletzung des Tests mit $\vartheta = \frac{1}{2}$ als divergent gestoppt.
 
@@ -302,7 +302,7 @@ Zusätzlich ist $x^\star$ die eind. Nst. in offener Kugel $B_R(x^0)$ mit $R=\min
 Hier wird der Newton-Schritt $s^k$ zu Beginn nur grob approximiert und nur in der Nähe der Nullstelle präzise berechnet. Dies dient der Reduktion der Rechenzeit bei Beibehaltung der quadratischen Konvergenz. Für $x^0 \in D, k = 0,1,2,\dots$:
 
 \vspace*{-4mm}
-$$x^{k+1} := x^k + s^k, \ \|F'(x^k)s^k + F(x^k)\| \leq \eta_k \|F(x^k)\|$$
+\[ x^{k+1} := x^k + s^k, \ \|F'(x^k)s^k + F(x^k)\| \leq \eta_k \|F(x^k)\| \]
 
 Hierbei ist $\{\eta_k\}_k \subset [0,1)$ die Toleranz.
 
@@ -331,7 +331,7 @@ Sei $\{(t_i,b_i) : 1 \leq i \leq \ell\} \subset \R^d \times \R^p$ Meßdatensatz 
 Modell $\varphi(t_i;x) = b_i$ wird identifiziert mit:
 
 \vspace*{-2mm}
-$$F(x) := \begin{pmatrix} \varphi(t_1;x) - b_1 \\ \vdots \\ \varphi(t_\ell;x) - b_\ell \end{pmatrix} \in \R^m, \ m=\ell p$$
+\[ F(x) := \begin{pmatrix} \varphi(t_1;x) - b_1 \\ \vdots \\ \varphi(t_\ell;x) - b_\ell \end{pmatrix} \in \R^m, \ m=\ell p \]
 
 Konkret gelößt wird das lokale Minima $x^\star$ von $g$ mit $\nabla g(x^\star) = 0$ und $\mathcal{H}g(x^\star)$ positiv definit.
 
@@ -344,14 +344,14 @@ Konkret gelößt wird das lokale Minima $x^\star$ von $g$ mit $\nabla g(x^\star)
 Nullstelle wird mit Newton-Verfahren bestimmt.
 
 \vspace*{-2mm}
-$$G'(x) \approx F'(x)^T F'(x)$$
+\[ G'(x) \approx F'(x)^T F'(x) \]
 
 Für $x$ in der Nähe eines Minimums von $g$.
 
 Das konkrete \emph{Gauß-Newton-Verfahren}:
 
 \vspace{-4mm}
-$$x^{k+1} := x^k + s^k, \ s^k := -F'(x^k)^+ F(x^k), \ k = 0,1,2,\dots$$
+\[ x^{k+1} := x^k + s^k, \ s^k := -F'(x^k)^+ F(x^k), \ k = 0,1,2,\dots \]
 
 Wobei $F'(x)^+ = (F'(x)^T F'(x))^{-1} F'(x)^T$.
 
@@ -369,7 +369,7 @@ Sei $F : D \subset \R^n \to \R^m$ stetig differenzierbar, $m \geq n$ und habe L�
 Numerische Auswertung des Riemann-Integrals:
 
 \vspace*{-2mm}
-$$I(f) = I_a^b(f) = \int_a^b f(t) \ \text{d}t$$
+\[ I(f) = I_a^b(f) = \int_a^b f(t) \ \text{d}t \]
 
 Die Integralabbildung $I : \mathcal{C}([a,b]) \to \R, f \mapsto I(f)$ ist additive, positive Linearform.
 
@@ -384,20 +384,20 @@ Gute Konditionierung ist bei vorzeichenwechsellosen $f$ gegeben, oszillierde $f$
 Eine \emph{Quadraturformel} $\widehat I(f)$ ist def. als:
 
 \vspace*{-2mm}
-$$\widehat I(f) := (b-a)\sum_{i=0}^n \lambda_i f(t_i)$$
+\[ \widehat I(f) := (b-a)\sum_{i=0}^n \lambda_i f(t_i) \]
 
 Mit $n+1$ ansteigenden Knoten $t_i$ sowie Gewichten $\lambda_i$ s.d. $\sum_{i=0}^n \lambda_i = 1$.
 
 \subsubsection*{Trapezsumme}
 
-$$\widehat I_n := \sum_{i=1}^n T_i = \sum_{i=1}^n \frac{t_i - t_{i-1}}{2}(f(t_{i-1})+f(t_i))$$
+\[ \widehat I_n := \sum_{i=1}^n T_i = \sum_{i=1}^n \frac{t_i - t_{i-1}}{2}(f(t_{i-1})+f(t_i)) \]
 
 \subsubsection*{Konstruktion von Quadraturformeln}
 
 $f$ werde durch Linearkombination einfach integrierbarer Funktionen $p_i$ approximiert:
 
 \vspace*{-2mm}
-$$\widehat I(f) := I(\tilde f) = \sum_{i=0}^n f(t_i) I(p_i)$$
+\[ \widehat I(f) := I(\tilde f) = \sum_{i=0}^n f(t_i) I(p_i) \]
 
 Wobei $\tilde f(t) := \sum_{i=0}^n f(t_i) p_i(t)$
 
@@ -418,7 +418,7 @@ Die Gewichte $\lambda_{n,i}$ hängen von der Knotenwahl ab. $\widehat I_n$ ist e
 Sind die Knoten äquidistant mit $t_i = a + ih, \ h=\frac{b-a}{n}$, heißen die Quadraturformeln \emph{Newton-Cotes-Formeln} mit Gewichten:
 
 \vspace*{-2mm}
-$$\lambda_{n,i} = \frac{1}{b-a} \int_a^b \prod_{j=0,j\neq i}^n \frac{t-t_j}{t_i-t_j} \text{d}t$$
+\[ \lambda_{n,i} = \frac{1}{b-a} \int_a^b \prod_{j=0,j\neq i}^n \frac{t-t_j}{t_i-t_j} \text{d}t \]
 
 {
 	\def\arraystretch{1.6}
@@ -441,7 +441,7 @@ Die \emph{Romberg-Quadratur} wertet die Trapezsumme bzgl. einer Folge von Gitter
 Konkret wird ein interpolierendes Polynom durch Stützwerte $(h_0^2,T(h_0)),\ (h_1^2,T(h_1)),\dots,(h_m^2,T(h_m))$ gelegt und an der Null ausgewertet:
 
 \vspace*{-2mm}
-$$P(T|h_0^2,\dots,h_m^2)(0) \approx I(f)$$
+\[ P(T|h_0^2,\dots,h_m^2)(0) \approx I(f) \]
 
 Da das interpolierende Polynom nur in $0$ ausgewertet wird, bietet sich das \emph{Schema von Neville} an.
 

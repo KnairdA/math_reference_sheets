@@ -5,7 +5,7 @@ $\C = \{ z = x+iy | x,y \in \R \}$
 $\C$ wird via $z = x + iy \mapsto (x,y)$ mit $\R^2$ identifiziert.
 
 \vspace*{-4mm}
-$$z \cdot w = \begin{pmatrix} x & -y \\ y & x\end{pmatrix} \begin{pmatrix} u \\ v\end{pmatrix} = \begin{pmatrix} r & 0 \\ 0 & r\end{pmatrix} \begin{pmatrix} \frac{x}{r} & -\frac{y}{r} \\ \frac{y}{r} & \frac{x}{r}\end{pmatrix} \begin{pmatrix} u \\ v\end{pmatrix}$$
+\[ z \cdot w = \begin{pmatrix} x & -y \\ y & x\end{pmatrix} \begin{pmatrix} u \\ v\end{pmatrix} = \begin{pmatrix} r & 0 \\ 0 & r\end{pmatrix} \begin{pmatrix} \frac{x}{r} & -\frac{y}{r} \\ \frac{y}{r} & \frac{x}{r}\end{pmatrix} \begin{pmatrix} u \\ v\end{pmatrix} \]
 
 wobei $r := \sqrt{x^2 + y^2}$. Es gilt für die orthogonale Matrix $D = \begin{pmatrix} \frac{x}{r} & -\frac{y}{r} \\ \frac{y}{r} & \frac{x}{r}\end{pmatrix}$: $\det D = 1$ d.h. die komplexe Multiplikation ist eine Drehstreckung.
 
@@ -21,12 +21,12 @@ $\displaystyle\lim_{n \to \infty} z_n = z$ in $\C \iff \displaystyle\lim_{n \to 
 Für $z = x +iy \in \C \setminus \{0\}$ gilt $z = re^{i\phi}$ mit $r = |z|$ und:
 
 \vspace*{-2mm}
-$$\phi = \arg z := \begin{cases}
+\[ \phi = \arg z := \begin{cases}
 	\arccos \frac{x}{r} & y > 0 \\
 	0 & x \in (0,+\infty) \\
 	-\arccos \frac{x}{r} & y < 0 \\
 	\pi & z \in (-\infty,0)
-\end{cases}$$
+\end{cases} \]
 
 mit $\phi \in (-\pi, \pi]$. Es gilt für $z = re^{i\phi}, w = se^{i\psi}$:
 
@@ -37,7 +37,7 @@ $z \cdot w = rse^{i(\phi+\psi)} = |z||w|e^{i(\phi+\psi)}$.
 Eine Funktion $f : D \to \C$ ist \emph{komplex differenzierbar} in $z_0 \in D$, wenn:
 
 \vspace*{-4mm}
-$$f'(z_0) := \displaystyle\lim_{z \to z_0, z \in D\setminus\{z_0\}} \frac{f(z)-f(z_0)}{z-z_0} \in \C \text{ existiert.}$$
+\[ f'(z_0) := \displaystyle\lim_{z \to z_0, z \in D\setminus\{z_0\}} \frac{f(z)-f(z_0)}{z-z_0} \in \C \text{ existiert.} \]
 
 Ist $f$ in $\forall z_0 \in D$ komplex differenzierbar, so heißt $f$ \emph{holomorph} auf $D$ mit Ableitung $f' : D \to \C$.
 
@@ -64,7 +64,7 @@ Polynome $p$ und nichtsinguläre rationale Funktionen aus Polynomen sind auf $\C
 Seien $a_k \in \C, k \in \N_0$:
 
 \vspace*{-2mm}
-$$\rho = \frac{1}{\overline\lim_{k\to\infty} \sqrt[k]{|a_k|}} \in [0,+\infty]$$
+\[ \rho = \frac{1}{\overline\lim_{k\to\infty} \sqrt[k]{|a_k|}} \in [0,+\infty] \]
 
 ist der \emph{Konvergenzradius}.
 
@@ -75,7 +75,7 @@ $f : B(c,\rho) \to \C, z \mapsto \sum_{k=0}^\infty a_k(z-c)^k$.
 Diese ist auf $B(c,\rho)$ beliebig oft komplex differenzierbar. Für $n \in \N_0$ hat $f^{(n)}$ den Konvergenzradius $\rho > 0$ und es gilt für $z \in B(c,\rho)$:
 
 \vspace*{-4mm}
-$$f^{(n)}(z) = \sum_{k=n}^\infty k(k-1)\cdots(k-n+1)a_k(z-c)^{k-n}$$
+\[ f^{(n)}(z) = \sum_{k=n}^\infty k(k-1)\cdots(k-n+1)a_k(z-c)^{k-n} \]
 
 Auf diese Weise ergeben sich für $z \in \C$:
 
@@ -99,15 +99,15 @@ Es sind dann äquivalent:
 \begin{enumerate}[label=(\alph*)]
 	\item $f$ ist in $z$ komplex differenzierbar
 	\item $f$ ist in $z$ reell differenzierbar und es gelten die \emph{Cauchy-Riemannschen DGL}: \\
-		$$\frac{\partial u}{\partial x}(x,y) = \frac{\partial v}{\partial y}(x,y), \frac{\partial u}{\partial y}(x,y) = -\frac{\partial v}{\partial x}(x,y)$$
+		\[ \frac{\partial u}{\partial x}(x,y) = \frac{\partial v}{\partial y}(x,y), \frac{\partial u}{\partial y}(x,y) = -\frac{\partial v}{\partial x}(x,y) \]
 \end{enumerate}
 
 $f$ hat in $(x,y) \in D \subseteq \R^2$ die \emph{Jacobimatrix}:
 
-$$f'(z) = \begin{pmatrix}
+\[ f'(z) = \begin{pmatrix}
 	\frac{\partial u}{\partial x}(x,y) & \frac{\partial u}{\partial y}(x,y) \\
 	-\frac{\partial u}{\partial y}(x,y) & \frac{\partial u}{\partial x}(x,y)
-\end{pmatrix}$$
+\end{pmatrix} \]
 
 Entsprechend ist $f(z)=\overline z$ nirgends komplex differenzierbar, $f(z)=|z|^2$ nur in $0$ komplex differenzierbar und $f(z) = \frac{1}{z}$ holomorph in $\C \setminus \{0\}$.
 
@@ -120,7 +120,7 @@ Sei $f : U \to V$ biholomorph, $z \in U$.
 Dann ist $f'(z) \neq 0$ und für $w = f(z)$ gilt:
 
 \vspace*{-2mm}
-$$(f^{-1})'(w) = \frac{1}{f'(f^{-1}(w))} = \frac{1}{f'(z)}$$
+\[ (f^{-1})'(w) = \frac{1}{f'(f^{-1}(w))} = \frac{1}{f'(z)} \]
 
 Weiterhin existieren offene nichtleere $U \subseteq D$ mit $u_0 \in U, V \subseteq \C$ s.d. $\restrictedto{f}{U}$ biholomorph ist, wenn $f \in H(d) \cap C^1(D,\R^2)$, $z_0 \in D$ mit $f'(z_0) \neq 0$ gilt.
 
@@ -227,7 +227,7 @@ Geschrieben $f \in PC([a,b],\C)$.
 Solche Funktionen sind integrierbar:
 
 \vspace*{-4mm}
-$$\int_a^b f(t) dt := \int_a^b \text{Re } f(t) dt + i \int_a^b \text{Im } f(t) dt \in \C$$
+\[ \int_a^b f(t) dt := \int_a^b \text{Re } f(t) dt + i \int_a^b \text{Im } f(t) dt \in \C \]
 
 \subsection*{Hauptsatz}
 
@@ -238,9 +238,9 @@ $\iff \text{Re } f, \text{Im } f$ besitzen Ableitungen in $\R$.
 Ist $f$ auf $[a,b]$ diffbar und $g, f' \in C([a,b],\C)$. Dann gilt der Hauptsatz:
 
 \vspace*{-3mm}
-$$\int_a^b f'(t) dt = f(b) - f(a)$$
+\[ \int_a^b f'(t) dt = f(b) - f(a) \]
 
-$$\exists \frac{d}{dt} \int_a^t g(s) ds = g(t) \text{ für } t \in [a,b]$$
+\[ \exists \frac{d}{dt} \int_a^t g(s) ds = g(t) \text{ für } t \in [a,b] \]
 
 \subsection*{Kurven und Parametrisierungen}
 
@@ -257,7 +257,7 @@ $\gamma$ ist auch \emph{Parametrisierung} ihres Bildes $\Gamma$.
 Sei $\gamma \in PC^1([a,b],\C)$ mit Bild $\Gamma = \gamma([a,b])$ und $f \in C(\Gamma,\C)$. Dann ist das \emph{komplexe Kurvenintegral}:
 
 \vspace*{-2mm}
-$$\int_\gamma f dz = \int_\gamma f(z) dz := \int_a^b f(\gamma(t))\gamma'(t) dt$$
+\[ \int_\gamma f dz = \int_\gamma f(z) dz := \int_a^b f(\gamma(t))\gamma'(t) dt \]
 
 Die Länge von $\gamma$ ist $l(\gamma) = \int_a^b |\gamma'(t)| dt$.
 
@@ -279,12 +279,12 @@ Sei $\gamma \in PC^1([a,b],\C)$ mit Bild $\Gamma$, $f_n, f \in C(\Gamma,\C)$ fü
 $(f_n)$ konv. glm. auf $\Gamma$ gegen $f$
 
 \vspace*{-2mm}
-$$\implies \displaystyle\lim_{n\to\infty} \int_\gamma f_n dz = \int_\gamma f dz$$
+\[ \implies \displaystyle\lim_{n\to\infty} \int_\gamma f_n dz = \int_\gamma f dz \]
 
 $\sum_{n=1}^\infty f_n$ konv. glm. auf $\Gamma$
 
 \vspace*{-2mm}
-$$\implies \displaystyle\sum_{n=1}^\infty \int_\gamma f_n dz = \int_\gamma \displaystyle\sum_{n=1}^\infty f_n dz$$
+\[ \implies \displaystyle\sum_{n=1}^\infty \int_\gamma f_n dz = \int_\gamma \displaystyle\sum_{n=1}^\infty f_n dz \]
 
 \columnbreak
 
@@ -293,7 +293,7 @@ Abbildung $H : z \mapsto \int_\Gamma h(z,w) dw \in C(D,\C)$
 $z \mapsto h(z,w) \in H(D)$ mit $\frac{\partial}{\partial z} h \in C(D \times \Gamma, \C)$
 
 \vspace*{-2mm}
-$$\implies \frac{d}{dz} \int_\gamma h(z,w) dw = \int_\gamma \frac{\partial}{\partial z} h(z,w) dw$$
+\[ \implies \frac{d}{dz} \int_\gamma h(z,w) dw = \int_\gamma \frac{\partial}{\partial z} h(z,w) dw \]
 
 d.h. $H$ ist holomorph mit dieser Ableitung.
 
@@ -324,14 +324,14 @@ Es ergibt sich für jeden stückweisen $C^1$-Weg in $D$: $\int_\gamma f dz = F(\
 Seien $w_0 \in D, f \in C(D,\C) \cap H(D \setminus \{w_0\})$ und $\Delta \subseteq D$ ein abgeschlossenes Dreieck. Dann:
 
 \vspace*{-2mm}
-$$\int_{\partial\Delta} f dz = 0$$
+\[ \int_{\partial\Delta} f dz = 0 \]
 
 \subsection*{Cauchys Integralsatz}
 
 Seien $D$ sternförmiges Gebiet, $f \in H(D)$ und $\gamma \in PC^1([a,b],D)$ geschlossen, dann gilt:
 
 \vspace*{-2mm}
-$$\int_\gamma f dz = 0$$
+\[ \int_\gamma f dz = 0 \]
 
 Dies gilt auch für $f \in C(D,\C) \cap H(D\setminus \{\omega_0\})$.
 
@@ -382,12 +382,12 @@ Für ganze $f$ gilt $R(z_0)=\infty$.
 Sei $f : [0,\infty) \to \C$ messbar und $\exists M, \omega \geq 0 \forall t \geq 0 : |f(t)| \leq Me^{\omega t}$. Dann ex. die \emph{Laplacetransformation}:
 
 \vspace*{-2mm}
-$$\hat f(\lambda) = \int_0^\infty e^{-\lambda t} f(t) dt \text{ für Re } \lambda > \omega$$
+\[ \hat f(\lambda) = \int_0^\infty e^{-\lambda t} f(t) dt \text{ für Re } \lambda > \omega \]
 
 Diese ist auf $\{\lambda \in \C | \text{Re } \lambda > \omega\}$ holomorph mit:
 
 \vspace*{-4mm}
-$$\hat f^{(n)}(\lambda) = (-1)^n \int_0^\infty e^{-\lambda t} t^n f(t) dt, \text{ Re } \lambda > \omega, n \in \N$$
+\[ \hat f^{(n)}(\lambda) = (-1)^n \int_0^\infty e^{-\lambda t} t^n f(t) dt, \text{ Re } \lambda > \omega, n \in \N \]
 
 \subsection*{Satz von Morera}
 
@@ -452,7 +452,7 @@ Die \emph{Gammafunktion} $\Gamma(z) = \int_0^\infty t^{z-1}e^{-t} dt, Re \ z > 0
 Sei $f \in H(D), B := B(z_0,r), r > 0, \overline B \subseteq D$. Weiter:
 
 \vspace*{-3mm}
-$$0 \leq |f(z_0)| < \min_{x \in \partial B} |f(x)|$$
+\[ 0 \leq |f(z_0)| < \min_{x \in \partial B} |f(x)| \]
 
 Dann hat $f$ Nullstelle in $B$.
 
@@ -499,7 +499,7 @@ Sind alle geschlossenen stückweisen $C^1$-Wege in $N$ nullhomotop, so heißt $N
 
 Sei $D$ Gebiet, $f \in H(D), \gamma_0, \gamma_1$ auf $D$ homotope stückweise $C^1$-Wege. Dann:
 
-$$\int_{\gamma_0} f dz = \int_{\gamma_1} f dz$$
+\[ \int_{\gamma_0} f dz = \int_{\gamma_1} f dz \]
 
 Insb. gilt $\int_{\gamma_0} f dz = 0$, wenn $\gamma_0 \sim_D 0$.
 
@@ -509,7 +509,7 @@ Cauchys Integralsatz gilt auf einfach zusammenhängenden Gebieten in $D$.
 
 Sei $\overline B(z_0,r) \subseteq D, r > 0, z \in B(z_0,r), k(t) = z_0 + re^{it}$ für $t \in [0, 2\pi], n \in \N_0$ und $\gamma$ zu $k$ auf $D \setminus \{z\}$ homotoper stückweiser $C^1$-Weg. Dann:
 
-$$f^{(n)}(z) = \frac{n!}{2\pi i} \int_\gamma \frac{f(w)}{(w-z)^{n+1}} dw$$
+\[ f^{(n)}(z) = \frac{n!}{2\pi i} \int_\gamma \frac{f(w)}{(w-z)^{n+1}} dw \]
 
 \section*{Isolierte Singularitäten}
 
@@ -565,7 +565,7 @@ Diese konvergiert, falls Grenzwerte in $\C$ ex.:
 Ist dies der Fall, wird definiert:
 
 \vspace*{-4mm}
-$$\sum_{n=-\infty}^{+\infty} a_n(z-c)^n := \sum_{n=0}^{+\infty} a_n(z-c)^n + \sum_{n=1}^{+\infty} a_{-n}(z-c)^{-n}$$
+\[ \sum_{n=-\infty}^{+\infty} a_n(z-c)^n := \sum_{n=0}^{+\infty} a_n(z-c)^n + \sum_{n=1}^{+\infty} a_{-n}(z-c)^{-n} \]
 
 \subsubsection*{Satz von Laurent}
 
@@ -573,7 +573,7 @@ Seien $f \in H(D), n \in \Z, z_0 \in \C$ und $R > 0$ s.d. $D_0 := B(z_0,R) \setm
 
 Für $r \in (0,R)$ sei $\gamma_r : [0,2\pi] \to \C, t \mapsto z_0 + re^{it}$ und:
 
-$$a_n := \frac{1}{2\pi i} \int_\gamma \frac{f(w)}{(w-z_0)^{n+1}} dw$$
+\[ a_n := \frac{1}{2\pi i} \int_\gamma \frac{f(w)}{(w-z_0)^{n+1}} dw \]
 
 Diese Koeff. sind eindeutig und unabhg. $r \in (0,R)$.
 
@@ -597,7 +597,7 @@ Sei $z_0 \in \C$ isolierte Singularität von $f \in H(D)$ und $a_n$ Koeffiziente
 
 Das \emph{Residuum} von $f$ bei $z_0$ ist definiert als:
 
-$$\text{Res}(f,z_0) := a_{-1} = \frac{1}{2\pi i} \int_{\partial B(z_0,r)} f(w) dw$$
+\[ \text{Res}(f,z_0) := a_{-1} = \frac{1}{2\pi i} \int_{\partial B(z_0,r)} f(w) dw \]
 
 Hierbei gelte $\overline B(z_0,r) \setminus \{z_0\} \subseteq D$.
 
@@ -606,7 +606,7 @@ Hierbei gelte $\overline B(z_0,r) \setminus \{z_0\} \subseteq D$.
 Seien $f \in H(D)$ und $z_1, \dots, z_n \in \C$ alle isolierten Singularitäten von $f$. Sei $p$ ein geschlossener, einfacher, positiv orientierter Polygonzug in $D$ mit Bild $P$ s.d. alle $z_j$ im von $P$ umschlossenen Gebiet $G$ liegen und $\overline G \setminus \{z_1,\dots,z_n\} \subseteq D$ ist. Weiterhin sei $\gamma \in PC^1([a,b],D)$ zu $p$ auf $D$ homotop. Dann:
 
 \vspace*{-4mm}
-$$\int_\gamma f dz = 2\pi i \sum_{j=1}^n \text{Res}(f,z_j)$$
+\[ \int_\gamma f dz = 2\pi i \sum_{j=1}^n \text{Res}(f,z_j) \]
 
 \subsubsection*{Residuen von Polen $m$-ter Ordnung}
 
@@ -621,13 +621,13 @@ Sei $z_0$ Pol $m$-ter Ordnung von $f \in H(D)$ und $g$ die holomorphe Fortsetzun
 Insb. gilt also für $m=1$:
 
 \vspace*{-2mm}
-$$\text{Res}(f,z_0) = \lim_{z \to z_0}(z-z_0)f(z)$$
+\[ \text{Res}(f,z_0) = \lim_{z \to z_0}(z-z_0)f(z) \]
 
 \subsection*{Argumentprinzip}
 
 Seien $f \in H(D), z_1, \dots, z_n \in D$ die Nullstellen von $f$ mit Ordnungen $m_1, \dots, m_n \in \N$ und $p$ geschlossener, einfacher, positiv orientierter Polygonzug in $\hat D := D \setminus \{z_1,\dots,z_n\}$ mit Bild $P$ s.d. die Nullstellen im von $P$ umschlossenen Gebiet $G$ liegen mit $\overline G \subseteq D$. Sei $\gamma$ in $\hat D$ zu $p$ homotope, geschlossene stückweise $C^1$-Kurve. Dann:
 
-$$\frac{1}{2\pi i} \int_\gamma \frac{f'(z)}{f(z)} dz = \sum_{j=1}^n m_j$$
+\[ \frac{1}{2\pi i} \int_\gamma \frac{f'(z)}{f(z)} dz = \sum_{j=1}^n m_j \]
 
 \subsubsection*{Satz von Rouché}
 
@@ -636,6 +636,6 @@ Sei $f \in H(D), z_j \in \C, m_j \in \N$ und Weg $\gamma$ mit Bild $\Gamma$ ents
 Seien $\omega_1, \dots, \omega_\nu$ Nullstellen von $g$ im von $\gamma$ umschlossenen Gebiet mit Vielfachheiten $\mu_k \in \N$:
 
 \vspace*{-2mm}
-$$\sum_{j=1}^n m_j = \sum_{k=1}^\nu \mu_k$$
+\[ \sum_{j=1}^n m_j = \sum_{k=1}^\nu \mu_k \]
 
 d.h. die Summe der Nullstellenordnungen von $f$ ist gleich der Summe der Vielfachheiten von $g$.

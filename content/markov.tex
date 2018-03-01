@@ -200,7 +200,7 @@ Stationäre Verteilung ist eind. geg.: $\pi(i) = \frac{1}{m_i}$
 
 Sei $\nu$ stationäre Verteilung, dann gilt:
 
-$$\nu(i) = \frac{\gamma_k(i)}{\sum_{j \in S} \gamma_k(j)} = \frac{\mathbb{E}_k[\sum_{n=1}^{T_k} \mathbbm{1}_{X_n = i}]}{\mathbb{E}_k[T_k]}$$
+\[ \nu(i) = \frac{\gamma_k(i)}{\sum_{j \in S} \gamma_k(j)} = \frac{\mathbb{E}_k[\sum_{n=1}^{T_k} \mathbbm{1}_{X_n = i}]}{\mathbb{E}_k[T_k]} \]
 
 $\nu(i)$ ist also durchschnittlicher Bruchteil der Zeit, den die MK in $i \in S$ verbringt.
 
@@ -235,7 +235,7 @@ Es gilt $d(\mu,\nu) = \frac{1}{2} \sum_{i \in S} |\mu(i) - \nu(i)|$.
 Die Periode eines Zustands $i \in S$ ist geg. als:
 
 \vspace*{-2mm}
-$$d_i = ggT\{ n \in \N : p_{ii}^{(n)} > 0 \}$$
+\[ d_i = ggT\{ n \in \N : p_{ii}^{(n)} > 0 \} \]
 
 Zustände mit $d_i = 1$ heißen \emph{aperiodisch}.
 
@@ -262,7 +262,7 @@ Für $\epsilon > 0$ ist $t_{mix}(\epsilon) = \min\{ n \in \N : d(n) \leq \epsilo
 Sei $(X_n)$ MK mit Übergangsmatrix $P$, Zustandsraum $S$ und stationärer Verteilung $\pi$ mit $\forall i \in S : \pi(i) > 0$. Definiere $Q = (q_{ij})_{i,j \in S}$:
 
 \vspace*{-2mm}
-$$q_{ij} := \frac{\pi(j)}{\pi(i)} p_{ij}, \ i,j \in S$$
+\[ q_{ij} := \frac{\pi(j)}{\pi(i)} p_{ij}, \ i,j \in S \]
 
 Dann ist $Q$ stochastisch und für $X_0 \sim \pi$ gilt:
 
@@ -292,7 +292,7 @@ Dies ist hilfreich, wenn nach $\pi$ verteilte Zufallszahlen schwierig zu erzeuge
 
 Sei $K$ irreduzible, symmetrische Übergangsmatrix auf $S$. Wählen $P = (p_{ij})$ mit:
 
-$$p_{ij} = \begin{cases} K_{ij}\left(\frac{\pi(j)}{\pi(i)} \land 1\right) & i \neq j \\ 1 - \sum_{k \neq i} K_{ik}\left(\frac{\pi(j)}{\pi(i)} \land 1\right) & i=j \end{cases}$$
+\[ p_{ij} = \begin{cases} K_{ij}\left(\frac{\pi(j)}{\pi(i)} \land 1\right) & i \neq j \\ 1 - \sum_{k \neq i} K_{ik}\left(\frac{\pi(j)}{\pi(i)} \land 1\right) & i=j \end{cases} \]
 
 Dann besitzt die MK mit Übergangsmatrix $P$ die stationäre Verteilung $\pi$.
 
@@ -333,7 +333,7 @@ $\forall n \in \N$, $t, h > 0, i_k \in S$ sowie $\forall 0 \leq t_0 < t_1 < \cdo
 Sei $\{P(t), t \geq 0\}$ eine \emph{Standardübergangsmatrizen-funktion}. Dann sind alle $p_{ij}(t)$ in $0$ rechtseitig differenzierbar d.h.: $\forall i, j \in S :$
 
 \vspace*{-2mm}
-$$q_{ij} := \lim_{t\downarrow0} \frac{1}{t} (p_{ij}(t) - \delta_{ij})$$
+\[ q_{ij} := \lim_{t\downarrow0} \frac{1}{t} (p_{ij}(t) - \delta_{ij}) \]
 
 Die Matrix $Q := (q_{ij})$ ist die \emph{Intensitätsmatrix} bzw. der \emph{infinitesimale Erzeuger} von $\{P(t),t \geq 0\}$.
 
@@ -341,16 +341,16 @@ Die Matrix $Q := (q_{ij})$ ist die \emph{Intensitätsmatrix} bzw. der \emph{infi
 
 Für einen Poisson-Prozess $(N_t)$ ergibt sich die Übergangsmatrizenfunktion:
 
-$$p_{ij}(t) = \begin{cases} e^{-\lambda t} \frac{(\lambda t)^{j-i}}{(j-i)!} & j \geq i \\ 0 & \text{sonst}\end{cases}$$
+\[ p_{ij}(t) = \begin{cases} e^{-\lambda t} \frac{(\lambda t)^{j-i}}{(j-i)!} & j \geq i \\ 0 & \text{sonst}\end{cases} \]
 
 Demenstsprechend gilt:
 
 \vspace*{-4mm}
-$$\lim_{t\downarrow0} \frac{1}{t} (p_{ij}(t) - \delta_{ij}) = \begin{cases} \lambda & j = i+1 \\ -\lambda & j=i \\ 0 & \text{sonst}\end{cases}$$
+\[ \lim_{t\downarrow0} \frac{1}{t} (p_{ij}(t) - \delta_{ij}) = \begin{cases} \lambda & j = i+1 \\ -\lambda & j=i \\ 0 & \text{sonst}\end{cases} \]
 
 Die Intensitätsmatrix des Poisson-Prozesses:
 
-$$Q = \begin{pmatrix} -\lambda & \lambda & 0 & 0 & \cdots \\ 0 & -\lambda & \lambda & 0 & \cdots \\ 0 & 0 & -\lambda & \lambda & \\ \vdots & \vdots & & & \ddots \end{pmatrix}$$
+\[ Q = \begin{pmatrix} -\lambda & \lambda & 0 & 0 & \cdots \\ 0 & -\lambda & \lambda & 0 & \cdots \\ 0 & 0 & -\lambda & \lambda & \\ \vdots & \vdots & & & \ddots \end{pmatrix} \]
 
 \subsubsection*{Konservative Übergangsmatrix}
 
@@ -368,7 +368,7 @@ Falls $S$ endlich ist, gilt $q_i = \sum_{j\neq i} q_{ij}$ für $i \in S$. Dann h
 Sei $\{P(t),t \geq 0\}$ eine Konservative Standardübergangsmatrizenfunktion und $q_i < \infty$ für $i \in S$. Dann gilt das Kolmogorovsche Rückwärtsdifferentialgleichungssystem:
 
 \vspace*{-2mm}
-$$P'(t) = QP(t), \ t \geq 0$$
+\[ P'(t) = QP(t), \ t \geq 0 \]
 
 d.h. $\forall i,j \in S : p_{ij}'(t) = -q_i p_{ij}(t) + \sum_{k \neq i} q_{ik} p_{kj}(t)$
 
@@ -377,14 +377,14 @@ d.h. $\forall i,j \in S : p_{ij}'(t) = -q_i p_{ij}(t) + \sum_{k \neq i} q_{ik} p
 Gilt weiterhin $\forall i \in S, t \geq 0 : \sum_{k \in S} p_{ik}(t)q_k < \infty$ dann ist $\{P(t),t\geq 0\}$ Lösung des \emph{Kolmogorovschen Vorwärtsdifferentialgleichungssystems}:
 
 \vspace*{-2mm}
-$$P'(t)=P(t)Q, \ t \geq 0$$
+\[ P'(t)=P(t)Q, \ t \geq 0 \]
 
 \spacing
 
 Ist $S$ endlich so ist die Lösung von $P'(t) = QP(t)$ mit $P(0)=E$ gegeben durch:
 
 \vspace*{-2mm}
-$$P(t) = e^{tQ} = \sum_{n=0}^\infty \frac{(tQ)^n}{n!}$$
+\[ P(t) = e^{tQ} = \sum_{n=0}^\infty \frac{(tQ)^n}{n!} \]
 
 \section*{Warteschlangentheorie}
 
@@ -450,6 +450,6 @@ Der Prozess ist positiv rekurrent mit stationärer Verteilung $\pi_i = \frac{\et
 Der Bruchteil verlorengegangener Anrufe ist:
 
 \vspace*{-2mm}
-$$E_K(\eta) := \frac{\eta^K}{K!} \left( \sum_{n=0}^K \frac{\eta^n}{n!} \right)^{-1}$$
+\[ E_K(\eta) := \frac{\eta^K}{K!} \left( \sum_{n=0}^K \frac{\eta^n}{n!} \right)^{-1} \]
 
 Dies ist die \emph{Erlangsche Verlustformel}.

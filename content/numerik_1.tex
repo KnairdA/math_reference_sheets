@@ -43,12 +43,12 @@ Ein Algorithmus für $f$ ist Abbildung $\tilde f : E \subset X \to Y$ s.d. $\til
 Die Konditionszahl eines mathematischen Problems $(f, x)$ ist die kleinste Zahl $\kappa_f(x) \geq 0$ mit:
 
 \vspace*{-4mm}
-$$\frac{\|f(x + \Delta x) - f(x) \|_Y}{\|f(x)\|_Y} \leq \kappa_f(x) \frac{\|\Delta x\|_X}{\|x\|_X} + o(\|\Delta x \|_X)$$
+\[ \frac{\|f(x + \Delta x) - f(x) \|_Y}{\|f(x)\|_Y} \leq \kappa_f(x) \frac{\|\Delta x\|_X}{\|x\|_X} + o(\|\Delta x \|_X) \]
 
 Für $\|\Delta x\|_X \rightarrow 0$.
 
 \vspace*{-4mm}
-$$\kappa_f(x) = \limsup_{\delta \to 0} \left\{ \frac{\|f(x+\Delta x) - f(x)\|_Y \|x\|_X}{\|f(x)\|_Y \|\Delta x\|_X} \right\}$$
+\[ \kappa_f(x) = \limsup_{\delta \to 0} \left\{ \frac{\|f(x+\Delta x) - f(x)\|_Y \|x\|_X}{\|f(x)\|_Y \|\Delta x\|_X} \right\} \]
 
 Für $\Delta x \in X$, $x + \Delta x \in E$, $\|\Delta x\|_X \leq \delta$.
 
@@ -62,7 +62,7 @@ Existiert $\limsup$ nicht wird $\kappa_f(x)=\infty$ gesetzt und das Problem als 
 Für $f \in \mathcal{C}^1(E, \R^m)$ in Umgebung $E \subseteq \R^n$ von $x$:
 
 \vspace*{-2mm}
-$$\kappa_f(x) = \frac{\|f'(x)\|_\infty \cdot \|x\|_X}{\|f(x)\|_Y}$$
+\[ \kappa_f(x) = \frac{\|f'(x)\|_\infty \cdot \|x\|_X}{\|f(x)\|_Y} \]
 
 \subsection*{Stabilität numerischer Algorithmen}
 
@@ -73,7 +73,7 @@ Elementaroperationen eines Computers sind mit dem relativen Fehler $\epsilon$ be
 \emph{Stabilitätsindikator der Vorwärtsanalyse} eines Algorithmus' $\tilde f$ zur Lösung von $(f,x)$ ist minimales $\sigma = \sigma(x) \geq 0$ für $\{x^\epsilon\}_{\epsilon > 0}$ mit $\|x-x^\epsilon\|_X \leq \epsilon \|x\|_X$:
 
 \vspace{-4mm}
-$$\frac{\|\tilde f(x^\epsilon) - f(x^\epsilon)\|_Y}{\|f(x^\epsilon)\|_Y} \leq \sigma \kappa_f(x^\epsilon)\epsilon + o(\epsilon) \text{ für } \epsilon \to 0$$
+\[ \frac{\|\tilde f(x^\epsilon) - f(x^\epsilon)\|_Y}{\|f(x^\epsilon)\|_Y} \leq \sigma \kappa_f(x^\epsilon)\epsilon + o(\epsilon) \text{ für } \epsilon \to 0 \]
 
 Algorithmus $\tilde f$ ist stabil im Sinne der Vorwärtsanalyse, wenn $\sigma \leq$ \#Elementaroperationen.
 
@@ -82,7 +82,7 @@ Algorithmus $\tilde f$ ist stabil im Sinne der Vorwärtsanalyse, wenn $\sigma \l
 \emph{Stabilitätsindikator der Rückwärtsanalyse} ist minimales $\varrho = \varrho(x) \geq 0$ für $\{x^\epsilon\}_{\epsilon > 0}$ s.d. für bel. $\|x^\epsilon - x\|_X \leq \epsilon \|x\|_X$ Schar $\{\hat x^\epsilon\}_{\epsilon > 0}$ ex. mit $f(\hat x^\epsilon) = \tilde f(x^\epsilon)$:
 
 \vspace{-2mm}
-$$\frac{\|\hat x^\epsilon - x^\epsilon\|_X}{\|x^\epsilon\|_X} \leq \varrho\epsilon + o(\epsilon) \text{ für } \epsilon \to 0$$
+\[ \frac{\|\hat x^\epsilon - x^\epsilon\|_X}{\|x^\epsilon\|_X} \leq \varrho\epsilon + o(\epsilon) \text{ für } \epsilon \to 0 \]
 
 Vorwärtsstabilität folgt aus Rückwärtsstabilität.
 
@@ -93,7 +93,7 @@ Vorwärtsstabilität folgt aus Rückwärtsstabilität.
 Für Normen $\| \cdot \|_\circ$, $\| \cdot \|_\star$ auf $\K^n$ bzw. $\K^m$ ist eine Matrixnorm $\| \cdot \| : \K^{m \times n} \rightarrow [0,\infty)$ auf dem Vektorraum der $m \times n$-Matrizen definiert:
 
 \vspace*{-4mm}
-$$\|A\| := \max_{v \in \K^n \setminus \{0\}} \frac{\|Av\|_\star}{\|v\|_\circ} = \max_{\{v \in \K^n | \|v\|_\circ = 1 \}} \|Av\|_\star$$
+\[ \|A\| := \max_{v \in \K^n \setminus \{0\}} \frac{\|Av\|_\star}{\|v\|_\circ} = \max_{\{v \in \K^n | \|v\|_\circ = 1 \}} \|Av\|_\star \]
 
 \subsubsection*{Eigenschaften}
 
@@ -106,19 +106,19 @@ Submultiplikativität: $\|AB\| \leq \|A\| \cdot \|B\|$
 Induzierte Matrixnorm bei Wahl der $p$-Normen über $\K^n$ bzw. $\K^m$:
 
 \vspace*{-4mm}
-$$\|A\|_p := \max_{v \in \K^n} \frac{\|Av\|_p}{\|v\|_p} = \max_{\|v\|_p = 1} \|Av\|_p \text{ für } 1 \leq p \leq \infty$$
+\[ \|A\|_p := \max_{v \in \K^n} \frac{\|Av\|_p}{\|v\|_p} = \max_{\|v\|_p = 1} \|Av\|_p \text{ für } 1 \leq p \leq \infty \]
 
 \subsubsection*{Spaltensummennorm}
 
 Für $A = (a_1, \cdots, a_n)$ mit $a_j \in \K^m$:
 
 \vspace*{-4mm}
-$$\|A\|_1 = \max_{1 \leq j \leq n} \|a_j\|_1 = \max_{1 \leq j \leq n} \sum_{i=1}^m |a_{i,j}|$$
+\[ \|A\|_1 = \max_{1 \leq j \leq n} \|a_j\|_1 = \max_{1 \leq j \leq n} \sum_{i=1}^m |a_{i,j}| \]
 
 \subsubsection*{Zeilensummennorm}
 
 \vspace*{-4mm}
-$$\|A\|_\infty = \max_{1 \leq i \leq m} \sum_{j=1}^n |a_{i,j}|$$
+\[ \|A\|_\infty = \max_{1 \leq i \leq m} \sum_{j=1}^n |a_{i,j}| \]
 
 \subsubsection*{Spektralnorm}
 
@@ -163,7 +163,7 @@ Fast obere / untere Dreiecksmatrix wobei 1. untere / obere Nebendiagonale besetz
 \subsection*{Neumannsche-Reihe}
 
 \vspace{-2mm}
-$$(Id-M)^{-1} = \sum_{k=0}^\infty M^k$$
+\[ (Id-M)^{-1} = \sum_{k=0}^\infty M^k \]
 
 \subsection*{Bezüglich $A > 0$ konjugierte Vektoren}
 
@@ -222,7 +222,7 @@ Für alle $A \in \R^{m \times n}$ mit $m \geq n$ und $Rang(A)=n$ existiert $A=QR
 
 \subsubsection*{Householder-Reflexionen}
 
-$$H(v) := Id_m - 2 \frac{vv^T}{v^Tv} = Id_m - 2 \frac{vv^T}{\|v\|_2^2} \text{ für } \forall v \in \R^m \setminus \{0\}$$
+\[ H(v) := Id_m - 2 \frac{vv^T}{v^Tv} = Id_m - 2 \frac{vv^T}{\|v\|_2^2} \text{ für } \forall v \in \R^m \setminus \{0\} \]
 
 Solche $H(v)$ sind orthogonal und symmetrisch, d.h. $H(v)^T H(v)=Id_m$ und $H(v)^2=Id_m$.
 
@@ -235,7 +235,7 @@ Solche Reflexionen können durch wiederholte Anwendung Matrizen in obere Dreieck
 Gesucht ist $v \in \R^m$ für $y \in \R^m$ s.d.:
 
 \vspace{-2mm}
-$$H(v)y=y - 2 \frac{\skp{v,y}}{\|v\|_2^2}v \overset{!}{=} \alpha e_1$$
+\[ H(v)y=y - 2 \frac{\skp{v,y}}{\|v\|_2^2}v \overset{!}{=} \alpha e_1 \]
 
 Vermeidung von Auslöschung: $\alpha := -sign(y_1)\|y\|_2$
 
@@ -253,7 +253,7 @@ $R:=Q_p \cdots Q_1 A$, $Q:=Q_1^T \cdots Q_p^T$ s.d. $A=QR$.
 
 Mit $c^2 + s^2 = 1, c, s \in \R$ und $l < k$:
 
-$$G(l,k) := \left(\begin{smallmatrix}
+\[ G(l,k) := \left(\begin{smallmatrix}
 1 &           &   &    &   &           &   &   &   &           &   \\
   & \diagdown &   &    &   &           &   &   &   &           &   \\
   &           & 1 &    &   &           &   &   &   &           &   \\
@@ -265,18 +265,18 @@ $$G(l,k) := \left(\begin{smallmatrix}
   &           &   &    &   &           &   &   & 1 &           &   \\
   &           &   &    &   &           &   &   &   & \diagdown &   \\
   &           &   &    &   &           &   &   &   &           & 1
-\end{smallmatrix}\right)$$
+\end{smallmatrix}\right) \]
 
 Wobei $c$ das Diagonalelement der $l$-ten und $k$-ten Zeile, $s$ $k$-tes Element der $l$-ten Zeile, $-s$ $l$-tes Element der $k$-ten Zeile.
 
 Givens-Rotationen sind orthogonal und nicht symmetrisch. $G(l,k)A$ unterscheidet sich von $A$ nur in der $l$-ten und $k$-ten Zeile.
 
 \vspace{-4mm}
-$$(G(l,k)x)_i = \begin{cases}
+\[ (G(l,k)x)_i = \begin{cases}
 	cx_l  + sx_k & i=l \\
 	-sx_l + cx_k & i=k \\
 	x_i          & \text{sonst}
-\end{cases}$$
+\end{cases} \]
 
 $\exists \varphi \in (0,2\pi] : c=\cos{\varphi}, s=\sin{\varphi}$ d.h. $G(l,k)$ ist Rotation um $\varphi$ in Ebene $spann\{e_l,e_k\}$.
 
@@ -353,7 +353,7 @@ Sind $A$ oder $A^T$ diagonaldominant so konvergieren sowohl das Jacobi- als auch
 
 \subsubsection*{Gesamtschritt- / Jacobi-Verfahren}
 
-$$u_i^{k+1} = u_i^k + \frac{1}{a_{i,i}}\left(b_i - \sum_{j=1}^n a_{i,j} u_j^k \right) \text{ für } i = 1, \cdots, n$$
+\[ u_i^{k+1} = u_i^k + \frac{1}{a_{i,i}}\left(b_i - \sum_{j=1}^n a_{i,j} u_j^k \right) \text{ für } i = 1, \cdots, n \]
 
 Für $A = D - L - R$:
 
@@ -367,7 +367,7 @@ Also: $M^{Jac} = Id - D^{-1}A = D^{-1}(L+R)$, $N^{Jac} = D^{-1}$
 
 \subsubsection*{Einzelschritt- / Gauß-Seidel-Verfahren}
 
-$$u_i^{k+1} = u_i^k + \frac{1}{a_{i,i}}\left(b_i - \sum_{j=1}^{i-1} a_{i,j} u_j^{k+1} - \sum_{j=i}^n a_{i,j} u_j^k \right)$$
+\[ u_i^{k+1} = u_i^k + \frac{1}{a_{i,i}}\left(b_i - \sum_{j=1}^{i-1} a_{i,j} u_j^{k+1} - \sum_{j=i}^n a_{i,j} u_j^k \right) \]
 
 Für $A = D - L - R$:
 
@@ -378,24 +378,24 @@ $M^{GS} = (D - L)^{-1}R$, $N^{GS} = (D - L)^{-1}$.
 Der Krylov-Raum $m$-ter Ordnung bzgl. $B$ und $v$:
 
 \vspace{-4mm}
-$$\mathcal{U}_m(B,v) := spann\{v,Bv,B^2v, \cdots, B^{m-1}v\} \subset \R^n$$
+\[ \mathcal{U}_m(B,v) := spann\{v,Bv,B^2v, \cdots, B^{m-1}v\} \subset \R^n \]
 
 Das Residuuum der $k$-ten Iterierten $u^k$:
 
 \vspace{-2mm}
-$$r^k=(I-AN)r^{k-1} = (I-AN)^kr^0$$
+\[ r^k=(I-AN)r^{k-1} = (I-AN)^kr^0 \]
 
 Es gilt: $u^k \in V_k$ mit $V_k = u_0 + \mathcal{U}_k(NA,Nr^0)$ sowie $r^0 = b - Au^0$.
 
 Minimaleigenschaft der $k$-ten Iterierten bzgl. Norm $\|\cdot\|_\star$ auf $\R^n$:
 
 \vspace{-2mm}
-$$u^k = argmin\{\|v - A^{-1}b\|_\star : v \in V_k\}$$
+\[ u^k = argmin\{\|v - A^{-1}b\|_\star : v \in V_k\} \]
 
 Ein Krylov-Raum-Verfahren bzgl. einer Norm $\|\cdot\|_\star$ ist nur dann sinnvoll, wenn $u^k$ mit geringem, d.h. im Bereich von zwei Matrix-Vektormultiplikationen liegendem, numerischen Aufwand aus $u^{k-1}$ hervorgeht.
 
 \vspace{-2mm}
-$$u^{k+1} = u^k + N(b-Au^k)$$
+\[ u^{k+1} = u^k + N(b-Au^k) \]
 
 $u^k$ wird in jeder Iteration entsprechend der jeweiligen Charakterisierung minimiert.
 
@@ -408,7 +408,7 @@ Anforderungen: $Nv$ sollte schnell zu berechnen sein, weiterhin sollte $N \appro
 Das Verfahren der konjugierten Gradienten ist durch die Energienorm charakterisiert und definiert als:
 
 \vspace{-2mm}
-$$u^k = argmin\{\|v-A^{-1}b\|_A : v \in V_k\}$$
+\[ u^k = argmin\{\|v-A^{-1}b\|_A : v \in V_k\} \]
 
 Für positiv definite $A, N \in \R^{n \times n}$ sowie $b \in \R^n$ liefert das CG-Verfahren nach spätestens $n$ Schritten $A^{-1}b$. Eigentlich ist es bei exakter Arithmetik also ein direkter Verfahren, wird aber durch früheren Abbruch als iteratives Verfahren verwendet.
 
@@ -455,20 +455,20 @@ Zu $n+1$ Stützwerten $f_i$ und paarweise verschiedenen Knoten $t_i$ existiert d
 \subsubsection*{Interpolationsfehler}
 
 \vspace{-4mm}
-$$\|f-P(f|t_0, \cdots, t_n)\|_\infty \leq \sup_{\tau \in [a,b]} \frac{|f^{(n+1)}(\tau)|}{(n+1)!} \|\omega_{n+1}\|_\infty$$
+\[ \|f-P(f|t_0, \cdots, t_n)\|_\infty \leq \sup_{\tau \in [a,b]} \frac{|f^{(n+1)}(\tau)|}{(n+1)!} \|\omega_{n+1}\|_\infty \]
 
 $\omega_{n+1} \in \Pi_{n+1}$ ist das \emph{Newton-Polynom} bzgl. $t_0, \cdots, t_n$ mit $\omega_{n+1}(t) := \prod_{i=0}^n (t-t_i)$.
 
 \subsection*{Vandermonde-Matrix}
 
-$$\begin{pmatrix}
+\[ \begin{pmatrix}
 1      & t_0    & t_0^2  & \cdots & t_0^n  \\
 1      & t_1    & t_1^2  & \cdots & t_1^n  \\
 \vdots & \vdots & \vdots &        & \vdots \\
 1      & t_n    & t_n^2  & \cdots & t_n^n
 \end{pmatrix}
 \begin{pmatrix}a_0 \\ \vdots \\ \vdots \\ a_n\end{pmatrix} =
-\begin{pmatrix}f_0 \\ \vdots \\ \vdots \\ f_n\end{pmatrix}$$
+\begin{pmatrix}f_0 \\ \vdots \\ \vdots \\ f_n\end{pmatrix} \]
 
 Die Lösung der Vandermonde-Matrix beschreibt $P(f|t_0,\cdots,t_n) \in \Pi_n$, was jedoch zu aufwändig ist.
 
@@ -476,7 +476,7 @@ Die Lösung der Vandermonde-Matrix beschreibt $P(f|t_0,\cdots,t_n) \in \Pi_n$, w
 
 Basis $\{L_{n,0},\cdots,L_{n,n}\}$ von $\Pi_n$ abhg. $t_0 < \cdots < t_n$ wg. $L_{n,k}(t_i) = \delta_{k,i} = \begin{cases}1 & k=i \\ 0 & sonst\end{cases}$
 
-$$L_{n,k}(t) := \prod_{j=0,j\neq k}^n \frac{t-t_j}{t_k-t_j}$$
+\[ L_{n,k}(t) := \prod_{j=0,j\neq k}^n \frac{t-t_j}{t_k-t_j} \]
 
 Es gilt also: $P(f|t_0,\cdots,t_n)=\sum_{k=0}^n f_k \cdot L_{n,k}$
 
@@ -489,7 +489,7 @@ Ein Lagrange Polynom zu Stützstelle $t_k$ nimmt an dieser $1$, an allen anderen
 $P = P(f|t_0,\cdots,t_n)(t) =$
 
 \vspace{-2mm}
-$$\frac{(t_0-t)P(f|t_1,\cdots,t_n)(t)-(t_n-t)P(f|t_0,\cdots,t_{n-1})(t)}{t_0-t_n}$$
+\[ \frac{(t_0-t)P(f|t_1,\cdots,t_n)(t)-(t_n-t)P(f|t_0,\cdots,t_{n-1})(t)}{t_0-t_n} \]
 
 \subsubsection*{Schema von Neville}
 
@@ -506,7 +506,7 @@ P_{i,k} &= \frac{(t_{i-k}-t)P_{i,k-1} - (t_i-t)P_{i-1,k-1}}{t_{i-k}-t_i} \\
 Für $i = 0,\cdots,n$:
 
 \vspace{-2mm}
-$$t_i^{[a,b]} = \frac{b+a}{2} + \frac{b-a}{2} \cos\left(\frac{2i+1}{2n+2} \pi\right)$$
+\[ t_i^{[a,b]} = \frac{b+a}{2} + \frac{b-a}{2} \cos\left(\frac{2i+1}{2n+2} \pi\right) \]
 
 Diese Knotenfolge liegt dichter zu den Intervallgrenzen hin und ergibt eine bessere Interpolation als äquidistante Knoten.
 
@@ -539,13 +539,13 @@ Zusätzlich gilt auch $(t-t_i)_+^{k-1} \in S_{k,\Delta}$
 
 Abgebrochene Potenzen vom Grad $k-1$:
 
-$$(t-t_i)_+^{k-1} := \begin{cases}(t-t_i)^{k-1} &: t \geq t_i \\ 0 &: t < t_i\end{cases}$$
+\[ (t-t_i)_+^{k-1} := \begin{cases}(t-t_i)^{k-1} &: t \geq t_i \\ 0 &: t < t_i\end{cases} \]
 
 Für $t_i \in \Delta$, $i \neq l+1$
 
 \subsubsection*{Basis des Spline-Raumes}
 
-$$\mathcal{B} = \{1,t,\cdots,t^{k-1},(t-t_1)_+^{k-1},\cdots,(t-t_l)_+^{k-1}\}$$
+\[ \mathcal{B} = \{1,t,\cdots,t^{k-1},(t-t_1)_+^{k-1},\cdots,(t-t_l)_+^{k-1}\} \]
 
 ist eine Basis von $S_{k,\Delta}$ mit $\dim(S_{k,\Delta}) = k + l$.
 
@@ -557,7 +557,7 @@ Interpolation einer Funktion $f$ bzgl. eines Gitters $\Delta = \{t_0,\cdots,t_{l
 
 Im linearen Fall mit $k=2$ stimmt die Anzahl der Knoten $l+2$ mit $\dim(S_{2,\Delta})=l+2$ überein. Es gibt also genau einen Spline der $(t_i,f(t_i))$ interpoliert.
 
-$$I_2 f = \sum_{i=0}^{l+1} f(t_i) B_i$$
+\[ I_2 f = \sum_{i=0}^{l+1} f(t_i) B_i \]
 
 Für $B_i \in S_{2,\Delta}$ mit $B_i(t_k) = \delta_{i,k}$
 
@@ -577,13 +577,13 @@ Eine zusätzliche Bedingung ist, dass der interpolierende kubische Spline die mi
 
 Krümmung von $y : [a,b] \rightarrow \R, y \in \mathcal{C}^2$:
 
-$$\kappa(t) := \frac{y''(t)}{(1+y'(t))^{3/2}}$$
+\[ \kappa(t) := \frac{y''(t)}{(1+y'(t))^{3/2}} \]
 
 $1/\kappa(t)$ ist der Radius des \emph{Krümmungskreises}.
 
 Das Krümmungsverhalten von $y$ über ganz $[a,b]$ ist durch ein Integral messbar:
 
-$$\|y''\|_2 := \left(\int_a^b y''(t)^2 dt\right)^{1/2}$$
+\[ \|y''\|_2 := \left(\int_a^b y''(t)^2 dt\right)^{1/2} \]
 
 \subsubsection*{Randbedingungen}
 
