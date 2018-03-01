@@ -478,3 +478,13 @@ $$\forall v \in \mathcal{C}^\infty(\Omega) : \|I_h^o Lv - L_h I_h v\|_h \leq C h
 Norm $\|\cdot\|_{h,\infty}$ auf $V_h$ ist def.: $\|v_h\|_{h,\infty} := \displaystyle\max_{x \in \mathcal{G}_h} |v_h(x)|$
 
 \subsubsection*{Differenzensterne}
+
+Für $S := \{ e \in \Z^d | |e|_\infty \leq 1 \}$ können diskrete Operatoren dargestellt werden als:
+
+$$L_h v_h(x) = \sum_{e \in S} a_e(x) v_h(x+he)$$
+
+\emph{Stencil} für $d=1$: $\begin{bmatrix} a_{-1}(x) & a_0(x) & a_1(x) \end{bmatrix}$.
+
+z.B. der diskrete Laplace-Operator in $d \in \{ 1, 2 \}$:
+
+$\Delta_h = \frac{1}{h^2} \begin{bmatrix} 1 & -2 & 1 \end{bmatrix}$ bzw. $\Delta_h = \frac{1}{h^2} \begin{bmatrix} 0 & 1 & 0 \\ 1 & -4 & 1 \\ 0 & 1 & 0 \end{bmatrix}$
