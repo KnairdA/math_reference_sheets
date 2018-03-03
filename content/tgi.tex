@@ -207,6 +207,53 @@ Prüfe ob $M' \subseteq M$ existiert s.d. $\sum_{a \in M'} w(a) \leq W$ und $\su
 
 \emph{KNAPSACK} ist $\NP$-vollständig.
 
-\subsection*{$\NP$-Schwere}
+\subsection*{Suchprobleme}
+
+\emph{Suchproblem} $\Pi$ ist geg. mit Menge von Beispielen $D_\Pi$ und für $I \in D_\Pi$ Menge $S_\Pi(I)$ aller Lsg. von $I$.
+
+Die Lösung eines Suchproblems ist die Angabe von $S_\Pi(I)$ für $I \in D_\Pi$ mit $S_\Pi(I) \neq \emptyset$ falls möglich.
+
+\spacing
+
+Beispiele sind Bestimmung einer optimalen Tour in Graph (TSP) oder eines Hamilton-Kreises.
+
+\subsection*{Aufzählungsprobleme}
+
+\emph{Aufzählungsproblem} $\Pi$ ist geg. mit Menge von Beispielen $D_\Pi$ und für $I \in D_\Pi$ Menge $S_\Pi(I)$ aller Lsg.
+
+Lösung eines Aufzählungsproblems ist $|S_\Pi(I)|$.
+
+\spacing
+
+z.B. wie viele Hamilton-Kreise gibt es?
+
+\subsubsection*{$\NP$-Schwere}
+
+Ein Suchproblem $\Pi$ ist \emph{$\NP$-schwer}, wenn $\NP$-vollständige Sprache $L$ ex. s.d. $L \propto_T \Pi$.
+
+$\NP$-schweres Problem ist nicht zwingend in $\NP$.
+
+Ein bel. Problem ist $\NP$-schwer, wenn es mind. so schwer ist, wie alle $\NP$-vollständigen Probleme.
+
+\spacing
+
+Die Klasse der $\NP$-schweren Probleme ist bzgl. Komplementbildung abgeschlossen.
+
+\subsection*{INTEGER PROGRAMMING}
+
+Sei $a_{ij}, b_i, c_j, b \in \Z_0$ für $1 \leq i \leq m$ und $1 \leq j \leq n$.
+
+Prüfe ob $x_i, \dots, x_n \in \N_0$ ex. s.d. $\sum_{j=1}^n c_j \cdot x_j = B$ und $\forall 1 \leq i \leq m : \sum_{j=1}^n a_{ij} \cdot x_j \leq b_j$ (d.h. $A \cdot \vec{x} \leq \vec{b}$).
+
+\emph{INTEGER PROGRAMMING} ist $\NP$-schwer.
 
 \section*{Chomsky-Hierarchie}
+
+\begin{description}[leftmargin=!,labelwidth=8mm]
+	\item[Typ 0] Rekursiv aufzählbar, Turing-Maschine
+	\item[Typ 1] Kontextsensitiv, nichtdet. TM
+	\item[Typ 2] Kontextfrei, nichtdet. Kellerautomat
+	\item[Typ 3] Regulär, Endlicher Automat (DEA, NEA)
+\end{description}
+
+\subsection*{Chomsky-Normalform}
