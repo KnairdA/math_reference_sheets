@@ -1,0 +1,129 @@
+\section*{Endliche Automaten}
+
+Ein \emph{deterministischer endlicher Automat} besteht aus endlichen Mengen von Zuständen, Eingabesymbolen und einer Übergangsfunktion.
+
+Er entscheidet ob eine endliche Eingabe gültig ist.
+
+\subsection*{Reguläre Ausdrücke}
+
+\emph{Reguläre Ausdrücke} beschreiben \emph{reguläre Sprachen}.
+
+Dies sind genau die Sprachen, die nach dem \emph{Satz von Kleene} von einem DEA aktzeptiert werden.
+
+\subsection*{Nichtdeterministische Automaten}
+
+Zustandsübergänge sind nichtdeterministisch.
+
+Jeder NEA besitzt einen äquivalenten DEA.
+
+Gebildet mit \emph{Potenzmengenkostruktion}.
+
+\subsubsection*{$\epsilon$-Übergänge}
+
+Jeder NEA mit $\epsilon$-Übergängen besitzt einen äquivalenten NEA ohne $\epsilon$-Übergänge, der nicht mehr Zustände benötigt.
+
+\subsection*{Pumping-Lemma für reguläre Sprachen}
+
+Sei $L$ reguläre Sprache.
+
+Dann $\exists n \in \N \forall w \in L : |w| > n \implies w=uvx$ mit $|uv| \leq n, v \neq \epsilon$ und $\forall i \in \N_0 : uv^ix \in L$.
+
+\subsection*{Äquivalenzklassenautomat}
+
+Nicht erreichbare Zustände in $Q$ sind \emph{überflüssig}.
+
+Diese sind in $\mathcal{O}(|Q|\cdot|\Sigma|)$ bestimmbar.
+
+Ein Automat ohne überflüssige Zustände ist nicht zwingend minimal.
+
+$p, q \in Q$ sind \emph{äquivalent} ($p \equiv q$), wenn $\forall w \in \Sigma^* : \delta(p,w) \in F \iff \delta(q,w) \in F$.
+
+\section*{Entscheidbarkeit}
+
+Eine Sprache $L \subseteq \Sigma^*$ ist \emph{rekursiv / entscheidbar}, wenn es eine Turing-Maschine gibt, die auf allen Eingaben hält und $w \in \L$ aktzeptiert gdw. $w \in L$.
+
+\spacing
+
+Eine Sprache $L \subseteq \Sigma^*$ ist \emph{rekursiv-aufzählbar / semi-entscheidbar}, wenn es eine TM gibt, die $w \in L$ aktzeptiert. Ihr Verhalten für $w \neq L$ ist undefiniert.
+
+\spacing
+
+Eine Funktion $f : \Sigma^* \to \Gamma^*$ ist \emph{(Turing)-berechenbar / totalrekursiv}, wenn es eine TM gibt, die für $w \in \Sigma^*$ das Wort $f(w) \in \Gamma^*$ ausgibt.
+
+\spacing
+
+Eine Sprache $L \subseteq \Sigma^*$ ist \emph{entscheidbar} gdw. ihre \emph{charakteristische Funktion} berechenbar ist.
+
+\subsection*{Church'sche These}
+
+Die Menge der Turing-berechenbaren Funktionen ist genau die Menge der im intuitiven Sinne überhaupt berechenbaren Funktionen.
+
+\subsection*{Universelle Turing-Maschinen}
+
+Sei $\mathcal{M} := (Q,\Sigma,\Gamma,\delta,s,F)$ eine Turing-Maschine.
+
+Ihre \emph{Gödelnummer} $\langle M \rangle$ ist definiert als:
+
+\spacing
+
+$\mathcal{M}$ wird kodiert mit $111\text{code}_1 11\text{code}_2 11 \dots 11\text{code}_z 111$ wobei $\text{code}_i$ die $z$ Funktionswerte von $\delta$ darstellt:
+
+\spacing
+
+Kodiere $\delta(q_i,a_j) = (q_r,a_s,d_t)$ mit $0^i10^j10^r10^s10^t$ wobei $d_t \in \{d_1,d_2,d_3\}$ für $L$, $R$ bzw. $N$ steht.
+
+\spacing
+
+\emph{Universelle Turing-Maschine} aktzeptiert $(\langle \mathcal{M} \rangle, w)$ und simuliert $\mathcal{M}$ auf $w$.
+
+\subsubsection*{Diagonalsprache}
+
+$T_w$ ist TM mit Gödelnummer $w \in \{0,1\}^*$.
+
+Sei $w_i \in \{0,1\}^*$ für $i = 0,1\dots$.
+
+\spacing
+
+Die \emph{Diagonalsprache} ist definiert durch:
+
+$L_d := \{ w_i | \mathcal{M}_i \text{ aktzeptiert } w_i \text{ nicht} \}$.
+
+$L_d$ enthält Wörter $w_i$ die sich als Gödelnummer interpretiert nicht selbst aktzeptieren.
+
+\spacing
+
+$L_d$ und $L_d^c$ sind nicht entscheidbar.
+
+\subsubsection*{Halteproblem}
+
+\[ \mathcal{H} := \{ wv | T_w \text{ hält auf Eingabe } v \} \]
+
+$\mathcal{H}$ ist nicht entscheidbar.
+
+\subsubsection*{Universelle Sprache}
+
+\[ L_u := \{ v \in L(T_w) \} \]
+
+d.h. die Menge der Wörter $wv$ s.d. $T_w$ für Eingabe $v$ hält und diese aktzeptiert.
+
+$L_u$ ist nicht entscheidbar aber semi-entscheidbar.
+
+\subsubsection*{Satz von Rice}
+
+Sei $R$ die Menge aller von TM berechenbaren Funktionen und $S \subseteq R$ nicht trivial. Dann:
+
+\vspace*{-4mm}
+\[ L(S) := \{ \langle\mathcal{M}\rangle | \mathcal{M} \text{ berechnet Funktion aus } S \} \]
+$L(s)$ ist nicht entscheidbar.
+
+\subsection*{(Semi-)entscheidbare Sprachen}
+
+Entscheidbare Sprachen sind abgeschlossen unter Komplementbildung, Schnitt und Vereinigung.
+
+\spacing
+
+Semi-entscheidbare Sprachen sind abgeschlossen unter Schnitt und Vereinigung.
+
+\section*{Komplexitätsklassen}
+
+\section*{Chomsky-Hierarchie}
