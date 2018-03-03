@@ -1,3 +1,6 @@
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\NP}{\mathcal{NP}}
+
 \section*{Endliche Automaten}
 
 Ein \emph{deterministischer endlicher Automat} besteht aus endlichen Mengen von Zuständen, Eingabesymbolen und einer Übergangsfunktion.
@@ -66,7 +69,7 @@ Ihre \emph{Gödelnummer} $\langle M \rangle$ ist definiert als:
 
 \spacing
 
-$\mathcal{M}$ wird kodiert mit $111\text{code}_1 11\text{code}_2 11 \dots 11\text{code}_z 111$ wobei $\text{code}_i$ die $z$ Funktionswerte von $\delta$ darstellt:
+$\mathcal{M}$ wird durch $111\text{code}_1 11\text{code}_2 11 \dots 11\text{code}_z 111$ kodiert, $\text{code}_i$ stellt $z$ Funktionswerte von $\delta$ dar:
 
 \spacing
 
@@ -125,5 +128,85 @@ Entscheidbare Sprachen sind abgeschlossen unter Komplementbildung, Schnitt und V
 Semi-entscheidbare Sprachen sind abgeschlossen unter Schnitt und Vereinigung.
 
 \section*{Komplexitätsklassen}
+
+Sind nichtdeterministische TM wesentlich effizienter als deterministische TM? $\P \neq \NP$?
+
+\subsection*{Nichtdeterministische Turing-Maschinen}
+
+Übergangsfunktion $\delta$ bietet Wahlmöglichkeiten und $\epsilon$-Übergänge vergleichbar mit NEAs.
+
+\subsection*{$\NP$-vollständige Probleme}
+
+$\P \subseteq \NP$ trivial, $\P \neq \NP$ d.h. $\P \subset \NP$ vermutet.
+
+\spacing
+
+Eine \emph{polynomiale Transformation} von $L_1 \subseteq \Sigma_1^*$ nach $L_2 \subseteq \Sigma_2^*$ ist $f : \Sigma_1^* \to \Sigma_2^*$ s.d. eine DTM mit polynomialer Laufzeit existiert, die $f$ berechnet und $\forall x \in \Sigma_1^* : x \in L_1 \iff f(x) \in L_2$.
+
+Geschrieben: $L_1 \propto L_2$.
+
+\subsubsection*{$\NP$-Vollständigkeit}
+
+Eine Sprache $L$ ist \emph{$\NP$-vollständig}, wenn $L \in \NP$ und $\forall L' \in  \NP : L' \propto L$.
+
+\subsubsection*{Erfüllbarkeitsproblem (SAT)}
+
+Prüfe ob Belegungen von booleschen Variablen existiert s.d. gegebene Klauseln erfüllt werden.
+
+\spacing
+
+\emph{SAT} ist $\NP$-vollständig. Insb. ist \emph{3SAT} für Klauseln mit genau drei Literalen $\NP$-vollständig.
+
+\subsubsection*{Erfüllbarkeitsproblem (Max2SAT)}
+
+Prüfe ob Belegung ex. s.d. mind. $K$ Klauseln mit jeweils genau zwei Literalen erfüllt werden.
+
+\emph{Max2SAT} ist $\NP$-vollständig.
+
+\subsubsection*{Cliquen in Graphen (CLIQUE)}
+
+Prüfe ob Clique der Größe mind. $K$ existiert.
+
+\emph{CLIQUE} ist $\NP$-vollständig.
+
+\subsubsection*{Graphenfärbung (COLOR)}
+
+Prüfe ob Knotenfärbung mit max. $K$ Farben ex.
+
+\emph{3COLOR} ist $\NP$-vollständig.
+
+\subsubsection*{EXACT COVER}
+
+Sei $X$ endl. Menge und $\mathcal{S}$ Familie von Teilmengen.
+
+Prüfe ob $\mathcal{S}' \subseteq \mathcal{S}$ ex. s.d. $\forall a \in X \exists! A \in \mathcal{S}' : a \in A$.
+
+\emph{EXACT COVER} ist $\NP$-vollständig.
+
+\subsubsection*{SUBSET SUM}
+
+Sei $M$ endl. Menge, $w : M \to \N_0$ und $K \in \N_0$.
+
+Prüfe ob $M' \subseteq M$ ex. s.d. $\sum_{a \in M'} w(a) = K$.
+
+\emph{SUBSET SUM} ist $\NP$-vollständig.
+
+\subsubsection*{PARTITION}
+
+Sei $M$ endl. Menge und $w : M \to \N_0$.
+
+Prüfe ob $M' \subseteq M$ ex. s.d. $\textstyle\sum\limits_{a \in M'} w(a) = \textstyle\sum\limits_{a \in M \setminus M'} w(a)$.
+
+\emph{PARTITION} ist $\NP$-vollständig.
+
+\subsubsection*{KNAPSACK}
+
+Sei $M$ endl. Menge, $w : M \to \N_0$ Gewichtsfkt., $c : M \to \N_0$ Kostenfkt. und $W,C \in \N_0$.
+
+Prüfe ob $M' \subseteq M$ existiert s.d. $\sum_{a \in M'} w(a) \leq W$ und $\sum_{a \in M'} c(a) \geq C$.
+
+\emph{KNAPSACK} ist $\NP$-vollständig.
+
+\subsection*{$\NP$-Schwere}
 
 \section*{Chomsky-Hierarchie}
