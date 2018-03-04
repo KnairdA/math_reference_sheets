@@ -381,7 +381,15 @@ $\mathcal{A}$ ist \emph{$\epsilon$-approximativ}, wenn:
 
 Es gilt $\mathcal{L}_3 \subset \mathcal{L}_2 \subset \mathcal{L}_1 \subset \mathcal{L}_0$.
 
-\subsection*{Chomsky-Normalform}
+\subsection*{Kontextfreie Sprachen}
+
+Die Klasse kontextfreier Sprachen ist abgeschlossen ggü. Vereinigung, Konkatenation und Kleenschem Abschluss. Sie ist nicht abgeschlossen ggü. Komplementbildung und Durchschnitt.
+
+\spacing
+
+Für eine kontextfreie $G$ kann in polynomialer Zeit entschieden werden, ob $L(G)$ endlich ist.
+
+\subsubsection*{Chomsky-Normalform}
 
 Eine kontextfreie Grammatik ist in \emph{Chomsky-Normalform}, wenn alle Regeln von Form $A \to BC$ oder $A \to a$ mit $A,B,C \in V$ und $a \in \Sigma$ sind.
 
@@ -393,10 +401,26 @@ Jede nicht $\epsilon$ erzeugende kontextfreie Grammatik ist in Chomsky-Normalfor
 
 Entscheidet für kontextfreie Grammatik $G$ in Chomsky-Normalform und Wort $w \in \Sigma^*$ das Wortproblem in Zeit $\mathcal{O}(|R|\cdot |w|^3)$ wobei $|R|$ Anzahl der Regeln in $G$ ist.
 
-\subsection*{Greibach-Normalform}
+\subsubsection*{Greibach-Normalform}
 
 Eine kontextfreie Grammatik ist in \emph{Greibach-Normalform}, wenn alle Regeln von Form $A \to a\alpha$ für $A \in V, a \in \Sigma$ und $\alpha \in V^*$ sind.
 
 \spacing
 
 Jede nicht $\epsilon$ erzeugende kontextfreie Grammatik ist in Greibach-Normalform überführbar.
+
+\subsubsection*{Unentscheidbare Probleme}
+
+Seien $G, G_1, G_2$ kontextfreie Grammatiken.
+
+Die folgenden Probleme sind nicht entscheidbar:
+
+\begin{enumerate}
+\item Gilt $L(G_1) \cap L(G_2) = \emptyset$
+\item $\forall w \in L(G) : $ Syntaxbaum von $w$ ist eindeutig
+\item Ist $(L(G))^c$ kontextfrei
+\item Ist $L(G_1) \cap L(G_2)$ kontextfrei
+\item Gilt $L(G) = \Sigma^*$
+\item Gilt $L(G_1) = L(G_2)$
+\item Gilt $L_(G_1) \subseteq L(G_2)$
+\end{enumerate}
