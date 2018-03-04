@@ -70,7 +70,7 @@ Eine Sprache $L \subseteq \Sigma^*$ ist \emph{rekursiv-aufzählbar / semi-entsch
 
 \spacing
 
-Eine Funktion $f : \Sigma^* \to \Gamma^*$ ist \emph{(Turing)-berechenbar / totalrekursiv}, wenn es eine TM gibt, die für $w \in \Sigma^*$ das Wort $f(w) \in \Gamma^*$ ausgibt.
+Eine Funktion $f : \Sigma^* \to \Gamma^*$ ist \emph{(Turing)-berechenbar / totalrekursiv}, wenn es TM gibt, die für $w \in \Sigma^*$ das Wort $f(w) \in \Gamma^*$ ausgibt.
 
 \spacing
 
@@ -129,6 +129,18 @@ $L_d$ und $L_d^c$ sind nicht entscheidbar.
 \[ \mathcal{H} := \{ wv | T_w \text{ hält auf Eingabe } v \} \]
 
 $\mathcal{H}$ ist nicht entscheidbar.
+
+\subsubsection*{Post'sches Korrespondenzproblem}
+
+Sei $K := ((x_1,y_1),\dots,(x_n,y_n))$ endliche Folge von Wortpaaren über $\Sigma$ mit $x_i, y_i \neq \epsilon$.
+
+\spacing
+
+Gesucht ist Indizesfolge $i_1,\dots,i_j \in \{1,\dots,n\}$ s.d. $x_{i_1}\dots x_{i_k} = y_{i_1}\dots y_{i_k}$ gilt.
+
+\spacing
+
+Das PKP ist nicht entscheidbar.
 
 \subsubsection*{Universelle Sprache}
 
@@ -198,7 +210,7 @@ Prüfe ob Knotenfärbung mit max. $K$ Farben ex.
 
 \emph{3COLOR} ist $\NP$-vollständig.
 
-\subsubsection*{EXACT COVER}
+\subsubsection*{Mengenabdeckung (EXACT COVER)}
 
 Sei $X$ endl. Menge und $\mathcal{S}$ Familie von Teilmengen.
 
@@ -206,7 +218,7 @@ Prüfe ob $\mathcal{S}' \subseteq \mathcal{S}$ ex. s.d. $\forall a \in X \exists
 
 \emph{EXACT COVER} ist $\NP$-vollständig.
 
-\subsubsection*{SUBSET SUM}
+\subsubsection*{Teilmengensumme (SUBSET SUM)}
 
 Sei $M$ endl. Menge, $w : M \to \N_0$ und $K \in \N_0$.
 
@@ -214,7 +226,7 @@ Prüfe ob $M' \subseteq M$ ex. s.d. $\sum_{a \in M'} w(a) = K$.
 
 \emph{SUBSET SUM} ist $\NP$-vollständig.
 
-\subsubsection*{PARTITION}
+\subsubsection*{Mengenpartitionierung (PARTITION)}
 
 Sei $M$ endl. Menge und $w : M \to \N_0$.
 
@@ -222,7 +234,7 @@ Prüfe ob $M' \subseteq M$ ex. s.d. $\textstyle\sum\limits_{a \in M'} w(a) = \te
 
 \emph{PARTITION} ist $\NP$-vollständig.
 
-\subsubsection*{KNAPSACK}
+\subsubsection*{Rucksackproblem (KNAPSACK)}
 
 Sei $M$ endl. Menge, $w : M \to \N_0$ Gewichtsfkt., $c : M \to \N_0$ Kostenfkt. und $W,C \in \N_0$.
 
@@ -240,6 +252,9 @@ $co-\P$: $\Sigma^* \setminus L$ für $L \subseteq \Sigma^*$ und $L \in \P$.
 
 $co-\NP$: $\Sigma^* \setminus L$ für $L \subseteq \Sigma^*$ und $L \in \NP$.
 
+\subsubsection*{Graphenisomorphie}
+
+Prüfen von Graphen auf Isomorphie liegt in $\NP$ und $co-\NP$, ist Kandidat in $\NPI$ zu liegen.
 
 \subsection*{Suchprobleme}
 
@@ -285,6 +300,55 @@ Prüfe ob $x_i, \dots, x_n \in \N_0$ ex. s.d. $\sum_{j=1}^n c_j \cdot x_j = B$ u
 
 \emph{INTEGER PROGRAMMING} ist $\NP$-schwer.
 
+\subsection*{Pseudopolynomiale Algorithmen}
+
+Ein Algorithmus ist \emph{pseudopolynomial}, wenn er bei Unärkodierung polynomial in Eingabelänge ist.
+
+\spacing
+
+Für KNAPSACK gibt es einen pseudopolynomialen Lösungsalgorithmus.
+
+Falls $\P \neq \NP$ gilt, gibt es für TSP keinen pseudopolynomialen Lösungsalgorithmus.
+
+TSP ist \emph{stark $\NP$-vollständig}.
+
+\subsection*{Approximationsalgorithmen}
+
+Polynomiale Algorithmen für $\NP$-vollständige Optimierungsprobleme, deren Ausgabe nicht optimal aber beweisbar gut ist.
+
+\spacing
+
+Dazu wird die Güte einer worst-case Lösung $\mathcal{A}(I)$ von Algorithmus $\mathcal{A}$ für $\Pi$ mit der Optimallösung $OPT(I)$ für $I \in D_\Pi$ verglichen.
+
+\subsubsection*{Absolute Approximationsalgorithmen}
+
+Sei $\Pi$ Optimierungsproblem.
+
+Polynomialer Algorithmus $\mathcal{A}$ ist \emph{Approximationsalgorithmus mit Differenzengarantie} oder \emph{absoluter Approximationsalgorithmus}, wenn für $K \in \N_0$ gilt:
+
+\vspace*{-2mm}
+\[ \forall I \in D_\Pi : | OPT(I) - A(I) | \leq K \]
+
+Für $\NP$-schweres KNAPSACK gibt es vermutlich keinen absoluten Approximationsalgorithmus.
+
+Falls $\P \neq \NP$ gibt es für KNAPSACK, CLIQUE definitiv keinen absoluten Approximationsalgo.
+
+\subsubsection*{Relative Approximationsalgorithmen}
+
+Sei $\Pi$ Optimierungsproblem und $\mathcal{R_A}$:
+
+\vspace*{-4mm}
+\[ \mathcal{R_A}(I) := \begin{cases} \frac{\mathcal{A}(I)}{OPT(I)} & \Pi \text{ ist Minimierungsproblem} \\ \frac{OPT(I)}{\mathcal{A}(I)} & \Pi \text{ ist Maximierungsproblem} \end{cases} \]
+
+Polynomialer Algorithmus $\mathcal{A}$ ist \emph{Approximationsalgo. mit relativer Gütegarantie}, falls für $K \in \N$ gilt:
+
+\vspace*{-2mm}
+\[ \forall I \in D_\Pi : \mathcal{R_A}(I) \leq K \]
+
+$\mathcal{A}$ ist \emph{$\epsilon$-approximativ}, wenn:
+
+\vspace*{-2mm}
+\[ \forall I \in D_\Pi : \mathcal{R_A}(I) \leq 1 + \epsilon \]
 
 \section*{Chomsky-Hierarchie}
 
