@@ -276,11 +276,11 @@ Lösung eines Aufzählungsproblems ist $|S_\Pi(I)|$.
 
 z.B. wie viele Hamilton-Kreise gibt es?
 
-\subsubsection*{Turing-Reduktion}
+\subsection*{Turing-Reduktion}
 
 Eine \emph{Turing-Reduktion} $\propto_T$ von Relationen $R \propto_T R'$ über $\Sigma^*$ ist eine Orakel-Turing-Maschine $\mathcal{M}$ deren Orakel $R'$ realisiert und in polynomialer Zeit die $R$ realisierende Funktion berechnet.
 
-\subsubsection*{$\NP$-Schwere}
+\subsection*{$\NP$-Schwere}
 
 Ein Suchproblem $\Pi$ ist \emph{$\NP$-schwer}, wenn $\NP$-vollständige Sprache $L$ ex. s.d. $L \propto_T \Pi$.
 
@@ -299,6 +299,14 @@ Sei $a_{ij}, b_i, c_j, b \in \Z_0$ für $1 \leq i \leq m$ und $1 \leq j \leq n$.
 Prüfe ob $x_i, \dots, x_n \in \N_0$ ex. s.d. $\sum_{j=1}^n c_j \cdot x_j = B$ und $\forall 1 \leq i \leq m : \sum_{j=1}^n a_{ij} \cdot x_j \leq b_j$ (d.h. $A \cdot \vec{x} \leq \vec{b}$).
 
 \emph{INTEGER PROGRAMMING} ist $\NP$-schwer.
+
+\subsection*{Raumkomplexität}
+
+Die Klasse der mit polynomialen Speicherplatz lösbaren Probleme ist $\mathcal{PSPACE}$.
+
+\spacing
+
+Es gilt: $\P \subseteq \NP \subseteq \mathcal{PSPACE}$
 
 \subsection*{Pseudopolynomiale Algorithmen}
 
@@ -350,6 +358,29 @@ $\mathcal{A}$ ist \emph{$\epsilon$-approximativ}, wenn:
 \vspace*{-2mm}
 \[ \forall I \in D_\Pi : \mathcal{R_A}(I) \leq 1 + \epsilon \]
 
+\subsubsection*{Greedy-Algorithmus für KNAPSACK}
+
+Sei $w : M \to \N_0$ Gewichtsfunktion, $c : M \to \N_0$ Kostenfunktion und $W \in \N_0$.
+
+\spacing
+
+Definiere Gewichtsdichten $p_i := \frac{c_i}{w_i}$.
+
+Sortiere $p_1 \geq \dots \geq p_n$ in $\mathcal{O}(n \log n)$.
+
+Für $i \in \{1,\dots,n\}$ setze $x_i := \left\lfloor \frac{W}{w_i} \right\rfloor, W := W - \left\lfloor \frac{W}{w_i} \right\rfloor \cdot w_i$
+
+\spacing
+
+Dieser Greedy-Algorithmus $\mathcal{A}$ läuft in $\mathcal{O}(n \log n)$.
+
+\spacing
+
+Für $\mathcal{A}$ gilt: $\forall I \in D_\text{KNAPSACK} : \mathcal{R_A}(I) \leq 2$
+
+\vfill\null
+\columnbreak
+
 \section*{Chomsky-Hierarchie}
 
 \begin{description}[leftmargin=!,labelwidth=8mm]
@@ -395,11 +426,26 @@ Eine kontextfreie Grammatik ist in \emph{Chomsky-Normalform}, wenn alle Regeln v
 
 \spacing
 
-Jede nicht $\epsilon$ erzeugende kontextfreie Grammatik ist in Chomsky-Normalform überführbar.
+Jede nicht $\epsilon$ erzeugende kontextfreie Grammatik ist in Chomsky-Normalform überführbar:
+
+\begin{enumerate}
+\item Regeln ergeben nur Variablen oder genau ein $a \in \Sigma$. Mit Hilfsvariablen erreichbar.
+\item Alle Regeln haben Länge $\leq 2$
+\item Elimination von Regeln $A \to \epsilon$
+\item Ersetzen von Kettenregeln (Kreise, DFS)
+\end{enumerate}
 
 \subsubsection*{Cocke-Younger-Kasami Algorithmus}
 
 Entscheidet für kontextfreie Grammatik $G$ in Chomsky-Normalform und Wort $w \in \Sigma^*$ das Wortproblem in Zeit $\mathcal{O}(|R|\cdot |w|^3)$ wobei $|R|$ Anzahl der Regeln in $G$ ist.
+
+\subsubsection*{Pumping-Lemma (kontextfreie Sprachen)}
+
+Für kontextfreie Sprachen $L$ gilt: $\exists n \in \N \forall z \in L :$
+
+\spacing
+
+$|z| \geq n \implies \exists u,v,w,x,y \in L : z=uvwxy$ s.d. $|vx| \geq 1, |vwx| \leq n$ und $\forall i \in \N : uv^iwx^iy \in L$
 
 \subsubsection*{Greibach-Normalform}
 
@@ -408,6 +454,10 @@ Eine kontextfreie Grammatik ist in \emph{Greibach-Normalform}, wenn alle Regeln 
 \spacing
 
 Jede nicht $\epsilon$ erzeugende kontextfreie Grammatik ist in Greibach-Normalform überführbar.
+
+\spacing
+
+Für jede Grammatik $G$ in Greibach-Normalform kann ein Kellerautomat (PDA) gebildet werden, der $L(G)$ mit leerem Stack aktzeptiert.
 
 \subsubsection*{Unentscheidbare Probleme}
 
