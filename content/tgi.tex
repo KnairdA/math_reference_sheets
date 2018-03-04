@@ -1,5 +1,7 @@
 \renewcommand{\P}{\mathcal{P}}
 \newcommand{\NP}{\mathcal{NP}}
+\newcommand{\NPC}{\mathcal{NPC}}
+\newcommand{\NPI}{\mathcal{NPI}}
 
 \section*{Endliche Automaten}
 
@@ -41,9 +43,26 @@ Ein Automat ohne überflüssige Zustände ist nicht zwingend minimal.
 
 $p, q \in Q$ sind \emph{äquivalent} ($p \equiv q$), wenn $\forall w \in \Sigma^* : \delta(p,w) \in F \iff \delta(q,w) \in F$.
 
-\section*{Entscheidbarkeit}
+\emph{Äquivalenzklassenautomat} $\mathcal{A}^\equiv$ zu $\mathcal{A}$ ist minimal.
 
-Eine Sprache $L \subseteq \Sigma^*$ ist \emph{rekursiv / entscheidbar}, wenn es eine Turing-Maschine gibt, die auf allen Eingaben hält und $w \in \L$ aktzeptiert gdw. $w \in L$.
+\section*{Turing-Maschinen}
+
+\emph{Deterministische Turing-Maschine} ist def. als:
+
+\vspace*{-2mm}
+\[ \mathcal{M} := (Q,\Sigma,\textvisiblespace,\Gamma,s,\delta,F) \]
+
+Hier sind $Q$ Zustandsmenge, $\Sigma$ Eingabealphabet, $\textvisiblespace \notin \Sigma$ Blanksymbol, $\Sigma \cup \{\textvisiblespace\} \subseteq \Gamma$ Bandalphabet, $s \in Q$ Startzustand, $\delta : Q \times \Gamma \to Q \times \Gamma \times \{L,R,N\}$ Übergangsfunktion und $F \subseteq Q$ Endzustände.
+
+Alle Mengen sind in einer $(D)TM$ endlich.
+
+\subsection*{Church'sche These}
+
+Die Menge der Turing-berechenbaren Funktionen ist genau die Menge der im intuitiven Sinne überhaupt berechenbaren Funktionen.
+
+\subsection*{Entscheidbarkeit}
+
+Eine Sprache $L \subseteq \Sigma^*$ ist \emph{rekursiv / entscheidbar}, wenn es eine Turing-Maschine gibt, die auf allen Eingaben hält und $w \in L$ aktzeptiert gdw. $w \in L$.
 
 \spacing
 
@@ -57,9 +76,17 @@ Eine Funktion $f : \Sigma^* \to \Gamma^*$ ist \emph{(Turing)-berechenbar / total
 
 Eine Sprache $L \subseteq \Sigma^*$ ist \emph{entscheidbar} gdw. ihre \emph{charakteristische Funktion} berechenbar ist.
 
-\subsection*{Church'sche These}
+\subsection*{Nichtdeterministische Turing-Maschinen}
 
-Die Menge der Turing-berechenbaren Funktionen ist genau die Menge der im intuitiven Sinne überhaupt berechenbaren Funktionen.
+Übergangsfunktion $\delta$ bietet Wahlmöglichkeiten und $\epsilon$-Übergänge vergleichbar mit NEAs.
+
+\subsection*{Orakel-Turing-Maschinen}
+
+Deterministische TM mit Orakelband zu Orakel $G$ sowie Fragezustand $q_f$ und Antwortzustand $q_a$.
+
+\spacing
+
+Wird $q_f$ angenommen wenn Kopf sich auf Pos. $i$ des Orakelbandes befindet, ergibt sich Fehler, falls Wort $y$ auf Pos. $1$ bis $i$ nicht in $\Sigma^*$ ist. Sonst wird Orakelband mit $G(y)$ überschrieben, Kopf springt auf Pos. $1$ zurück und Folgezustand ist $q_a$.
 
 \subsection*{Universelle Turing-Maschinen}
 
@@ -105,9 +132,9 @@ $\mathcal{H}$ ist nicht entscheidbar.
 
 \subsubsection*{Universelle Sprache}
 
-\[ L_u := \{ v \in L(T_w) \} \]
+\[ L_u := \{ wv | v \in L(T_w) \} \]
 
-d.h. die Menge der Wörter $wv$ s.d. $T_w$ für Eingabe $v$ hält und diese aktzeptiert.
+d.h. die Menge der Wörter $wv$ s.d. $T_w$ für Eingabe $v$ hält und $v$ aktzeptiert.
 
 $L_u$ ist nicht entscheidbar aber semi-entscheidbar.
 
@@ -130,10 +157,6 @@ Semi-entscheidbare Sprachen sind abgeschlossen unter Schnitt und Vereinigung.
 \section*{Komplexitätsklassen}
 
 Sind nichtdeterministische TM wesentlich effizienter als deterministische TM? $\P \neq \NP$?
-
-\subsection*{Nichtdeterministische Turing-Maschinen}
-
-Übergangsfunktion $\delta$ bietet Wahlmöglichkeiten und $\epsilon$-Übergänge vergleichbar mit NEAs.
 
 \subsection*{$\NP$-vollständige Probleme}
 
@@ -207,6 +230,17 @@ Prüfe ob $M' \subseteq M$ existiert s.d. $\sum_{a \in M'} w(a) \leq W$ und $\su
 
 \emph{KNAPSACK} ist $\NP$-vollständig.
 
+\subsection*{Komplementsprachen}
+
+$\NPC$ ist Klasse der $\NP$-vollständigen Sprachen.
+
+$\NPI := \NP \setminus (\P \cup \NPC)$ enthält nicht-$\NP$-vollständige Sprachen in $\NP$.
+
+$co-\P$: $\Sigma^* \setminus L$ für $L \subseteq \Sigma^*$ und $L \in \P$.
+
+$co-\NP$: $\Sigma^* \setminus L$ für $L \subseteq \Sigma^*$ und $L \in \NP$.
+
+
 \subsection*{Suchprobleme}
 
 \emph{Suchproblem} $\Pi$ ist geg. mit Menge von Beispielen $D_\Pi$ und für $I \in D_\Pi$ Menge $S_\Pi(I)$ aller Lsg. von $I$.
@@ -227,6 +261,10 @@ Lösung eines Aufzählungsproblems ist $|S_\Pi(I)|$.
 
 z.B. wie viele Hamilton-Kreise gibt es?
 
+\subsubsection*{Turing-Reduktion}
+
+Eine \emph{Turing-Reduktion} $\propto_T$ von Relationen $R \propto_T R'$ über $\Sigma^*$ ist eine Orakel-Turing-Maschine $\mathcal{M}$ deren Orakel $R'$ realisiert und in polynomialer Zeit die $R$ realisierende Funktion berechnet.
+
 \subsubsection*{$\NP$-Schwere}
 
 Ein Suchproblem $\Pi$ ist \emph{$\NP$-schwer}, wenn $\NP$-vollständige Sprache $L$ ex. s.d. $L \propto_T \Pi$.
@@ -239,7 +277,7 @@ Ein bel. Problem ist $\NP$-schwer, wenn es mind. so schwer ist, wie alle $\NP$-v
 
 Die Klasse der $\NP$-schweren Probleme ist bzgl. Komplementbildung abgeschlossen.
 
-\subsection*{INTEGER PROGRAMMING}
+\subsubsection*{INTEGER PROGRAMMING}
 
 Sei $a_{ij}, b_i, c_j, b \in \Z_0$ für $1 \leq i \leq m$ und $1 \leq j \leq n$.
 
@@ -247,13 +285,54 @@ Prüfe ob $x_i, \dots, x_n \in \N_0$ ex. s.d. $\sum_{j=1}^n c_j \cdot x_j = B$ u
 
 \emph{INTEGER PROGRAMMING} ist $\NP$-schwer.
 
+
 \section*{Chomsky-Hierarchie}
 
 \begin{description}[leftmargin=!,labelwidth=8mm]
-	\item[Typ 0] Rekursiv aufzählbar, Turing-Maschine
-	\item[Typ 1] Kontextsensitiv, nichtdet. TM
-	\item[Typ 2] Kontextfrei, nichtdet. Kellerautomat
-	\item[Typ 3] Regulär, Endlicher Automat (DEA, NEA)
+	\item[Typ 3]
+	\begin{description}[leftmargin=!,labelwidth=22mm]
+		\item[Sprachklasse] Regulär
+		\item[Rechenmodell] Endlicher Automat
+		\item[Wortproblem]  entscheidbar
+	\end{description}
+	\item[Typ 2]
+	\begin{description}[leftmargin=!,labelwidth=22mm]
+		\item[Sprachklasse] Kontextfrei
+		\item[Rechenmodell] ndet. Kellerautomat
+		\item[Wortproblem]  entscheidbar
+	\end{description}
+	\item[Typ 1]
+	\begin{description}[leftmargin=!,labelwidth=22mm]
+		\item[Sprachklasse] Kontextsensitiv
+		\item[Rechenmodell] ndet. TM in $\mathcal{NTAPE}$
+		\item[Wortproblem]  entscheidbar
+	\end{description}
+	\item[Typ 0]
+	\begin{description}[leftmargin=!,labelwidth=22mm]
+		\item[Sprachklasse] Rekursiv aufzählbar
+		\item[Rechenmodell] bel. Turing-Maschine
+		\item[Wortproblem]  nicht entscheidbar
+	\end{description}
 \end{description}
 
+Es gilt $\mathcal{L}_3 \subset \mathcal{L}_2 \subset \mathcal{L}_1 \subset \mathcal{L}_0$.
+
 \subsection*{Chomsky-Normalform}
+
+Eine kontextfreie Grammatik ist in \emph{Chomsky-Normalform}, wenn alle Regeln von Form $A \to BC$ oder $A \to a$ mit $A,B,C \in V$ und $a \in \Sigma$ sind.
+
+\spacing
+
+Jede nicht $\epsilon$ erzeugende kontextfreie Grammatik ist in Chomsky-Normalform überführbar.
+
+\subsubsection*{Cocke-Younger-Kasami Algorithmus}
+
+Entscheidet für kontextfreie Grammatik $G$ in Chomsky-Normalform und Wort $w \in \Sigma^*$ das Wortproblem in Zeit $\mathcal{O}(|R|\cdot |w|^3)$ wobei $|R|$ Anzahl der Regeln in $G$ ist.
+
+\subsection*{Greibach-Normalform}
+
+Eine kontextfreie Grammatik ist in \emph{Greibach-Normalform}, wenn alle Regeln von Form $A \to a\alpha$ für $A \in V, a \in \Sigma$ und $\alpha \in V^*$ sind.
+
+\spacing
+
+Jede nicht $\epsilon$ erzeugende kontextfreie Grammatik ist in Greibach-Normalform überführbar.
