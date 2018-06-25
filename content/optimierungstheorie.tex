@@ -17,19 +17,19 @@ Sei \(f: M \to \R\). Ein Optimierungsproblem ist:
 	\item Differenzierbare Probleme
 \end{enumerate}
 
-\subsection*{Lineare Programme}
+\section*{Lineare Programme}
 
 \((P) \ \min_{x \in M} f(x)\) ist linear, wenn:
 
-\(f: \R^n \to \R\) affin linear ist mit \(f(x)=c^T x + c_0\) für \(c \in \R^n, c_0 \in \R\) und \(M\) folgende Darstellung besitzt:
+\(f: \R^n \to \R\) affin linear ist mit \(f(x)=c^\top x + c_0\) für \(c \in \R^n, c_0 \in \R\) und \(M\) folgende Darstellung besitzt:
 
-\(M = \{ x \in \R^n | A_g x = b_g, A_u x \leq b_u \}\) mit \\ \(A = (A_g \ A_n)^T \in \R^{(m+p) \times n}, b = (b_g \ b_u)^T \in \R^{m+p}\)
+\(M = \{ x \in \R^n | A_g x = b_g, A_u x \leq b_u \}\) mit \\ \(A = (A_g \ A_n)^\top \in \R^{(m+p) \times n}, b = (b_g \ b_u)^\top \in \R^{m+p}\)
 
-\subsubsection*{Normalform}
+\subsection*{Normalform}
 
 Ein LP \((P_N)\) ist in Normalform gegeben, wenn \(A \in \R^{m \times n}, b \in \R^m\) und \(c \in \R^n\) ex. s.d. gilt:
 
-\((P_N) \ \min c^T x\) mit \(M_N = \{ x \in \R_{\geq 0}^n | Ax=b \}\)
+\((P_N) \ \min c^\top x\) mit \(M_N = \{ x \in \R_{\geq 0}^n | Ax=b \}\)
 
 \spacing
 
@@ -39,7 +39,7 @@ Dafür werden Ungleichungsbedingungen über \emph{Schlupfvariablen} umgeformt:
 
 \(A_u x \leq b_u \rightsquigarrow x_i^s = (b_u)_i - (A_u x)_i\) für \(i = 1,\dots,s\).
 
-\subsubsection*{Konvexe Mengen}
+\subsection*{Konvexe Mengen}
 
 \(U \subseteq \R^n\) ist \emph{konvex}, wenn für \(x, y \in U \land \lambda \in [0,1] : (1-\lambda)x + \lambda y \in U\) gilt.
 
@@ -82,3 +82,67 @@ Seien \( v^{(k)} \in M_N \) mit \(k=1,\dots,K\) Ecken von \(M_N\).
 Dann \( \forall x \in M_N \exists \alpha_j \in [0,1], y \in \{ y \in \R_{\geq 0}^n | Ay = 0 \} :\)
 
 \( \sum_{j=1}^K \alpha_j = 1 \land x = \sum_{j=1}^K \alpha_j v^{(j)} + y \)
+
+\subsection*{Existenz von linearen Programmen}
+
+Sei \( (P_N) \ \min c^\top x \) auf \( M_N = \{ x \in \R_{\geq 0}^n | Ax = b \} \neq \emptyset\).
+
+Dann gilt entweder \(\inf (P_N) = -\infty\) oder \((P_N)\) ist mit einer Ecke von \(M_N\) lösbar.
+
+\section*{Simplex-Algorithmus}
+
+\subsection*{Basislösung}
+
+\(x \in \R^n\) ist Basislösung zu \(A_N x = b_N\), wenn es \(m\)-elementige Indexmenge \(J_x\) gibt mit linear unabhg. \(\{a_{*j} | j \in J_x\}\) und \(\forall j \notin J_x : x_j = 0\). 
+
+\spacing
+
+\(x \in M_N\) Basislösung \(\iff x\) ist Ecke von \(M_N\)
+
+\subsection*{Phase I}
+
+Bestimme Basislösung \(z \in M_N\) und äquivalente Darstellung \((P)\) zu \((P_N)\):
+
+\vspace*{-2mm}
+\[ (P) \ \min c^\top x \text{ auf } M = \{ x \in \R_{\geq 0}^n | Ax=b \} \]
+
+Mit Bedingungen:
+
+\begin{enumerate}[label=(E\arabic*)]
+	\item \(a_{*j} = e_{\ell_j}\) für \(j \in J_z\)
+	\item \(c_j = 0\) für \(j \in J_z\)
+	\item \(b \geq 0\)
+	\item \(c^\top x = c_N^\top x - c_N^\top z\) d.h. \(c^\top z = 0\)
+\end{enumerate}
+
+\subsection*{Phase II}
+
+Seien \(z, A, b, c\) aus Phase I gegeben.
+
+Iterativ werden nun neue Basislösungen \(\tilde z\) und Darstellungen \(\tilde A x = \tilde b\) mit Bedingungen (E1)-(E4) bestimmt s.d.: \(c^\top \tilde z \leq c^\top z = 0\)
+
+Diese Iteration bricht ab, wenn \(\tilde z\) Lösung zu \((P_N)\) ist oder \(\inf (P_N) = -\infty\) gilt.
+
+\subsubsection*{Algorithmus zu Phase II}
+
+\begin{enumerate}[label=(\arabic*)]
+	\item \(c \geq 0? \rightsquigarrow\) Abbruch denn \(z\) ist Lösung zu \((P)\) mit \(c^\top z = \eta - c_N^\top z = 0\)
+	\item Wähle Pivotindex \(s \in \{1,\dots,n\}\) mit \(c_s < 0\)
+	\item \(a_{*s} \leq 0? \rightsquigarrow\) Abbruch mit \(\inf (P) = -\infty\)
+	\item Wähle \(r \in \{1,\dots,m\}\) s.d. Pivotelement \(a_{rs}\) mit \(\frac{b_r}{a_{rs}} = \min \left\{ \frac{b_i}{a_{is}} \middle| i \in \{1,\dots,n\} \text{ mit } a_{is} > 0 \right\}\) die Bedingung \(a_{rs} > 0\) erfüllt
+	\item Gauß-Transformation zu \(\tilde A x = \tilde b\) s.d. \(r\)-ter Einheitsvektor in \(\tilde A\) in der \(s\)-ten Spalte steht
+	\item Ersetze \((P)\) mit \((\tilde P)\) und wiederhole ab (1)
+\end{enumerate}
+
+\subsection*{Durchführbarkeit des Simplex-Verfahren}
+
+Sei \((P)\) mit \(A,b,c\) und Basislsg. \(z \in M\) aus Phase I und \((\tilde P)\)  durch Phase II Schritt erzeugt. Dann:
+
+\begin{enumerate}[label=(\alph*)]
+	\item \(c \geq 0 \implies z\) ist optimal
+	\item \(c_s < 0 \land a_{*s} \leq 0 \implies \inf (P) = -\infty\)
+	\item \((P)\) und \((\tilde P)\) sind äquiv. mit \(\tilde c^\top x = c^\top x - c^\top \tilde z\) für \(x \in M\)
+	\item \(c^\top \tilde z \leq c^\top z = 0\)
+	\item \((\tilde P)\) mit Baislösung \(\tilde z\) erfüllt (E1)-(E4)
+\end{enumerate}
+
