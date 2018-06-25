@@ -1,0 +1,84 @@
+\section*{Optimierungsprobleme}
+
+Sei \(f: M \to \R\). Ein Optimierungsproblem ist:
+
+\((P) \ \min_{x \in M} f(x)\)
+
+\((P)\) ist zulässig, wenn \(M \neq \emptyset\).
+
+\(\exists \hat x \in M \forall x \in M : f(\hat x) \leq f(x)\), so ist \((P)\) lösbar.
+
+\subsection*{Klassifizierung}
+
+\begin{enumerate}[label=(\alph*)]
+	\item Endlich dim. Probleme mit \(M \subseteq \R^m\)
+	\item Lineare Probleme (vgl. LP)
+	\item Konvexe Probleme
+	\item Differenzierbare Probleme
+\end{enumerate}
+
+\subsection*{Lineare Programme}
+
+\((P) \ \min_{x \in M} f(x)\) ist linear, wenn:
+
+\(f: \R^n \to \R\) affin linear ist mit \(f(x)=c^T x + c_0\) für \(c \in \R^n, c_0 \in \R\) und \(M\) folgende Darstellung besitzt:
+
+\(M = \{ x \in \R^n | A_g x = b_g, A_u x \leq b_u \}\) mit \\ \(A = (A_g \ A_n)^T \in \R^{(m+p) \times n}, b = (b_g \ b_u)^T \in \R^{m+p}\)
+
+\subsubsection*{Normalform}
+
+Ein LP \((P_N)\) ist in Normalform gegeben, wenn \(A \in \R^{m \times n}, b \in \R^m\) und \(c \in \R^n\) ex. s.d. gilt:
+
+\((P_N) \ \min c^T x\) mit \(M_N = \{ x \in \R_{\geq 0}^n | Ax=b \}\)
+
+\spacing
+
+Jedes LP \((P)\) besitzt Normalform \((P_N)\).
+
+Dafür werden Ungleichungsbedingungen über \emph{Schlupfvariablen} umgeformt:
+
+\(A_u x \leq b_u \rightsquigarrow x_i^s = (b_u)_i - (A_u x)_i\) für \(i = 1,\dots,s\).
+
+\subsubsection*{Konvexe Mengen}
+
+\(U \subseteq \R^n\) ist \emph{konvex}, wenn für \(x, y \in U \land \lambda \in [0,1] : (1-\lambda)x + \lambda y \in U\) gilt.
+
+\spacing
+
+\( v = \sum_{j=1}^m \lambda_j v^{(j)} \) mit \( \lambda_j \in [0,1] \land \sum_{j=1}^m \lambda_j = 1\) heißt \emph{Konvexkombination} von \( v^{(1)}, \dots, v^{(m)} \).
+
+\spacing
+
+\((M_N)\) der Normalform ist konvex.
+
+\spacing
+
+Schnitte endlich vieler Halbräume in \(R^n\) heißen \emph{Polyeder}, beschränkte Polyeder heißen \emph{Polytope}.
+
+\spacing
+
+\(M_n\) ist Polytop gdw. \( \not\exists y \in \R_{\geq 0}^n \setminus \{0\} : Ay = 0 \).
+
+\subsubsection*{Charakterisierung von Ecken in \(M_N\)}
+
+\(x \in M\) ist Ecke, wenn aus \(x=(1-\lambda) u+\lambda v\) mit \(u, v \in M, \lambda \in (0,1)\) folgt: \( u = v = x \).
+
+Ecke ist nicht als echte Konvexkomb. darstellbar.
+
+\spacing
+
+\( x \in M_N \) ist Ecke von \(M_N\) gdw. die Spalten \(\{a_{*j}\}_{j \in J_x}\) mit \(J_x = \{ j \in \{1,\dots,n\} | x_j > 0 \}\) linear unabhg. sind.
+
+\subsubsection*{Satz zur Existenz endl. vieler Ecken in \(M_N\)}
+
+\[ M_N \neq \emptyset \implies \exists x \in M_N : x \text{ ist Ecke} \]
+
+Insgesamt existieren endlich viele Ecken.
+
+\subsubsection*{Konvexkombination von Ecken}
+
+Seien \( v^{(k)} \in M_N \) mit \(k=1,\dots,K\) Ecken von \(M_N\).
+
+Dann \( \forall x \in M_N \exists \alpha_j \in [0,1], y \in \{ y \in \R_{\geq 0}^n | Ay = 0 \} :\)
+
+\( \sum_{j=1}^K \alpha_j = 1 \land x = \sum_{j=1}^K \alpha_j v^{(j)} + y \)
