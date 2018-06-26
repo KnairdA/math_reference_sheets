@@ -93,7 +93,7 @@ Dann gilt entweder \(\inf (P_N) = -\infty\) oder \((P_N)\) ist mit einer Ecke vo
 
 \subsection*{Basislösung}
 
-\(x \in \R^n\) ist Basislösung zu \(A_N x = b_N\), wenn es \(m\)-elementige Indexmenge \(J_x\) gibt mit linear unabhg. \(\{a_{*j} | j \in J_x\}\) und \(\forall j \notin J_x : x_j = 0\). 
+\(x \in \R^n\) ist Basislösung zu \(A_N x = b_N\), wenn es \(m\)-elementige Indexmenge \(J_x\) gibt mit linear unabhg. \(\{a_{*j} | j \in J_x\}\) und \(\forall j \notin J_x : x_j = 0\).
 
 \spacing
 
@@ -146,3 +146,43 @@ Sei \((P)\) mit \(A,b,c\) und Basislsg. \(z \in M\) aus Phase I und \((\tilde P)
 	\item \((\tilde P)\) mit Baislösung \(\tilde z\) erfüllt (E1)-(E4)
 \end{enumerate}
 
+\subsubsection*{Entartete Basislösungen}
+
+Basislösung \(z \in M\) ist \emph{nicht entartet}, wenn \(z_j > 0\) für \(j \in J_z\) gilt.
+
+Im Simplex-Tableau ist \(z\) nicht entartet gdw. \(b_i > 0\) für \(i=1,\dots,m\) gilt.
+
+Für entartete \(z \in M\) ist das Simplex-Verfahren i.A. nicht zyklenfrei.
+
+\subsubsection*{Regel von Bland}
+
+Sei \(s := \min \{ j \in \{1,\dots,n\} | c_j < 0 \}\) die Pivotspalte und \(r\) die Pivotzeile s.d. gilt:
+
+\(\frac{b_r}{a_{rs}} = \min \left\{ \frac{b_i}{a_{is}} \middle| a_{is} > 0, \ i=1,\dots,m \right\}\).
+
+Wird das Minimum für mehrere Zeilen angenommen, so wähle die Pivotzeile \(r\) s.d. \(j_r < j_k\) gilt. d.h. der \(r\)-te Einheitsvektor steht am weitestens links.
+
+\spacing
+
+Phase II mit Regel von Bland stoppt immer im Optimum zu \((P)\) insofern ein solches existiert.
+
+\subsubsection*{Bestimmung von Basislösung in Phase I}
+
+Definiere Hilfsproblem \((H) \ \min e^\top (b-Ax)\) auf \(M_H = \{ x \in \R_{\geq 0}^n | A_N x \leq b_N \}\) wobei \(e = 1 \in \R^n\).
+
+Für das Hilfsproblem \((H)\) gelten:
+
+\begin{enumerate}[label=(\alph*)]
+	\item wg. \(b_N \geq 0 \implies 0 \in M_H\) ist \((H)\) zulässig
+	\item \(x \in M_H \implies e^\top (b_N - A_N x) \geq 0\) \\ d.h. \((H)\) hat immer Lösung, \(\inf \ (H) > -\infty\)
+	\item Mit Schlupfvariablen lässt sich Phase II auf \((H)\) direkt anwenden
+\end{enumerate}
+
+Ist \(\hat z \in M_H\) optimale Basislösung zu \((H)\) so gelten:
+
+\begin{enumerate}[label=(\alph*)]
+	\item \(e^\top (b_N - A_N \hat z) = 0 \implies \hat z\) ist zulässig zu \((P_N)\) 
+	\item \(e^\top (b_N - A_N x) \geq e^\top (b_N - A_N \hat z) > 0 \\ \implies M_N \neq \emptyset\) und \((P_N)\) ist nicht zulässig
+\end{enumerate}
+
+\section*{Dualitätstheorie}
