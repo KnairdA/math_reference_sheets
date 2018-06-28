@@ -1,12 +1,16 @@
 \section*{Optimierungsprobleme}
 
 Sei \(f: M \to \R\). Ein Optimierungsproblem ist:
+\[(P) \ \min_{x \in M} f(x)\]
 
-\((P) \ \min_{x \in M} f(x)\)
+\((P)\) ist \emph{zulässig}, wenn \(M \neq \emptyset\).
 
-\((P)\) ist zulässig, wenn \(M \neq \emptyset\).
+\(x \in M\) ist zulässiger Punkt.
 
 \(\exists \hat x \in M \forall x \in M : f(\hat x) \leq f(x)\), so ist \((P)\) lösbar.
+
+Die Menge der Lösungen von \((P)\) ist:
+\[\text{argmin}_{x \in M} f = \{ \hat x \in M | \forall x \in M : f(\hat x) \leq f(x) \}\]
 
 \subsection*{Klassifizierung}
 
@@ -28,16 +32,12 @@ Sei \(f: M \to \R\). Ein Optimierungsproblem ist:
 \subsection*{Normalform}
 
 Ein LP \((P_N)\) ist in Normalform gegeben, wenn \(A \in \R^{m \times n}, b \in \R^m\) und \(c \in \R^n\) ex. s.d. gilt:
-
-\((P_N) \ \min c^\top x\) mit \(M_N = \{ x \in \R_{\geq 0}^n | Ax=b \}\)
-
-\spacing
+\[(P_N) \ \min c^\top x \text{ mit } M_N = \{ x \in \R_{\geq 0}^n | Ax=b \}\]
 
 Jedes LP \((P)\) besitzt Normalform \((P_N)\).
 
 Dafür werden Ungleichungsbedingungen über \emph{Schlupfvariablen} umgeformt:
-
-\(A_u x \leq b_u \rightsquigarrow x_i^s = (b_u)_i - (A_u x)_i\) für \(i = 1,\dots,s\).
+\[ A_u x \leq b_u \rightsquigarrow x_i^s = (b_u)_i - (A_u x)_i \text{ für } i = 1,\dots,s \]
 
 \subsection*{Konvexe Mengen}
 
@@ -80,8 +80,7 @@ Insgesamt existieren endlich viele Ecken.
 Seien \( v^{(k)} \in M_N \) mit \(k=1,\dots,K\) Ecken von \(M_N\).
 
 Dann \( \forall x \in M_N \exists \alpha_j \in [0,1], y \in \{ y \in \R_{\geq 0}^n | Ay = 0 \} :\)
-
-\( \sum_{j=1}^K \alpha_j = 1 \land x = \sum_{j=1}^K \alpha_j v^{(j)} + y \)
+\[ \textstyle\sum_{j=1}^K \alpha_j = 1 \land x = \sum_{j=1}^K \alpha_j v^{(j)} + y \]
 
 \subsection*{Existenz von linearen Programmen}
 
@@ -146,26 +145,6 @@ Sei \((P)\) mit \(A,b,c\) und Basislsg. \(z \in M\) aus Phase I und \((\tilde P)
 	\item \((\tilde P)\) mit Basislösung \(\tilde z\) erfüllt (E1)-(E4)
 \end{enumerate}
 
-\subsubsection*{Entartete Basislösungen}
-
-Basislösung \(z \in M\) ist \emph{nicht entartet}, wenn \(z_j > 0\) für \(j \in J_z\) gilt.
-
-Im Simplex-Tableau ist \(z\) nicht entartet gdw. \(b_i > 0\) für \(i=1,\dots,m\) gilt.
-
-Für entartete \(z \in M\) ist das Simplex-Verfahren i.A. nicht zyklenfrei.
-
-\subsubsection*{Regel von Bland}
-
-Sei \(s := \min \{ j \in \{1,\dots,n\} | c_j < 0 \}\) die Pivotspalte und \(r\) die Pivotzeile s.d. gilt:
-
-\(\frac{b_r}{a_{rs}} = \min \left\{ \frac{b_i}{a_{is}} \middle| a_{is} > 0, \ i=1,\dots,m \right\}\).
-
-Wird das Minimum für mehrere Zeilen angenommen, so wähle die Pivotzeile \(r\) s.d. \(j_r < j_k\) gilt. d.h. der \(r\)-te Einheitsvektor steht am weitestens links.
-
-\spacing
-
-Phase II mit Regel von Bland stoppt immer im Optimum zu \((P)\) insofern ein solches existiert.
-
 \subsubsection*{Bestimmung von Basislösung in Phase I}
 
 Definiere Hilfsproblem \((H) \ \min e^\top (b-Ax)\) auf \(M_H = \{ x \in \R_{\geq 0}^n | A_N x \leq b_N \}\) wobei \(e = 1 \in \R^n\).
@@ -181,9 +160,33 @@ Für das Hilfsproblem \((H)\) gelten:
 Ist \(\hat z \in M_H\) optimale Basislösung zu \((H)\) so gelten:
 
 \begin{enumerate}[label=(\alph*)]
-	\item \(e^\top (b_N - A_N \hat z) = 0 \implies \hat z\) ist zulässig zu \((P_N)\) 
+	\item \(e^\top (b_N - A_N \hat z) = 0 \implies \hat z\) ist zulässig zu \((P_N)\)
 	\item \(e^\top (b_N - A_N x) \geq e^\top (b_N - A_N \hat z) > 0 \\ \implies M_N \neq \emptyset\) und \((P_N)\) ist nicht zulässig
 \end{enumerate}
+
+\subsubsection*{Entartete Basislösungen}
+
+Sei \(z \in M\) eine Basislösung.
+
+\(z \in M\) ist \emph{nicht entartet}, wenn \(z_j > 0\) für \(j \in J_z\) gilt.
+
+\spacing
+
+Im Simplex-Tableau ist \(z\) nicht entartet gdw. \(b_i > 0\) für \(i=1,\dots,m\) gilt.
+
+Für entartete \(z \in M\) ist das Simplex-Verfahren i.A. nicht zyklenfrei.
+
+\subsubsection*{Regel von Bland}
+
+Sei \(s := \min \{ j \in \{1,\dots,n\} | c_j < 0 \}\) die Pivotspalte und \(r\) die Pivotzeile s.d. gilt:
+\[\frac{b_r}{a_{rs}} = \min \left\{ \frac{b_i}{a_{is}} \middle| a_{is} > 0 \text{ für } i=1,\dots,m \right\}\]
+
+Wird das Minimum für mehrere Zeilen angenommen, so wähle die Pivotzeile \(r\) s.d. \(j_r < j_k\) gilt. d.h. der \(r\)-te Einheitsvektor steht am weitestens links.
+
+\spacing
+
+Phase II mit Regel von Bland stoppt immer im Optimum zu \((P)\) insofern ein solches existiert.
+
 
 \section*{Dualitätstheorie}
 
