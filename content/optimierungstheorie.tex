@@ -143,7 +143,7 @@ Sei \((P)\) mit \(A,b,c\) und Basislsg. \(z \in M\) aus Phase I und \((\tilde P)
 	\item \(c_s < 0 \land a_{*s} \leq 0 \implies \inf (P) = -\infty\)
 	\item \((P)\) und \((\tilde P)\) sind äquiv. mit \(\tilde c^\top x = c^\top x - c^\top \tilde z\) für \(x \in M\)
 	\item \(c^\top \tilde z \leq c^\top z = 0\)
-	\item \((\tilde P)\) mit Baislösung \(\tilde z\) erfüllt (E1)-(E4)
+	\item \((\tilde P)\) mit Basislösung \(\tilde z\) erfüllt (E1)-(E4)
 \end{enumerate}
 
 \subsubsection*{Entartete Basislösungen}
@@ -186,3 +186,52 @@ Ist \(\hat z \in M_H\) optimale Basislösung zu \((H)\) so gelten:
 \end{enumerate}
 
 \section*{Dualitätstheorie}
+
+Sei \((P_N) \ \min_{x \in M} c^\top x\) auf \(M = \{ x \in \R_{\geq 0}^n | Ax=b \}\) mit \(A \in \R^{m \times n}, b \in \R^m\) und \(c \in \R^n\).
+
+Dann gilt für Lösung \(\hat x \in M\) von \((P_N)\):
+\[\exists \hat y \in N = \{ y \in \R^m | A^\top y \leq c \} \text{ mit } b^\top \hat y = c^\top \hat x\]
+
+\subsection*{Duales Optimierungsproblem}
+
+Zu \emph{primalem} LP in Normalform \((P_N)\) ist das duale Optimierungsproblem \((D)\) gegeben durch:
+\[(D) \ \max_{y \in N} b^\top y \text{ auf } N = \{y \in \R^m | A^\top y \leq c\}\]
+
+\subsection*{Schwacher Dualitätssatz}
+
+Für zulässige \((P_N)\) und \((D)\) gelten:
+
+\begin{enumerate}[label=(\alph*)]
+	\item \(\forall x \in M, y \in N : b^\top y \leq c^\top x\)
+	\item \((P_N)\) und \((D)\) sind lösbar
+	\item \(\hat x \in M \land \hat y \in N \land b^\top \hat y = c^\top \hat x \\ \implies \hat x\) löst \((P_N)\) und \(\hat y\) löst \((D)\)
+\end{enumerate}
+
+\subsection*{Satz von Kuhn-Tucker}
+
+\[\hat x \in M \text{ löst } (P_N) \iff \exists \hat y \in N : b^\top \hat y = c^\top \hat x\]
+
+\subsection*{Starker Dualitätssatz}
+
+Für \((P_N)\) und duales \((D)\) gelten:
+
+\begin{enumerate}[label=(\alph*)]
+	\item \((P_N)\), \((D)\) zulässig \(\implies (P_N)\), \((D)\) lösbar und \[\min (P_N) = \max (D)\]
+	\item \((P_N)\) zulässig, \((D)\) nicht \(\implies \inf (P) = -\infty\)
+	\item \((D)\) zulässig, \((P_N)\) nicht \(\implies \sup (D) = \infty\)
+\end{enumerate}
+
+\subsection*{Komplementaritäts-Bedingung}
+
+\(\hat x \in M, \hat y \in N\) sind optimal zu \((P_N)\) bzw. \((D)\) gdw.:
+\[\hat x^\top (c-A^\top \hat y) = 0\]
+
+d.h. \(\forall j = 1,\dots,n : \hat x_j = 0 \lor c_j = (A^\top \hat y)_j\)
+
+\subsection*{Farkas-Lemma}
+
+Seien \(A \in \R^{m \times n}\) und \(b \in \R^m\). Dann:
+\begin{align*}
+&\exists x \in \R_{\geq 0}^n &&: Ax=b \\
+\iff &\not\exists y \in \R^m &&: A^\top y \leq 0 \land b^\top y > 0
+\end{align*}
