@@ -238,3 +238,55 @@ Seien \(A \in \R^{m \times n}\) und \(b \in \R^m\). Dann:
 &\exists x \in \R_{\geq 0}^n &&: Ax=b \\
 \iff &\not\exists y \in \R^m &&: A^\top y \leq 0 \land b^\top y > 0
 \end{align*}
+
+\section*{Konvexe Optimierung}
+
+Die \emph{konvexe Hülle} von \(M \subseteq \R^n\) ist definiert als:
+\[\text{conv}(M) = \left\{ \sum_{i=1}^m \lambda_i x^{(i)} \middle| x^{(i)} \in M, \lambda_i \geq 0, \sum_{i=1}^m \lambda_i = 1 \right\}\]
+
+\(M \subseteq \R^n\) ist \emph{Kegel}, wenn \(x \in M \land \lambda \geq 0 \implies \lambda x \in M\).
+
+Die \emph{konvexe Kegelhülle} von \(M \subseteq \R^n\) ist def. als:
+\[\text{cone}(M) = \left\{ \sum_{i=1}^m \lambda_i x^{(i)} \middle| x^{(i)} \in M, \lambda_i \geq 0 \right\}\]
+
+\[M \subseteq \R^n \text{ ist konvex} \iff \sum_{i=1}^m \lambda_i x^{(i)} \in M\]
+
+\subsection*{Projektionssatz}
+
+Sei \(M \subseteq \R^n\) nichtleer, abg. und konvex. Dann: \[\forall x \in \R^n \exists! \hat x \in M \forall y \in M: \|\hat x - x\| \leq \|y - x\|\]
+
+Ein \(\hat x \in M\) ist dieser \emph{Projektionspunkt} gdw.: \[\forall y \in M : (x-\hat x)^\top (y-\hat x) \leq 0\]
+
+\subsection*{Trennungssatz}
+
+Seien \(M \subseteq \R^n\) nichtleer, abg. und konvex sowie \(x \in \R^n \setminus M\). Dann ex. \(x\) und \(M\) strikt trennende Hyperebene: \[\exists a \in \R^n \setminus \{0\}, \gamma \in \R \forall y \in M : a^\top y \leq \gamma < a^\top x\]
+
+Ist \(M\) Kegel, so kann \(\gamma = 0\) gesetzt werden.
+
+\subsection*{Satz von Caratheodory}
+
+\(M \subseteq \R^n \land x \in \text{cone}(M) \setminus \{0\} \\ \implies \exists m \leq n \text{ linear unabhg. } v^{(j)} \in M \text{ und } \lambda_j \geq 0 : \\ \phantom{\implies} x = \sum_{j=1}^m \lambda_j v^{(j)}\)
+
+\spacing
+
+\(M \subseteq \R^n \land x \in \text{conv}(M) \\ \implies \exists m \leq n+1 \ v^{(j)} \in M \text{ s.d. } \\ \phantom{\implies} \{v^{(2)} - v^{(1)},\dots,v^{(m)}-v^{(1)}\} \text{ linear unabhg. und} \\ \phantom{\implies} \lambda_j \in [0,1] \text{ mit } x = \sum_{j=1}^m \lambda_j v^{(j)} \land \sum_{j=1}^m \lambda_j = 1\)
+
+\subsection*{Simplex}
+
+Die konvexe Hülle \(S = \text{conv}\{v^{(j)} | j=1,\dots,m\}\) ist ein \emph{Simplex}, wenn \(\{v^{(2)} - v^{(1)},\dots,v^{(m)}-v^{(1)}\}\) linear unabhängig sind. Ein \emph{simplizialer Kegel} ist die konvexe Kegelhülle linear unabhg. Vektoren.
+
+\subsection*{Konvexe Funktionen}
+
+Sei \(M \subseteq R^n\) konvex und \(f : M \to \R\).
+
+\spacing
+
+\(f\) ist \emph{konvex}, wenn: \(\forall x, y \in M, \lambda \in [0,1] : \\ f(\lambda x + (1-\lambda)y) \leq \lambda f(x) + (1-\lambda)f(y)\)
+
+\spacing
+
+\(f\) ist \emph{strikt konvex}, wenn: \(\forall x \neq y \in M, \lambda \in (0,1) : \\ f(\lambda x + (1-\lambda)y) < \lambda f(x) + (1-\lambda)f(y)\)
+
+\spacing
+
+\(f\) ist \emph{glm. konvex}, wenn \(\exists k > 0 \forall x, y \in M, \lambda \in [0,1] : \\ \hspace*{3mm} f(\lambda x + (1-\lambda)y) + k\lambda(1-\lambda)\|x-y\|^2 \\ \leq \lambda f(x) + (1-\lambda)f(y)\)
