@@ -290,3 +290,73 @@ Sei \(M \subseteq R^n\) konvex und \(f : M \to \R\).
 \spacing
 
 \(f\) ist \emph{glm. konvex}, wenn \(\exists k > 0 \forall x, y \in M, \lambda \in [0,1] : \\ \hspace*{3mm} f(\lambda x + (1-\lambda)y) + k\lambda(1-\lambda)\|x-y\|^2 \\ \leq \lambda f(x) + (1-\lambda)f(y)\)
+
+Glm. konvexe Funktionen sind strikt konvex.
+
+\spacing
+
+Der \emph{Epigraph} von \(f : M \to \R\) ist definiert als: \[E(f) = \{(x,\alpha) \in M \times \R | f(x) \leq \alpha\} \subseteq \R^{n+1}\]
+
+\(f\) ist (strikt) konvex gdw. \(E(f)\) (strikt) konvex ist.
+
+\subsubsection*{Jensensche Ungleichung}
+
+Für Konvexkombination \(x = \sum_{i=1}^m \lambda_i v^i\) von \(v^i \in M\) mit \(\lambda_i \in [0,1]\) und \(\sum_{i=1}^m \lambda_i = 1\) zusammen mit konvexer Funktion \(f: M \to \R\) gilt: \[f(x) \leq \sum_{i=1}^m \lambda_i f(v^i)\]
+
+\subsubsection*{Stetigkeitskriterium}
+
+Sei \(f : M \to \R\) konvex, \(M \subseteq \R^n\) offen und konvex.
+
+Dann ist \(f\) stetig.
+
+\subsubsection*{Konvexheitskriterien}
+
+Sei \(M \subseteq \R^n\) offen und konvex sowie \(f \in C^2(M,\R)\).
+
+Gleichmäßige Konvexität von \(f\) ist äquivalent zu:
+
+\begin{enumerate}[label=(\alph*)]
+\item \(\exists c > 0 \forall x, y \in M : \\ f(y)-f(x) \geq \nabla f(x)(y-x) + c\|y-x\|^2\)
+\item \(\exists c > 0 \forall x, y \in M : \\ (\nabla f(y) - \nabla f(x))^\top (y-x) \geq c\|y-x\|^2\)
+\item \(\exists c > 0 \forall x \in M, z \in \R^n : z^\top \nabla^2 f(x)z \geq c\|z\|^2\)
+\end{enumerate}
+
+Strikte Konvexität von \(f\) ist äquivalent zu:
+
+\begin{enumerate}[label=(\alph*)]
+\item \(\forall x, y \in M : f(y)-f(x) > \nabla f(x)(y-x)\)
+\item \(\forall x, y \in M : (\nabla f(y) - \nabla f(x))^\top (y-x) > 0\)
+\item \(\forall x \in M, z \in \R^n \setminus \{0\} : z^\top \nabla^2 f(x)z > 0\)
+\end{enumerate}
+
+Konvexität von \(f\) ist äquivalent zu:
+
+\begin{enumerate}[label=(\alph*)]
+\item \(\forall x, y \in M : f(y)-f(x) \geq \nabla f(x)(y-x)\)
+\item \(\forall x, y \in M : (\nabla f(y) - \nabla f(x))^\top (y-x) \geq 0\)
+\item \(\forall x \in M, z \in \R^n : z^\top \nabla^2 f(x)z \geq 0\)
+\end{enumerate}
+
+\subsection*{Konvexe Optimierungsaufgaben}
+
+Problem \((P) \ \min_{x \in M} f(x)\) auf \(M \subseteq \R^n\) ist \emph{konvex}, wenn \(M\) und \(f\) konvex sind.
+
+\spacing
+
+Hier sind lokale Minima auch globale Minima.
+
+\subsubsection*{Eindeutigkeit}
+
+Sei \(M \subseteq \R^n\) konvex und \(f : M \to \R\) strikt konvex. Dann hat \((P)\) höchstens eine Lösung.
+
+\spacing
+
+Sei \(M\) nichtleer, abg. und konvex sowie \(f\) glm. konvex und stg. Dann hat \((P)\) genau eine Lösung.
+
+\subsubsection*{Konvexes Optimierungsproblem}
+
+Sei \(f : \R^n \to \R\) konvex und \(M\) gegeben als: \[M = \{x \in \R^n | h(x) \leq 0 \land Ax=b\}\]
+
+für \(A \in \R^{m \times n}, b \in \R^m\) und konvexe \(h_j : \R^n \to \R\).
+
+Dann ist \((P)\) ein \emph{konvexes Optimierungsproblem}.
