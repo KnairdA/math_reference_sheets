@@ -360,3 +360,75 @@ Sei \(f : \R^n \to \R\) konvex und \(M\) gegeben als: \[M = \{x \in \R^n | h(x) 
 für \(A \in \R^{m \times n}, b \in \R^m\) und konvexe \(h_j : \R^n \to \R\).
 
 Dann ist \((P)\) ein \emph{konvexes Optimierungsproblem}.
+
+\spacing
+
+\(\Lambda = \{(f(x)+r, h(x)+z, Ax-b) \in \R \times \R^p \times \R^m \\ \phantom{\Delta = \{}| r, z \geq 0, x \in \R^n \}\)
+
+\(\Lambda\) ist konvexe Menge zu gegebenem \((P)\).
+
+\subsubsection*{Existenz von Lösung}
+
+Sei \(M \neq \emptyset, \ \inf(P) > -\infty\) und \(\Lambda\) abgeschlossen.
+
+Dann besitzt konvexes \((P)\) eine Lösung.
+
+\subsubsection*{Satz von Weyl}
+
+Alle endlich erzeugten konvexen Kegel \(K \in \R^n\) sind polyedral und besitzen Darstellung: \[K = \{x \in \R^n | Bx \leq 0\} \text{ mit } B \in \R^{q \times n}\]
+
+\subsubsection*{Dualität konvexer Probleme}
+
+Konvexes \((P)\) mit \(\Lambda\) hat äquivalentes Problem \((P')\)
+\[(P') \ \min \gamma \text{ mit } (\gamma,u,v) \in \Lambda \cap (\R \times \{0\} \times \{0\}) \subseteq \R^{1+p+m}\]
+
+\subsubsection*{Lagrange Funktion}
+
+\[L(x,u,v) = f(x) + u^\top h(x) + v^\top (Ax-b)\]
+
+\subsubsection*{Duales Problem}
+
+Sei \(F : \R_{\geq 0}^p \times \R^m \to \R, \ (u,v) \mapsto \inf_{x \in \R} L(x,u,v)\)
+
+\[(D) \ \max_{(u,v) \in N} F(u,v) \text{ auf } N\]
+
+Wobei \(N =\{(u,v) \in \R_{\geq 0}^p \times \R^m | F(u,v) > -\infty\}\)
+
+\subsubsection*{Schwacher Dualitätssatz}
+
+Seien konvexe \((P)\) und \((D)\) gegeben. Dann:
+\[\forall x \in M, (u,v) \in N : f(x) \geq F(u,v)\]
+
+Sei \(\hat x \in M, (\hat u, \hat v) \in N\) s.d. \(f(\hat x) = F(\hat u, \hat v)\) dann löst \(\hat x\) \((P)\) und \((\hat u, \hat v)\) ist Maximalstelle von \((D)\).
+
+\subsubsection*{Sattelpunktsatz}
+
+Sei \((P)\) konvexes Problem mit dualem \((D)\).
+
+\(\hat x \in M, (\hat u, \hat v) \in N\) sind optimal zu \((P)\) bzw. \((D)\) mit \(f(\hat x) = F(\hat u, \hat v)\) gdw. \((\hat x, \hat u, \hat v) \in M \times N\) Sattelpunkt der Lagrange-Funktion ist.
+
+d.h: \(\forall x \in \R^n, u \in \R_{\geq 0}^p, v \in \R^m :\) \[L(\hat x,u,v) \leq L(\hat x,\hat u,\hat v) \leq L(x,\hat u,\hat v)\]
+
+\subsubsection*{Slater-Bedingung}
+
+Zulässige Menge \(M = \{x \in \R^n | h(x) \leq 0, Ax=b\}\) erfüllt \emph{Slater-Bedingung (SB)}, wenn:
+
+\begin{enumerate}[label=(\roman*)]
+	\item \(\text{Rg}(A) = m \leq n\) maximal
+	\item \(\tilde x \in M\) ex. mit \(h(\tilde x) < 0\)
+\end{enumerate}
+
+\subsubsection*{Starker Dualitätssatz}
+
+Sei \((P)\) konvexes Problem mit dualem \((D)\) und \(M\) erfülle (SB). Ist \((P)\) lösbar mit \(\hat x \in M\) dann:
+\[\exists \text{Lösung } (\hat u,\hat v) \in N \text{ von } (D) : f(\hat x) = F(\hat u,\hat v)\]
+
+\subsubsection*{Konvexer Kuhn-Tucker}
+
+Sei \((P)\) konvexes Problem mit dualem \((D)\) und \(M\) erfülle (SB).
+\(\hat x \in M\) ist Lösung von (P) gdw. \(\exists (\hat u,\hat v) \in N : f(\hat x) = F(\hat u,\hat v)\)
+
+\subsubsection*{Komplementaritätsbedingung}
+
+Für \(\hat x, (\hat u,\hat v)\) des konvexen Kuhn-Tucker gilt die \emph{Komplementaritätsbedingung}: \(\hat u^\top h(\hat x) = 0\)
+
