@@ -1,24 +1,24 @@
 \section*{Komplexe Zahlen}
 
-$\C = \{ z = x+iy | x,y \in \R \}$
+\(\C = \{ z = x+iy | x,y \in \R \}\)
 
-$\C$ wird via $z = x + iy \mapsto (x,y)$ mit $\R^2$ identifiziert.
+	\(\C\) wird via \(z = x + iy \mapsto (x,y)\) mit \(\R^2\) identifiziert.
 
 \vspace*{-4mm}
 \[ z \cdot w = \begin{pmatrix} x & -y \\ y & x\end{pmatrix} \begin{pmatrix} u \\ v\end{pmatrix} = \begin{pmatrix} r & 0 \\ 0 & r\end{pmatrix} \begin{pmatrix} \frac{x}{r} & -\frac{y}{r} \\ \frac{y}{r} & \frac{x}{r}\end{pmatrix} \begin{pmatrix} u \\ v\end{pmatrix} \]
 
-wobei $r := \sqrt{x^2 + y^2}$. Es gilt für die orthogonale Matrix $D = \begin{pmatrix} \frac{x}{r} & -\frac{y}{r} \\ \frac{y}{r} & \frac{x}{r}\end{pmatrix}$: $\det D = 1$ d.h. die komplexe Multiplikation ist eine Drehstreckung.
+wobei \(r := \sqrt{x^2 + y^2}\). Es gilt für die orthogonale Matrix \(D = \begin{pmatrix} \frac{x}{r} & -\frac{y}{r} \\ \frac{y}{r} & \frac{x}{r}\end{pmatrix}\): \(\det D = 1\) d.h. die komplexe Multiplikation ist eine Drehstreckung.
 
 \vspace*{1mm}
 
-Die Normen von $(\C,|\cdot|)$ und $(\R^2,|\cdot|_2)$ stimmen überein, ebenso Konvergenz-, Stetigkeits- und \ Offenheitseigenschaften:
+Die Normen von \((\C,|\cdot|)\) und \((\R^2,|\cdot|_2)\) stimmen überein, ebenso Konvergenz-, Stetigkeits- und \ Offenheitseigenschaften:
 
 \spacing
-$\displaystyle\lim_{n \to \infty} z_n = z$ in $\C \iff \displaystyle\lim_{n \to \infty} Re \ z_n = Re \ z \\ \hspace*{26.8mm} \land \lim_{n \to \infty} Im \ z_n = Im \ z$
+\(\displaystyle\lim_{n \to \infty} z_n = z\) in \(\C \iff \displaystyle\lim_{n \to \infty} Re \ z_n = Re \ z \\ \hspace*{26.8mm} \land \lim_{n \to \infty} Im \ z_n = Im \ z\)
 
 \subsection*{Polardarstellung}
 
-Für $z = x +iy \in \C \setminus \{0\}$ gilt $z = re^{i\phi}$ mit $r = |z|$ und:
+Für \(z = x +iy \in \C \setminus \{0\}\) gilt \(z = re^{i\phi}\) mit \(r = |z|\) und:
 
 \vspace*{-2mm}
 \[ \phi = \arg z := \begin{cases}
@@ -28,26 +28,26 @@ Für $z = x +iy \in \C \setminus \{0\}$ gilt $z = re^{i\phi}$ mit $r = |z|$ und:
 	\pi & z \in (-\infty,0)
 \end{cases} \]
 
-mit $\phi \in (-\pi, \pi]$. Es gilt für $z = re^{i\phi}, w = se^{i\psi}$:
+mit \(\phi \in (-\pi, \pi]\). Es gilt für \(z = re^{i\phi}, w = se^{i\psi}\):
 
-$z \cdot w = rse^{i(\phi+\psi)} = |z||w|e^{i(\phi+\psi)}$.
+		\(z \cdot w = rse^{i(\phi+\psi)} = |z||w|e^{i(\phi+\psi)}\).
 
 \section*{Holomorphie}
 
-Eine Funktion $f : D \to \C$ ist \emph{komplex differenzierbar} in $z_0 \in D$, wenn:
+Eine Funktion \(f : D \to \C\) ist \emph{komplex differenzierbar} in \(z_0 \in D\), wenn:
 
 \vspace*{-4mm}
 \[ f'(z_0) := \displaystyle\lim_{z \to z_0, z \in D\setminus\{z_0\}} \frac{f(z)-f(z_0)}{z-z_0} \in \C \text{ existiert.} \]
 
-Ist $f$ in $\forall z_0 \in D$ komplex differenzierbar, so heißt $f$ \emph{holomorph} auf $D$ mit Ableitung $f' : D \to \C$.
+Ist \(f\) in \(\forall z_0 \in D\) komplex differenzierbar, so heißt \(f\) \emph{holomorph} auf \(D\) mit Ableitung \(f' : D \to \C\).
 
-Geschrieben $f \in H(D)$.
+Geschrieben \(f \in H(D)\).
 
 \subsection*{Komplexe Ableitung}
 
-$\C \to \C, z \mapsto 1$ und $\C \to \C, z \mapsto z$ sind holomorph.
+\(\C \to \C, z \mapsto 1\) und \(\C \to \C, z \mapsto z\) sind holomorph.
 
-Seien $f, g : D \to \C$ komplex differenzierbar in $z_0 \in \C$, $f(z_0) \in D' \subseteq \C$ offen, $h : D' \to \C$ in $f(z_0)$ komplex differenzierbar, $\alpha, \beta \in \C$:
+Seien \(f, g : D \to \C\) komplex differenzierbar in \(z_0 \in \C\), \(f(z_0) \in D' \subseteq \C\) offen, \(h : D' \to \C\) in \(f(z_0)\) komplex differenzierbar, \(\alpha, \beta \in \C\):
 
 \vspace*{-4mm}
 \begin{align*}
@@ -57,27 +57,27 @@ Seien $f, g : D \to \C$ komplex differenzierbar in $z_0 \in \C$, $f(z_0) \in D' 
 	(h \circ f)'(z_0) &= h'(f(z_0))f'(z_0)
 \end{align*}
 
-Polynome $p$ und nichtsinguläre rationale Funktionen aus Polynomen sind auf $\C$ holomorph.
+Polynome \(p\) und nichtsinguläre rationale Funktionen aus Polynomen sind auf \(\C\) holomorph.
 
 \subsubsection*{Konvergenzradius}
 
-Seien $a_k \in \C, k \in \N_0$:
+Seien \(a_k \in \C, k \in \N_0\):
 
 \vspace*{-2mm}
 \[ \rho = \frac{1}{\overline\lim_{k\to\infty} \sqrt[k]{|a_k|}} \in [0,+\infty] \]
 
 ist der \emph{Konvergenzradius}.
 
-Sei $\rho > 0, c \in \C$. Dann ex. die Potenzreihe:
+Sei \(\rho > 0, c \in \C\). Dann ex. die Potenzreihe:
 
-$f : B(c,\rho) \to \C, z \mapsto \sum_{k=0}^\infty a_k(z-c)^k$.
+	\(f : B(c,\rho) \to \C, z \mapsto \sum_{k=0}^\infty a_k(z-c)^k\).
 
-Diese ist auf $B(c,\rho)$ beliebig oft komplex differenzierbar. Für $n \in \N_0$ hat $f^{(n)}$ den Konvergenzradius $\rho > 0$ und es gilt für $z \in B(c,\rho)$:
+Diese ist auf \(B(c,\rho)\) beliebig oft komplex differenzierbar. Für \(n \in \N_0\) hat \(f^{(n)}\) den Konvergenzradius \(\rho > 0\) und es gilt für \(z \in B(c,\rho)\):
 
 \vspace*{-4mm}
 \[ f^{(n)}(z) = \sum_{k=n}^\infty k(k-1)\cdots(k-n+1)a_k(z-c)^{k-n} \]
 
-Auf diese Weise ergeben sich für $z \in \C$:
+Auf diese Weise ergeben sich für \(z \in \C\):
 
 \vspace*{-4mm}
 \begin{align*}
@@ -90,87 +90,67 @@ Auf diese Weise ergeben sich für $z \in \C$:
 
 \subsection*{Charakterisierung}
 
-Sei $f : D \to \C, D \subseteq \R^2, u = Re \ f, v = Im \ f : D \to \R$.
+Sei \(f : D \to \C, D \subseteq \R^2, u = Re \ f, v = Im \ f : D \to \R\).
 
-$f : D \to \R^2, (x,y) \mapsto u(x,y) + iv(x,y) = \begin{pmatrix} u(x,y) \\ v(x,y)\end{pmatrix}$
+	\(f : D \to \R^2, (x,y) \mapsto u(x,y) + iv(x,y) = \begin{pmatrix} u(x,y) \\ v(x,y)\end{pmatrix}\)
 
 Es sind dann äquivalent:
 
 \begin{enumerate}[label=(\alph*)]
-	\item $f$ ist in $z$ komplex differenzierbar
-	\item $f$ ist in $z$ reell differenzierbar und es gelten die \emph{Cauchy-Riemannschen DGL}: \\
+	\item \(f\) ist in \(z\) komplex differenzierbar
+	\item \(f\) ist in \(z\) reell differenzierbar und es gelten die \emph{Cauchy-Riemannschen DGL}: \\
 		\[ \frac{\partial u}{\partial x}(x,y) = \frac{\partial v}{\partial y}(x,y), \frac{\partial u}{\partial y}(x,y) = -\frac{\partial v}{\partial x}(x,y) \]
 \end{enumerate}
 
-$f$ hat in $(x,y) \in D \subseteq \R^2$ die \emph{Jacobimatrix}:
+\(f\) hat in \((x,y) \in D \subseteq \R^2\) die \emph{Jacobimatrix}:
 
 \[ f'(z) = \begin{pmatrix}
 	\frac{\partial u}{\partial x}(x,y) & \frac{\partial u}{\partial y}(x,y) \\
 	-\frac{\partial u}{\partial y}(x,y) & \frac{\partial u}{\partial x}(x,y)
 \end{pmatrix} \]
 
-Entsprechend ist $f(z)=\overline z$ nirgends komplex differenzierbar, $f(z)=|z|^2$ nur in $0$ komplex differenzierbar und $f(z) = \frac{1}{z}$ holomorph in $\C \setminus \{0\}$.
+Entsprechend ist \(f(z)=\overline z\) nirgends komplex differenzierbar, \(f(z)=|z|^2\) nur in \(0\) komplex differenzierbar und \(f(z) = \frac{1}{z}\) holomorph in \(\C \setminus \{0\}\).
 
 \subsection*{Biholomorphie}
 
-Sind $U, V \subseteq \C$ offen und nichtleer, $f : U \to V$ bij., $f$ und $f^{-1}$ holomorph. Dann heißt $f$ \emph{biholomorph}, $U$ und $V$ \emph{konform äquivalent}.
+Sind \(U, V \subseteq \C\) offen und nichtleer, \(f : U \to V\) bij., \(f\) und \(f^{-1}\) holomorph. Dann heißt \(f\) \emph{biholomorph}, \(U\) und \(V\) \emph{konform äquivalent}.
 
-Sei $f : U \to V$ biholomorph, $z \in U$.
+Sei \(f : U \to V\) biholomorph, \(z \in U\).
 
-Dann ist $f'(z) \neq 0$ und für $w = f(z)$ gilt:
+Dann ist \(f'(z) \neq 0\) und für \(w = f(z)\) gilt:
 
 \vspace*{-2mm}
 \[ (f^{-1})'(w) = \frac{1}{f'(f^{-1}(w))} = \frac{1}{f'(z)} \]
 
-Weiterhin existieren offene nichtleere $U \subseteq D$ mit $u_0 \in U, V \subseteq \C$ s.d. $\restrictedto{f}{U}$ biholomorph ist, wenn $f \in H(d) \cap C^1(D,\R^2)$, $z_0 \in D$ mit $f'(z_0) \neq 0$ gilt.
-
-\section*{Möbiustransformationen}
-
-Sei $A = \begin{pmatrix} a & b \\ c & d\end{pmatrix} \in \C^{2 \times 2}$ mit $\det A = ad - bc \neq 0$.
-
-Setze $m_A : D_A \to \C, z \mapsto \frac{az+b}{cz+d}$
-
-Mit $D_A = \begin{cases} \C \setminus \{-\frac{d}{c}\} & c \neq 0 \\ \C & c = 0\end{cases}$
-
-\subsection*{Eigenschaften}
-
-\begin{enumerate}[label=(\alph*)]
-	\item $m_A$ ist holomorph
-	\item $\forall \alpha \in \C \setminus \{0\} : m_{\alpha A} = m_A$
-	\item $B \in \C^{2 \times 2}$ mit $\det B \neq 0 \implies m_A \circ m_{B} = m_{AB}$
-	\item $m_A(D_A) = D_{A^{-1}}, m_A^{-1} = m_{A^{-1}}$
-	\item $m_A : D_A \to D_{A^{-1}}$ ist biholomorph
-\end{enumerate}
-
-Alle Möbiustransformationen sind Produkt $m_A = S_1 J S_2$ von affinen Abbildungen $S_j$ und der Inversion $Jz = \frac{1}{z}$. Affine Abbildungen sind Komposition von Translation $Tz=z+\frac{b}{d}$ und Drehstreckung $Dz = \frac{a}{c} z$. $S_j, J, T$ und $D$ sind selbst Möbiustransformationen.
+Weiterhin existieren offene nichtleere \(U \subseteq D\) mit \(u_0 \in U, V \subseteq \C\) s.d. \(\restrictedto{f}{U}\) biholomorph ist, wenn \(f \in H(d) \cap C^1(D,\R^2)\), \(z_0 \in D\) mit \(f'(z_0) \neq 0\) gilt.
 
 \section*{Potenzen und Wurzeln}
 
-Für $\theta \in (0, \pi]$ ist $\Sigma_\theta := \{ z \in \C \setminus \{0\} | |\arg z| < \theta \}$ der \emph{offene Sektor}.
+Für \(\theta \in (0, \pi]\) ist \(\Sigma_\theta := \{ z \in \C \setminus \{0\} | |\arg z| < \theta \}\) der \emph{offene Sektor}.
 
-d.h. $\Sigma_{\pi / 2} = \C_+$ ist die offene rechte Halbebene und $\Sigma_\pi = \C \setminus (-\infty,0]$ die geschlitzte Ebene.
-
-\vspace*{2mm}
-
-$g_a = \{ a + iy | y \in \R \}$ für $a \in \R$ ist \emph{horizontale Gerade}.
-
-$h_b = \{ x + ib | x \in \R \}$ für $b \in \R$ ist \emph{vertikale Gerade}.
+d.h. \(\Sigma_{\pi / 2} = \C_+\) ist die offene rechte Halbebene und \(\Sigma_\pi = \C \setminus (-\infty,0]\) die geschlitzte Ebene.
 
 \vspace*{2mm}
 
-Die Potenz ist def.: $P_n : \C \to \C, z \mapsto z^n = |z|^n e^{in\phi}$
+\(g_a = \{ a + iy | y \in \R \}\) für \(a \in \R\) ist \emph{horizontale Gerade}.
 
-Sie bildet den Halbstrahl $s_\theta := \{ re^{i\theta} | r > 0 \}$ bijektiv auf den Halbstrahl $s_{n\theta}$ ab.
+		\(h_b = \{ x + ib | x \in \R \}\) für \(b \in \R\) ist \emph{vertikale Gerade}.
 
-\subsection*{Hauptzweig der $n$-ten Wurzel}
+\vspace*{2mm}
 
-Sei $n \in \N$ mit $n \geq 2$. Der \emph{Hauptzweig der $n$-ten Wurzel} ist $r_n = p_n^{-1} : \Sigma_\pi \to \Sigma_{\pi/n}$.
+Die Potenz ist def.: \(P_n : \C \to \C, z \mapsto z^n = |z|^n e^{in\phi}\)
 
-Somit ist $\forall w \in \Sigma_\pi$ die $n$-te Wurzel $r_n(w) = z$ das einzige $z \in \Sigma_{\pi/n}$ mit $z^n = w$. Es gelten $r_n(z^n) = z$ und $r_n(w)^n = w$.
+Sie bildet den Halbstrahl \(s_\theta := \{ re^{i\theta} | r > 0 \}\) bijektiv auf den Halbstrahl \(s_{n\theta}\) ab.
+
+\subsection*{Hauptzweig der \(n\)-ten Wurzel}
+
+Sei \(n \in \N\) mit \(n \geq 2\). Der \emph{Hauptzweig der \(n\)-ten Wurzel} ist \(r_n = p_n^{-1} : \Sigma_\pi \to \Sigma_{\pi/n}\).
+
+Somit ist \(\forall w \in \Sigma_\pi\) die \(n\)-te Wurzel \(r_n(w) = z\) das einzige \(z \in \Sigma_{\pi/n}\) mit \(z^n = w\). Es gelten \(r_n(z^n) = z\) und \(r_n(w)^n = w\).
 
 \section*{Exponentiale und Logarithmen}
 
-Sei $z = x + iy, x, y \in \R, k \in \Z$. Dann:
+Sei \(z = x + iy, x, y \in \R, k \in \Z\). Dann:
 
 \vspace*{-4mm}
 \begin{align*}
@@ -179,7 +159,7 @@ Sei $z = x + iy, x, y \in \R, k \in \Z$. Dann:
 	\exp(z) &= 1 \iff z=2\pi i k
 \end{align*}
 
-Für $a, b \in \R$ gilt: $\exp : h_b \to s_b$ ist bijektiv und $\exp : g_a \to \partial B(0,e^a)$ ist surjektiv, nicht injektiv.
+Für \(a, b \in \R\) gilt: \(\exp : h_b \to s_b\) ist bijektiv und \(\exp : g_a \to \partial B(0,e^a)\) ist surjektiv, nicht injektiv.
 
 \subsection*{Hauptzweig des Logarithmus}
 
@@ -190,39 +170,39 @@ Für $a, b \in \R$ gilt: $\exp : h_b \to s_b$ ist bijektiv und $\exp : g_a \to \
 \end{align*}
 \vspace*{-6mm}
 
-Sind die \emph{vertikalen und horizontalen Streifen} in $\C$.
+Sind die \emph{vertikalen und horizontalen Streifen} in \(\C\).
 
 \spacing
 
-$exp : S_r(a_1,a_2) \to B(0,e^{a_2}) \setminus \overline B(0,e^{a_1})$ ist surjektiv.
+\(exp : S_r(a_1,a_2) \to B(0,e^{a_2}) \setminus \overline B(0,e^{a_1})\) ist surjektiv.
 
-$exp : S_i(b_1,b_2) \to \{ \omega = te^{i\phi} | t > 0, \phi \in (b_1,b_2) \}$ ist bijektiv.
+	\(exp : S_i(b_1,b_2) \to \{ \omega = te^{i\phi} | t > 0, \phi \in (b_1,b_2) \}\) ist bijektiv.
 
 \spacing
 
-Der \emph{Hauptzweig des Logarithmus} ist die Abbildung $\log = (\restrictedto{\exp}{s_i})^{-1} : \Sigma_\pi \to S_i$.
+Der \emph{Hauptzweig des Logarithmus} ist die Abbildung \(\log = (\restrictedto{\exp}{s_i})^{-1} : \Sigma_\pi \to S_i\).
 
-$\forall w \in \Sigma_\pi : z = \log(w)$ ist eind. $z \in S_i$ mit $\exp(z) = w$.
+	\(\forall w \in \Sigma_\pi : z = \log(w)\) ist eind. \(z \in S_i\) mit \(\exp(z) = w\).
 
-Weiter gilt: $\exp : S_i \to \Sigma_\pi$ und $\log : \Sigma_\pi \to S_i$ sind biholomorph mit $\log\exp(z) = z$ für $z \in S_i$ und $\exp\log(w) = w$, $\log'(w) = \frac{1}{w}$ für $w \in \Sigma_\pi$.
+Weiter gilt: \(\exp : S_i \to \Sigma_\pi\) und \(\log : \Sigma_\pi \to S_i\) sind biholomorph mit \(\log\exp(z) = z\) für \(z \in S_i\) und \(\exp\log(w) = w\), \(\log'(w) = \frac{1}{w}\) für \(w \in \Sigma_\pi\).
 
 \subsection*{Allgemeine Potenz}
 
-Sei $z = re^{i\phi} \in \Sigma_\pi$ mit $r > 0$ und $\phi \in (-\pi,\pi), w = x + iy \in \C$ für $x, y \in \R$. \emph{Allgemeine Potenz} ist def.:
+Sei \(z = re^{i\phi} \in \Sigma_\pi\) mit \(r > 0\) und \(\phi \in (-\pi,\pi), w = x + iy \in \C\) für \(x, y \in \R\). \emph{Allgemeine Potenz} ist def.:
 
-$z^w = \exp(w \log z) = r^x e^{-y\phi} e^{i(x\phi + y \ln r)}$
+				\(z^w = \exp(w \log z) = r^x e^{-y\phi} e^{i(x\phi + y \ln r)}\)
 
-z.B. $e^w = \exp(w)$ und $i^i = e^{-\pi/2}$.
+z.B. \(e^w = \exp(w)\) und \(i^i = e^{-\pi/2}\).
 
 \spacing
 
-Es gilt $z^{v+w} = z^v z^w$. Ableitungen $\frac{\partial}{\partial z} z^w = wz^{w-1}$ und $\frac{\partial}{\partial w} z^w = \log(w)z^w$ existieren.
+Es gilt \(z^{v+w} = z^v z^w\). Ableitungen \(\frac{\partial}{\partial z} z^w = wz^{w-1}\) und \(\frac{\partial}{\partial w} z^w = \log(w)z^w\) existieren.
 
 \section*{Komplexe Kurvenintegrale}
 
-Fkt $f : [a,b] \to \C$ ist \emph{stückweise stetig}, wenn $\forall t \in [a,b]$ beideitige Grenzwerte in $\C$ ex. und max. endlich viele Unstetigkeitspunkte $t_k \in [a,b]$ ex.
+Fkt \(f : [a,b] \to \C\) ist \emph{stückweise stetig}, wenn \(\forall t \in [a,b]\) beideitige Grenzwerte in \(\C\) ex. und max. endlich viele Unstetigkeitspunkte \(t_k \in [a,b]\) ex.
 
-Geschrieben $f \in PC([a,b],\C)$.
+Geschrieben \(f \in PC([a,b],\C)\).
 
 Solche Funktionen sind integrierbar:
 
@@ -231,11 +211,11 @@ Solche Funktionen sind integrierbar:
 
 \subsection*{Hauptsatz}
 
-$f \in PC([a,b],\C)$ ist in $t_0 \in [a,b]$ differenzierbar, wenn $f'(t_0) := \lim_{t \to t_0} \frac{f(t)-f(t_0)}{t-t_0} \in \C$ existiert.
+\(f \in PC([a,b],\C)\) ist in \(t_0 \in [a,b]\) differenzierbar, wenn \(f'(t_0) := \lim_{t \to t_0} \frac{f(t)-f(t_0)}{t-t_0} \in \C\) existiert.
 
-$\iff \text{Re } f, \text{Im } f$ besitzen Ableitungen in $\R$.
+			\(\iff \text{Re } f, \text{Im } f\) besitzen Ableitungen in \(\R\).
 
-Ist $f$ auf $[a,b]$ diffbar und $g, f' \in C([a,b],\C)$. Dann gilt der Hauptsatz:
+Ist \(f\) auf \([a,b]\) diffbar und \(g, f' \in C([a,b],\C)\). Dann gilt der Hauptsatz:
 
 \vspace*{-3mm}
 \[ \int_a^b f'(t) dt = f(b) - f(a) \]
@@ -244,102 +224,100 @@ Ist $f$ auf $[a,b]$ diffbar und $g, f' \in C([a,b],\C)$. Dann gilt der Hauptsatz
 
 \subsection*{Kurven und Parametrisierungen}
 
-$\gamma \in C([a,b],\C)$ ist \emph{Kurve} oder \emph{Weg} von $\gamma(a)$ nach $\gamma(b)$. $\gamma$ ist \emph{geschlossen}, wenn $\gamma(a)=\gamma(b)$ gilt und einfach, wenn $\gamma$ auf $[a,b)$ injektiv ist.
+\(\gamma \in C([a,b],\C)\) ist \emph{Kurve} oder \emph{Weg} von \(\gamma(a)\) nach \(\gamma(b)\). \(\gamma\) ist \emph{geschlossen}, wenn \(\gamma(a)=\gamma(b)\) gilt und einfach, wenn \(\gamma\) auf \([a,b)\) injektiv ist.
 
-$\Gamma = \gamma([a,b])$ ist \emph{Bild} oder \emph{Spur} von $\gamma$.
+							\(\Gamma = \gamma([a,b])\) ist \emph{Bild} oder \emph{Spur} von \(\gamma\).
 
-Gilt $\Gamma \subseteq M \subseteq \C$, so ist $\gamma$ Weg in $M$.
+Gilt \(\Gamma \subseteq M \subseteq \C\), so ist \(\gamma\) Weg in \(M\).
 
-$\gamma$ ist auch \emph{Parametrisierung} ihres Bildes $\Gamma$.
+			\(\gamma\) ist auch \emph{Parametrisierung} ihres Bildes \(\Gamma\).
 
 \subsection*{Kurvenintegral}
 
-Sei $\gamma \in PC^1([a,b],\C)$ mit Bild $\Gamma = \gamma([a,b])$ und $f \in C(\Gamma,\C)$. Dann ist das \emph{komplexe Kurvenintegral}:
+Sei \(\gamma \in PC^1([a,b],\C)\) mit Bild \(\Gamma = \gamma([a,b])\) und \(f \in C(\Gamma,\C)\). Dann ist das \emph{komplexe Kurvenintegral}:
 
 \vspace*{-2mm}
 \[ \int_\gamma f dz = \int_\gamma f(z) dz := \int_a^b f(\gamma(t))\gamma'(t) dt \]
 
-Die Länge von $\gamma$ ist $l(\gamma) = \int_a^b |\gamma'(t)| dt$.
+Die Länge von \(\gamma\) ist \(l(\gamma) = \int_a^b |\gamma'(t)| dt\).
 
 \subsubsection*{Eigenschaften}
 
-Seien $\gamma, \gamma_1, \gamma_2 \in PC^1([a,b],\C)$ mit Bildern $\Gamma, \Gamma_1, \Gamma_2$ und $f, g \in C(\Gamma,\C), h \in C(\Gamma_1 \cup \Gamma_2, \C), \alpha, \beta \in \C$:
+Seien \(\gamma, \gamma_1, \gamma_2 \in PC^1([a,b],\C)\) mit Bildern \(\Gamma, \Gamma_1, \Gamma_2\) und \(f, g \in C(\Gamma,\C), h \in C(\Gamma_1 \cup \Gamma_2, \C), \alpha, \beta \in \C\):
 
 \begin{enumerate}[label=(\alph*)]
-	\item $\int_\gamma (\alpha f + \beta g) dz = \alpha \int_\gamma f dz + \beta \int_\gamma g dz$
-	\item $|\int_\gamma f dz| \leq \|f\|_\infty l(\gamma)$
-	\item $\int_{\gamma_1 \cup \gamma_2} h dz = \int_{\gamma_1} h dz + \int_{\gamma_2} h dz$
-	\item $\int_{\gamma^-} f dz = - \int_{\gamma} f dz$
+	\item \(\int_\gamma (\alpha f + \beta g) dz = \alpha \int_\gamma f dz + \beta \int_\gamma g dz\)
+	\item \(|\int_\gamma f dz| \leq \|f\|_\infty l(\gamma)\)
+	\item \(\int_{\gamma_1 \cup \gamma_2} h dz = \int_{\gamma_1} h dz + \int_{\gamma_2} h dz\)
+	\item \(\int_{\gamma^-} f dz = - \int_{\gamma} f dz\)
 \end{enumerate}
 
-Sei $\gamma \in PC^1([a,b],\C)$ mit Bild $\Gamma$, $f_n, f \in C(\Gamma,\C)$ für $n \in \N$ und $h \in C(D\times\Gamma,\C)$. Dann gelten:
+Sei \(\gamma \in PC^1([a,b],\C)\) mit Bild \(\Gamma\), \(f_n, f \in C(\Gamma,\C)\) für \(n \in \N\) und \(h \in C(D\times\Gamma,\C)\). Dann gelten:
 
 \spacing
 
-$(f_n)$ konv. glm. auf $\Gamma$ gegen $f$
+\((f_n)\) konv. glm. auf \(\Gamma\) gegen \(f\)
 
 \vspace*{-2mm}
 \[ \implies \displaystyle\lim_{n\to\infty} \int_\gamma f_n dz = \int_\gamma f dz \]
 
-$\sum_{n=1}^\infty f_n$ konv. glm. auf $\Gamma$
+\(\sum_{n=1}^\infty f_n\) konv. glm. auf \(\Gamma\)
 
 \vspace*{-2mm}
 \[ \implies \displaystyle\sum_{n=1}^\infty \int_\gamma f_n dz = \int_\gamma \displaystyle\sum_{n=1}^\infty f_n dz \]
 
-\columnbreak
+Abbildung \(H : z \mapsto \int_\Gamma h(z,w) dw \in C(D,\C)\)
 
-Abbildung $H : z \mapsto \int_\Gamma h(z,w) dw \in C(D,\C)$
-
-$z \mapsto h(z,w) \in H(D)$ mit $\frac{\partial}{\partial z} h \in C(D \times \Gamma, \C)$
+	\(z \mapsto h(z,w) \in H(D)\) mit \(\frac{\partial}{\partial z} h \in C(D \times \Gamma, \C)\)
 
 \vspace*{-2mm}
 \[ \implies \frac{d}{dz} \int_\gamma h(z,w) dw = \int_\gamma \frac{\partial}{\partial z} h(z,w) dw \]
 
-d.h. $H$ ist holomorph mit dieser Ableitung.
+d.h. \(H\) ist holomorph mit dieser Ableitung.
 
 \subsection*{Konstant auf Gebieten}
 
-Sei $D \subset \C$ ein Gebiet, $f \in H(D)$ und $f'=0$ auf $D$. Dann ist $f$ konstant.
+Sei \(D \subset \C\) ein Gebiet, \(f \in H(D)\) und \(f'=0\) auf \(D\). Dann ist \(f\) konstant.
 
 \subsection*{Stammfunktionen}
 
-Sei $f \in C(D,\C)$. Stammfunktion von $f$ auf $D$ ist $F \in H(D)$ mit $F'=f$.
+Sei \(f \in C(D,\C)\). Stammfunktion von \(f\) auf \(D\) ist \(F \in H(D)\) mit \(F'=f\).
 
-$\exp, \sin, \cos$ und Polynome besitzen Stammftk. auf $\C$. $\log$ ist Stammfkt. von $z \mapsto \frac{1}{z}$ auf $\Sigma_\pi$.
+\(\exp, \sin, \cos\) und Polynome besitzen Stammftk. auf \(\C\). \(\log\) ist Stammfkt. von \(z \mapsto \frac{1}{z}\) auf \(\Sigma_\pi\).
 
 \section*{Der Cauchysche Integralsatz}
 
-Sei $D$ Gebiet, $f \in C(D,\C)$. Dann sind äquivalent:
+Sei \(D\) Gebiet, \(f \in C(D,\C)\). Dann sind äquivalent:
 
 \begin{enumerate}[label=(\alph*)]
-	\item $f$ hat Stammfunktion $F$ auf $D$
-	\item $\forall \gamma_1, \gamma_2 \in PC^1([a,b],D)$ mit $\gamma_1(a)=\gamma_2(a)$ und $\gamma_1(b)=\gamma_2(b)$ gilt: $\int_{\gamma_1} f dz = \int_{\gamma_2} f dz$.
-	\item $\forall \gamma \in C^1([a,b],D)$ mit $\gamma(a)=\gamma(b)$: $\int_\gamma f dz = 0$
+	\item \(f\) hat Stammfunktion \(F\) auf \(D\)
+	\item \(\forall \gamma_1, \gamma_2 \in PC^1([a,b],D)\) mit \(\gamma_1(a)=\gamma_2(a)\) und \(\gamma_1(b)=\gamma_2(b)\) gilt: \(\int_{\gamma_1} f dz = \int_{\gamma_2} f dz\).
+	\item \(\forall \gamma \in C^1([a,b],D)\) mit \(\gamma(a)=\gamma(b)\): \(\int_\gamma f dz = 0\)
 \end{enumerate}
 
-Es ergibt sich für jeden stückweisen $C^1$-Weg in $D$: $\int_\gamma f dz = F(\gamma(b)) - F(\gamma(a))$.
+Es ergibt sich für jeden stückweisen \(C^1\)-Weg in \(D\): \(\int_\gamma f dz = F(\gamma(b)) - F(\gamma(a))\).
 
 \subsection*{Satz von Goursat}
 
-Seien $w_0 \in D, f \in C(D,\C) \cap H(D \setminus \{w_0\})$ und $\Delta \subseteq D$ ein abgeschlossenes Dreieck. Dann:
+Seien \(w_0 \in D, f \in C(D,\C) \cap H(D \setminus \{w_0\})\) und \(\Delta \subseteq D\) ein abgeschlossenes Dreieck. Dann:
 
 \vspace*{-2mm}
 \[ \int_{\partial\Delta} f dz = 0 \]
 
 \subsection*{Cauchys Integralsatz}
 
-Seien $D$ sternförmiges Gebiet, $f \in H(D)$ und $\gamma \in PC^1([a,b],D)$ geschlossen, dann gilt:
+Seien \(D\) sternförmiges Gebiet, \(f \in H(D)\) und \(\gamma \in PC^1([a,b],D)\) geschlossen, dann gilt:
 
 \vspace*{-2mm}
 \[ \int_\gamma f dz = 0 \]
 
-Dies gilt auch für $f \in C(D,\C) \cap H(D\setminus \{\omega_0\})$.
+Dies gilt auch für \(f \in C(D,\C) \cap H(D\setminus \{\omega_0\})\).
 
 \subsubsection*{Cauchys Integralformeln}
 
-Seien $f \in H(D), \overline B(z_0,r) \subseteq D, n \in \N_0, z \in B(z_0,r)$ und $s := |z-z_0| < r$. Sei $\partial B(z_0,r)$ durch $\gamma(t) = z_0 + re^{it}$ mit $t \in [0,2\pi]$ parametrisiert.
+Seien \(f \in H(D), \overline B(z_0,r) \subseteq D, n \in \N_0, z \in B(z_0,r)\) und \(s := |z-z_0| < r\). Sei \(\partial B(z_0,r)\) durch \(\gamma(t) = z_0 + re^{it}\) mit \(t \in [0,2\pi]\) parametrisiert.
 
-Dann ist $f$ bel. oft auf $D$ diffbar und es gelten:
+Dann ist \(f\) bel. oft auf \(D\) diffbar und es gelten:
 
 \vspace*{-4mm}
 \begin{align*}
@@ -349,11 +327,11 @@ Dann ist $f$ bel. oft auf $D$ diffbar und es gelten:
 
 \subsection*{Analytische Funktionen}
 
-Eine Funktion $f : D \to \C$ heißt \emph{analytisch}, wenn $\forall z \in D \exists r(z) > 0$ mit $B(z,r(z)) \subseteq D$ s.d. $f$ auf $B(z,r(z))$ gleich einer Potenzreihe um $z$ ist.
+Eine Funktion \(f : D \to \C\) heißt \emph{analytisch}, wenn \(\forall z \in D \exists r(z) > 0\) mit \(B(z,r(z)) \subseteq D\) s.d. \(f\) auf \(B(z,r(z))\) gleich einer Potenzreihe um \(z\) ist.
 
 \vspace*{1mm}
 
-Eine Funktion $f \in H(\C)$ heißt \emph{ganz}.
+Eine Funktion \(f \in H(\C)\) heißt \emph{ganz}.
 
 \vspace*{1mm}
 
@@ -361,11 +339,11 @@ Analytische Funktionen sind insb. holomorph.
 
 \subsubsection*{Entwicklungssatz}
 
-Sei $f \in H(D)$. Dann ist $f$ analytisch.
+Sei \(f \in H(D)\). Dann ist \(f\) analytisch.
 
 \spacing
 
-Für $\forall z_0 \in D$ sei $R(z_0) := \sup\{r > 0 | B(z_0,r) \subseteq D \}$ der maximale Redius. Zusätzlich sei $\overline r, r \in (0,R(z_0))$. Für $z \in B(z_0, R(z_0)$ ist die Taylorreihe von $f$:
+Für \(\forall z_0 \in D\) sei \(R(z_0) := \sup\{r > 0 | B(z_0,r) \subseteq D \}\) der maximale Radius. Zusätzlich sei \(\overline r, r \in (0,R(z_0))\). Für \(z \in B(z_0, R(z_0)\) ist die Taylorreihe von \(f\):
 
 \vspace*{-6mm}
 \begin{align*}
@@ -373,25 +351,13 @@ f(z) &= \sum_{n=0}^\infty a_n(z-z_0)^n \\
 a_n &= \frac{f^{(n)}(z_0)}{n!} = \frac{1}{2\pi i} \int_{\partial B(z_0,r)} \frac{f(w)}{(w-z_0)^{n+1}} dw
 \end{align*}
 
-Diese konvergiert gleichmäßig auf $\overline B(z_0,\overline r)$.
+Diese konvergiert gleichmäßig auf \(\overline B(z_0,\overline r)\).
 
-Für ganze $f$ gilt $R(z_0)=\infty$.
-
-\subsection*{Laplacetransformationen}
-
-Sei $f : [0,\infty) \to \C$ messbar und $\exists M, \omega \geq 0 \forall t \geq 0 : |f(t)| \leq Me^{\omega t}$. Dann ex. die \emph{Laplacetransformation}:
-
-\vspace*{-2mm}
-\[ \hat f(\lambda) = \int_0^\infty e^{-\lambda t} f(t) dt \text{ für Re } \lambda > \omega \]
-
-Diese ist auf $\{\lambda \in \C | \text{Re } \lambda > \omega\}$ holomorph mit:
-
-\vspace*{-4mm}
-\[ \hat f^{(n)}(\lambda) = (-1)^n \int_0^\infty e^{-\lambda t} t^n f(t) dt, \text{ Re } \lambda > \omega, n \in \N \]
+Für ganze \(f\) gilt \(R(z_0)=\infty\).
 
 \subsection*{Satz von Morera}
 
-Funktion $f \in C(D,\C)$ erfülle $\int_{\partial\Delta} f dz = 0$ für alle abg. $\Delta \subseteq D$. Dann ist $f$ holomorph.
+Funktion \(f \in C(D,\C)\) erfülle \(\int_{\partial\Delta} f dz = 0\) für alle abg. \(\Delta \subseteq D\). Dann ist \(f\) holomorph.
 
 \subsection*{Satz von Liouville}
 
@@ -399,35 +365,35 @@ Eine beschränkte ganze Funktion ist konstant.
 
 \subsection*{Fundamentalsatz der Algebra}
 
-Ein komplexes Polynom $n$-ten Grades hat $n$ Nullstellen in $\C$. (eventuell wiederholt)
+Ein komplexes Polynom \(n\)-ten Grades hat \(n\) Nullstellen in \(\C\). (eventuell wiederholt)
 
 \subsection*{Weierstraßscher Konvergenzsatz}
 
-Seien $f, f_n : D \to \C$ für $n \in \N$. Konvergiert die \emph{Supremumsnorm} $\sup_{z \in K} |f_n(z)-f(z)|$ auf bel. komp. $K \subseteq D$ gegen $0$ für $n \to \infty$, so konvergiert $(f_n)$ kompakt auf $D$ gegen $f$. Weiterhin:
+Seien \(f, f_n : D \to \C\) für \(n \in \N\). Konvergiert die \emph{Supremumsnorm} \(\sup_{z \in K} |f_n(z)-f(z)|\) auf bel. komp. \(K \subseteq D\) gegen \(0\) für \(n \to \infty\), so konvergiert \((f_n)\) kompakt auf \(D\) gegen \(f\). Weiterhin:
 
 \spacing
 
-$f_n \in C(D,\C) \xrightarrow[n \to \infty]{\text{kompakt}} f \implies f \in C(D,\C)$.
+\(f_n \in C(D,\C) \xrightarrow[n \to \infty]{\text{kompakt}} f \implies f \in C(D,\C)\).
 
 \spacing
 
-Eine Folge $(f_n) \in H(D)$ konvergiere kompakt gegen $f$. Dann ist $f$ holomorph und alle $f_n^{(j)}$ konvergieren kompakt auf $D$ gegen $f^{(j)}$ für $n \to \infty$.
+Eine Folge \((f_n) \in H(D)\) konvergiere kompakt gegen \(f\). Dann ist \(f\) holomorph und alle \(f_n^{(j)}\) konvergieren kompakt auf \(D\) gegen \(f^{(j)}\) für \(n \to \infty\).
 
 \subsection*{Identitätssatz}
 
-Sei $D \subseteq \C$ Gebiet und $f \in H(D)$. Dann sind äquiv.:
+Sei \(D \subseteq \C\) Gebiet und \(f \in H(D)\). Dann sind äquiv.:
 
 \begin{enumerate}[label=(\alph*)]
-	\item $f = 0$ auf $D$
-	\item $\exists z_0 \in D \forall n \in \N_0 : f^{(n)}(z_0) = 0$
-	\item $\exists z_n, z_0 \in D \forall n \in N : f(z_n) = 0 \land z_n \neq z_0$ \\ Weiterhin gilt $z_n \to z_0 \ (n \to \infty)$
+	\item \(f = 0\) auf \(D\)
+	\item \(\exists z_0 \in D \forall n \in \N_0 : f^{(n)}(z_0) = 0\)
+	\item \(\exists z_n, z_0 \in D \forall n \in N : f(z_n) = 0 \land z_n \neq z_0\) \\ Weiterhin gilt \(z_n \to z_0 \ (n \to \infty)\)
 \end{enumerate}
 
-Somit sind $g, h \in H(D)$ schon auf $D$ gleich, wenn $g, h$ auf Menge $M \subseteq D$ mit Häufungspunkt $z_0 \in D$ übereinstimmen.
+Somit sind \(g, h \in H(D)\) schon auf \(D\) gleich, wenn \(g, h\) auf Menge \(M \subseteq D\) mit Häufungspunkt \(z_0 \in D\) übereinstimmen.
 
 \subsection*{Nullstellensatz}
 
-Sei $f \in H(D) \neq$ Nullfkt. und $\exists z_0 \in D : f(z_0) = 0$. Dann $\exists m \in \N, r > 0$ mit $B(z_0, r) \subseteq D$ und $g \in H(B(z_0,r))$ mit $g(z_0) \neq 0$ s.d. für $z \in B(z_0,r)$ gilt:
+Sei \(f \in H(D) \neq\) Nullfkt. und \(\exists z_0 \in D : f(z_0) = 0\). Dann \(\exists m \in \N, r > 0\) mit \(B(z_0, r) \subseteq D\) und \(g \in H(B(z_0,r))\) mit \(g(z_0) \neq 0\) s.d. für \(z \in B(z_0,r)\) gilt:
 
 \vspace{-4mm}
 \begin{align*}
@@ -435,126 +401,165 @@ Sei $f \in H(D) \neq$ Nullfkt. und $\exists z_0 \in D : f(z_0) = 0$. Dann $\exis
 f(z) &= (z-z_0)^m g(z)
 \end{align*}
 
-Dabei ist $m$ die Ordnung der Nullstelle $z_0$.
+Dabei ist \(m\) die Ordnung der Nullstelle \(z_0\).
 
 \subsection*{Holomorphe Fortsetzung}
 
-Sei $f \in H(D), U \subseteq \C$ Gebiet mit $D \subseteq U$.
+Sei \(f \in H(D), U \subseteq \C\) Gebiet mit \(D \subseteq U\).
 
-Dann $\exists! g \in H(U) : \restrictedto{g}{D} = f$.
+Dann \(\exists! g \in H(U) : \restrictedto{g}{D} = f\).
 
 \spacing
 
-Die \emph{Gammafunktion} $\Gamma(z) = \int_0^\infty t^{z-1}e^{-t} dt, Re \ z > 0$ hat genau eine holomorphe Fortsetzung auf der Menge $\C \setminus \{ -n | n \in \N_0 \}$.
+Die \emph{Gammafunktion} \(\Gamma(z) = \int_0^\infty t^{z-1}e^{-t} dt, Re \ z > 0\) hat genau eine holomorphe Fortsetzung auf der Menge \(\C \setminus \{ -n | n \in \N_0 \}\).
 
-\subsection*{Nullstelle in $B(z_0,r)$}
+\subsection*{Nullstelle in \(B(z_0,r)\)}
 
-Sei $f \in H(D), B := B(z_0,r), r > 0, \overline B \subseteq D$. Weiter:
+Sei \(f \in H(D), B := B(z_0,r), r > 0, \overline B \subseteq D\). Weiter:
 
 \vspace*{-3mm}
 \[ 0 \leq |f(z_0)| < \min_{x \in \partial B} |f(x)| \]
 
-Dann hat $f$ Nullstelle in $B$.
+Dann hat \(f\) Nullstelle in \(B\).
 
 \subsection*{Offenheitssatz}
 
-$f \in H(D)$ ist auf kleiner Kugel in $D$ konstant
+\(f \in H(D)\) ist auf kleiner Kugel in \(D\) konstant
 
-$\implies \forall \text{offene } U \subseteq D : f(U) \subseteq \C$ ist offen.
+\(\implies \forall \text{offene } U \subseteq D : f(U) \subseteq \C\) ist offen.
 
 \subsection*{Gebietstreue}
 
-$D \subseteq \C$ ist Gebiet und $f \in H(D)$ ist nicht konstant
+\(D \subseteq \C\) ist Gebiet und \(f \in H(D)\) ist nicht konstant
 
-$\implies f(D)$ ist ein Gebiet.
+\(\implies f(D)\) ist ein Gebiet.
 
 \subsection*{Maximumsprinzip}
 
-Sei $D$ Gebiet, $f \in H(D)$ nicht konstant. Dann:
+Sei \(D\) Gebiet, \(f \in H(D)\) nicht konstant. Dann:
 
 \begin{enumerate}[label=(\alph*)]
-	\item Die Abbildung $D \to \R, z \mapsto |f(z)|$ hat kein lokales Maximum
-	\item $D$ beschränkt, $f \in C(\overline D,\C)$. Dann: \\ $\max_{z \in \overline D} |f(z)| = \max_{z \in \partial D} |f(z)|$
+	\item Die Abbildung \(D \to \R, z \mapsto |f(z)|\) hat kein lokales Maximum
+	\item \(D\) beschränkt, \(f \in C(\overline D,\C)\). Dann: \\ \(\max_{z \in \overline D} |f(z)| = \max_{z \in \partial D} |f(z)|\)
+\end{enumerate}
+
+\section*{Homologie}
+
+Seien \(\gamma_1,\dots,\gamma_m\) stckw. stg. Wege in \(\C)\). Die \emph{Kette} \(\Gamma := \gamma_1 \oplus \dots \oplus \gamma_m\) ist \(\forall f \in C(|\Gamma|)\) def. als: \[\int_\Gamma f dz := \sum_{j=1}^m \int_{\gamma_j} f dz\]
+
+Für Träger \(|\Gamma| = \Gamma(I) \subseteq D\) ist \(\Gamma\) Kette in \(D\).
+
+Sind alle \(\gamma_j\) geschlossen heißt \(\Gamma\) \emph{Zyklus}.
+
+Die \emph{Umlaufzahl} eines Zyklus \(\Gamma\) um \(\alpha \in \C \setminus |\Gamma|\) : \[n(\Gamma,\alpha) := \frac{1}{2\pi i} \int_\Gamma \frac{1}{z-a} dz = \sum_{j=1}^m n(\gamma_j,\alpha)\]
+
+\(\Gamma\) ist \emph{nullhomolog} in \(D\) gdw. \(\forall \alpha \in \C \setminus D : n(\Gamma,\alpha) = 0\)
+
+\(\Gamma_1\) und \(\Gamma_2\) sind \emph{homolog} in \(D\) gdw. \(\forall \alpha \in \C \setminus D : n(\Gamma_1,\alpha) = n(\Gamma_2,\alpha)\)
+
+\(D\) ist \emph{einfach zusammenhängend} gdw. jeder Zyklus in \(D\) nullhomolog ist.
+
+\subsection*{Homologe Variante der Cauchyschen Sätze}
+
+Sei \(f \in H(D)\),, \(\Gamma\) nullhomologer Zyklus in \(D\) und \(\Gamma_1,\Gamma_2\) homologe Zyklen in \(D\). Dann gilt:
+
+\begin{enumerate}[label=(\alph*)]
+	\item \(\int_\Gamma f dz = 0\)
+	\item \(\int_{\Gamma_1} f dz = \int_{\Gamma_2} f dz\)
+	\item \(f(z) n(\Gamma,z) = \frac{1}{2\pi i} \int_\Gamma \frac{f(w)}{w-z} dz\) für \(z \in D \setminus |\Gamma|\)
+\end{enumerate}
+
+\subsection*{Cauchy für einfach zshg. Gebiete}
+
+Sei \(D\) einfach zshg. und \(\Gamma\) Zyklus in \(D\). Dann:
+
+\begin{enumerate}[label=(\alph*)]
+	\item \(\int_\Gamma f dz = 0\)
+	\item Für \(z \in D \setminus |\Gamma|, n \in \N_0 : \\ f^{(n)}(z) n(\Gamma,z) = \frac{n!}{2\pi i} \int_\Gamma \frac{f(w)}{(w-z)^{n+1}} dw\)
 \end{enumerate}
 
 \section*{Homotopie}
 
-Sei $N \subseteq M$ und $M$ ein metrischer Raum,
+Sei \(N \subseteq M\) und \(M\) ein metrischer Raum,
 
-$\gamma_0, \gamma_1 \in C([a,b],M)$ geschlossene Wege in $N$.
-
-\vspace*{1mm}
-
-Die Wege $\gamma_0, \gamma_1$ heißen \emph{homotop} über $N$, wenn $\exists h \in C([0,1] \times [a,b],M) \forall (s,t) \in [0,1] \times [a,b] : h(s,t) \in N \land h(0,t)=\gamma_0(t) \land h(1,t) = \gamma_1(t) \land h(s,a) = h(s,b)$.
+\(\gamma_0, \gamma_1 \in C([a,b],M)\) geschlossene Wege in \(N\).
 
 \vspace*{1mm}
 
-Ist $\gamma_1$ konstant, so heißt $\gamma_0$ \emph{nullhomotop} über $N$. Man schreibt $\gamma_0 \sim_N \gamma_1$ bzw. $\gamma_0 \sim_N 0$.
+Die Wege \(\gamma_0, \gamma_1\) heißen \emph{homotop} über \(N\), wenn \(\exists h \in C([0,1] \times [a,b],M) \forall (s,t) \in [0,1] \times [a,b] : h(s,t) \in N \land h(0,t)=\gamma_0(t) \land h(1,t) = \gamma_1(t) \land h(s,a) = h(s,b)\).
 
 \vspace*{1mm}
 
-Sind alle geschlossenen stückweisen $C^1$-Wege in $N$ nullhomotop, so heißt $N$ \emph{einfach zusammenhängend}.
+Ist \(\gamma_1\) konstant, so heißt \(\gamma_0\) \emph{nullhomotop} über \(N\). Man schreibt \(\gamma_0 \sim_N \gamma_1\) bzw. \(\gamma_0 \sim_N 0\).
+
+\vspace*{1mm}
+
+Sind alle geschlossenen stückweisen \(C^1\)-Wege in \(N\) nullhomotop, so heißt \(N\) \emph{einfach zusammenhängend}.
+
+\vspace*{1mm}
+
+Homotopie impliziert Homologie.
 
 \subsection*{Homotope Variante der Cauchyschen Sätze}
 
-Sei $D$ Gebiet, $f \in H(D), \gamma_0, \gamma_1$ auf $D$ homotope stückweise $C^1$-Wege. Dann:
+Sei \(D\) Gebiet, \(f \in H(D), \gamma_0, \gamma_1\) auf \(D\) homotope stückweise \(C^1\)-Wege. Dann:
 
 \[ \int_{\gamma_0} f dz = \int_{\gamma_1} f dz \]
 
-Insb. gilt $\int_{\gamma_0} f dz = 0$, wenn $\gamma_0 \sim_D 0$.
+Insb. gilt \(\int_{\gamma_0} f dz = 0\), wenn \(\gamma_0 \sim_D 0\).
 
-Cauchys Integralsatz gilt auf einfach zusammenhängenden Gebieten in $D$.
+Cauchys Integralsatz gilt auf einfach zusammenhängenden Gebieten in \(D\).
 
 \spacing
 
-Sei $\overline B(z_0,r) \subseteq D, r > 0, z \in B(z_0,r), k(t) = z_0 + re^{it}$ für $t \in [0, 2\pi], n \in \N_0$ und $\gamma$ zu $k$ auf $D \setminus \{z\}$ homotoper stückweiser $C^1$-Weg. Dann:
+Sei \(\overline B(z_0,r) \subseteq D, r > 0, z \in B(z_0,r), k(t) = z_0 + re^{it}\) für \(t \in [0, 2\pi], n \in \N_0\) und \(\gamma\) zu \(k\) auf \(D \setminus \{z\}\) homotoper stückweiser \(C^1\)-Weg. Dann:
 
 \[ f^{(n)}(z) = \frac{n!}{2\pi i} \int_\gamma \frac{f(w)}{(w-z)^{n+1}} dw \]
 
 \section*{Isolierte Singularitäten}
 
-Sei $z_0 \in \C, f \in H(D \setminus \{z_0\}), D_0 := B(z_0,r) \setminus \{z_0\} \subseteq D$. Dann ist $z_0$ \emph{isolierte Singularität} von $f$. $f$ ist:
+Sei \(z_0 \in \C, f \in H(D \setminus \{z_0\}), D_0 := B(z_0,r) \setminus \{z_0\} \subseteq D\). Dann ist \(z_0\) \emph{isolierte Singularität} von \(f\). \(f\) ist:
 
 \begin{enumerate}[label=(\alph*)]
-	\item \emph{hebbar}, wenn $\exists \tilde f \in H(B(z_0,r)) : \restrictedto{f}{D_0} = \restrictedto{\tilde f}{D_0}$
-	\item \emph{Pol}, wenn $f(z) \to \infty \ (z \to z_0)$
-	\item \emph{wesentlich}, wenn $z_0$ nicht hebbar / Pol ist
+	\item \emph{hebbar}, wenn \(\exists \tilde f \in H(B(z_0,r)) : \restrictedto{f}{D_0} = \restrictedto{\tilde f}{D_0}\)
+	\item \emph{Pol}, wenn \(f(z) \to \infty \ (z \to z_0)\)
+	\item \emph{wesentlich}, wenn \(z_0\) nicht hebbar / Pol ist
 \end{enumerate}
 
 \subsection*{Charakterisierung}
 
-Sei $z_0 \in \C$ isolierte Singularität von $f \in H(D)$. Dann sind äquivalent:
+Sei \(z_0 \in \C\) isolierte Singularität von \(f \in H(D)\). Dann sind äquivalent:
 
 \begin{enumerate}[label=(\alph*)]
-	\item $z_0$ ist Pol von $f$
-	\item $\exists r, c_1, c_2 > 0, m \in \N : \tilde D := B(z_0,r) \setminus \{z_0\} \subseteq D \land \forall z \in \tilde D : c_1|z-z_0|^{-m} \leq |f(z)| \leq c_2|z-z_0|^{-m}$
-	\item $\exists r > 0, m \in \N, g \in H(B(z_0,r)) :$ \\ $\tilde D := B(z_0,r) \setminus \{z_0\} \subseteq D \land g(z_0) \neq 0 \land \forall z \in \tilde D : f(z) = (z-z_0)^{-m}g(z)$
-	\item $\exists r > 0 : \tilde D := B(z_0,r) \setminus \{z_0\} \subseteq D \land \forall z \in \tilde D : f(z) \neq 0 \land h_0 := \frac{1}{f} : \tilde D \to \C$ besitzt Fortsetzung $h \in H(B(z_0,r))$ wobei $h$ in $z_0$ Nullstelle $m$-ter Ordnung hat
+	\item \(z_0\) ist Pol von \(f\)
+	\item \(\exists r, c_1, c_2 > 0, m \in \N : \tilde D := B(z_0,r) \setminus \{z_0\} \subseteq D \land \forall z \in \tilde D : c_1|z-z_0|^{-m} \leq |f(z)| \leq c_2|z-z_0|^{-m}\)
+	\item \(\exists r > 0, m \in \N, g \in H(B(z_0,r)) :\) \\ \(\tilde D := B(z_0,r) \setminus \{z_0\} \subseteq D \land g(z_0) \neq 0 \land \forall z \in \tilde D : f(z) = (z-z_0)^{-m}g(z)\)
+	\item \(\exists r > 0 : \tilde D := B(z_0,r) \setminus \{z_0\} \subseteq D \land \forall z \in \tilde D : f(z) \neq 0 \land h_0 := \frac{1}{f} : \tilde D \to \C\) besitzt Fortsetzung \(h \in H(B(z_0,r))\) wobei \(h\) in \(z_0\) Nullstelle \(m\)-ter Ordnung hat
 \end{enumerate}
 
 \subsubsection*{Riemannscher Hebbarkeitssatz}
 
-Die isolierte Singularität $z_0 \in \C$ von $f \in H(D)$ ist hebbar $\iff \exists r_1 > 0 : B(z_0,r_1) \setminus \{z_0\} \subseteq D$ und $f$ auf $B(z_0,r_1) \setminus \{z_0\}$ beschränkt ist.
+Die isolierte Singularität \(z_0 \in \C\) von \(f \in H(D)\) ist hebbar \(\iff \exists r_1 > 0 : B(z_0,r_1) \setminus \{z_0\} \subseteq D\) und \(f\) auf \(B(z_0,r_1) \setminus \{z_0\}\) beschränkt ist.
 
 \subsubsection*{Satz von Casorati-Weierstraß}
 
-$z_0$ ist wesentlich $\iff \forall r > 0 :$
+\(z_0\) ist wesentlich \(\iff \forall r > 0 :\)
 
-Bild $f(B(z_0,r) \setminus \{z_0\})$ liegt dicht in $\C$
+Bild \(f(B(z_0,r) \setminus \{z_0\})\) liegt dicht in \(\C\)
 
 \subsection*{Biholomorphie aus Injektivität}
 
-Sei $f \in H(D)$ injektiv.
+Sei \(f \in H(D)\) injektiv.
 
-Dann ist $f(D) \subseteq \C$ offen und $f$ ist biholomorph.
+Dann ist \(f(D) \subseteq \C\) offen und \(f\) ist biholomorph.
 
 \subsection*{Laurentreihe}
 
-Sei $a_n \in \C$ für $n \in \Z$ und $c \in \C$.
+Sei \(a_n \in \C\) für \(n \in \Z\) und \(c \in \C\).
 
-$\sum_{n \in \Z} a_n (z-c)^n$ mit $z \in \C$ ist die \emph{Laurentreihe}.
+			\(\sum_{n \in \Z} a_n (z-c)^n\) mit \(z \in \C\) ist die \emph{Laurentreihe}.
 
-Diese konvergiert, falls Grenzwerte in $\C$ ex.:
+Diese konvergiert, falls Grenzwerte in \(\C\) ex.:
 
 \vspace*{-4mm}
 \begin{align*}
@@ -569,48 +574,48 @@ Ist dies der Fall, wird definiert:
 
 \subsubsection*{Satz von Laurent}
 
-Seien $f \in H(D), n \in \Z, z_0 \in \C$ und $R > 0$ s.d. $D_0 := B(z_0,R) \setminus \{z_0\} \subseteq D$.
+Seien \(f \in H(D), n \in \Z, z_0 \in \C\) und \(R > 0\) s.d. \(D_0 := B(z_0,R) \setminus \{z_0\} \subseteq D\).
 
-Für $r \in (0,R)$ sei $\gamma_r : [0,2\pi] \to \C, t \mapsto z_0 + re^{it}$ und:
+Für \(r \in (0,R)\) sei \(\gamma_r : [0,2\pi] \to \C, t \mapsto z_0 + re^{it}\) und:
 
 \[ a_n := \frac{1}{2\pi i} \int_\gamma \frac{f(w)}{(w-z_0)^{n+1}} dw \]
 
-Diese Koeff. sind eindeutig und unabhg. $r \in (0,R)$.
+Diese Koeff. sind eindeutig und unabhg. \(r \in (0,R)\).
 
 \spacing
 
-$\sum_{n=-\infty}^{+\infty} a_n(z-z_0)^n$ konvergiert dann absolut und gleichmäßig auf Kompakta in $D_0$ gegen $f$.
+\(\sum_{n=-\infty}^{+\infty} a_n(z-z_0)^n\) konvergiert dann absolut und gleichmäßig auf Kompakta in \(D_0\) gegen \(f\).
 
 \subsubsection*{Singularitäten der Laurentreihe}
 
 Für Laurentreihen nach der obigen Def. gelten:
 
 \begin{enumerate}[label=(\alph*)]
-	\item $z_0$ ist hebbar $\iff \forall n < 0 : a_n = 0$
-	\item $z_0$ ist Pol $m$-ter Ordnung \\ $\iff a_{-m} \neq 0 \land \forall n < -m : a_n = 0$
-	\item $z_0$ ist wesentlich $\iff \exists n_j \to -\infty : a_{n_j} \neq 0$
+	\item \(z_0\) ist hebbar \(\iff \forall n < 0 : a_n = 0\)
+	\item \(z_0\) ist Pol \(m\)-ter Ordnung \\ \(\iff a_{-m} \neq 0 \land \forall n < -m : a_n = 0\)
+	\item \(z_0\) ist wesentlich \(\iff \exists n_j \to -\infty : a_{n_j} \neq 0\)
 \end{enumerate}
 
 \subsection*{Residuen}
 
-Sei $z_0 \in \C$ isolierte Singularität von $f \in H(D)$ und $a_n$ Koeffizienten der Laurentreihe von $f$ um $z_0$.
+Sei \(z_0 \in \C\) isolierte Singularität von \(f \in H(D)\) und \(a_n\) Koeffizienten der Laurentreihe von \(f\) um \(z_0\).
 
-Das \emph{Residuum} von $f$ bei $z_0$ ist definiert als:
+Das \emph{Residuum} von \(f\) bei \(z_0\) ist definiert als:
 
 \[ \text{Res}(f,z_0) := a_{-1} = \frac{1}{2\pi i} \int_{\partial B(z_0,r)} f(w) dw \]
 
-Hierbei gelte $\overline B(z_0,r) \setminus \{z_0\} \subseteq D$.
+Hierbei gelte \(\overline B(z_0,r) \setminus \{z_0\} \subseteq D\).
 
 \subsubsection*{Residuensatz}
 
-Seien $f \in H(D)$ und $z_1, \dots, z_n \in \C$ alle isolierten Singularitäten von $f$. Sei $p$ ein geschlossener, einfacher, positiv orientierter Polygonzug in $D$ mit Bild $P$ s.d. alle $z_j$ im von $P$ umschlossenen Gebiet $G$ liegen und $\overline G \setminus \{z_1,\dots,z_n\} \subseteq D$ ist. Weiterhin sei $\gamma \in PC^1([a,b],D)$ zu $p$ auf $D$ homotop. Dann:
+Seien \(f \in H(D)\) und \(z_1, \dots, z_n \in \C\) alle isolierten Singularitäten von \(f\). Sei \(p\) ein geschlossener, einfacher, positiv orientierter Polygonzug in \(D\) mit Bild \(P\) s.d. alle \(z_j\) im von \(P\) umschlossenen Gebiet \(G\) liegen und \(\overline G \setminus \{z_1,\dots,z_n\} \subseteq D\) ist. Weiterhin sei \(\gamma \in PC^1([a,b],D)\) zu \(p\) auf \(D\) homotop. Dann:
 
 \vspace*{-4mm}
 \[ \int_\gamma f dz = 2\pi i \sum_{j=1}^n \text{Res}(f,z_j) \]
 
-\subsubsection*{Residuen von Polen $m$-ter Ordnung}
+\subsubsection*{Residuen von Polen \(m\)-ter Ordnung}
 
-Sei $z_0$ Pol $m$-ter Ordnung von $f \in H(D)$ und $g$ die holomorphe Fortsetzung von $(z-z_0)^m f(z)$ auf $B(z_0,r) \subseteq D$. Dann gelte:
+Sei \(z_0\) Pol \(m\)-ter Ordnung von \(f \in H(D)\) und \(g\) die holomorphe Fortsetzung von \((z-z_0)^m f(z)\) auf \(B(z_0,r) \subseteq D\). Dann gelte:
 
 \vspace*{-4mm}
 \begin{align*}
@@ -618,24 +623,24 @@ Sei $z_0$ Pol $m$-ter Ordnung von $f \in H(D)$ und $g$ die holomorphe Fortsetzun
 &= \lim_{z \to z_0} \frac{1}{(m-1)!}\left(\frac{d}{dz}\right)^{m-1} ((z-z_0)^m f(z))
 \end{align*}
 
-Insb. gilt also für $m=1$:
+Insb. gilt also für \(m=1\):
 
 \vspace*{-2mm}
 \[ \text{Res}(f,z_0) = \lim_{z \to z_0}(z-z_0)f(z) \]
 
 \subsection*{Argumentprinzip}
 
-Seien $f \in H(D), z_1, \dots, z_n \in D$ die Nullstellen von $f$ mit Ordnungen $m_1, \dots, m_n \in \N$ und $p$ geschlossener, einfacher, positiv orientierter Polygonzug in $\hat D := D \setminus \{z_1,\dots,z_n\}$ mit Bild $P$ s.d. die Nullstellen im von $P$ umschlossenen Gebiet $G$ liegen mit $\overline G \subseteq D$. Sei $\gamma$ in $\hat D$ zu $p$ homotope, geschlossene stückweise $C^1$-Kurve. Dann:
+Seien \(f \in H(D), z_1, \dots, z_n \in D\) die Nullstellen von \(f\) mit Ordnungen \(m_1, \dots, m_n \in \N\) und \(p\) geschlossener, einfacher, positiv orientierter Polygonzug in \(\hat D := D \setminus \{z_1,\dots,z_n\}\) mit Bild \(P\) s.d. die Nullstellen im von \(P\) umschlossenen Gebiet \(G\) liegen mit \(\overline G \subseteq D\). Sei \(\gamma\) in \(\hat D\) zu \(p\) homotope, geschlossene stückweise \(C^1\)-Kurve. Dann:
 
 \[ \frac{1}{2\pi i} \int_\gamma \frac{f'(z)}{f(z)} dz = \sum_{j=1}^n m_j \]
 
 \subsubsection*{Satz von Rouché}
 
-Sei $f \in H(D), z_j \in \C, m_j \in \N$ und Weg $\gamma$ mit Bild $\Gamma$ entsprechend dem Argumentprinzip. $g \in H(D)$ erfülle: $\forall z \in \Gamma : |f(z)-g(z)| < |f(z)| + |g(z)|$
+Sei \(f \in H(D), z_j \in \C, m_j \in \N\) und Weg \(\gamma\) mit Bild \(\Gamma\) entsprechend dem Argumentprinzip. \(g \in H(D)\) erfülle: \(\forall z \in \Gamma : |f(z)-g(z)| < |f(z)| + |g(z)|\)
 
-Seien $\omega_1, \dots, \omega_\nu$ Nullstellen von $g$ im von $\gamma$ umschlossenen Gebiet mit Vielfachheiten $\mu_k \in \N$:
+Seien \(\omega_1, \dots, \omega_\nu\) Nullstellen von \(g\) im von \(\gamma\) umschlossenen Gebiet mit Vielfachheiten \(\mu_k \in \N\):
 
 \vspace*{-2mm}
 \[ \sum_{j=1}^n m_j = \sum_{k=1}^\nu \mu_k \]
 
-d.h. die Summe der Nullstellenordnungen von $f$ ist gleich der Summe der Vielfachheiten von $g$.
+d.h. die Summe der Nullstellenordnungen von \(f\) ist gleich der Summe der Vielfachheiten von \(g\).
