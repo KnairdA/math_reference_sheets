@@ -1,0 +1,53 @@
+\section*{Anfangswertprobleme}
+
+Seien \(\J \subseteq \R\) ein Intervall, \(t_0 \in \J\) mit \(t_0 < \sup \J\), \(D \subseteq \R^m\) offen, \(f \in C(\J \times D, \R^m)\) und \(u_0 \in D\).
+
+\vspace*{-4mm}
+\begin{align*}
+	u'(t)  &= f(t, u(t)), t\geq t_0, t\in \J \\
+	u(t_0) &= u_0
+\end{align*}
+
+Für das Anfangswertproblem wird ein \(t_1 \in \J\) mit \(t_1 > t_0\) und eine eindeutige Lösung \(u \in C^1([t_0, t_1], \R^m)\) auf \([t_0, t_1]\) gesucht.
+
+\subsection*{Lokale Lipschitzstetigkeit im Kontext}
+
+Sei \(f \in C(\J \times D, \R^k)\), \(D \subseteq \R^m\) offen und es ex. alle \(\frac{\partial}{\partial x_j} f \in C(\J \times D, \R^k)\) für \(j \in \{1, \hdots, m\}\).
+
+Dann ist \(f\) lokal Lipschitz in \(x\).
+
+\subsection*{Picard-Lindelöf (lokal)}
+
+Seien \(\J\) Intervall, \(D \subseteq \R^m\) offen, \(f \in C(\J \times D, \R^m)\) lokal Lipschitz in \(x\), \(u_0 \in D\), \(t_0 \in \J\) mit \(t_0 < \sup \J\). Dann gelten:
+
+\begin{enumerate}[label=(\alph*)]
+	\item \(\exists t_1 > t_0 \) mit \(t_1 \in \J\) und eind. Lsg. \(u\)  auf \([t_0, t_1]\) von \(u'(t) = f(t, u(t))\) mit \(u(t_0) = u_0\)
+	\item \(u'(t) = f(t, u(t))\) mit \(u(t_0) = u_0\) besitze zwei Lsg. \(v_1\) und \(v_2\) auf \([t_0, T_1] \subseteq \J\) bzw. \([t_0, T_2] \subseteq \J\). Dann stimmen \(v_1\) und \(v_2\) auf \([t_0, T_3]\) mit \(T_3 = \min\{T_1, T_2\}\) überein.
+\end{enumerate}
+
+\subsection*{Picard-Lindelöf (maximal)}
+
+Unter den Voraussetzungen von Picard-Lindelöf (lokal) sei \(u_0 \in D\), dann gilt:
+
+\begin{enumerate}[label=(\alph*)]
+	\item \(\exists\) max. Existenzzeit \(\overline t(u_0) \in (t_0, \sup \J]\) und eine eindeutige maximale Lösung \(u\) von \(u'(t) = f(t, u(t))\) mit \(u(t_0) = u_0\) auf \([t_0, \overline t(u_0))\)
+	\item Wenn \(\overline t(u_0) < \sup \J\), dann \(\exists t_n \in (t_0, \overline t(u_0))\) mit \(\lim_{n \to \infty} t_n = \overline t(u_0)\) so, dass die Blow-Up Bedingung erfüllt ist: \(\lim_{n \to \infty} |u(t_n)|_n = \infty\) oder \(\lim_{n \to \infty} \inf_{x \in \partial D} |u(t_n) - x|_2 = 0\)
+\end{enumerate}
+
+\subsection*{Trennung der Variablen}
+
+Sei \(u'(t)=g(t)h(u(t))\) mit \(u(t_0)=u_0\) ein AWP mit \(g \in C(\R)\), \(h \in C((a, b), \R)\), \(u_0 \in (a, b)\) und \(h(u_0) \neq 0\). \(u\) ist Lösung, wenn:
+
+\(\forall t \in \J : u(t) \in (a, b)\), \(u \in C^1(\J, \R)\) und \(t_0 \in \J\).
+\[ u \text{ ist Lösung } \Rightarrow \int_{t_0}^t g(s) ds = \int_{u_0}^{u(t)} \frac{1}{h(x)} dx \]
+
+\subsection*{Lemma von Grönwall}
+
+Seien \(b \in [0,\infty], \phi \in C([0,b),\R)\) und \(\alpha, \beta \geq 0\).
+\[\psi(t) := \alpha + \beta \int_0^t \phi(s) ds \text{ für } t \in [0,b)\]
+Weiter gelte \(\phi \leq \psi\) auf \([0,b)\). Dann gilt:
+\[\forall t \in [0,b) : \phi(t) \leq \alpha \exp(\beta t)\]
+
+\subsection*{Eindeutige Lösbarkeit}
+
+Sei \(D = (a,b) \times \R^m\) mit \(-\infty \leq a < b \leq \infty\) und \(f : D \to \R^k\) erfülle die Vor. von Picard-Lindelöf. Gilt weiter \(\|f(t,x)\| \leq \alpha + \beta \|x\|\) für \(\alpha, \beta \geq 0\), dann ist das AWP auf \((a,b)\) eindeutig lösbar.
