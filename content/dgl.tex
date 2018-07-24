@@ -87,3 +87,43 @@ Sei \(H \in C^1(D,\R)\).
 \(H\) heißt \emph{erstes Integral} von \(x'(t)=f(x(t))\) gdw.: \[\forall x \in D : H'(x) \cdot f(x) = 0\]
 
 Sei weiter \(x : \J \to \R^p\) Lsg. von \(x'(t)=f(x(t))\). Dann ex. \(c \in \R\) s.d.: \(\forall t \in \J : H(x(t))=c\)
+
+\subsection*{Stabilität}
+
+Sei \(x_0 \in D\) mit \(f(x_0)=0\) stat. Stelle von \(x'=f(x)\).
+
+\spacing
+
+\(x_0\) heißt \emph{stabil} gdw. \(\forall \epsilon > 0 \exists \delta > 0 : \|x_1-x_0\| < \delta\) und ist \(x : [t_0,\omega_+) \to \R^p\) die nach rechts nicht fort. Lsg. des AWP \(x'(t)=f(x(t)), x(t_0)=x_1\) so ist \(\omega_+ = \infty\) und \(\forall t \geq t_0 : \|x(t)-x_0\| < \epsilon\).
+
+\spacing
+
+Gilt \(x(t) \to x_0 \ (t \to \infty)\) so ist \(x_0\) asymp. stabil.
+
+\subsubsection*{Stabilitätssatz}
+
+Sei \(f(x_0)=0\) und \(f\) in \(x_0\) diffbar. Gilt für EW \(\forall \lambda \in \sigma(f'(x_0)) : \text{Re} \lambda < 0\) so ist \(x_0\) asymptotisch stabil.
+
+\spacing
+
+Gilt \(\exists \lambda \in \sigma(f'(x_0)) : \text{Re} \lambda > 0\) so ist \(x_0\) instabil.
+
+\subsubsection*{Lyapunov-Funktion}
+
+Sei \(\emptyset \neq D \subseteq \R^p\) offen und \(f : D \to \R^p\) lokal Lipschitz sowie \(x_0 = 0 \in D\) und \(f(x_0)=0\).
+
+Für das AWP \(x'(t)=f(x(t)), \ x(t_0)=0\) ist def.:
+
+\spacing
+
+Sei \(r > 0, U_r(0) \subseteq D\) und \(V \in C^1(U_r(0),\R)\). \(V\) heißt \emph{Lyapunov-Funktion} zu \(x'=f(x)\) in Punkt \(x_0=0\) gdw.: \(V(0)=0, \forall x \in U_r(0) \setminus \{0\} : V(x) > 0\) und \(\forall x \in U_r(0) : V'(x) \cdot f(x) \leq 0\).
+
+\spacing
+
+Besitzt \(x'=f(x)\) eine LF so ist \(x_0=0\) stabil.
+
+\spacing
+
+Gilt weiter \(\forall x \in U_r(0) \setminus \{0\} : V'(x) \cdot f(x) < 0\) so ist \(x_0\) asymptotisch stabil.
+
+\section*{Randwertprobleme}
