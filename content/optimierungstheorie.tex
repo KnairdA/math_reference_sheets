@@ -432,3 +432,33 @@ Sei \((P)\) konvexes Problem mit dualem \((D)\) und \(M\) erfülle (SB).
 
 Für \(\hat x, (\hat u,\hat v)\) des konvexen Kuhn-Tucker gilt die \emph{Komplementaritätsbedingung}: \(\hat u^\top h(\hat x) = 0\)
 
+\section*{Differenzierbare Optimierung}
+
+\[(P) \ \min f \text{ auf } M = \{ x \in \R^n | h(x) \leq 0, g(x)=0\}\]
+
+\(f \in C^1(\R^n,\R), h \in C^1(\R^n,\R^n), g \in C^1(\R^n,\R^m)\).
+
+\subsection*{Lagrangesche Multiplikatorenregel}
+
+Ziel: Linearisierung und Anw. von Kuhn-Tucker.
+
+Mit \((\nabla f(x))^\top = f'(x) \in \R^{1 \times n}, f'(x) \in \R^{m \times n}\) und \(h'(x) \in \R^{p \times n}\) sind Linearisierungen gegeben:
+\begin{align*}
+f(x+z) &= f(x) + f'(x)z + o(\|z\|) \\
+g(x+z) &= g(x) + g'(x)z + o(\|z\|) \\
+h(x+z) &= h(x) + h'(x)z + o(\|z\|)
+\end{align*}
+
+Linearisierung von \((P)\): \[(LP) \ \min f'(x)z\]
+
+auf \(M_L = \{ z \in \R^n | h(x) + h'(x)z \leq 0, g'(x)z = 0 \}\)
+
+\subsubsection*{Zulässige Abstiegsrichtung}
+
+Sei \(M \in \R^n\) und \(f : M \to \R\) dann ist \(z \in \R^n\) \emph{zulässige Abstiegsrichtung} zu \(f\) in \(x \in M\), wenn \(\exists \epsilon > 0 \forall t \in (0,\epsilon) : x + tz \in M \land f(x+tz) < f(x)\).
+
+\subsubsection*{Kegel}
+
+Sei \(M = \{x \in \R^n | h(x) \leq 0\}\) mit \(h \in C^1(\R^n,\R^p)\).
+
+\(T(x,M) := \{ z \in \R^n | \exists t_k \geq 0, z^{(k)} \in \R^n : t_k \to 0, z^{(k)} \to z \ (k \to \infty), \forall k \in \N : x+t_k z^{(k)} \in M\}\)
