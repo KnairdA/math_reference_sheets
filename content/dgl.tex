@@ -4,15 +4,25 @@ Seien \(\J \subseteq \R\) ein Intervall, \(t_0 \in \J\) mit \(t_0 < \sup \J\), \
 
 \vspace*{-4mm}
 \begin{align*}
-	u'(t)  &= f(t, u(t)), t\geq t_0, t\in \J \\
+	u'(t)  &= f(t, u(t)), \ t \geq t_0, \ t\in \J \\
 	u(t_0) &= u_0
 \end{align*}
 
-Für das Anfangswertproblem wird ein \(t_1 \in \J\) mit \(t_1 > t_0\) und eine eindeutige Lösung \(u \in C^1([t_0, t_1], \R^m)\) auf \([t_0, t_1]\) gesucht.
+Für das AWP wird ein \(t_1 \in \J\) mit \(t_1 > t_0\) und eine Lösung \(u \in C^1([t_0, t_1], \R^m)\) auf \([t_0, t_1]\) gesucht.
 
-\subsection*{Lokale Lipschitzstetigkeit im Kontext}
+\subsection*{Lipschitz-Stetigkeit}
 
-Sei \(f \in C(\J \times D, \R^k)\), \(D \subseteq \R^m\) offen und es ex. alle \(\frac{\partial}{\partial x_j} f \in C(\J \times D, \R^k)\) für \(j \in \{1, \hdots, m\}\).
+\[\exists L > 0 \forall x_1, x_2 \in \R^m : \|f(x_1)-f(x_2)\| \leq L \|x_1-x_2\|\]
+
+\subsection*{Lokale Lipschitz-Stetigkeit}
+
+\[\exists \delta > 0 \exists L > 0 \forall \overline{x} \in U_\delta(x) : \|f(x)-f(\overline{x})\| \leq L \|x-\overline{x}\|\]
+
+\subsection*{Kriterium für lokale Lipschitz-Stetigkeit}
+
+Sei \(f \in C(\J \times D, \R^k)\), \(D \subseteq \R^m\) offen und:
+
+\(\forall j \in \{1,\dots,m\} \exists \partial_{x_j} f \in C(\J \times D, \R^k)\)
 
 Dann ist \(f\) lokal Lipschitz in \(x\).
 
@@ -43,7 +53,7 @@ Sei \(u'(t)=g(t)h(u(t))\) mit \(u(t_0)=u_0\) ein AWP mit \(g \in C(\R)\), \(h \i
 
 \subsection*{Lemma von Grönwall}
 
-Seien \(b \in [0,\infty], \phi \in C([0,b),\R)\) und \(\alpha, \beta \geq 0\).
+Seien \(b \in [0,\infty], \ \phi \in C([0,b),\R)\) und \(\alpha, \beta \geq 0\).
 \[\psi(t) := \alpha + \beta \int_0^t \phi(s) ds \text{ für } t \in [0,b)\]
 Weiter gelte \(\phi \leq \psi\) auf \([0,b)\). Dann gilt:
 \[\forall t \in [0,b) : \phi(t) \leq \alpha \exp(\beta t)\]
