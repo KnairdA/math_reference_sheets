@@ -127,3 +127,61 @@ Besitzt \(x'=f(x)\) eine LF so ist \(x_0=0\) stabil.
 Gilt weiter \(\forall x \in U_r(0) \setminus \{0\} : V'(x) \cdot f(x) < 0\) so ist \(x_0\) asymptotisch stabil.
 
 \section*{Randwertprobleme}
+
+\(a,b \in \R, a < b, \J := [a,b], q \in C(\J), p \in C^1(\J), p > 0\)
+
+\(L : C^2(\J) \to C(\J), \ Lu := (pu')'+qu\) ist \emph{selbstadj. Differentialoperator 2. Ordnung}.
+
+\spacing
+
+\(r \in C(\J), \ \alpha_i,\beta_i \in \R, \ (\alpha_0,\alpha_1) \neq (0,0) \neq (\beta_0,\beta_1)\)
+
+\(R_a,R_b : C^2(\J) \to \R\) sind \emph{Randoperatoren}:
+\begin{align*}
+	R_a u :&= \alpha_0 u(a) + \alpha_1 p(a)u'(a) \\
+	R_b u :&= \beta_0 u(b) + \beta_1 p(b)u'(b)
+\end{align*}
+
+\subsection*{Sturmsches Randwertproblem}
+
+Sei \(\gamma_a, \gamma_b \in \R\). \[(Lu)(t)=r(t) \text{ mit } R_a u = \gamma_a, \ R_b u = \gamma_b\]
+
+Gilt \(R_a u = u(a), \ R_b u = u(b)\) so handelt es sich um Randoperatoren 1. Art in einem Dirichlet RWP.
+
+\spacing
+
+Gilt \(R_a u = u'(a), \ R_b u = u'(b)\) so handelt es sich um Randoperatoren 2. Art in einem Neumann RWP.
+
+\spacing
+
+Für \(t_0 \in \J, \ \alpha,\beta \in \R\) hat AWP \((Lu)(t)=r(t)\) mit \(u(t_0)=\alpha\) und \(u'(t_0)=\beta\) genau eine Lsg. auf \(\J\).
+
+\spacing
+
+Lösen lin. unabhg. \(u_1,u_2 : \J \to \R\) die homogene Gl. \((Lu)(t)=0\), so bilden \(u_1,u_2\) ein FS von \(Lu=0\).
+
+Ist zusätzlich \(u_s : \J \to \R\) spezielle Lsg. von \(Lu=r\) so ist die die allg. Lsg. von \(Lu=r\) geg. durch: \[u_s+c_1 u_1+c_2 u_2 \text{ mit } c_1, c_2 \in \R\]
+
+\subsubsection*{Charakterisierung des FS von \(Lu=0\)}
+
+Seien \(u,v : \J \to \R\) Lsg. von \(Lu=0\). Dann: \[\exists c \in \R \forall t \in \J : p(t)(u(t)v'(t)-v(t)u'(t)) = c\]
+
+\(\{u,v\}\) ist ein FS von \(Lu=0\) gdw. Konstante \(c \neq 0\).
+
+\subsubsection*{Spezielle Lösung von \(Lu=r\)}
+
+Sei \(u,v : \J \to \R\) FS von \(Lu=0\), \(c = c(u,v) \in \R\) die Konstante aus Char. und für \(\tau \in \J\): \[u_\tau(t) := \frac{1}{c} (u(\tau)v(t)-u(t)v(\tau))\]
+
+Für \(t \in \J)\): \(u_s(t) := \displaystyle\int_a^t u_\tau(t) r(\tau) d\tau\)
+
+Dann gilt \(u_s(a) = u_s'(a) = 0\) also \(R_a u_s = 0\) und \(u_s\) ist spezielle Lösung von \(Lu=r\).
+
+\subsubsection*{Allgemeine Lösung von \(Lu=r\)}
+
+\vspace*{-4mm}
+\begin{align*}
+u_s(t)+c_1 u(t) + c_2 v(t) &= u(t)\left(c_1-\frac{1}{c}\int_a^t v(\tau) r(\tau) d\tau \right) \\
+&+ v(t)\left(c_2+\frac{1}{c}\int_a^t u(\tau)r(\tau) d\tau \right)
+\end{align*}
+
+\subsection*{Greensche Funktion}
