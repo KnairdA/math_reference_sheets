@@ -184,4 +184,22 @@ u_s(t)+c_1 u(t) + c_2 v(t) &= u(t)\left(c_1-\frac{1}{c}\int_a^t v(\tau) r(\tau) 
 &+ v(t)\left(c_2+\frac{1}{c}\int_a^t u(\tau)r(\tau) d\tau \right)
 \end{align*}
 
+\subsection*{Zulässige Fundamentalsysteme}
+
+Ein FS \(\{u,v\}\) von \(Lu=0\) heißt \emph{zulässig} gdw.: \[R_a u = 0, \ R_b u \neq 0, \ R_a v \neq 0, \ R_b v = 0\]
+
 \subsection*{Greensche Funktion}
+
+Sei \((Lu)(t)=r(t)\) mit \(R_a u = R_b u = 0\) trivial lösbares \emph{halbhomogenes RWP} und \(u, v : \J \to \R\) zulässiges Fundamentalsystem von \(Lu=0\).
+
+Dann ist \(w : \J \to \R\) DIE Lsg. des RWP: \[w(t)=\int_a^b G(t,\tau)r(\tau) d\tau\]
+
+Hierbei ist \(G(t,\tau)\) die \emph{Greensche Funktion}:
+\[G(t,\tau) := \begin{cases}
+	\frac{1}{c}(v(t)u(\tau)) & a \leq \tau \leq t \leq b \\
+	\frac{1}{c}(v(\tau)u(t)) & a \leq t < \tau \leq b
+\end{cases}\]
+
+Die Greensche Funktion \(G(t,\tau)\) ist stg. auf \(\J \times \J\), es gilt \(\forall t, \tau \in \J : G(t,\tau)=G(\tau,t)\) und sie ist unabhängig der Wahl des zulässigen FS.
+
+Die Lösung des Sturmschen RWP ergibt sich als: \[\overline w(t) = w(t) + \frac{\gamma_b}{R_b u} u(t) + \frac{\gamma_a}{R_a b} v(t)\]
