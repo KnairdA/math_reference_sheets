@@ -6,18 +6,18 @@ Diese Zusammenfassungen beschreiben eine Teilmenge der Vorlesungen, welche ich i
 
 ## Vorlesungen
 
-* Analysis I, II
-* Lineare Algebra I, II
-* Analysis III (Maßtheorie, Lebesgue-Integral)
-* Analysis IV (Funktionentheorie, Gewöhnliche DGL)
-* Numerik I (Grundlagen, Lineare Gleichungen, Matrix-Zerlegungen, Lineare Ausgleichsprobleme, Interpolation)
-* Numerik II (Eigenwerte, Nichtlineare Gleichungen, Integration)
-* Numerische Methoden für Differentialgleichungen (Einzel- und Mehrschrittverfahren, Runge-Kutta, Extrapolationsverfahren, Explizite / Implizite Verfahren, Stabilität, Partielle Differentialgleichungen)
-* Einführung in die Algebra und Zahlentheorie
-* Markov-Ketten
-* Theoretische Grundlagen der Informatik (Endliche Automaten, Turing-Maschinen, Komplexität, Chomsky-Hierarchie)
-* Graph-Theory
-* Optimierungstheorie (LP, Simplex-Algorithmus, Dualitätstheorie, Konvexe und diffbare Optimierung)
+* [Analysis I, II](https://static.kummerlaender.eu/media/math_digest/analysis.pdf)
+* [Lineare Algebra I, II](https://static.kummerlaender.eu/media/math_digest/lineare_algebra.pdf)
+* [Analysis III](https://static.kummerlaender.eu/media/math_digest/analysis_3.pdf) (Maßtheorie, Lebesgue-Integral)
+* Analysis IV ([Funktionentheorie](https://static.kummerlaender.eu/media/math_digest/funktheo.pdf), [Gewöhnliche DGL](https://static.kummerlaender.eu/media/math_digest/dgl.pdf))
+* [Numerik I](https://static.kummerlaender.eu/media/math_digest/numerik_1.pdf) (Grundlagen, Lineare Gleichungen, Matrix-Zerlegungen, Lineare Ausgleichsprobleme, Interpolation)
+* [Numerik II](https://static.kummerlaender.eu/media/math_digest/numerik_2.pdf) (Eigenwerte, Nichtlineare Gleichungen, Integration)
+* [Numerische Methoden für Differentialgleichungen](https://static.kummerlaender.eu/media/math_digest/numerik_dgl.pdf) (Einzel- und Mehrschrittverfahren, Runge-Kutta, Extrapolationsverfahren, Explizite / Implizite Verfahren, Stabilität, Partielle Differentialgleichungen)
+* [Einführung in die Algebra und Zahlentheorie](https://static.kummerlaender.eu/media/math_digest/eaz.pdf)
+* [Markov-Ketten](https://static.kummerlaender.eu/media/math_digest/markov.pdf)
+* [Theoretische Grundlagen der Informatik](https://static.kummerlaender.eu/media/math_digest/tgi.pdf) (Endliche Automaten, Turing-Maschinen, Komplexität, Chomsky-Hierarchie)
+* [Graph-Theory](https://static.kummerlaender.eu/media/math_digest/graph_theory.pdf)
+* [Optimierungstheorie](https://static.kummerlaender.eu/media/math_digest/optimierungstheorie.pdf) (LP, Simplex-Algorithmus, Dualitätstheorie, Konvexe und diffbare Optimierung)
 
 ## Generierung
 
