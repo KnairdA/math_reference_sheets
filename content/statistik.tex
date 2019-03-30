@@ -1,12 +1,54 @@
 \renewcommand{\N}{\mathcal{N}}
+\newcommand{\1}{\mathbbm{1}}
+\newcommand{\uiv}{\stackrel{\text{uiv}}{\sim}}
 
-\section*{Grundlagen}
+\subsection*{Normalverteilung}
 
 Dichte der Normalverteilung \(\N(\mu, \sigma^2)\):
-\[ f(t) := \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(x_i-\mu)^2}{2\sigma^2} \right) \]
+\[ f(t) := \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(t-\mu)^2}{2\sigma^2} \right) \]
 
 Verteilungsfkt. der Normalverteilung:
 \[ \Phi(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^x \exp\left(-\frac{1}{2} t^2\right) dt \]
+
+\subsection*{Gamma-Verteilung}
+
+Dichte der Verteilung \(\Gamma(\alpha,\beta)\) für \(\alpha,\beta > 0\):
+\[ f(x) = \frac{\beta^\alpha}{\Gamma(\alpha)} \exp(-\beta x) x^{\alpha-1} \1_{(0,\infty)}(x) \]
+Mit Momenten:
+\[ EX^r = \frac{\Gamma(\alpha + r)}{\beta^r \Gamma(\alpha)} \text{ für } r > -\alpha \]
+Insb. also \(EX = \frac{\alpha}{\beta}\).
+
+\(cX \sim \Gamma(\alpha,\frac{\beta}{c})\) für \(c > 0\) und \(X \sim \Gamma(\alpha,\beta)\).
+
+Faltungsformel für \(X \sim \Gamma(\alpha_1,\beta), Y \sim \Gamma(\alpha_2,\beta)\):
+\[ X + Y \sim \Gamma(\alpha_1+\alpha_2, \beta) \]
+
+\subsubsection*{Gamma-Funktion}
+
+\[ \Gamma(t) = \int_0^\infty \exp(-x) x^{t-1} dx \text{ für } t > 0 \]
+
+Insb. \(\Gamma(t+1) = t\Gamma(t)\) und \(\Gamma(n+1) = n!\) für \(n \in \mathbb{N}_0\).
+
+\subsection*{\(\chi^2\)-Verteilung}
+
+Sei \(N_1,\dots,N_k \uiv \N(0,1)\).
+\[ Y:=N_1^2+\dots+N_k^2 \in \chi_k^2 \]
+Mit Dichte für \(y > 0\):
+\[ f(y) = \frac{1}{2^{k/2} \Gamma(k/2)} \exp\left(-\frac{y}{2}\right) y^{k/2-1} \]
+Und Erwartungswert (\(EY^r = \infty\) für \(r\leq -k/2\)):
+\[ EY^r = \frac{2^r \Gamma(r+k/2)}{\Gamma(k/2)} \text{ für } r > -\frac{k}{2} \]
+Insb. also \(EY = k\) und \(VY = 2k\).
+
+\subsection*{\(t\)-Verteilung}
+
+Sei \(N \sim \N(0,1)\) unabhg. \(X \sim \chi_k^2\).
+\[ Y := \frac{N}{\sqrt{X/k}} \sim t_k \]
+Mit \(EY = 0\) für \(k \geq 2\) und \(VY=\frac{k}{k-2}\) für \(k \geq 3\).
+
+\subsection*{\(F\)-Verteilung}
+
+Sei \(R \sim \chi_r^2\) unabhg. \(S \sim \chi_s^2\).
+\[ Y:= \frac{\frac{1}{r} R}{\frac{1}{s} S} \sim F_{r,s} \]
 
 \subsection*{Starkes Gesetz großer Zahlen (SGGZ)}
 
@@ -81,6 +123,22 @@ Diese hat EW: \(E_\upsilon(U_\upsilon(X_1)) = 0\).
 Die Varianz der Scorefunktion:
 \[ I(\upsilon) = V_\upsilon(U_\upsilon) = E_\upsilon(U_\upsilon^2) = -E\left[ \partial_\upsilon^2 \log f(X_1,\upsilon) \right]\]
 
+\subsubsection*{Score-Gleichung}
+
+Notwendige Bedingung für ML-Schätzer \(\hat\upsilon\):
+\[\sum_{i=1}^n \partial_\upsilon \log f(x_i,\upsilon) = 0 \]
+
+Für jede konsistente Folge von Lsg. dieser Gl. gilt die Verteilungskonvergenz:
+\[ \sqrt{n}(\hat\upsilon_n - \upsilon_0) \to \N(0, 1/I(\upsilon_0)) \]
+
+\subsubsection*{Asymptotische Effizienz}
+
+Sei \((T_n)_{n \in \mathbb{N}}\) Schätzfolge für \(\upsilon_0\) mit:
+\[\sqrt{n}(T_n - \upsilon_0) \to \N(0,\sigma^2) \]
+Dann ist die \emph{asymptotische Effizienz} geg. als:
+\[ e(T_n) = \frac{1/I(\upsilon_0)}{\sigma^2} \]
+Schätzfolge ist \emph{asymptotisch effizient} für \(e(T_n)=1\).
+
 \subsection*{Cram\'er-Rao-Ungleichung}
 
 Erfüllen \(X_1,\dots,X_n \sim f(x,\upsilon)\) die Regularitätsbed.:
@@ -96,5 +154,44 @@ Sei \(T(X_1,\dots,X_n\) Schätzer für \(\gamma(\upsilon)\) mit zweimal unter In
 \subsubsection*{Cram\'er-Rao Effizienz}
 
 Schätzer \(T\) nimmt Cram\'er-Rao-Schranke an.
+
+\section*{Konfidenzintervalle}
+
+Sei \(X_1,\dots,X_n \uiv \N(\mu,\sigma^2)\) für bekannte \(\sigma^2\):
+\[ I := \left[ \overline x_n - \frac{\sigma z_{1-\alpha/2}}{\sqrt{n}}, \overline x_n + \frac{\sigma z_{1-\alpha/2}}{\sqrt{n}} \right] \]
+Dann \(P_\mu(\mu \in I) = 1-\alpha\).
+
+\subsection*{Konstruktionsprinzip}
+
+\begin{enumerate}
+	\item Finde \emph{Pivot} ZV \(\Z\) unabhg. \(\upsilon\)
+	\item Bestimme \(a, b\) s.d. \(P(a \leq Z \leq b) = 1-\alpha\)
+	\item Löse zu gesuchtem \(g(\upsilon)\) auf
+\end{enumerate}
+
+\subsection*{Wald-Intervall}
+
+Sei \(X_1,\dots,X_n \uiv \text{Bin}(1,p)\) und \(\hat p_n = \frac{1}{n}\sum_{i=1}^n X_i\).
+
+Approximatives Konfidenzintervall für \(p\):
+\[ \left[\hat p_n - \frac{z_{1-\frac{\alpha}{2}}}{\sqrt{n}} \sqrt{\hat p_n (1-\hat p_n)}, \hat p_n + \frac{z_{1-\frac{\alpha}{2}}}{\sqrt{n}} \sqrt{\hat p_n (1-\hat p_n)}\right] \]
+
+\section*{Satz von Student}
+
+Sei \(X_1,\dots,X_n \uiv \N(\mu,\sigma^2)\) für \(n \geq 2\). Dann gelten:
+\[ \overline X = \frac{1}{n}\sum_{i=1}^n X_i \sim \N\left(\mu,\frac{\sigma^2}{n}\right) \]
+
+\(\overline X\) ist unabhg. \(S^2 := \frac{1}{n-1} \sum_{i_1}^n (X_i-\overline X)^2\).
+
+\[ \frac{(n-1)S^2}{\sigma^2} \sim \chi_{n-1}^2 \]
+
+\[ T = \frac{\sqrt{n}(\overline X - \mu)}{S} \sim t_{n-1} \]
+
+\subsection*{Konfidenzintervall für \(\mu\)}
+
+Sei \(X_1,\dots,X_n \uiv \N(\mu,\sigma^2\) für unbekannte \(\mu, \sigma^2\).
+\[ P_\upsilon\left(\left|\frac{\sqrt{n}(\overline X - \mu)}{S}\right| \leq t_{n-1;1-\alpha/2}\right) = 1-\alpha \]
+
+\[ \mu \in \left[\overline X - \frac{S}{\sqrt{n}} t_{n-1;1-\alpha/2}, \overline X + \frac{S}{\sqrt{n}} t_{n-1;1-\alpha/2} \right] \]
 
 \section*{Tests}
