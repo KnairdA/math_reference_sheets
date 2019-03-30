@@ -1,0 +1,100 @@
+\renewcommand{\N}{\mathcal{N}}
+
+\section*{Grundlagen}
+
+Dichte der Normalverteilung \(\N(\mu, \sigma^2)\):
+\[ f(t) := \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(x_i-\mu)^2}{2\sigma^2} \right) \]
+
+Verteilungsfkt. der Normalverteilung:
+\[ \Phi(x) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^x \exp\left(-\frac{1}{2} t^2\right) dt \]
+
+\subsection*{Starkes Gesetz großer Zahlen (SGGZ)}
+
+Sei \(Y_1,Y_2,\dots\) Folge uiv. ZV mit EW, dann:
+\[ \frac{1}{n} \sum_{i=1}^n Y_i \to EY_1 \ \text{(P-fast sicher)} \]
+
+\subsection*{Zentraler Grenzwertsatz (ZGWS)}
+
+Sei \((X_n)_{n\geq1}\) Folge uiv. ZV mit \(0 < \sigma^2 = V(X_1) < \infty\) und \(\mu = EX_1\). Dann gilt für \(-\infty \leq a < b \leq \infty\):
+\[ P\left( a \leq \frac{\sqrt{n}(\overline X_n - \mu)}{\sigma} \leq b \right) \to \Phi(b) - \Phi(a) \ (n \to \infty) \]
+
+\section*{Maximum-Likelihood-Schätzer}
+
+Sei \(X_1, \dots, X_n\) uiv. ZV und \(\upsilon\) Modellparameter.
+\[ L_x(\upsilon) = P_\upsilon(X=x) = \prod_{i=1}^n f(x_i, \upsilon) \]
+
+Die Log-Likelihood-Funktion:
+\[ \ell_x(\upsilon) := \log L_x(\upsilon) = \sum_{i=1}^n \log f(x_i, \upsilon) \]
+
+Maximierendes \(\hat\upsilon\) ist MLS.
+
+\subsection*{ML-Schätzer bei NV-Annahme}
+
+Sei \(X_1, \dots, X_n \sim \N(\mu,\sigma^2)\) uiv. ZV, \(\upsilon = (\mu,\sigma^2) \in \Theta\)
+\[ L_x(\upsilon) = \frac{1}{\sqrt{2\pi\sigma^2}^n} \exp\left( -\frac{1}{2\sigma^2} \sum_{i=1}^n (x_i-\mu)^2 \right) \]
+\[ \ell_x(\upsilon) = -\frac{n}{2} \log(2\pi\sigma^2) - \frac{1}{2\sigma^2} \sum_{i=1}^n (x_i-\sigma)^2 \]
+
+ML-Schätzer für \(\hat\mu\):
+\[ \hat\mu = \overline X = \frac{1}{n}\sum_{i=1}^n X_i \]
+
+ML-Schätzer für \(\hat\sigma^2\):
+\[ \hat\sigma^2 = \frac{1}{n}\sum_{i=1}^n (X_i-\overline X)^2 \]
+
+\section*{Momentenmethode}
+
+Modellparam. als Fkt. der empirischen Momente:
+\[ \hat m_\ell := \frac{1}{n} \sum_{j=1}^n X_j^\ell \]
+
+z.B. Varianz als Fkt. der Momente:
+\[ VX = EX^2 - (EX)^2 = \hat m_2 - (\hat m_1)^2 \]
+
+\section*{Eigenschaften von Schätzern}
+
+Sei \(T : \Xi \to \Sigma\) Schätzer für \(\gamma(\upsilon)\) und es gelte \(\forall \upsilon \in \Theta : E_\upsilon(T^2) < \infty\). Dann:
+\begin{align*}
+\text{MQA}_T(\upsilon) :&= E_\upsilon(T-\gamma(\upsilon))^2 \\
+&= V_\upsilon(T) + b_T^2(\upsilon)
+\end{align*}
+
+Wobei die \emph{Verzerrung} def. ist als:
+\[ b_T(\upsilon) := E_\upsilon T(X) - \gamma(\upsilon) \]
+
+Schätzer \(T\) ist \emph{erwartungstreu} für \(\gamma(\upsilon)\), wenn:
+\[ \forall \upsilon \in \Theta : E_\upsilon T(X) = \gamma(\upsilon) \]
+
+Schätzfolge \((T_n)_{n \in \mathbb{N}}\) ist \emph{konsistent}, wenn:
+\[ \forall \epsilon > 0, \upsilon \in \Theta : \lim_{n\to\infty} P_\upsilon(|T_n - \gamma(\upsilon)| \geq \epsilon) = 0 \]
+
+Schätzfolge \((T_n)_{n \in \mathbb{N}}\) ist \emph{asympt.-EW-treu}, wenn:
+\[ \forall \upsilon \in \Theta : \lim_{n\to\infty} E_\upsilon(T_n) = \gamma(\upsilon) \]
+
+Ist eine Schätzfolge asympt.-EW-treu und gilt \(V_\upsilon(T_n) \to 0 \ (n\to\infty)\), so ist sie konsistent.
+
+\subsection*{Scorefunktion}
+
+\[U_\upsilon(X_1) := \partial_\upsilon \log f(X_1,\upsilon) \]
+
+Diese hat EW: \(E_\upsilon(U_\upsilon(X_1)) = 0\).
+
+\subsubsection*{Fisher-Information}
+
+Die Varianz der Scorefunktion:
+\[ I(\upsilon) = V_\upsilon(U_\upsilon) = E_\upsilon(U_\upsilon^2) = -E\left[ \partial_\upsilon^2 \log f(X_1,\upsilon) \right]\]
+
+\subsection*{Cram\'er-Rao-Ungleichung}
+
+Erfüllen \(X_1,\dots,X_n \sim f(x,\upsilon)\) die Regularitätsbed.:
+\begin{enumerate}
+	\item \(\Theta\) ist offenes Intervall in \(\R\)
+	\item Träger \(\{x \in \Xi | f(x,\upsilon) > 0\) unabhg. \(\upsilon\)
+	\item \(\forall x \in \Xi : f(x,\upsilon)\) zweimal nach \(\upsilon\) diffbar
+	\item \(\int f(x,\upsilon) dx\) zweimal im Int. nach \(\upsilon\) diffbar
+\end{enumerate}
+Sei \(T(X_1,\dots,X_n\) Schätzer für \(\gamma(\upsilon)\) mit zweimal unter Int. db. EW \(k(\upsilon) := E_\upsilon(T)\) und \(E_\upsilon(T^2) < \infty\). Dann:
+\[ V_\upsilon(T) \geq \frac{(k'(\upsilon))^2}{nI(\upsilon)} \]
+
+\subsubsection*{Cram\'er-Rao Effizienz}
+
+Schätzer \(T\) nimmt Cram\'er-Rao-Schranke an.
+
+\section*{Tests}
