@@ -295,3 +295,42 @@ Sei \(X_1,X_2,\dots\) Folge uiv. ZV mit Dichte \(f(x,\upsilon_0)\), erfüllten R
 
 Und für die Folge der LQ-Statistiken \((\Lambda_n(X))_{n \in \mathbb{N}}\):
 \[ 2 \log(\Lambda_n) \to \chi_1^2 \]
+
+Es ergibt sich so der Testentscheid:
+
+\(H_0\) verwerfen für \(2 \log(\Lambda_n) \geq \chi_{1;1-\alpha}^2\)
+
+\subsection*{Lagevergleich unabhg. Stichproben}
+
+\(X_1,\dots,X_m \sim \N(\mu,\sigma^2)\) unbg. \(Y_1,\dots,Y_n \sim \N(\nu,\tau^2)\).
+\(\implies \overline X_m \sim \N(\mu,\sigma^2, \ \overline Y_n \sim \N(\nu,\tau^2/n)\)
+
+\[ \frac{(m-1)S_X^2}{\sigma^2} \sim \chi_{m-1}^2, \ \frac{(n-1)S_Y^2}{\tau^2} \sim \chi_{n-1}^2 \]
+
+Aus der Faltungsformel folgt unter \(\sigma^2 = \tau^2\):
+\[ \overline X_m - \overline Y_n - (\mu - \nu) \sim \N\left(0,\frac{m+n}{mn} \sigma^2\right) \]
+
+\vspace*{-5mm}
+\begin{align*}
+S_{m,n}^2 :&= \frac{1}{m+n-2} \left((m-1)S_X^2 + (n-1)S_Y^2\right) \\
+&\frac{(m+n-2)S_{m,n}^2}{\sigma^2} \sim \chi_{m+n-2}^2 \\
+&\sqrt{\frac{mn}{m+n}}\frac{\left(\overline X_m - \overline Y_n - (\mu-\nu)\right)}{S_{m,n}} \sim t_{m+n-2}
+\end{align*}
+
+\[ P\left( \sqrt{\frac{mn}{m+n}} \frac{|\overline X_m - \overline Y_n - (\mu-\nu)|}{S_{m,n}} \leq t_{m+n-2;1-\frac{\alpha}{2}} \right) = 1-\alpha \]
+
+\subsection*{Zwei-Stichproben-\(t\)-Test}
+
+Teste \(H_0 : \mu = \nu\) gegen \(H_1 : \mu \neq \nu\) unter \(\sigma^2=\tau^2\) mit unter \(H_0\) \(t\)-verteilter Testgröße:
+\[ T_{m,n} := \sqrt{\frac{mn}{m+n}} \frac{\overline X_m - \overline Y_n}{S_{m,n}}a \sim t_{m+n-2} \]
+
+Der Testentscheid lautet also:
+
+\(H_0\) verwerfen für \(|T_{m,n}| \geq t_{m+n-2;1-\frac{\alpha}{2}}\)
+
+\subsection*{\(F\)-Test für den Varianzquotienten}
+
+Teste \(H_0 : \sigma^2 = \tau^2\) gegen \(H_1 : \sigma^2 \neq \tau^2\):
+\[ Q_{m,n} := \frac{\frac{1}{m-1}\sum_{i=1}^m(X_i-\overline X_m)^2}{\frac{1}{n-1}\sum_{i=1}^m(Y_i-\overline Y_n)^2} \sim F_{m-1,n-1} \]
+
+Verwerfe \(H_0\) für große und kleine Testwerte, d.h.: \(Q_{m,n} \leq F_{m-1,n-1;\frac{\alpha}{2}}\) oder \(Q_{m,n} \geq F_{m-1,n-1;1-\frac{\alpha}{2}}\)
