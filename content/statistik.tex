@@ -334,3 +334,58 @@ Teste \(H_0 : \sigma^2 = \tau^2\) gegen \(H_1 : \sigma^2 \neq \tau^2\):
 \[ Q_{m,n} := \frac{\frac{1}{m-1}\sum_{i=1}^m(X_i-\overline X_m)^2}{\frac{1}{n-1}\sum_{i=1}^m(Y_i-\overline Y_n)^2} \sim F_{m-1,n-1} \]
 
 Verwerfe \(H_0\) für große und kleine Testwerte, d.h.: \(Q_{m,n} \leq F_{m-1,n-1;\frac{\alpha}{2}}\) oder \(Q_{m,n} \geq F_{m-1,n-1;1-\frac{\alpha}{2}}\)
+
+\subsection*{Verbundener Zwei-Stichproben-\(t\)-Test}
+
+Seien \(x_i, y_i\) zwei verbundene Stichproben.
+
+Realisiere \(z_i := x_i - y_i\) ZV \(Z_1,\dots,Z_n \uiv \N(\mu,\sigma^2)\).
+
+Teste \(H_0 : EX_1 = EY_1\) gegen \(H_1 : EX_1 \neq EY_1\)
+
+d.h. \(H_0 : \mu = 0\) gegen \(H_1 : \mu \neq 0\) mit Testgröße:
+\[ T := \frac{\sqrt{n} \overline z}{\sqrt{\frac{1}{n-1} \sum_{i=1}^n(z_i-\overline z)^2}} = \frac{\sqrt{n}\overline z}{s_z} \sim t_{n-1} \]
+
+\section*{Lineare Regression}
+
+\[ Y = Y\beta + \epsilon \text{ mit } E(\epsilon) = 0 \text{ und } C(\epsilon)=\sigma^2 I_n\]
+
+Daten = Systematische Komponente + Rauschen
+
+\subsection*{Kleinste-Quadrate-Methode}
+
+\[ \| y - \hat y \|^2 = \min_{\beta \in \R^p} \|y - X\beta\|^2 \]
+
+Orthproj.: \(\hat y = Hy\) mit \(H := X(X^\top X)^{-1} X^\top \in \R^{n \times n}\)
+
+Ist \(X^\top Y\) invbar. so ist \emph{Kleinste-Quadrate-Schätzer}:
+\[ \hat\beta = (X^\top X)^{-1} X^\top y \]
+
+Der Erwartungswertvektor von \(\hat\beta\):
+\[ E(\hat\beta) = E((X^\top X)^{-1} X^\top Y) = \beta \]
+
+Die Kovarianzmatrix von \(\hat\beta\):
+\[ C(\hat\beta) = \sigma^2 (X^\top X)^{-1} \]
+
+\(\sigma^2\) ist unbekannt. Geschätzt durch:
+\[ \hat\sigma^2 = \frac{1}{n-p} \|\hat\epsilon\|^2 = \frac{1}{n-p} \|Y-\hat Y\|^2 \]
+
+\subsubsection*{Residuen-Quadratsumme (RSS)}
+
+\[ \|\hat\epsilon\|^2 = \|y - \hat y\|^2 = y^\top (I_n-H) y \]
+
+\subsubsection*{Normalgleichung}
+
+\[ X^\top X \beta = X^\top y \]
+
+\subsubsection*{Bestimmtheitsmaß}
+
+\vspace*{-3mm}
+\begin{align*}
+R^2 :&= 1 - \frac{\sum_{i=1}^n (y_i - \hat y_i)^2}{\sum_{i=1}^n (y_i - \overline y_n)^2} = 1 - \frac{\text{RSS}}{\text{TSS}} \\
+&= \frac{\sum_{i=1}^n (\hat y_i - \overline y_n)^2}{\sum_{i=1}^n (y_i - \overline y_n)^2} \in [0,1]
+\end{align*}
+
+\subsubsection*{Adjustiertes Bestimmtheitsmaß}
+
+\[ R_a^2 := 1 - \frac{n-1}{n-p} (1-R^2) = 1 - \frac{\hat\sigma^2}{s_y^2} \]
