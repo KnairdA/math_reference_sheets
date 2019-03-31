@@ -1,4 +1,5 @@
 \renewcommand{\N}{\mathcal{N}}
+\renewcommand{\K}{\mathcal{K}}
 \newcommand{\1}{\mathbbm{1}}
 \newcommand{\uiv}{\stackrel{\text{uiv}}{\sim}}
 
@@ -195,3 +196,102 @@ Sei \(X_1,\dots,X_n \uiv \N(\mu,\sigma^2\) für unbekannte \(\mu, \sigma^2\).
 \[ \mu \in \left[\overline X - \frac{S}{\sqrt{n}} t_{n-1;1-\alpha/2}, \overline X + \frac{S}{\sqrt{n}} t_{n-1;1-\alpha/2} \right] \]
 
 \section*{Tests}
+
+Test von Hypothese \(H_0\) gegen Alternative \(H_1\).
+
+Fehler 1. Art: \(H_0\) gilt, wird aber abgelehnt.
+
+Fehler 2. Art: \(H_1\) gilt, \(H_0\) wird nicht verworfen.
+
+Niveau \(\alpha\) kontrolliert WKeit von Fehler 1. Art.
+
+Zerlege Param. von \((\Xi, (P_\upsilon)_{\upsilon \in \Theta})\) in \(\Theta = \Theta_0 \dot\cup \Theta_1\).
+
+Kritischer Bereich \(\K \subset \Xi\) gibt nichtrandom. Test.
+
+\(x \in \K \implies H_1 \text{ gilt}\), \(x \in \Xi \setminus \K \implies H_0 \text { gilt}\)
+
+\subsection*{\(z\)-Test}
+
+Unter \(H_0\) gilt \(\overline X_n \sim \N(\mu_0,\sigma^2/n)\) für bekanntes \(\sigma^2\).
+
+Testgröße ist \(T = \frac{\sqrt{n}(\overline X_n - \mu_0)}{\sigma} \sim \N(0,1)\)
+
+Lehne \(H_0\) ab für \(T \leq z_\alpha = \Phi^{-1}(\alpha)\).
+
+\subsection*{Gütefunktion}
+
+\[ g(\upsilon) := P_\upsilon(X \in \K) = P_\upsilon(\text{Lehne \(H_0\) ab}) \]
+
+Ideal: \(\forall \upsilon \in \Theta_0 : g(\upsilon) = 0\) und \(\forall \upsilon \in \Theta_1 : g(\upsilon) = 1\).
+
+\(\sup_{\upsilon \in \Theta_0} g(\upsilon)\) ist \emph{Umfang} des Tests. Dieser soll möglichst nahe bei Niveau \(\alpha\) liegen.
+
+\subsection*{Ein-Stichproben-\(t\)-Test}
+
+Teste \(H_0 : \mu = \mu_0\) gegen \(H_1 : \mu \neq \mu_0\)
+
+Testgröße \(T(x_1,\dots,x_n) = \frac{\sqrt{n}(\overline x - \mu_0)}{S}\) (vgl. Student)
+
+Verwerfe \(H_0\) für \(|T| \geq t_{n-1;1-\alpha/2}\)
+
+\subsection*{Ein-Stichproben-Varianz-Test}
+
+Sei \(\chi^2 := \frac{(n-1)S^2}{\sigma_0^2} \sim \chi_{n-1}^2\) Testgröße.
+
+Teste \(H_0 : \sigma^2 = \sigma_0^2\) gegen \(H_1 : \sigma^2 > \sigma_0^2\):
+
+Verwerfe \(H_0\) für \(\chi^2 \geq \chi_{n-1;1-\alpha}^2\)
+
+\spacing
+
+Teste \(H_0 : \sigma^2 = \sigma_0^2\) gegen \(H_1 : \sigma^2 < \sigma_0^2\):
+
+Verwerfe \(H_0\) für \(\chi^2 \leq \chi_{n-1;1-\alpha}^2\)
+
+\subsection*{\(p\)-Wert}
+
+WKeit unter \(H_0\) etwas mindestens so Extremes zu beobachten, wie das tatsächlich Beobachtete.
+\[ p^\ast = P_{H_0}(T \geq T(x)) \]
+
+\(p^\ast \leq \alpha \implies H_0\) wird auf Niveau \(\alpha\) verworfen
+
+\(p^\ast\) ist min. \(H_0\)-verwerfendes Signifikanzniveau.
+
+\subsection*{Bester Test}
+
+Ein \emph{bester} Test für \(H_0 : \upsilon \in \Theta_0\) gegen \(H_1 : \upsilon \in \Theta_1\) ist ein Niveau-\(\alpha\)-Test s.d. \(g(\upsilon)\) maximal \(\forall \upsilon \in \Theta_1\).
+
+\subsubsection*{Neyman-Pearson-Lemma}
+
+Sei \(f_0\), \(f_1\) Dichte unter \(H_0\) bzw. \(H_1\).
+\[ h_k(x) = \prod_{i=1}^n f_k(x_i) \text{ für } k \in \{0,1\} \]
+
+Neyman-Pearson-Test mit Testentscheid:
+
+\(H_0\) verwerfen für \(h_1(x) \geq c \cdot h_0(x)\).
+
+\(H_1\) nicht verwerfen für \(h_1(x) < c \cdot h_0(x)\).
+
+Ist bester Test für \(H_0 : \upsilon = \upsilon_0\) gegen \(H_1 : \upsilon = \upsilon_1\).
+
+d.h. Test-Statistik: \(T(x) = \frac{h_1(x)}{h_0(x)} \geq c\)
+
+\subsection*{Likelihood-Quotienten-Tests}
+
+Test von \(H_0 : \upsilon \in \Theta_0\) gegen \(H_1 : \upsilon \in \Theta \setminus \Theta_0\)
+
+\[ \Lambda(x) := \frac{\sup_{\upsilon \in \Theta} L_x(\upsilon)}{\sup_{\upsilon \in \Theta_0} L_x(\upsilon)} \geq 1 \]
+
+Verwerfe \(H_0\) für \emph{große} Werte von \(\Lambda\).
+
+Insb. teste für offene Intervalle \(\Theta \subset \R\) die Hypothese \(H_0 : \upsilon = \upsilon_0\) gegen \(H_1 : \upsilon \neq \upsilon_0\) mit LQ-Statistik für ML-Schätzwert \(\hat\upsilon_n\):
+\[ \Lambda_n = \frac{L_x(\hat\upsilon_n)}{L_x(\upsilon_0)} = \prod_{i=1}^n \frac{f(x_i,\hat\upsilon_n)}{f(x_i,\upsilon_0)} \]
+
+\subsubsection*{Verteilung der LQ-Testgröße}
+
+Sei \(X_1,X_2,\dots\) Folge uiv. ZV mit Dichte \(f(x,\upsilon_0)\), erfüllten Regularitätsbed. und \(I(\upsilon_0) \in (0,\infty)\). Dann gilt für die ML-Schätzfolge \(\hat\upsilon_n\):
+\[ \sqrt{n}(\hat\upsilon_n - \upsilon_0) \to \N(0,1/I(\upsilon_0)) \]
+
+Und für die Folge der LQ-Statistiken \((\Lambda_n(X))_{n \in \mathbb{N}}\):
+\[ 2 \log(\Lambda_n) \to \chi_1^2 \]
